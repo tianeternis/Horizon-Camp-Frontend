@@ -4,9 +4,9 @@ import Header from "@/components/header/Header";
 const MainLayout = ({}) => {
   return (
     <div className="font-main text-base">
-      <div>
-        <Header />
-      </div>
+      {/* <div> */}
+      <Header />
+      {/* </div> */}
       <div>
         <Outlet />
       </div>

@@ -10,6 +10,9 @@ export default {
         main: "#f29f33",
         secondary: "#5d2828",
       },
+      fontSize: {
+        "15px": ["0.9375rem", "1.375rem"],
+      },
     },
   },
   plugins: [],
