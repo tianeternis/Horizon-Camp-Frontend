@@ -13,6 +13,9 @@ export default {
       fontSize: {
         "15px": ["0.9375rem", "1.375rem"],
       },
+      screens: {
+        "sr-500": "500px",
+      },
     },
   },
   plugins: [],
