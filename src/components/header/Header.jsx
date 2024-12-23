@@ -32,13 +32,13 @@ const Header = ({}) => {
   }, [openDrawer]);
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="absolute left-0 right-0 top-0 z-20 w-full">
         <TopBar toggleDrawer={toggleDrawer} />
         <NavBar />
       </div>
       <Drawer openDrawer={openDrawer} toggleDrawer={toggleDrawer} />
-    </div>
+    </header>
   );
 };
 
