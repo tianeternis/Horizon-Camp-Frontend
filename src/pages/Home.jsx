@@ -1,6 +1,6 @@
 import homeBackgroundImage from "@/assets/images/home-bg-img.webp";
 
-const HomePage = ({}) => {
+const Home = ({}) => {
   return (
     <div>
       <div className="relative h-screen w-full">
@@ -14,4 +14,4 @@ const HomePage = ({}) => {
   );
 };
 
-export default HomePage;
+export default Home;

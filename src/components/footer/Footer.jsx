@@ -8,6 +8,7 @@ import { FiMapPin, FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { ROUTES } from "@/routes";
 
 const Footer = ({}) => {
   const { t } = useTranslation();
@@ -17,7 +18,7 @@ const Footer = ({}) => {
       <div className="mx-auto flex w-full max-w-screen-xl flex-wrap space-y-8 px-3 py-8 text-black">
         <div className="w-full space-y-6 md:block lg:w-4/12 lg:pr-4">
           <div className="flex flex-col items-center gap-3">
-            <Link to="/">
+            <Link to={ROUTES.HOME}>
               <img src={logo} className="w-24 duration-300 hover:scale-110" />
             </Link>
             <p className="text-center text-sm">
@@ -47,32 +48,32 @@ const Footer = ({}) => {
             </h4>
             <ul className="text-sm">
               <li className="py-1.5">
-                <Link to="/" className="hover:text-main">
+                <Link to={ROUTES.HOME} className="hover:text-main">
                   {t("navigation.home")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/about" className="hover:text-main">
+                <Link to={ROUTES.ABOUT} className="hover:text-main">
                   {t("footer.introduction")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/product" className="hover:text-main">
+                <Link to={ROUTES.PRODUCTS} className="hover:text-main">
                   {t("navigation.product")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/contact" className="hover:text-main">
+                <Link to={ROUTES.CONTACT} className="hover:text-main">
                   {t("navigation.contact")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/blog" className="hover:text-main">
+                <Link to={ROUTES.BLOGS} className="hover:text-main">
                   {t("navigation.picnic-blog")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/faqs" className="hover:text-main">
+                <Link to={ROUTES.FAQs} className="hover:text-main">
                   {t("footer.faqs")}
                 </Link>
               </li>
@@ -84,27 +85,33 @@ const Footer = ({}) => {
             </h4>
             <ul className="text-sm">
               <li className="py-1.5">
-                <Link to="/order-instruction" className="hover:text-main">
+                <Link to={ROUTES.ORDER_INSTRUCTION} className="hover:text-main">
                   {t("footer.order-instruction")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/delivery-and-receipt" className="hover:text-main">
+                <Link
+                  to={ROUTES.DELIVER_AND_RECEIPT}
+                  className="hover:text-main"
+                >
                   {t("footer.delivery-and-receipt")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/warranty-policy" className="hover:text-main">
+                <Link to={ROUTES.WARRANTY_POLICY} className="hover:text-main">
                   {t("footer.warranty-policy")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/member-policy" className="hover:text-main">
+                <Link to={ROUTES.MEMBER_POLICY} className="hover:text-main">
                   {t("footer.member-policy")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to="/information-security" className="hover:text-main">
+                <Link
+                  to={ROUTES.INFORMATION_SECURITY}
+                  className="hover:text-main"
+                >
                   {t("footer.information-security")}
                 </Link>
               </li>

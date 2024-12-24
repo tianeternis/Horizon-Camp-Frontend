@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { ROUTES } from "@/routes";
 
 const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
       <div className="w-full bg-white/95 min-[400px]:w-2/3 sm:w-1/2">
         <div className="space-y-3 p-4">
           <div className="flex flex-nowrap items-center justify-between border-b-2 border-solid border-secondary pb-2.5">
-            <NavLink to="/" onClick={() => toggleDrawer(false)}>
+            <NavLink to={ROUTES.HOME} onClick={() => toggleDrawer(false)}>
               <img src={logo} className="w-16" />
             </NavLink>
             <div
@@ -35,48 +36,54 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
           <ul className="text-15px">
             <li className="py-3">
               <NavLink
-                to="/"
+                to={ROUTES.HOME}
                 className="font-semibold duration-300 hover:text-main"
+                onClick={() => toggleDrawer(false)}
               >
                 {t("navigation.home")}
               </NavLink>
             </li>
             <li className="py-3">
               <NavLink
-                to="/about"
+                to={ROUTES.ABOUT}
                 className="font-semibold duration-300 hover:text-main"
+                onClick={() => toggleDrawer(false)}
               >
                 {t("navigation.about")}
               </NavLink>
             </li>
             <li className="py-3">
               <NavLink
-                to="/products"
+                to={ROUTES.PRODUCTS}
                 className="font-semibold duration-300 hover:text-main"
+                onClick={() => toggleDrawer(false)}
               >
                 {t("navigation.product")}
               </NavLink>
             </li>
             <li className="py-3">
               <NavLink
-                to="/contact"
+                to={ROUTES.CONTACT}
                 className="font-semibold duration-300 hover:text-main"
+                onClick={() => toggleDrawer(false)}
               >
                 {t("navigation.contact")}
               </NavLink>
             </li>
             <li className="py-3">
               <NavLink
-                to="/faqs"
+                to={ROUTES.FAQs}
                 className="font-semibold duration-300 hover:text-main"
+                onClick={() => toggleDrawer(false)}
               >
                 FAQs
               </NavLink>
             </li>
             <li className="py-3">
               <NavLink
-                to="/blog"
+                to={ROUTES.BLOGS}
                 className="font-semibold duration-300 hover:text-main"
+                onClick={() => toggleDrawer(false)}
               >
                 {t("navigation.picnic-blog")}
               </NavLink>

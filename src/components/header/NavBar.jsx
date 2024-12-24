@@ -4,6 +4,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdArrowDropDown } from "react-icons/md";
 import { useTranslation } from "react-i18next";
+import { ROUTES } from "@/routes";
 
 const NavBar = ({}) => {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ const NavBar = ({}) => {
         <ul className="hidden items-center gap-6 text-15px md:flex lg:gap-10">
           <li>
             <NavLink
-              to="/"
+              to={ROUTES.HOME}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.home")}
@@ -22,7 +23,7 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to="/about"
+              to={ROUTES.ABOUT}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.about")}
@@ -30,7 +31,7 @@ const NavBar = ({}) => {
           </li>
           <li className="group">
             <NavLink
-              to="/products"
+              to={ROUTES.PRODUCTS}
               className="inline-flex flex-nowrap items-center font-medium duration-500 hover:text-main"
             >
               <span>{t("navigation.product")}</span>
@@ -42,7 +43,7 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to="/contact"
+              to={ROUTES.CONTACT}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.contact")}
@@ -50,7 +51,7 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to="/faqs"
+              to={ROUTES.FAQs}
               className="font-medium duration-500 hover:text-main"
             >
               FAQs
@@ -58,7 +59,7 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to="/blog"
+              to={ROUTES.BLOGS}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.picnic-blog")}
@@ -66,10 +67,10 @@ const NavBar = ({}) => {
           </li>
         </ul>
         <div className="flex items-center gap-2.5 sm:gap-4">
-          <Link to="/wishlish" className="duration-500 hover:text-main">
+          <Link to={ROUTES.WISHLIST} className="duration-500 hover:text-main">
             <AiOutlineHeart className="h-6 w-6" />
           </Link>
-          <Link to="/cart" className="duration-500 hover:text-main">
+          <Link to={ROUTES.CART} className="duration-500 hover:text-main">
             <LuShoppingCart className="h-6 w-6" />
           </Link>
         </div>
