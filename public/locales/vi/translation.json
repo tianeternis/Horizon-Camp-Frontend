@@ -1,0 +1,34 @@
+{
+  "languages": {
+    "en": "Tiếng Anh",
+    "vi": "Tiếng Việt"
+  },
+  "navigation": {
+    "home": "Trang chủ",
+    "about": "Về chúng tôi",
+    "product": "Sản phẩm",
+    "contact": "Liên hệ",
+    "picnic-blog": "Blog dã ngoại",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "close": "Đóng"
+  },
+  "search": {
+    "placeholder": "Bạn muốn tìm gì?"
+  },
+  "footer": {
+    "description": "Khơi nguồn cảm hứng cho hành trình khám phá thiên nhiên. Đồng hành cùng bạn để biến mọi chuyến đi thành kỷ niệm đáng nhớ.",
+    "about": "Về chúng tôi",
+    "support": "Hỗ trợ khách hàng",
+    "contact-information": "Thông tin liên hệ",
+    "payment-methods": "Hình thức thanh toán",
+    "introduction": "Giới thiệu",
+    "faqs": "Câu hỏi thường gặp - FAQs",
+    "order-instruction": "Hướng dẫn đặt hàng",
+    "delivery-and-receipt": "Giao và nhận hàng",
+    "warranty-policy": "Chính sách bảo hành",
+    "member-policy": "Chính sách thành viên",
+    "information-security": "Bảo mật thông tin cá nhân",
+    "copyright": "Bản quyền"
+  }
+}

@@ -5,8 +5,11 @@ import { LuShoppingCart } from "react-icons/lu";
 import { AiOutlineHeart } from "react-icons/ai";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { BiUser } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 const TopBar = ({ toggleDrawer = (v) => {} }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-white/85">
       <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-3 py-3 lg:py-2.5">
@@ -16,7 +19,7 @@ const TopBar = ({ toggleDrawer = (v) => {} }) => {
         <div className="relative hidden w-1/2 md:block">
           <input
             className="w-full rounded-full border border-solid border-secondary/80 bg-transparent px-4 py-2.5 text-sm outline-none"
-            placeholder="Bạn muốn tìm gì?"
+            placeholder={t("search.placeholder")}
           />
           <RiSearch2Line className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 cursor-pointer text-main" />
         </div>
@@ -25,14 +28,14 @@ const TopBar = ({ toggleDrawer = (v) => {} }) => {
             to="/login"
             className="font-medium text-secondary hover:text-main"
           >
-            Đăng nhập
+            {t("navigation.login")}
           </Link>
           <div className="h-4 border-l border-solid border-black"></div>
           <Link
             to="/register"
             className="font-medium text-secondary hover:text-main"
           >
-            Đăng ký
+            {t("navigation.register")}
           </Link>
         </div>
         <div className="flex items-center gap-2.5 md:hidden">
@@ -50,14 +53,14 @@ const TopBar = ({ toggleDrawer = (v) => {} }) => {
                     to="/login"
                     className="px-3 py-2.5 text-sm text-black hover:text-main"
                   >
-                    Đăng nhập
+                    {t("navigation.login")}
                   </Link>
                   <div className="border-b border-solid border-black/15"></div>
                   <Link
                     to="/register"
                     className="px-3 py-2.5 text-sm text-black hover:text-main"
                   >
-                    Đăng ký
+                    {t("navigation.register")}
                   </Link>
                 </div>
               </div>

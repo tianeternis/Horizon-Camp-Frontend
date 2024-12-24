@@ -2,8 +2,11 @@ import logo from "@/assets/images/logo.webp";
 import { NavLink } from "react-router-dom";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       className="fixed bottom-0 right-0 top-0 z-50 flex w-full flex-nowrap overflow-hidden md:hidden"
@@ -24,18 +27,18 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
             </NavLink>
             <div
               onClick={() => toggleDrawer(false)}
-              className="inline-flex cursor-pointer items-center gap-2 text-base font-bold uppercase hover:text-main"
+              className="inline-flex cursor-pointer items-center gap-2 text-15px font-bold uppercase hover:text-main"
             >
-              <RxDoubleArrowRight className="h-5 w-5" /> Close
+              <RxDoubleArrowRight className="h-5 w-5" /> {t("navigation.close")}
             </div>
           </div>
-          <ul className="text-base">
+          <ul className="text-15px">
             <li className="py-3">
               <NavLink
                 to="/"
                 className="font-semibold duration-300 hover:text-main"
               >
-                Trang chủ
+                {t("navigation.home")}
               </NavLink>
             </li>
             <li className="py-3">
@@ -43,7 +46,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
                 to="/about"
                 className="font-semibold duration-300 hover:text-main"
               >
-                Về chúng tôi
+                {t("navigation.about")}
               </NavLink>
             </li>
             <li className="py-3">
@@ -51,7 +54,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
                 to="/products"
                 className="font-semibold duration-300 hover:text-main"
               >
-                Sản phẩm
+                {t("navigation.product")}
               </NavLink>
             </li>
             <li className="py-3">
@@ -59,7 +62,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
                 to="/contact"
                 className="font-semibold duration-300 hover:text-main"
               >
-                Liên hệ
+                {t("navigation.contact")}
               </NavLink>
             </li>
             <li className="py-3">
@@ -75,7 +78,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
                 to="/blog"
                 className="font-semibold duration-300 hover:text-main"
               >
-                Blog dã ngoại
+                {t("navigation.picnic-blog")}
               </NavLink>
             </li>
           </ul>

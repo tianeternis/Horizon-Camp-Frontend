@@ -1,0 +1,34 @@
+{
+  "languages": {
+    "en": "English",
+    "vi": "Vietnamese"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "product": "Product",
+    "contact": "Contact",
+    "picnic-blog": "Picnic Blog",
+    "login": "Login",
+    "register": "Register",
+    "close": "Close"
+  },
+  "search": {
+    "placeholder": "What do you want to find?"
+  },
+  "footer": {
+    "description": "Inspiration for a journey to explore nature. Accompanying you to turn every trip into a memorable memory.",
+    "about": "About Us",
+    "support": "Support Customer",
+    "contact-information": "Contact Information",
+    "payment-methods": "Payment Methods",
+    "introduction": "Introduction",
+    "faqs": "Frequently Asked Questions - FAQs",
+    "order-instruction": "Order instructions",
+    "delivery-and-receipt": "Delivery and receipt products",
+    "warranty-policy": "Warranty policy",
+    "member-policy": "Member policy",
+    "information-security": "Information security",
+    "copyright": "Copyright"
+  }
+}

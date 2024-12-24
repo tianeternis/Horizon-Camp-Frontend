@@ -3,8 +3,11 @@ import { RiSearch2Line } from "react-icons/ri";
 import { LuShoppingCart } from "react-icons/lu";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdArrowDropDown } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 const NavBar = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-secondary/85 text-white">
       <div className="mx-auto hidden w-full max-w-screen-xl items-center justify-between px-3 py-5 md:flex">
@@ -14,7 +17,7 @@ const NavBar = ({}) => {
               to="/"
               className="font-medium duration-500 hover:text-main"
             >
-              Trang chủ
+              {t("navigation.home")}
             </NavLink>
           </li>
           <li>
@@ -22,7 +25,7 @@ const NavBar = ({}) => {
               to="/about"
               className="font-medium duration-500 hover:text-main"
             >
-              Về chúng tôi
+              {t("navigation.about")}
             </NavLink>
           </li>
           <li className="group">
@@ -30,7 +33,7 @@ const NavBar = ({}) => {
               to="/products"
               className="inline-flex flex-nowrap items-center font-medium duration-500 hover:text-main"
             >
-              <span>Sản phẩm</span>
+              <span>{t("navigation.product")}</span>
               <MdArrowDropDown className="h-5 w-5 transform duration-500 group-hover:rotate-180" />
             </NavLink>
             <div className="invisible absolute left-0 top-full z-40 w-full translate-y-8 transform border-t border-solid border-white/50 bg-secondary/85 opacity-0 transition-all duration-500 ease-in-out will-change-transform group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
@@ -42,7 +45,7 @@ const NavBar = ({}) => {
               to="/contact"
               className="font-medium duration-500 hover:text-main"
             >
-              Liên hệ
+              {t("navigation.contact")}
             </NavLink>
           </li>
           <li>
@@ -58,7 +61,7 @@ const NavBar = ({}) => {
               to="/blog"
               className="font-medium duration-500 hover:text-main"
             >
-              Blog dã ngoại
+              {t("navigation.picnic-blog")}
             </NavLink>
           </li>
         </ul>
@@ -75,7 +78,7 @@ const NavBar = ({}) => {
         <div className="relative w-full sm:w-3/4">
           <input
             className="w-full rounded-2xl border border-solid border-white bg-transparent px-4 py-2.5 text-xs outline-none placeholder:text-white/85"
-            placeholder="Bạn muốn tìm gì?"
+            placeholder={t("search.placeholder")}
           />
           <RiSearch2Line className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 cursor-pointer text-main" />
         </div>

@@ -7,8 +7,11 @@ import transferPayment from "@/assets/images/transfer-payment.webp";
 import { FiMapPin, FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Footer = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <footer className="w-full border-t border-solid border-black/20 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)]">
       <div className="mx-auto flex w-full max-w-screen-xl flex-wrap space-y-8 px-3 py-8 text-black">
@@ -18,9 +21,8 @@ const Footer = ({}) => {
               <img src={logo} className="w-24 duration-300 hover:scale-110" />
             </Link>
             <p className="text-center text-sm">
-              <span className="font-medium">Horizon Camp</span> - Khơi nguồn cảm
-              hứng cho hành trình khám phá thiên nhiên. Đồng hành cùng bạn để
-              biến mọi chuyến đi thành kỷ niệm đáng nhớ.
+              <span className="font-medium">Horizon Camp</span> -{" "}
+              {t("footer.description")}
             </p>
           </div>
           <div className="space-y-3 text-sm">
@@ -38,76 +40,80 @@ const Footer = ({}) => {
             </div>
           </div>
         </div>
-        <div className="sr-500:space-y-0 flex w-full flex-wrap space-y-8 lg:w-8/12">
-          <div className="sr-500:w-1/2 w-full space-y-2.5 md:block md:w-1/3 lg:px-4">
-            <h4 className="text-base font-bold uppercase">Về chúng tôi</h4>
+        <div className="flex w-full flex-wrap space-y-8 sr-500:space-y-0 lg:w-8/12">
+          <div className="w-full space-y-2.5 sr-500:w-1/2 md:block md:w-1/3 lg:px-4">
+            <h4 className="text-base font-bold uppercase">
+              {t("footer.about")}
+            </h4>
             <ul className="text-sm">
               <li className="py-1.5">
                 <Link to="/" className="hover:text-main">
-                  Trang chủ
+                  {t("navigation.home")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/about" className="hover:text-main">
-                  Giới thiệu
+                  {t("footer.introduction")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/product" className="hover:text-main">
-                  Sản phẩm
+                  {t("navigation.product")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/contact" className="hover:text-main">
-                  Liên hệ
+                  {t("navigation.contact")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/blog" className="hover:text-main">
-                  Blog dã ngoại
+                  {t("navigation.picnic-blog")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/faqs" className="hover:text-main">
-                  Câu hỏi thường gặp - FAQs
+                  {t("footer.faqs")}
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="sr-500:w-1/2 w-full space-y-2.5 md:block md:w-1/3 lg:px-4">
-            <h4 className="text-base font-bold uppercase">Hỗ trợ khách hàng</h4>
+          <div className="w-full space-y-2.5 sr-500:w-1/2 md:block md:w-1/3 lg:px-4">
+            <h4 className="text-base font-bold uppercase">
+              {t("footer.support")}
+            </h4>
             <ul className="text-sm">
               <li className="py-1.5">
                 <Link to="/order-instruction" className="hover:text-main">
-                  Hướng dẫn đặt hàng
+                  {t("footer.order-instruction")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/delivery-and-receipt" className="hover:text-main">
-                  Giao và nhận hàng
+                  {t("footer.delivery-and-receipt")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/warranty-policy" className="hover:text-main">
-                  Chính sách bảo hành
+                  {t("footer.warranty-policy")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/member-policy" className="hover:text-main">
-                  Chính sách thành viên
+                  {t("footer.member-policy")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link to="/information-security" className="hover:text-main">
-                  Bảo mật thông tin cá nhân
+                  {t("footer.information-security")}
                 </Link>
               </li>
             </ul>
           </div>
           <div className="flex w-full flex-wrap space-y-8 md:block md:w-1/3 lg:pl-4">
-            <div className="sr-500:w-1/2 sr-500:mt-8 w-full space-y-2.5 md:mt-0 md:w-full">
+            <div className="w-full space-y-2.5 sr-500:mt-8 sr-500:w-1/2 md:mt-0 md:w-full">
               <h4 className="text-base font-bold uppercase">
-                Thông tin liên hệ
+                {t("footer.contact-information")}
               </h4>
               <ul className="flex flex-nowrap items-center gap-2.5">
                 <li>
@@ -139,9 +145,9 @@ const Footer = ({}) => {
                 </li>
               </ul>
             </div>
-            <div className="sr-500:w-1/2 w-full space-y-2.5 md:w-full">
+            <div className="w-full space-y-2.5 sr-500:w-1/2 md:w-full">
               <h4 className="text-base font-bold uppercase">
-                Hình thức thanh toán
+                {t("footer.payment-methods")}
               </h4>
               <ul className="flex flex-nowrap items-center gap-2.5">
                 <li>
@@ -165,7 +171,7 @@ const Footer = ({}) => {
       </div>
       <div className="bg-secondary">
         <div className="mx-auto max-w-screen-xl py-3.5 text-center text-sm text-white">
-          Bản quyền | © 2024 Horizon Camp
+          {t("footer.copyright")} | © 2024 Horizon Camp
         </div>
       </div>
     </footer>
