@@ -7,7 +7,7 @@
 }
 
 .header .not-index {
-  background-image: url("/src/assets/images/banner-page-title.webp");
+  background-image: url("/src/assets/images/banner-header.webp");
   background-position: center bottom;
   background-size: cover;
   background-attachment: initial;
