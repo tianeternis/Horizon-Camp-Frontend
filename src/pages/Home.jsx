@@ -1,6 +1,9 @@
 import homeBackgroundImage from "@/assets/images/home-bg-img.webp";
+import { useDynamicTitle } from "@/hooks";
 
 const Home = ({}) => {
+  useDynamicTitle("Horizon Camp");
+
   return (
     <div>
       <div className="relative h-screen w-full">

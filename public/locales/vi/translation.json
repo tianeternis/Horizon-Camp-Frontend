@@ -30,5 +30,27 @@
     "member-policy": "Chính sách thành viên",
     "information-security": "Bảo mật thông tin cá nhân",
     "copyright": "Bản quyền"
+  },
+  "notfound": {
+    "message_1": "Có điều gì đó không ổn!.",
+    "message_2": "Xin lỗi, chúng tôi không thể tìm thấy trang. Bạn sẽ tìm thấy rất nhiều điều để khám phá trên <strong>Trang chủ</strong>.",
+    "back": "Về Trang chủ"
+  },
+  "title": {
+    "about": "Về chúng tôi",
+    "product": "Sản phẩm",
+    "contact": "Liên hệ",
+    "picnic-blog": "Blog dã ngoại",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "wishlist": "Danh sách yêu thích",
+    "cart": "Giỏ hàng",
+    "faqs": "Câu hỏi thường gặp - FAQs",
+    "order-instruction": "Hướng dẫn đặt hàng",
+    "delivery-and-receipt": "Giao và nhận hàng",
+    "warranty-policy": "Chính sách bảo hành",
+    "member-policy": "Chính sách thành viên",
+    "information-security": "Bảo mật thông tin cá nhân",
+    "notfound": "404 Không tìm thấy trang"
   }
 }

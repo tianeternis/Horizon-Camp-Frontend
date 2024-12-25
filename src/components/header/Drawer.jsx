@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ROUTES } from "@/routes";
+import { PATHS } from "@/routes";
 
 const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
   const { t } = useTranslation();
@@ -23,7 +23,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
       <div className="w-full bg-white/95 min-[400px]:w-2/3 sm:w-1/2">
         <div className="space-y-3 p-4">
           <div className="flex flex-nowrap items-center justify-between border-b-2 border-solid border-secondary pb-2.5">
-            <NavLink to={ROUTES.HOME} onClick={() => toggleDrawer(false)}>
+            <NavLink to={PATHS.home()} onClick={() => toggleDrawer(false)}>
               <img src={logo} className="w-16" />
             </NavLink>
             <div
@@ -36,7 +36,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
           <ul className="text-15px">
             <li className="py-3">
               <NavLink
-                to={ROUTES.HOME}
+                to={PATHS.home()}
                 className="font-semibold duration-300 hover:text-main"
                 onClick={() => toggleDrawer(false)}
               >
@@ -45,7 +45,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
             </li>
             <li className="py-3">
               <NavLink
-                to={ROUTES.ABOUT}
+                to={PATHS.about()}
                 className="font-semibold duration-300 hover:text-main"
                 onClick={() => toggleDrawer(false)}
               >
@@ -54,7 +54,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
             </li>
             <li className="py-3">
               <NavLink
-                to={ROUTES.PRODUCTS}
+                to={PATHS.products()}
                 className="font-semibold duration-300 hover:text-main"
                 onClick={() => toggleDrawer(false)}
               >
@@ -63,7 +63,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
             </li>
             <li className="py-3">
               <NavLink
-                to={ROUTES.CONTACT}
+                to={PATHS.contact()}
                 className="font-semibold duration-300 hover:text-main"
                 onClick={() => toggleDrawer(false)}
               >
@@ -72,7 +72,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
             </li>
             <li className="py-3">
               <NavLink
-                to={ROUTES.FAQs}
+                to={PATHS.faqs()}
                 className="font-semibold duration-300 hover:text-main"
                 onClick={() => toggleDrawer(false)}
               >
@@ -81,7 +81,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
             </li>
             <li className="py-3">
               <NavLink
-                to={ROUTES.BLOGS}
+                to={PATHS.blogs()}
                 className="font-semibold duration-300 hover:text-main"
                 onClick={() => toggleDrawer(false)}
               >

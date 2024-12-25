@@ -4,7 +4,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdArrowDropDown } from "react-icons/md";
 import { useTranslation } from "react-i18next";
-import { ROUTES } from "@/routes";
+import { PATHS } from "@/routes";
 
 const NavBar = ({}) => {
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ const NavBar = ({}) => {
         <ul className="hidden items-center gap-6 text-15px md:flex lg:gap-10">
           <li>
             <NavLink
-              to={ROUTES.HOME}
+              to={PATHS.home()}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.home")}
@@ -23,7 +23,7 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to={ROUTES.ABOUT}
+              to={PATHS.about()}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.about")}
@@ -31,7 +31,7 @@ const NavBar = ({}) => {
           </li>
           <li className="group">
             <NavLink
-              to={ROUTES.PRODUCTS}
+              to={PATHS.products()}
               className="inline-flex flex-nowrap items-center font-medium duration-500 hover:text-main"
             >
               <span>{t("navigation.product")}</span>
@@ -43,7 +43,7 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to={ROUTES.CONTACT}
+              to={PATHS.contact()}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.contact")}
@@ -51,7 +51,7 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to={ROUTES.FAQs}
+              to={PATHS.faqs()}
               className="font-medium duration-500 hover:text-main"
             >
               FAQs
@@ -59,7 +59,7 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to={ROUTES.BLOGS}
+              to={PATHS.blogs()}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.picnic-blog")}
@@ -67,10 +67,10 @@ const NavBar = ({}) => {
           </li>
         </ul>
         <div className="flex items-center gap-2.5 sm:gap-4">
-          <Link to={ROUTES.WISHLIST} className="duration-500 hover:text-main">
+          <Link to={PATHS.wishlist()} className="duration-500 hover:text-main">
             <AiOutlineHeart className="h-6 w-6" />
           </Link>
-          <Link to={ROUTES.CART} className="duration-500 hover:text-main">
+          <Link to={PATHS.cart()} className="duration-500 hover:text-main">
             <LuShoppingCart className="h-6 w-6" />
           </Link>
         </div>

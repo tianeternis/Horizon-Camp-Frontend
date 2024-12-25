@@ -8,7 +8,7 @@ import { FiMapPin, FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ROUTES } from "@/routes";
+import { PATHS } from "@/routes";
 
 const Footer = ({}) => {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ const Footer = ({}) => {
       <div className="mx-auto flex w-full max-w-screen-xl flex-wrap space-y-8 px-3 py-8 text-black">
         <div className="w-full space-y-6 md:block lg:w-4/12 lg:pr-4">
           <div className="flex flex-col items-center gap-3">
-            <Link to={ROUTES.HOME}>
+            <Link to={PATHS.home()}>
               <img src={logo} className="w-24 duration-300 hover:scale-110" />
             </Link>
             <p className="text-center text-sm">
@@ -48,32 +48,32 @@ const Footer = ({}) => {
             </h4>
             <ul className="text-sm">
               <li className="py-1.5">
-                <Link to={ROUTES.HOME} className="hover:text-main">
+                <Link to={PATHS.home()} className="hover:text-main">
                   {t("navigation.home")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to={ROUTES.ABOUT} className="hover:text-main">
+                <Link to={PATHS.about()} className="hover:text-main">
                   {t("footer.introduction")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to={ROUTES.PRODUCTS} className="hover:text-main">
+                <Link to={PATHS.products()} className="hover:text-main">
                   {t("navigation.product")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to={ROUTES.CONTACT} className="hover:text-main">
+                <Link to={PATHS.contact()} className="hover:text-main">
                   {t("navigation.contact")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to={ROUTES.BLOGS} className="hover:text-main">
+                <Link to={PATHS.blogs()} className="hover:text-main">
                   {t("navigation.picnic-blog")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to={ROUTES.FAQs} className="hover:text-main">
+                <Link to={PATHS.faqs()} className="hover:text-main">
                   {t("footer.faqs")}
                 </Link>
               </li>
@@ -85,31 +85,31 @@ const Footer = ({}) => {
             </h4>
             <ul className="text-sm">
               <li className="py-1.5">
-                <Link to={ROUTES.ORDER_INSTRUCTION} className="hover:text-main">
+                <Link to={PATHS.orderInstruction()} className="hover:text-main">
                   {t("footer.order-instruction")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link
-                  to={ROUTES.DELIVER_AND_RECEIPT}
+                  to={PATHS.deliverAndReceipt()}
                   className="hover:text-main"
                 >
                   {t("footer.delivery-and-receipt")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to={ROUTES.WARRANTY_POLICY} className="hover:text-main">
+                <Link to={PATHS.warrantyPolicy()} className="hover:text-main">
                   {t("footer.warranty-policy")}
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to={ROUTES.MEMBER_POLICY} className="hover:text-main">
+                <Link to={PATHS.memberPolicy()} className="hover:text-main">
                   {t("footer.member-policy")}
                 </Link>
               </li>
               <li className="py-1.5">
                 <Link
-                  to={ROUTES.INFORMATION_SECURITY}
+                  to={PATHS.informationSecurity()}
                   className="hover:text-main"
                 >
                   {t("footer.information-security")}

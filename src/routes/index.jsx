@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { ROUTES } from "./routes";
 
 import MainLayout from "@/layouts/MainLayout";
 
@@ -19,28 +20,9 @@ import MemberPolicy from "@/pages/MemberPolicy";
 import InformationSecurity from "@/pages/InformationSecurity";
 import NotFound from "@/pages/NotFound";
 
-export const ROUTES = {
-  HOME: "/",
-  ABOUT: "/about",
-  PRODUCTS: "/products",
-  CONTACT: "/contact",
-  FAQs: "/faqs",
-  BLOGS: "/blogs",
-  LOGIN: "/login",
-  REGISTER: "/register",
-  WISHLIST: "/wishlist",
-  CART: "/cart",
-  ORDER_INSTRUCTION: "/order-instruction",
-  DELIVER_AND_RECEIPT: "/delivery-and-receipt",
-  WARRANTY_POLICY: "/warranty-policy",
-  MEMBER_POLICY: "/member-policy",
-  INFORMATION_SECURITY: "/information-security",
-  NOTFOUND: "*",
-};
-
 const routes = [
   {
-    path: ROUTES.HOME,
+    path: ROUTES.HOME.index,
     element: <MainLayout />,
     children: [
       {
@@ -48,63 +30,63 @@ const routes = [
         element: <Home />,
       },
       {
-        path: ROUTES.ABOUT,
+        path: ROUTES.ABOUT.index,
         element: <About />,
       },
       {
-        path: ROUTES.PRODUCTS,
+        path: ROUTES.PRODUCTS.index,
         element: <Products />,
       },
       {
-        path: ROUTES.CONTACT,
+        path: ROUTES.CONTACT.index,
         element: <Contact />,
       },
       {
-        path: ROUTES.FAQs,
+        path: ROUTES.FAQs.index,
         element: <FAQs />,
       },
       {
-        path: ROUTES.BLOGS,
+        path: ROUTES.BLOGS.index,
         element: <Blogs />,
       },
       {
-        path: ROUTES.LOGIN,
+        path: ROUTES.LOGIN.index,
         element: <Login />,
       },
       {
-        path: ROUTES.REGISTER,
+        path: ROUTES.REGISTER.index,
         element: <Register />,
       },
       {
-        path: ROUTES.CART,
+        path: ROUTES.CART.index,
         element: <Cart />,
       },
       {
-        path: ROUTES.WISHLIST,
+        path: ROUTES.WISHLIST.index,
         element: <Wishlist />,
       },
       {
-        path: ROUTES.ORDER_INSTRUCTION,
+        path: ROUTES.ORDER_INSTRUCTION.index,
         element: <OrderInstruction />,
       },
       {
-        path: ROUTES.DELIVER_AND_RECEIPT,
+        path: ROUTES.DELIVER_AND_RECEIPT.index,
         element: <DeliveryAndReceipt />,
       },
       {
-        path: ROUTES.WARRANTY_POLICY,
+        path: ROUTES.WARRANTY_POLICY.index,
         element: <WarrantyPolicy />,
       },
       {
-        path: ROUTES.MEMBER_POLICY,
+        path: ROUTES.MEMBER_POLICY.index,
         element: <MemberPolicy />,
       },
       {
-        path: ROUTES.INFORMATION_SECURITY,
+        path: ROUTES.INFORMATION_SECURITY.index,
         element: <InformationSecurity />,
       },
       {
-        path: ROUTES.NOTFOUND,
+        path: ROUTES.NOTFOUND.index,
         element: <NotFound />,
       },
     ],
@@ -114,3 +96,4 @@ const routes = [
 const router = createBrowserRouter(routes);
 
 export default router;
+export { PATHS as PATHS } from "./routes";

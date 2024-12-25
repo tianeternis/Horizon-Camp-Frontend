@@ -8,6 +8,7 @@ export default {
       },
       colors: {
         main: "#f29f33",
+        primary: "#f89719",
         secondary: "#5d2828",
       },
       fontSize: {
