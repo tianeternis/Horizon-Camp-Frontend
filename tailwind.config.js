@@ -10,6 +10,7 @@ export default {
         main: "#f29f33",
         primary: "#f89719",
         secondary: "#5d2828",
+        "app-background": "#f7f7f7",
       },
       fontSize: {
         "15px": ["0.9375rem", "1.375rem"],

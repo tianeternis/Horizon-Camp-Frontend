@@ -37,6 +37,7 @@
     "back": "Về Trang chủ"
   },
   "title": {
+    "home": "Trang chủ",
     "about": "Về chúng tôi",
     "product": "Sản phẩm",
     "contact": "Liên hệ",
@@ -52,5 +53,20 @@
     "member-policy": "Chính sách thành viên",
     "information-security": "Bảo mật thông tin cá nhân",
     "notfound": "404 Không tìm thấy trang"
+  },
+  "order-instruction": {
+    "title": "Hướng dẫn đặt hàng",
+    "step_1": "<strong>Bước 1:</strong> Quý khách tạo tài khoản (nếu chưa có tài khoản) hoặc đăng nhập tại website",
+    "step_2": "<strong>Bước 2:</strong> Sau khi tìm được sản phẩm yêu thích, bạn có thể chọn số lượng, màu sắc và click vào nút <strong>Mua Ngay</strong> (nếu bạn muốn mua một sản phẩm) hoặc click vào nút <strong>Thêm Vào Giỏ</strong> (xem và chọn thêm sản phẩm khác).",
+    "step_3": "<strong>Bước 3:</strong> Tại giỏ hàng, bạn có thể thay đổi số lượng sản phẩm cần mua bằng cách điền vào ô số lượng. Rồi tiếp tục ấn vào nút <strong>Mua Ngay</strong>.",
+    "step_4": "<strong>Bước 4:</strong> Bạn hãy điền đầy đủ thông tin theo hướng dẫn, chọn hình thức thanh toán, sau đó nhấn nút <strong>Thanh toán</strong>.",
+    "step_4_des": "Khi đơn hàng đã được gửi thành công, Nhân viên kinh doanh của <strong>Horizon Camp</strong> sẽ liên lạc với bạn để xác nhận thông tin và tiến hành thực hiện giao dịch.",
+    "note": {
+      "title": "Lưu ý",
+      "note_1": "Bất kỳ thắc mắc nào của bạn có thể liên hệ trực tiếp với bộ phận kinh doanh online (bằng các hình thức: email, điện thoại).",
+      "note_2": "Để thuận tiện cho việc giao hàng, bạn cần ghi đúng, đủ thông tin trong mục đăng ký thành viên.",
+      "note_3": "Mọi đơn hàng thiếu một trong số các thông tin cần thiết (họ tên, địa chỉ, số điện thoại) sẽ bị loại bỏ mà không cần báo trước.",
+      "note_4": "Những đơn hàng mà Horizon Camp cho là không hợp lệ cũng sẽ bị loại bỏ mà không cần báo trước."
+    }
   }
 }

@@ -37,6 +37,7 @@
     "back": "Back to Home"
   },
   "title": {
+    "home": "Home",
     "about": "About Us",
     "product": "Product",
     "contact": "Contact",
@@ -52,5 +53,20 @@
     "member-policy": "Member Policy",
     "information-security": "Information Security",
     "notfound": "404 Page Not Found"
+  },
+  "order-instruction": {
+    "title": "Order Instructions",
+    "step_1": "<strong>Step 1:</strong> Create an account (if you don't have an account) or log in at the website",
+    "step_2": "<strong>Step 2:</strong> After finding your favorite product, you can choose the quantity, color and click the <strong>Buy Now</strong> button (if you want to buy a product) or click the <strong>Add to Cart</strong> button (view and select more products other).",
+    "step_3": "<strong>Step 3:</strong> In the shopping cart, you can change the quantity of products you want to buy by filling in the quantity box. Then continue pressing the <strong>Buy Now</strong> button.",
+    "step_4": "<strong>Step 4:</strong> Please fill in all information according to the instructions, select payment method, then press the <strong>Checkout</strong> button.",
+    "step_4_des": "Once the order has been successfully submitted, <strong>Horizon Camp</strong>'s Sales Staff will contact you to confirm the information and proceed with the transaction.",
+    "note": {
+      "title": "Note",
+      "note_1": "If you have any questions, you can contact the online sales department directly (by means of: email, phone).",
+      "note_2": "To facilitate delivery, you need to write correct and complete information in the membership registration section.",
+      "note_3": "Any orders missing any of the necessary information (full name, address, phone number) will be rejected without prior notice.",
+      "note_4": "Orders that Horizon Camp considers invalid will also be rejected without prior notice."
+    }
   }
 }

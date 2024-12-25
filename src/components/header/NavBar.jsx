@@ -10,8 +10,8 @@ const NavBar = ({}) => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-secondary/85 text-white">
-      <div className="mx-auto hidden w-full max-w-screen-xl items-center justify-between px-3 py-5 md:flex">
+    <div className="relative bg-secondary/85 text-white">
+      <div className="mx-auto hidden w-full max-w-screen-xl items-center justify-between px-3 py-5 md:flex md:py-4">
         <ul className="hidden items-center gap-6 text-15px md:flex lg:gap-10">
           <li>
             <NavLink

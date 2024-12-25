@@ -1,3 +1,14 @@
 .header a.active {
   color: var(--color-main);
 }
+
+.header .index {
+  background-image: none;
+}
+
+.header .not-index {
+  background-image: url("/src/assets/images/banner-page-title.webp");
+  background-position: center bottom;
+  background-size: cover;
+  background-attachment: initial;
+}

@@ -13,7 +13,8 @@ const MainLayout = ({}) => {
   return (
     <div className="font-main text-base">
       <Header index={isIndex} />
-      <div>
+
+      <div className="bg-app-background">
         <Outlet />
       </div>
       <Footer />
