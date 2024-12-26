@@ -27,7 +27,7 @@
     "order-instruction": "Hướng dẫn đặt hàng",
     "delivery-and-receipt": "Giao và nhận hàng",
     "warranty-policy": "Chính sách bảo hành",
-    "member-policy": "Chính sách thành viên",
+    "return-policy": "Chính sách đổi trả",
     "information-security": "Bảo mật thông tin cá nhân",
     "copyright": "Bản quyền"
   },
@@ -50,7 +50,7 @@
     "order-instruction": "Hướng dẫn đặt hàng",
     "delivery-and-receipt": "Giao và nhận hàng",
     "warranty-policy": "Chính sách bảo hành",
-    "member-policy": "Chính sách thành viên",
+    "return-policy": "Chính sách đổi trả",
     "information-security": "Bảo mật thông tin cá nhân",
     "notfound": "404 Không tìm thấy trang"
   },
@@ -67,6 +67,170 @@
       "note_2": "Để thuận tiện cho việc giao hàng, bạn cần ghi đúng, đủ thông tin trong mục đăng ký thành viên.",
       "note_3": "Mọi đơn hàng thiếu một trong số các thông tin cần thiết (họ tên, địa chỉ, số điện thoại) sẽ bị loại bỏ mà không cần báo trước.",
       "note_4": "Những đơn hàng mà Horizon Camp cho là không hợp lệ cũng sẽ bị loại bỏ mà không cần báo trước."
+    }
+  },
+  "delivery-and-receipt": {
+    "title": "Giao và nhận hàng",
+    "content-title": "Các hình thức vận chuyển được sử dụng tại Horizon Camp",
+    "content_1": {
+      "title": "Giao hàng Hỏa tốc",
+      "des_1": "Chuyển phát Hỏa tốc áp dụng với các đơn hàng tại nội thành Cần Thơ.",
+      "des_2": "Phí ship sẽ được nhân viên thông báo khi Quý khách đặt hàng và có yêu cầu ship Hỏa tốc."
+    },
+    "content_2": {
+      "title": "Giao hàng Nhanh",
+      "des_1": "Thời gian vận chuyển từ 2-3 ngày tùy thuộc vào khoảng cách địa lý và điều kiện khách quan hiện tại.",
+      "des_2": "Phí ship sẽ được nhân viên thông báo tới Quý khách khi xác nhận đơn hàng."
+    },
+    "content_3": {
+      "title": "Giao hàng tiết kiệm",
+      "des_1": "Thời gian vận chuyển từ 3-5 ngày tùy thuộc vào khoảng cách địa lý và điều kiện khách quan hiện tại.",
+      "des_2": "Phí ship sẽ được nhân viên thông báo tới Quý khách khi xác nhận đơn hàng."
+    }
+  },
+  "return-policy": {
+    "title": "Chính sách đổi trả",
+    "policy": {
+      "policy_1": "Đổi hoặc trả hàng trong vòng 03 ngày khi gặp bất kỳ lỗi nào do nhà sản xuất.",
+      "policy_2": "Đối với khách hàng ở xa sẽ chấp nhận đổi trả trong vòng 03 ngày (tính từ thời điểm nhận hàng) khi gặp lỗi do nhà sản xuất. Thời gian gởi hàng về <strong>Horizon Camp</strong> không vượt quá 14 ngày. Chi phí do <strong>Horizon Camp</strong> thanh toán 100%.",
+      "policy_3": "Sản phẩm gửi đổi - trả sẽ không được <strong>Horizon Camp</strong> chấp nhận nếu không đáp ứng được một trong những điều kiện bên dưới. Khi đó Quý khách sẽ phải thanh toán số tiền cho 2 lần vận chuyển (gửi hàng về cho <strong>Horizon Camp</strong> và <strong>Horizon Camp</strong> gửi trả hàng cho Quý khách)."
+    },
+    "conditions": {
+      "title": "Điều kiện đổi trả",
+      "condition_1": "Hàng còn trong tình trạng ban đầu, chưa qua sử dụng, còn nguyên tem, nhãn mác.",
+      "condition_2": "Chưa qua giặt, là (ủi) hoặc bị bẩn, hư hỏng.",
+      "condition_3": "Hoàn trả sản phẩm cùng Hóa đơn mua hàng.",
+      "condition_4": "Trong vòng 03 ngày kể từ ngày mua hàng.",
+      "condition_5": "Chỉ áp dụng cho cùng sản phẩm nhưng khác màu, khác size."
+    },
+    "contact": {
+      "title": "Quý khách liên hệ theo thông tin bên dưới để đổi hàng:",
+      "phone": "Điện thoại",
+      "email": "Email",
+      "address": "Địa chỉ"
+    }
+  },
+  "information-security": {
+    "title": "Bảo mật thông tin cá nhân",
+    "intro": {
+      "intro_1": "Cám ơn quý khách đã quan tâm và truy cập vào website. Chúng tôi tôn trọng và cam kết sẽ bảo mật những thông tin mang tính riêng tư của Quý khách.",
+      "intro_2": "Chính sách bảo mật sẽ giải thích cách chúng tôi tiếp nhận, sử dụng và (trong trường hợp nào đó) tiết lộ thông tin cá nhân của Quý khách.",
+      "intro_3": "Bảo vệ dữ liệu cá nhân và gây dựng được niềm tin cho quý khách là vấn đề rất quan trọng với chúng tôi. Vì vậy, chúng tôi sẽ dùng tên và các thông tin khác liên quan đến quý khách tuân thủ theo nội dung của Chính sách bảo mật. Chúng tôi chỉ thu thập những thông tin cần thiết liên quan đến giao dịch mua bán.",
+      "intro_4": "Chúng tôi sẽ giữ thông tin của khách hàng trong thời gian luật pháp quy định hoặc cho mục đích nào đó. Quý khách có thể truy cập vào website và trình duyệt mà không cần phải cung cấp chi tiết cá nhân. Lúc đó, Quý khách đang ẩn danh và chúng tôi không thể biết bạn là ai nếu Quý khách không đăng nhập vào tài khoản của mình."
+    },
+    "content_1": {
+      "title": "Thu thập thông tin cá nhân",
+      "des_1": "Chúng tôi thu thập, lưu trữ và xử lý thông tin của bạn cho quá trình mua hàng và cho những thông báo sau này liên quan đến đơn hàng, và để cung cấp dịch vụ, bao gồm một số thông tin cá nhân: danh hiệu, tên, giới tính, ngày sinh, email, địa chỉ, địa chỉ giao hàng, số điện thoại, fax, chi tiết thanh toán, chi tiết thanh toán bằng thẻ hoặc chi tiết tài khoản ngân hàng.",
+      "des_2": "Chúng tôi sẽ dùng thông tin quý khách đã cung cấp để xử lý đơn đặt hàng, cung cấp các dịch vụ và thông tin yêu cầu thông qua website và theo yêu cầu của bạn.",
+      "des_3": "Hơn nữa, chúng tôi sẽ sử dụng các thông tin đó để quản lý tài khoản của bạn; xác minh và thực hiện giao dịch trực tuyến, nhận diện khách vào web, nghiên cứu nhân khẩu học, gửi thông tin bao gồm thông tin sản phẩm và dịch vụ. Nếu quý khách không muốn nhận bất cứ thông tin tiếp thị của chúng tôi thì có thể từ chối bất cứ lúc nào.",
+      "des_4": "Chúng tôi có thể chuyển tên và địa chỉ cho bên thứ ba để họ giao hàng cho bạn (ví dụ cho bên chuyển phát nhanh hoặc nhà cung cấp).",
+      "des_5": "Chi tiết đơn đặt hàng của bạn được chúng tôi lưu giữ nhưng vì lí do bảo mật nên chúng tôi không công khai trực tiếp được. Tuy nhiên, quý khách có thể tiếp cận thông tin bằng cách đăng nhập tài khoản trên web. Tại đây, quý khách sẽ thấy chi tiết đơn đặt hàng của mình, những sản phẩm đã nhận và những sản phẩm đã gửi và chi tiết email, ngân hàng và bản tin mà bạn đặt theo dõi dài hạn.",
+      "des_6": "Quý khách cam kết bảo mật dữ liệu cá nhân và không được phép tiết lộ cho bên thứ ba. Chúng tôi không chịu bất kỳ trách nhiệm nào cho việc dùng sai mật khẩu nếu đây không phải lỗi của chúng tôi.",
+      "des_7": "Chúng tôi có thể dùng thông tin cá nhân của bạn để nghiên cứu thị trường. mọi thông tin chi tiết sẽ được ẩn và chỉ được dùng để thống kê. Quý khách có thể từ chối không tham gia bất cứ lúc nào."
+    },
+    "content_2": {
+      "title": "Bảo mật",
+      "des_1": "Chúng tôi có biện pháp thích hợp về kỹ thuật và an ninh để ngăn chặn truy cập trái phép hoặc trái pháp luật hoặc mất mát hoặc tiêu hủy hoặc thiệt hại cho thông tin của bạn.",
+      "des_2": "Chúng tôi khuyên quý khách không nên đưa thông tin chi tiết về việc thanh toán với bất kỳ ai bằng e-mail, chúng tôi không chịu trách nhiệm về những mất mát quý khách có thể gánh chịu trong việc trao đổi thông tin của quý khách qua internet hoặc email.",
+      "des_3": "Quý khách tuyệt đối không sử dụng bất kỳ chương trình, công cụ hay hình thức nào khác để can thiệp vào hệ thống hay làm thay đổi cấu trúc dữ liệu. Nghiêm cấm việc phát tán, truyền bá hay cổ vũ cho bất kỳ hoạt động nào nhằm can thiệp, phá hoại hay xâm nhập vào dữ liệu của hệ thống website. Mọi vi phạm sẽ bị tước bỏ mọi quyền lợi cũng như sẽ bị truy tố trước pháp luật nếu cần thiết.",
+      "des_4": "Mọi thông tin giao dịch sẽ được bảo mật nhưng trong trường hợp cơ quan pháp luật yêu cầu, chúng tôi sẽ buộc phải cung cấp những thông tin này cho các cơ quan pháp luật.",
+      "des_5": "Các điều kiện, điều khoản và nội dung của trang web này được điều chỉnh bởi luật pháp Việt Nam và tòa án Việt Nam có thẩm quyền xem xét."
+    },
+    "content_3": {
+      "title": "Quyền lợi khách hàng",
+      "des": "Quý khách có quyền yêu cầu truy cập vào dữ liệu cá nhân của mình, có quyền yêu cầu chúng tôi sửa lại những sai sót trong dữ liệu của bạn mà không mất phí. Bất cứ lúc nào bạn cũng có quyền yêu cầu chúng tôi ngưng sử dụng dữ liệu cá nhân của bạn cho mục đích tiếp thị."
+    }
+  },
+  "warranty-policy": {
+    "general": {
+      "description": "Chế độ bảo hành tại Horizon Camp được áp dụng riêng cho từng nhóm sản phẩm và cho từng sản phẩm.",
+      "return_policy": "Đổi hoặc trả hàng trong vòng 03 ngày khi gặp bất kỳ lỗi nào do nhà sản xuất.",
+      "remote_customers": "Đối với khách hàng ở xa sẽ chấp nhận đổi trả trong vòng 03 ngày (tính từ thời điểm nhận hàng) khi gặp lỗi do nhà sản xuất. Thời gian gửi hàng về Horizon Camp không vượt quá 14 ngày. Chi phí do Horizon Camp thanh toán 100%.",
+      "other_products": "Đối với các sản phẩm không được liệt kê bên dưới sẽ được bảo hành theo từng sản phẩm và chính sách riêng (xem thời gian bảo hành tại trang sản phẩm). Vui lòng liên hệ horizoncamp.support@gmail.com để biết thêm thông tin chi tiết."
+    },
+    "categories": {
+      "official_products": {
+        "title": "Mặt hàng phân phối chính hãng bởi Horizon Camp",
+        "description": "Với các sản phẩm chính hãng khi khách hàng gặp sự cố xin vui lòng mang đến cửa hàng Horizon Camp bất kỳ để được hỗ trợ bảo hành. Hoặc có thể mang đến trung tâm bảo hành của hãng đó để được hỗ trợ.",
+        "note": "Horizon Camp là trung gian giữa khách hàng và nhà sản xuất. Horizon Camp đại diện cho khách hàng để bảo vệ quyền lợi được bảo hành của khách hàng.",
+        "warranty_process": {
+          "step1": "Horizon Camp tiếp nhận sản phẩm.",
+          "step2": "Sản phẩm sẽ được thông báo lỗi cho nhà sản xuất.",
+          "step3": "Nhà sản xuất chấp nhận bảo hành: Horizon Camp sẽ thông báo lại cho khách hàng và đặt lịch hẹn nhận lại sản phẩm.",
+          "step4": "Nhà sản xuất không chấp nhận bảo hành (lỗi do khách hàng): Horizon Camp sẽ thông báo lại cho khách hàng và gửi lại sản phẩm.",
+          "step5": "Sản phẩm được bảo hành sẽ gửi cho nhà sản xuất sửa chữa hoặc bảo hành có điều kiện.",
+          "step6": "Horizon Camp sẽ nhận lại sản phẩm và gửi cho bên thứ 3 sửa chữa (có hoặc không có phí)."
+        }
+      },
+      "shoes": {
+        "title": "Mặt hàng giày dép tại Horizon Camp",
+        "warranty_period": "3 tháng",
+        "details": {
+          "manufacturer_defect": "Trong quá trình bảo hành tất cả các lỗi do nhà sản xuất sẽ được đổi mới, sửa chữa tùy vào thời gian và tình trạng của sản phẩm.",
+          "user_fault": "Những lỗi phát sinh trong quá trình sử dụng không phải do nhà sản xuất Horizon Camp sẽ từ chối bảo hành.",
+          "extended_support": "Thời gian từ 3-6 tháng Horizon Camp sẽ hỗ trợ khách hàng sửa chữa bảo hành về để và keo.",
+          "note": "Sản phẩm bảo hành phải còn nguyên vẹn, không bị biến dạng hoặc tác động vật lý từ bên ngoài."
+        }
+      },
+      "bags": {
+        "title": "Balo – Túi Xách",
+        "warranty_period": "12 tháng",
+        "coverage": "Toàn bộ đường may và khóa kéo",
+        "conditions": "Sản phẩm còn nguyên vẹn, các đường may không bị ảnh bởi yếu tố mài mòn, đứt gãy, ăn mòn bởi hóa chất hoặc yếu tố khác."
+      },
+      "lighting": {
+        "decorative_lights": {
+          "title": "Đèn pin trang trí",
+          "warranty_period": "3 tháng",
+          "conditions": "Không đứt gãy, chập cháy rơi vỡ, hoặc có yếu tố tác động vật lý bên ngoài.",
+          "support": "Horizon Camp sẽ hỗ trợ sửa chữa cho sản phẩm tùy thuộc vào mức độ hư hại."
+        },
+        "handheld_headlights": {
+          "title": "Đèn pin cầm tay – Đèn đeo đầu",
+          "warranty_period": "12 tháng",
+          "conditions": {
+            "manufacturer_defect": "Không có tác động yếu tố bên ngoài hoặc do người sử dụng (đặc biệt LED và bảng mạch).",
+            "no_coverage": "Không bảo hành với các trường hợp: Rơi vỡ, bị mài mòn, tác động bởi hóa chất, vào nước hoặc oxi-hóa.",
+            "battery": "Không bảo hành với các dòng pin Lithium-ion."
+          },
+          "support": "Horizon Camp hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
+        },
+        "camping_lights": {
+          "title": "Đèn lều và các loại đèn khác",
+          "warranty_period": "3 tháng",
+          "conditions": "Không đứt gãy, chập cháy rơi vỡ, hoặc có yếu tố tác động vật lý bên ngoài."
+        }
+      },
+      "foldable_chairs": {
+        "title": "Các loại Ghế xếp gọn",
+        "warranty_period": "3 tháng",
+        "conditions": {
+          "manufacturer_defect": "Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
+          "no_coverage": "Không bảo hành với các trường hợp: Khách hàng sử dụng sai công năng sản phẩm, làm rách vải ghế."
+        },
+        "support": "Horizon Camp hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
+      },
+      "foldable_tables": {
+        "title": "Các loại bàn xếp gọn",
+        "warranty_period": "3 tháng",
+        "conditions": {
+          "manufacturer_defect": "Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
+          "no_coverage": "Không bảo hành với các trường hợp: Khách hàng sử dụng sai công năng sản phẩm, để quá trọng tải cho phép."
+        }
+      },
+      "tents": {
+        "title": "Các loại lều dã ngoại",
+        "warranty_period": "12 tháng",
+        "coverage": "Bảo hành cho khung lều",
+        "conditions": "Không bảo hành với các trường hợp: có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
+        "support": "Horizon Camp hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
+      },
+      "portable_stoves": {
+        "title": "Các loại bếp ga xếp gọn",
+        "warranty_period": "6 tháng",
+        "conditions": "Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
+        "support": "Horizon Camp hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
+      }
     }
   }
 }

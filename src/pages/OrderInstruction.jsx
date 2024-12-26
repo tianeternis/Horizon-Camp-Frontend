@@ -15,7 +15,7 @@ const OrderInstrution = ({}) => {
         </div>
       </div>
       <div className="mx-auto max-w-screen-xl px-3">
-        <div className="space-y-4 rounded-sm bg-white px-4 py-3.5 text-sm sm:text-15px">
+        <div className="space-y-4 rounded-sm bg-white px-4 py-3.5 text-justify text-sm sm:text-15px">
           <p>
             <Trans i18nKey="order-instruction.step_1" />{" "}
             <Link to="/" className="font-medium text-blue-500 underline">
@@ -29,15 +29,15 @@ const OrderInstrution = ({}) => {
           <p>
             <Trans i18nKey="order-instruction.step_3" />
           </p>
-          <p className="space-y-2">
+          <div className="space-y-2">
             <p>
               <Trans i18nKey="order-instruction.step_4" />
             </p>
             <p>
               <Trans i18nKey="order-instruction.step_4_des" />
             </p>
-          </p>
-          <p className="space-y-2">
+          </div>
+          <div className="space-y-2">
             <p className="font-bold underline">
               {t("order-instruction.note.title")}:
             </p>
@@ -49,11 +49,7 @@ const OrderInstrution = ({}) => {
                 {t("order-instruction.note.note_4")}
               </li>
             </ul>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-          </p>
+          </div>
         </div>
       </div>
     </div>

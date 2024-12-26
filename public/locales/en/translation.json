@@ -27,7 +27,7 @@
     "order-instruction": "Order instructions",
     "delivery-and-receipt": "Delivery and receipt products",
     "warranty-policy": "Warranty policy",
-    "member-policy": "Member policy",
+    "return-policy": "Return policy",
     "information-security": "Information security",
     "copyright": "Copyright"
   },
@@ -50,7 +50,7 @@
     "order-instruction": "Order Instructions",
     "delivery-and-receipt": "Delivery And Receipt Products",
     "warranty-policy": "Warranty Policy",
-    "member-policy": "Member Policy",
+    "return-policy": "Return Policy",
     "information-security": "Information Security",
     "notfound": "404 Page Not Found"
   },
@@ -67,6 +67,78 @@
       "note_2": "To facilitate delivery, you need to write correct and complete information in the membership registration section.",
       "note_3": "Any orders missing any of the necessary information (full name, address, phone number) will be rejected without prior notice.",
       "note_4": "Orders that Horizon Camp considers invalid will also be rejected without prior notice."
+    }
+  },
+  "delivery-and-receipt": {
+    "title": "Delivery and receipt products",
+    "content-title": "Forms of transportation used at Horizon Camp",
+    "content_1": {
+      "title": "Express Delivery",
+      "des_1": "Express delivery applies to orders within Can Tho city.",
+      "des_2": "Shipping fees will be notified by staff when you place an order and request Express shipping."
+    },
+    "content_2": {
+      "title": "Fast Delivery",
+      "des_1": "Shipping time is 2-3 days depending on geographical distance and current objective conditions.",
+      "des_2": "Shipping fees will be notified to you by staff when confirming the order."
+    },
+    "content_3": {
+      "title": "Economy Shipping",
+      "des_1": "Shipping time is 3-5 days depending on geographical distance and current objective conditions.",
+      "des_2": "Shipping fees will be notified to you by staff when confirming the order."
+    }
+  },
+  "return-policy": {
+    "title": "Return Policy",
+    "policy": {
+      "policy_1": "Exchange or return items within 3 days if there are any manufacturer defects.",
+      "policy_2": "For distant customers, exchanges or returns are accepted within 3 days (from the time of receiving the goods) in case of manufacturer defects. The time for sending the product back to <strong>Horizon Camp</strong> must not exceed 14 days. Shipping costs will be 100% covered by <strong>Horizon Camp</strong>.",
+      "policy_3": "Products sent for exchange or return will not be accepted by <strong>Horizon Camp</strong> if they do not meet the conditions listed below. In such cases, customers will need to pay shipping fees for both sending the product back to <strong>Horizon Camp</strong> and for <strong>Horizon Camp</strong> returning the product to the customer."
+    },
+    "conditions": {
+      "title": "Conditions for Exchange or Return",
+      "condition_1": "Items must remain in their original condition, unused, with intact tags and labels.",
+      "condition_2": "Not washed, ironed, dirty, or damaged.",
+      "condition_3": "Return the product along with the purchase invoice.",
+      "condition_4": "Within 3 days from the date of purchase.",
+      "condition_5": "Only applicable for the same product but in a different color or size."
+    },
+    "contact": {
+      "title": "Please contact us via the following information for exchanges:",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address"
+    }
+  },
+  "information-security": {
+    "title": "Personal Information Security",
+    "intro": {
+      "intro_1": "Thank you for your interest in and access to our website. We respect and are committed to protecting your personal privacy.",
+      "intro_2": "This privacy policy explains how we collect, use, and (in certain cases) disclose your personal information.",
+      "intro_3": "Protecting personal data and building trust with our customers is very important to us. Therefore, we will use your name and other relevant information in compliance with this Privacy Policy. We only collect the information necessary for transaction processing.",
+      "intro_4": "We will retain customer information for as long as required by law or for a specific purpose. You can browse our website anonymously without providing personal details. In that case, we will not know who you are unless you log into your account."
+    },
+    "content_1": {
+      "title": "Collection of Personal Information",
+      "des_1": "We collect, store, and process your information for order processing and subsequent notifications related to your order, including some personal information: title, name, gender, date of birth, email, address, shipping address, phone number, fax, payment details, card payment details, or bank account details.",
+      "des_2": "We use the information you provide to process your orders, provide services and information requested through the website, and fulfill your requests.",
+      "des_3": "Additionally, we use this information to manage your account, verify and conduct online transactions, recognize website visitors, perform demographic research, and send information including product and service updates. If you do not wish to receive our marketing information, you may opt-out at any time.",
+      "des_4": "We may transfer your name and address to a third party to deliver the goods to you (e.g., to couriers or suppliers).",
+      "des_5": "Your order details are retained by us, but for security reasons, we cannot directly disclose them. However, you can access this information by logging into your account on the website. There, you can view your order details, received items, shipped items, and subscription details for newsletters, emails, and banking updates.",
+      "des_6": "You commit to keeping your personal data confidential and not disclosing it to third parties. We bear no responsibility for password misuse unless it is due to our fault.",
+      "des_7": "We may use your personal information for market research. All details will remain anonymous and used only for statistical purposes. You may opt-out at any time."
+    },
+    "content_2": {
+      "title": "Security",
+      "des_1": "We have appropriate technical and security measures to prevent unauthorized or unlawful access, accidental loss, destruction, or damage to your information.",
+      "des_2": "We advise you not to share payment details with anyone via email. We are not responsible for any losses incurred by sharing your information over the internet or email.",
+      "des_3": "You are strictly prohibited from using any program, tool, or other means to interfere with the system or alter data structures. It is forbidden to distribute, promote, or engage in any activities that disrupt, destroy, or intrude into system data. Violators will lose all rights and may face legal action if necessary.",
+      "des_4": "All transaction information will be kept confidential. However, if required by law enforcement, we will be obligated to provide this information to the authorities.",
+      "des_5": "The terms, conditions, and content of this website are governed by Vietnamese law, and the competent courts in Vietnam will have jurisdiction."
+    },
+    "content_3": {
+      "title": "Customer Rights",
+      "des": "You have the right to request access to your personal data, request corrections of any errors in your data at no cost, and request us to stop using your personal data for marketing purposes at any time."
     }
   }
 }

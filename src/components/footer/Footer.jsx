@@ -103,8 +103,8 @@ const Footer = ({}) => {
                 </Link>
               </li>
               <li className="py-1.5">
-                <Link to={PATHS.memberPolicy()} className="hover:text-main">
-                  {t("footer.member-policy")}
+                <Link to={PATHS.returnPolicy()} className="hover:text-main">
+                  {t("footer.return-policy")}
                 </Link>
               </li>
               <li className="py-1.5">

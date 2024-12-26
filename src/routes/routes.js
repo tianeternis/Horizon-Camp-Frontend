@@ -26,7 +26,7 @@ export const ROUTES = {
   ORDER_INSTRUCTION: { index: "order-instruction" },
   DELIVER_AND_RECEIPT: { index: "delivery-and-receipt" },
   WARRANTY_POLICY: { index: "warranty-policy" },
-  MEMBER_POLICY: { index: "member-policy" },
+  RETURN_POLICY: { index: "return-policy" },
   INFORMATION_SECURITY: { index: "information-security" },
   NOTFOUND: { index: "*" },
 };
@@ -48,6 +48,6 @@ export const PATHS = {
   orderInstruction: getPath(`/${ROUTES.ORDER_INSTRUCTION.index}`),
   deliverAndReceipt: getPath(`/${ROUTES.DELIVER_AND_RECEIPT.index}`),
   warrantyPolicy: getPath(`/${ROUTES.WARRANTY_POLICY.index}`),
-  memberPolicy: getPath(`/${ROUTES.MEMBER_POLICY.index}`),
+  returnPolicy: getPath(`/${ROUTES.RETURN_POLICY.index}`),
   informationSecurity: getPath(`/${ROUTES.INFORMATION_SECURITY.index}`),
 };

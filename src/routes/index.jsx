@@ -16,7 +16,7 @@ import Wishlist from "@/pages/Wishlist";
 import OrderInstruction from "@/pages/OrderInstruction";
 import DeliveryAndReceipt from "@/pages/DeliveryAndReceipt";
 import WarrantyPolicy from "@/pages/WarrantyPolicy";
-import MemberPolicy from "@/pages/MemberPolicy";
+import ReturnPolicy from "@/pages/ReturnPolicy";
 import InformationSecurity from "@/pages/InformationSecurity";
 import NotFound from "@/pages/NotFound";
 
@@ -95,9 +95,9 @@ const routes = [
         handle: { crumb: () => crumb("title.warranty-policy") },
       },
       {
-        path: ROUTES.MEMBER_POLICY.index,
-        element: <MemberPolicy />,
-        handle: { crumb: () => crumb("title.member-policy") },
+        path: ROUTES.RETURN_POLICY.index,
+        element: <ReturnPolicy />,
+        handle: { crumb: () => crumb("title.return-policy") },
       },
       {
         path: ROUTES.INFORMATION_SECURITY.index,
