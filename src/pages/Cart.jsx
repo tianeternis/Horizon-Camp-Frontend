@@ -1,4 +1,5 @@
 import { useDynamicTitle } from "@/hooks";
+import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
 const Cart = ({}) => {
@@ -6,7 +7,7 @@ const Cart = ({}) => {
 
   useDynamicTitle(t("title.cart"));
 
-  return <div>Cart </div>;
+  return <BodyLayout>Cart </BodyLayout>;
 };
 
 export default Cart;

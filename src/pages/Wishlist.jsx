@@ -1,4 +1,5 @@
 import { useDynamicTitle } from "@/hooks";
+import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
 const Wishlist = ({}) => {
@@ -6,7 +7,7 @@ const Wishlist = ({}) => {
 
   useDynamicTitle(t("title.wishlist"));
 
-  return <div>Wishlist </div>;
+  return <BodyLayout>Wishlist </BodyLayout>;
 };
 
 export default Wishlist;

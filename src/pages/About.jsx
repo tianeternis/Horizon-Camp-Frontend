@@ -1,4 +1,5 @@
 import { useDynamicTitle } from "@/hooks";
+import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
 const About = ({}) => {
@@ -6,7 +7,7 @@ const About = ({}) => {
 
   useDynamicTitle(t("title.about"));
 
-  return <div>About </div>;
+  return <BodyLayout>About </BodyLayout>;
 };
 
 export default About;

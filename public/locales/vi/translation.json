@@ -227,5 +227,32 @@
         "support": "Hỗ trợ: <strong>Horizon Camp</strong> hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
       }
     }
+  },
+  "contact": {
+    "title": "Liên hệ với chúng tôi",
+    "sub-title": "Nếu bạn có thắc mắc gì, có thể gửi yêu cầu cho chúng tôi, và chúng tôi sẽ liên lạc lại với bạn sớm nhất có thể.",
+    "address": "Địa chỉ",
+    "email": "Email",
+    "phone": "Điện thoại",
+    "social": "Mạng xã hội của chúng tôi",
+    "openHours": "Giờ mở cửa",
+    "days": {
+      "monday": "Thứ hai",
+      "tuesday": "Thứ ba",
+      "wednesday": "Thứ tư",
+      "thursday": "Thứ năm",
+      "friday": "Thứ sáu",
+      "saturday": "Thứ bảy",
+      "sunday": "Chủ nhật"
+    },
+    "form": {
+      "title": "Thông tin liên hệ",
+      "description": "Bạn hãy điền nội dung tin nhắn vào form dưới đây và gửi cho chúng tôi. Chúng tôi sẽ trả lời bạn sau khi nhận được.",
+      "fullname": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "content": "Nội dung",
+      "send": "Gửi thông tin"
+    }
   }
 }

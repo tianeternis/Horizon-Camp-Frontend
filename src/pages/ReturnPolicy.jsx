@@ -1,4 +1,5 @@
 import { useDynamicTitle } from "@/hooks";
+import BodyLayout from "@/layouts/BodyLayout";
 import { Trans, useTranslation } from "react-i18next";
 
 const ReturnPolicy = ({}) => {
@@ -7,13 +8,11 @@ const ReturnPolicy = ({}) => {
   useDynamicTitle(t("title.return-policy"));
 
   return (
-    <div className="w-full space-y-6 py-8">
-      <div className="mx-auto max-w-screen-xl px-3">
+    <BodyLayout className="w-full py-8">
+      <div className="space-y-6">
         <div className="rounded-sm border-b-2 border-solid border-main bg-white p-4 text-15px font-bold uppercase sm:text-base">
           {t("return-policy.title")}
         </div>
-      </div>
-      <div className="mx-auto max-w-screen-xl px-3">
         <div className="space-y-5 rounded-sm bg-white px-4 py-3.5 text-justify text-sm sm:text-15px">
           <div className="space-y-3.5">
             <h4 className="text-lg font-semibold text-primary sm:text-xl">
@@ -59,7 +58,7 @@ const ReturnPolicy = ({}) => {
           </div>
         </div>
       </div>
-    </div>
+    </BodyLayout>
   );
 };
 

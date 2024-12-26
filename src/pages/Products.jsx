@@ -1,4 +1,5 @@
 import { useDynamicTitle } from "@/hooks";
+import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
 const Products = ({}) => {
@@ -6,7 +7,7 @@ const Products = ({}) => {
 
   useDynamicTitle(t("title.product"));
 
-  return <div>Product </div>;
+  return <BodyLayout>Product </BodyLayout>;
 };
 
 export default Products;

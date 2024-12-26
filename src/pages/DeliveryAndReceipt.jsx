@@ -1,4 +1,5 @@
 import { useDynamicTitle } from "@/hooks";
+import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
 const DeliveryAndReceipt = ({}) => {
@@ -7,13 +8,11 @@ const DeliveryAndReceipt = ({}) => {
   useDynamicTitle(t("title.delivery-and-receipt"));
 
   return (
-    <div className="w-full space-y-6 py-8">
-      <div className="mx-auto max-w-screen-xl px-3">
+    <BodyLayout className="w-full py-8">
+      <div className="space-y-6">
         <div className="rounded-sm border-b-2 border-solid border-main bg-white px-4 py-3.5 text-15px font-bold uppercase sm:text-base">
           {t("delivery-and-receipt.title")}
         </div>
-      </div>
-      <div className="mx-auto max-w-screen-xl px-3">
         <div className="space-y-6 rounded-sm bg-white p-4 text-justify">
           <h4 className="text-lg font-semibold text-black sm:text-xl">
             {t("delivery-and-receipt.content-title")}
@@ -47,7 +46,7 @@ const DeliveryAndReceipt = ({}) => {
           </div>
         </div>
       </div>
-    </div>
+    </BodyLayout>
   );
 };
 

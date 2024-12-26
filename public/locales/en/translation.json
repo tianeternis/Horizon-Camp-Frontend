@@ -227,5 +227,32 @@
         "support": "Support: <strong>Horizon Camp</strong> assists with part replacement depending on the case, with costs borne by the customer."
       }
     }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "sub-title": "If you have any questions, feel free to send us your request, and we will get back to you as soon as possible.",
+    "address": "Address",
+    "email": "Email",
+    "phone": "Phone",
+    "social": "Our Social Media",
+    "openHours": "Opening Hours",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "form": {
+      "title": "Contact Information",
+      "description": "Please fill out the form below and send us your message. We will respond to you as soon as we receive it.",
+      "fullname": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "content": "Message Content",
+      "send": "Send Information"
+    }
   }
 }
