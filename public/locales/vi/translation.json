@@ -142,94 +142,89 @@
     }
   },
   "warranty-policy": {
+    "title": "Chính sách bảo hành",
     "general": {
       "description": "Chế độ bảo hành tại Horizon Camp được áp dụng riêng cho từng nhóm sản phẩm và cho từng sản phẩm.",
       "return_policy": "Đổi hoặc trả hàng trong vòng 03 ngày khi gặp bất kỳ lỗi nào do nhà sản xuất.",
-      "remote_customers": "Đối với khách hàng ở xa sẽ chấp nhận đổi trả trong vòng 03 ngày (tính từ thời điểm nhận hàng) khi gặp lỗi do nhà sản xuất. Thời gian gửi hàng về Horizon Camp không vượt quá 14 ngày. Chi phí do Horizon Camp thanh toán 100%.",
+      "remote_customers": "Đối với khách hàng ở xa sẽ chấp nhận đổi trả trong vòng 03 ngày (tính từ thời điểm nhận hàng) khi gặp lỗi do nhà sản xuất. Thời gian gửi hàng về <strong>Horizon Camp</strong> không vượt quá 14 ngày. Chi phí do <strong>Horizon Camp</strong> thanh toán 100%.",
       "other_products": "Đối với các sản phẩm không được liệt kê bên dưới sẽ được bảo hành theo từng sản phẩm và chính sách riêng (xem thời gian bảo hành tại trang sản phẩm). Vui lòng liên hệ horizoncamp.support@gmail.com để biết thêm thông tin chi tiết."
     },
     "categories": {
       "official_products": {
         "title": "Mặt hàng phân phối chính hãng bởi Horizon Camp",
-        "description": "Với các sản phẩm chính hãng khi khách hàng gặp sự cố xin vui lòng mang đến cửa hàng Horizon Camp bất kỳ để được hỗ trợ bảo hành. Hoặc có thể mang đến trung tâm bảo hành của hãng đó để được hỗ trợ.",
-        "note": "Horizon Camp là trung gian giữa khách hàng và nhà sản xuất. Horizon Camp đại diện cho khách hàng để bảo vệ quyền lợi được bảo hành của khách hàng.",
+        "description": "Với các sản phẩm chính hãng khi khách hàng gặp sự cố xin vui lòng mang đến cửa hàng <strong>Horizon Camp</strong> bất kỳ để được hỗ trợ bảo hành. Hoặc có thể mang đến trung tâm bảo hành của hãng đó để được hỗ trợ.",
+        "note": "Lưu ý: Với các sản phẩm bảo hành chính hãng <strong>Horizon Camp</strong> là trung gian giữa khách hàng và nhà  sản xuất. <strong>Horizon Camp</strong> đại diện cho khách hàng để bảo vệ quyền lợi được bảo hành của khách hàng. <strong>Horizon Camp</strong> hoàn toàn không quyết định điều kiện áp dụng và chính sách bảo hành đối với những sản phẩm phân phối chính hãng.",
         "warranty_process": {
-          "step1": "Horizon Camp tiếp nhận sản phẩm.",
+          "title": "Quy trình bảo hành",
+          "step1": "<strong>Horizon Camp</strong> tiếp nhận sản phẩm.",
           "step2": "Sản phẩm sẽ được thông báo lỗi cho nhà sản xuất.",
-          "step3": "Nhà sản xuất chấp nhận bảo hành: Horizon Camp sẽ thông báo lại cho khách hàng và đặt lịch hẹn nhận lại sản phẩm.",
-          "step4": "Nhà sản xuất không chấp nhận bảo hành (lỗi do khách hàng): Horizon Camp sẽ thông báo lại cho khách hàng và gửi lại sản phẩm.",
+          "step3": "Nhà sản xuất chấp nhận bảo hành: <strong>Horizon Camp</strong> sẽ thông báo lại cho khách hàng và đặt lịch hẹn nhận lại sản phẩm.",
+          "step4": "Nhà sản xuất không chấp nhận bảo hành (lỗi do khách hàng): <strong>Horizon Camp</strong> sẽ thông báo lại cho khách hàng và gửi lại sản phẩm.",
           "step5": "Sản phẩm được bảo hành sẽ gửi cho nhà sản xuất sửa chữa hoặc bảo hành có điều kiện.",
-          "step6": "Horizon Camp sẽ nhận lại sản phẩm và gửi cho bên thứ 3 sửa chữa (có hoặc không có phí)."
+          "step6": "<strong>Horizon Camp</strong> sẽ nhận lại sản phẩm và gửi cho bên thứ 3 sửa chữa (có hoặc không có phí)."
         }
       },
       "shoes": {
         "title": "Mặt hàng giày dép tại Horizon Camp",
-        "warranty_period": "3 tháng",
-        "details": {
-          "manufacturer_defect": "Trong quá trình bảo hành tất cả các lỗi do nhà sản xuất sẽ được đổi mới, sửa chữa tùy vào thời gian và tình trạng của sản phẩm.",
-          "user_fault": "Những lỗi phát sinh trong quá trình sử dụng không phải do nhà sản xuất Horizon Camp sẽ từ chối bảo hành.",
-          "extended_support": "Thời gian từ 3-6 tháng Horizon Camp sẽ hỗ trợ khách hàng sửa chữa bảo hành về để và keo.",
-          "note": "Sản phẩm bảo hành phải còn nguyên vẹn, không bị biến dạng hoặc tác động vật lý từ bên ngoài."
-        }
+        "warranty_period": "Thời gian bảo hành: 3 tháng",
+        "manufacturer_defect": "Trong quá trình bảo hành tất cả các lỗi do nhà sản xuất sẽ được đổi mới, sửa chữa tùy vào thời gian và tình trạng của sản phẩm.",
+        "user_fault": "Những lỗi phát sinh trong quá trình sử dụng không phải do nhà sản xuất <strong>Horizon Camp</strong> sẽ từ chối bảo hành.",
+        "extended_support": "Thời gian từ 3-6 tháng <strong>Horizon Camp</strong> sẽ hỗ trợ khách hàng sửa chữa bảo hành về để và keo.",
+        "note": "<strong>Lưu ý:</strong> Sản phẩm bảo hành phải còn nguyên vẹn, không bị biến dạng hoặc tác động vật lý từ bên ngoài."
       },
       "bags": {
-        "title": "Balo – Túi Xách",
-        "warranty_period": "12 tháng",
-        "coverage": "Toàn bộ đường may và khóa kéo",
-        "conditions": "Sản phẩm còn nguyên vẹn, các đường may không bị ảnh bởi yếu tố mài mòn, đứt gãy, ăn mòn bởi hóa chất hoặc yếu tố khác."
+        "title": "Balo - Túi Xách",
+        "warranty_period": "Thời gian bảo hành: 12 tháng",
+        "coverage": "Hình thức bảo hành: Toàn bộ đường may và khóa kéo",
+        "conditions": "Điều kiện bảo hành: Sản phẩm còn nguyên vẹn, các đường may không bị ảnh bởi yếu tố mài mòn, đứt gãy, ăn mòn bởi hóa chất hoặc yếu tố khác."
       },
       "lighting": {
+        "title": "Đèn Pin - Thiết bị chiếu sáng",
         "decorative_lights": {
           "title": "Đèn pin trang trí",
-          "warranty_period": "3 tháng",
-          "conditions": "Không đứt gãy, chập cháy rơi vỡ, hoặc có yếu tố tác động vật lý bên ngoài.",
-          "support": "Horizon Camp sẽ hỗ trợ sửa chữa cho sản phẩm tùy thuộc vào mức độ hư hại."
+          "warranty_period": "Thời gian bảo hành: 3 tháng",
+          "conditions": "Điều kiện bảo hành: Không đứt gãy, chập cháy rơi vỡ, hoặc có yếu tố tác động vật lý bên ngoài.",
+          "support": "Hỗ trợ: <strong>Horizon Camp</strong> sẽ hỗ trợ sửa chữa cho sản phẩm tùy thuộc vào mức độ hư hại."
         },
         "handheld_headlights": {
-          "title": "Đèn pin cầm tay – Đèn đeo đầu",
-          "warranty_period": "12 tháng",
-          "conditions": {
-            "manufacturer_defect": "Không có tác động yếu tố bên ngoài hoặc do người sử dụng (đặc biệt LED và bảng mạch).",
-            "no_coverage": "Không bảo hành với các trường hợp: Rơi vỡ, bị mài mòn, tác động bởi hóa chất, vào nước hoặc oxi-hóa.",
-            "battery": "Không bảo hành với các dòng pin Lithium-ion."
-          },
-          "support": "Horizon Camp hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
+          "title": "Đèn pin cầm tay - Đèn đeo đầu",
+          "warranty_period": "Thời gian bảo hành: 12 tháng",
+          "manufacturer_defect": "Hình thức bảo hành: Không có tác động yếu tố bên ngoài hoặc do người sử dụng (đặc biệt LED và bảng mạch).",
+          "no_coverage": "Không bảo hành với các trường hợp: Không bảo hành với các trường hợp: Rơi vỡ, bị mài mòn, tác động bởi hóa chất, vào nước hoặc oxi-hóa.",
+          "battery": "Không bảo hành với các dòng pin Lithium-ion.",
+          "support": "Hỗ trợ: <strong>Horizon Camp</strong> hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
         },
         "camping_lights": {
           "title": "Đèn lều và các loại đèn khác",
-          "warranty_period": "3 tháng",
-          "conditions": "Không đứt gãy, chập cháy rơi vỡ, hoặc có yếu tố tác động vật lý bên ngoài."
+          "warranty_period": "Thời gian bảo hành: 3 tháng",
+          "conditions": "Điều kiện bảo hành: Không đứt gãy, chập cháy rơi vỡ, hoặc có yếu tố tác động vật lý bên ngoài."
         }
       },
       "foldable_chairs": {
         "title": "Các loại Ghế xếp gọn",
-        "warranty_period": "3 tháng",
-        "conditions": {
-          "manufacturer_defect": "Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
-          "no_coverage": "Không bảo hành với các trường hợp: Khách hàng sử dụng sai công năng sản phẩm, làm rách vải ghế."
-        },
-        "support": "Horizon Camp hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
+        "warranty_period": "Thời gian bảo hành: 3 tháng",
+        "manufacturer_defect": "Điều kiện bảo hành: Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
+        "no_coverage": "Không bảo hành với các trường hợp: Khách hàng sử dụng sai công năng sản phẩm, làm rách vải ghế.",
+        "support": "Hỗ trợ: <strong>Horizon Camp</strong> hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
       },
       "foldable_tables": {
         "title": "Các loại bàn xếp gọn",
-        "warranty_period": "3 tháng",
-        "conditions": {
-          "manufacturer_defect": "Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
-          "no_coverage": "Không bảo hành với các trường hợp: Khách hàng sử dụng sai công năng sản phẩm, để quá trọng tải cho phép."
-        }
+        "warranty_period": "Thời gian bảo hành: 3 tháng",
+        "manufacturer_defect": "Điều kiện bảo hành: Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
+        "no_coverage": "Không bảo hành với các trường hợp: Khách hàng sử dụng sai công năng sản phẩm, để quá trọng tải cho phép."
       },
       "tents": {
         "title": "Các loại lều dã ngoại",
-        "warranty_period": "12 tháng",
-        "coverage": "Bảo hành cho khung lều",
-        "conditions": "Không bảo hành với các trường hợp: có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
-        "support": "Horizon Camp hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
+        "warranty_period": "Thời gian bảo hành: 12 tháng",
+        "coverage": "Hình thức bảo hành: Bảo hành cho khung lều",
+        "conditions": "Điều kiện bảo hành: Không bảo hành với các trường hợp: có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
+        "support": "Hỗ trợ: <strong>Horizon Camp</strong> hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
       },
       "portable_stoves": {
         "title": "Các loại bếp ga xếp gọn",
-        "warranty_period": "6 tháng",
-        "conditions": "Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
-        "support": "Horizon Camp hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
+        "warranty_period": "Thời gian bảo hành: 6 tháng",
+        "conditions": "Điều kiện bảo hành: Không có tác động yếu tố bên ngoài hoặc do người sử dụng sử dụng sai công năng sản phẩm.",
+        "support": "Hỗ trợ: <strong>Horizon Camp</strong> hỗ trợ thay thế linh kiện tùy vào trường hợp, chi phí khách hàng chịu."
       }
     }
   }

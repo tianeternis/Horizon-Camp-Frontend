@@ -140,5 +140,92 @@
       "title": "Customer Rights",
       "des": "You have the right to request access to your personal data, request corrections of any errors in your data at no cost, and request us to stop using your personal data for marketing purposes at any time."
     }
+  },
+  "warranty-policy": {
+    "title": "Warranty Policy",
+    "general": {
+      "description": "The warranty policy at Horizon Camp is applied specifically to each product group and individual product.",
+      "return_policy": "Exchange or return within 03 days for any manufacturing defects.",
+      "remote_customers": "For remote customers, exchanges or returns are accepted within 03 days (from the time of receipt) for manufacturing defects. The shipping time to <strong>Horizon Camp</strong> should not exceed 14 days. Costs will be 100% covered by <strong>Horizon Camp</strong>.",
+      "other_products": "For products not listed below, warranties are applied according to the specific product and its respective policy (refer to warranty duration on the product page). Please contact horizoncamp.support@gmail.com for more details."
+    },
+    "categories": {
+      "official_products": {
+        "title": "Officially Distributed Products by Horizon Camp",
+        "description": "For official products, customers encountering issues are advised to bring the product to any <strong>Horizon Camp</strong> store for warranty support. Alternatively, you can bring the product to the brand’s warranty center for assistance.",
+        "note": "Note: For officially warranted products, <strong>Horizon Camp</strong> acts as an intermediary between customers and manufacturers, representing customers to ensure their warranty rights. <strong>Horizon Camp</strong> does not decide the conditions or policies for warranties on officially distributed products.",
+        "warranty_process": {
+          "title": "Warranty Process",
+          "step1": "<strong>Horizon Camp</strong> receives the product.",
+          "step2": "The defect is reported to the manufacturer.",
+          "step3": "Manufacturer accepts warranty: <strong>Horizon Camp</strong> notifies the customer and schedules a return appointment.",
+          "step4": "Manufacturer rejects warranty (customer fault): <strong>Horizon Camp</strong> informs the customer and returns the product.",
+          "step5": "Product covered by warranty is sent to the manufacturer for repair or conditional warranty.",
+          "step6": "<strong>Horizon Camp</strong> receives the product back and sends it to a third party for repair (with or without a fee)."
+        }
+      },
+      "shoes": {
+        "title": "Footwear at Horizon Camp",
+        "warranty_period": "Warranty Period: 3 months",
+        "manufacturer_defect": "During the warranty period, all manufacturing defects will be repaired or replaced depending on the time and condition of the product.",
+        "user_fault": "Defects arising during use that are not due to manufacturing will not be covered under warranty by <strong>Horizon Camp</strong>.",
+        "extended_support": "From 3-6 months, <strong>Horizon Camp</strong> will assist customers with repair services for soles and adhesives.",
+        "note": "<strong>Note:</strong> Products must be intact, without deformation or external physical damage, to be eligible for warranty."
+      },
+      "bags": {
+        "title": "Backpacks and Bags",
+        "warranty_period": "Warranty Period: 12 months",
+        "coverage": "Warranty Coverage: All stitching and zippers.",
+        "conditions": "Warranty Conditions: Product must be intact, with stitching unaffected by wear, breakage, chemical corrosion, or other factors."
+      },
+      "lighting": {
+        "title": "Flashlights and Lighting Devices",
+        "decorative_lights": {
+          "title": "Decorative Flashlights",
+          "warranty_period": "Warranty Period: 3 months",
+          "conditions": "Warranty Conditions: No breakage, short-circuits, drops, or physical damage.",
+          "support": "Support: <strong>Horizon Camp</strong> will assist with repairs depending on the extent of the damage."
+        },
+        "handheld_headlights": {
+          "title": "Handheld and Headlamps",
+          "warranty_period": "Warranty Period: 12 months",
+          "manufacturer_defect": "Warranty Coverage: No external factors or user misuse (especially for LEDs and circuits).",
+          "no_coverage": "No warranty for cases of: drops, abrasion, chemical damage, water ingress, or oxidation.",
+          "battery": "No warranty for Lithium-ion batteries.",
+          "support": "Support: <strong>Horizon Camp</strong> assists with part replacement depending on the case, with costs borne by the customer."
+        },
+        "camping_lights": {
+          "title": "Camping Lights and Other Lights",
+          "warranty_period": "Warranty Period: 3 months",
+          "conditions": "Warranty Conditions: No breakage, short-circuits, drops, or physical damage."
+        }
+      },
+      "foldable_chairs": {
+        "title": "Foldable Chairs",
+        "warranty_period": "Warranty Period: 3 months",
+        "manufacturer_defect": "Warranty Conditions: No external factors or misuse of the product.",
+        "no_coverage": "No warranty for cases of: misuse of product functions or tearing of chair fabric.",
+        "support": "Support: <strong>Horizon Camp</strong> assists with part replacement depending on the case, with costs borne by the customer."
+      },
+      "foldable_tables": {
+        "title": "Foldable Tables",
+        "warranty_period": "Warranty Period: 3 months",
+        "manufacturer_defect": "Warranty Conditions: No external factors or misuse of the product.",
+        "no_coverage": "No warranty for cases of: misuse of product functions or exceeding allowable weight limits."
+      },
+      "tents": {
+        "title": "Camping Tents",
+        "warranty_period": "Warranty Period: 12 months",
+        "coverage": "Warranty Coverage: Tent frames.",
+        "conditions": "Warranty Conditions: No warranty for cases of external factors or misuse of the product.",
+        "support": "Support: <strong>Horizon Camp</strong> assists with part replacement depending on the case, with costs borne by the customer."
+      },
+      "portable_stoves": {
+        "title": "Portable Gas Stoves",
+        "warranty_period": "Warranty Period: 6 months",
+        "conditions": "Warranty Conditions: No external factors or misuse of the product.",
+        "support": "Support: <strong>Horizon Camp</strong> assists with part replacement depending on the case, with costs borne by the customer."
+      }
+    }
   }
 }
