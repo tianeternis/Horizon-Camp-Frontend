@@ -1,4 +1,5 @@
 import { useDynamicTitle } from "@/hooks";
+import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
 const Register = ({}) => {
@@ -6,7 +7,7 @@ const Register = ({}) => {
 
   useDynamicTitle(t("title.register"));
 
-  return <div>Register </div>;
+  return <BodyLayout>Register </BodyLayout>;
 };
 
 export default Register;

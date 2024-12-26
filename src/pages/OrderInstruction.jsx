@@ -1,4 +1,5 @@
 import { useDynamicTitle } from "@/hooks";
+import BodyLayout from "@/layouts/BodyLayout";
 import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -8,13 +9,11 @@ const OrderInstrution = ({}) => {
   useDynamicTitle(t("title.order-instruction"));
 
   return (
-    <div className="w-full space-y-6 py-8">
-      <div className="mx-auto max-w-screen-xl px-3">
+    <BodyLayout className="w-full py-8">
+      <div className="space-y-6">
         <div className="rounded-sm border-b-2 border-solid border-main bg-white px-4 py-3.5 text-15px font-bold uppercase sm:text-base">
           {t("order-instruction.title")}
         </div>
-      </div>
-      <div className="mx-auto max-w-screen-xl px-3">
         <div className="space-y-4 rounded-sm bg-white px-4 py-3.5 text-justify text-sm sm:text-15px">
           <p>
             <Trans i18nKey="order-instruction.step_1" />{" "}
@@ -52,7 +51,7 @@ const OrderInstrution = ({}) => {
           </div>
         </div>
       </div>
-    </div>
+    </BodyLayout>
   );
 };
 
