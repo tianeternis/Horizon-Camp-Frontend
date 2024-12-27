@@ -7,7 +7,11 @@ const FAQs = ({}) => {
 
   useDynamicTitle(t("title.faqs"));
 
-  return <BodyLayout>FAQs </BodyLayout>;
+  return (
+    <div className="bg-white">
+      <BodyLayout>FAQs </BodyLayout>
+    </div>
+  );
 };
 
 export default FAQs;

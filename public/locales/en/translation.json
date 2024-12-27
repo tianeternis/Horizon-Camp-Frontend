@@ -269,5 +269,21 @@
       "content": "Message Content",
       "send": "Send Information"
     }
+  },
+  "about": {
+    "title": "About Horizon Camp",
+    "logan": "Loving the Thrill",
+    "intro_1": {
+      "title": "Our Story",
+      "description": "With the philosophy \"Living is experiencing. Living is enjoying,\" Horizon Camp was born with the mission of helping travelers with an endless love for nature have the opportunity to live and immerse themselves in the vast and magnificent spaces. This is also the core value that sparked the idea of Horizon Camp, shaping it and eventually bringing it to life to reach millions of customers."
+    },
+    "intro_2": {
+      "title": "Our Vision",
+      "description": "With the desire to become a trusted destination in the travel and adventure community, Horizon Camp strives to provide the most suitable products for every customer, along with useful advice on those products. In-depth research on market demands as well as the field of tourism and outdoor activities is what Horizon Camp is steadfastly pursuing to establish its credibility in the eyes of customers. Always aiming to project a trustworthy, friendly, and professional Horizon Camp."
+    },
+    "intro_3": {
+      "title": "Why Do Customers Choose Horizon Camp?",
+      "description": "\"For Customers - By Customers - Because of Customers\" is the foundation for the element 'Your' in the name Horizon Camp. Our mission cannot be fulfilled if your experiences are not complete. To achieve this, Horizon Camp has undergone a rigorous selection process to offer high-quality products that are suitable and sourced from the most reputable manufacturers."
+    }
   }
 }
