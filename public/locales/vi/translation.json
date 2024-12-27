@@ -54,6 +54,21 @@
     "information-security": "Bảo mật thông tin cá nhân",
     "notfound": "404 Không tìm thấy trang"
   },
+  "form-validation": {
+    "required": {
+      "fullname": "Vui lòng điền vào họ và tên",
+      "email": "Vui lòng điền vào email",
+      "phone": "Vui lòng điền vào số điện thoại"
+    },
+    "format": {
+      "email": "Email không hợp lệ"
+    },
+    "contact": {
+      "required": {
+        "content": "Vui lòng điền vào nội dung liên hệ"
+      }
+    }
+  },
   "order-instruction": {
     "title": "Hướng dẫn đặt hàng",
     "step_1": "<strong>Bước 1:</strong> Quý khách tạo tài khoản (nếu chưa có tài khoản) hoặc đăng nhập tại website",
