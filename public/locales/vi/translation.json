@@ -269,5 +269,21 @@
       "content": "Nội dung",
       "send": "Gửi thông tin"
     }
+  },
+  "about": {
+    "title": "Giới thiệu về Horizon Camp",
+    "logan": "Yêu thích cảm giác mạnh",
+    "intro_1": {
+      "title": "Câu chuyện của chúng tôi",
+      "description": "Với triết lý \"Sống là trải nghiệm. Sống là tận hưởng\", Horizon Camp được ra đời cùng sứ mệnh giúp những lữ khách với tình yêu bất tận dành cho thiên nhiên có cơ hội được sống, được hòa mình vào khoảng không gian rộng lớn và kì vĩ ấy. Đây cũng chính là giá trị cốt lõi để ý tưởng về Horizon Camp được nhen nhóm, được hình thành và cuối cùng là được hiện thực hóa dể có thể chạm đến hàng triệu khách hàng."
+    },
+    "intro_2": {
+      "title": "Tầm nhìn chung",
+      "description": "Với mong muốn trở thành một địa chỉ tin cậy trong cộng đồng du lịch - phượt, Horizon Camp nỗ lực đem lại những mặt hàng phù hợp nhất cho mọi khách hàng kèm theo những lời khuyên hữu ích về sản phẩm. Nghiên cứu sâu về nhu cầu thị trường cũng như lĩnh vực du lịch - dã ngoại là những gì Horizon Camp đang kiên định thực hiện để khẳng định uy tín của mình trong mắt khách hàng. Luôn hướng tới một hình ảnh Horizon Camp tin cậy, thân thiện và chuyên nghiệp."
+    },
+    "intro_3": {
+      "title": "Tại sao khách hàng lựa chọn Horizon Camp?",
+      "description": "\"Bởi Khách Hàng - Của Khách Hàng - Vì Khách Hàng\" chính là nguồn gốc cho nguyên tố Your trong cái tên Horizon Camp. Sứ mệnh của chúng tôi sẽ không thể hoàn thành nếu trải nghiệm của các bạn không được trọn vẹn. Để làm được điều này, Horizon Camp đã trải qua quy trình lựa chọn các dòng sản phẩm chất lượng cao, phù hợp và tới từ những nhà sản xuất uy tín nhất."
+    }
   }
 }
