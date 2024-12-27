@@ -38,7 +38,7 @@ const About = ({}) => {
               </div>
             </div>
             <div className="flex-1">
-              <img src={intro_1} alt="" />
+              <img src={intro_1} alt="" loading="lazy" />
             </div>
           </div>
           <div className="flex flex-col items-center gap-6 lg:flex-row-reverse lg:gap-10">
@@ -59,7 +59,7 @@ const About = ({}) => {
               </div>
             </div>
             <div className="flex-1">
-              <img src={intro_2} alt="" />
+              <img src={intro_2} alt="" loading="lazy" />
             </div>
           </div>
           <div className="flex flex-col items-center gap-6 lg:flex-row lg:gap-10">
@@ -80,7 +80,7 @@ const About = ({}) => {
               </div>
             </div>
             <div className="flex-1">
-              <img src={intro_3} alt="" />
+              <img src={intro_3} alt="" loading="lazy" />
             </div>
           </div>
         </div>
