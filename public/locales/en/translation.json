@@ -54,6 +54,21 @@
     "information-security": "Information Security",
     "notfound": "404 Page Not Found"
   },
+  "form-validation": {
+    "required": {
+      "fullname": "Please enter your full name",
+      "email": "Please enter your email",
+      "phone": "Please enter your phone number"
+    },
+    "format": {
+      "email": "Invalid email format"
+    },
+    "contact": {
+      "required": {
+        "content": "Please enter the contact content"
+      }
+    }
+  },
   "order-instruction": {
     "title": "Order Instructions",
     "step_1": "<strong>Step 1:</strong> Create an account (if you don't have an account) or log in at the website",
