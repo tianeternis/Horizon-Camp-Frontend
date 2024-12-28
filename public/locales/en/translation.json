@@ -167,7 +167,7 @@
     "categories": {
       "official_products": {
         "title": "Officially Distributed Products by Horizon Camp",
-        "description": "For official products, customers encountering issues are advised to bring the product to any <strong>Horizon Camp</strong> store for warranty support. Alternatively, you can bring the product to the brand’s warranty center for assistance.",
+        "description": "For official products, customers encountering issues are advised to bring the product to any <strong>Horizon Camp</strong> store for warranty support. Alternatively, you can bring the product to the brand's warranty center for assistance.",
         "note": "Note: For officially warranted products, <strong>Horizon Camp</strong> acts as an intermediary between customers and manufacturers, representing customers to ensure their warranty rights. <strong>Horizon Camp</strong> does not decide the conditions or policies for warranties on officially distributed products.",
         "warranty_process": {
           "title": "Warranty Process",
@@ -285,5 +285,134 @@
       "title": "Why Do Customers Choose Horizon Camp?",
       "description": "\"For Customers - By Customers - Because of Customers\" is the foundation for the element 'Your' in the name Horizon Camp. Our mission cannot be fulfilled if your experiences are not complete. To achieve this, Horizon Camp has undergone a rigorous selection process to offer high-quality products that are suitable and sourced from the most reputable manufacturers."
     }
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "sub_title": "Please send us your question by emailing us or simply fill out the form on the ",
+    "contact": "Contact page",
+    "content": [
+      {
+        "title": "Account",
+        "questions": [
+          {
+            "question": "Why is my password not accepted?",
+            "answer": "We are sorry, but there seems to be an issue with your password. It may be too weak or not meet our password requirements. Please reset your password through the My Account section on our website."
+          },
+          {
+            "question": "What if I forget my password?",
+            "answer": "Don't worry, we will still have your email address and other details in our system. Please go to the My Account section on our website, select the forgot password option, and follow the steps to reset your password."
+          },
+          {
+            "question": "Can I close my online account?",
+            "answer": "Yes, you can simply go to the My Account section and follow the steps to delete your online account in the Delete Account section."
+          }
+        ]
+      },
+      {
+        "title": "Returns and Refunds",
+        "questions": [
+          {
+            "question": "How do I return an item to the store?",
+            "answer": "You can find all the information related to returning items to us on the Returns Policy page."
+          },
+          {
+            "question": "How long can I keep an order before returning it?",
+            "answer": "You have 3 days to notify us of the items you wish to cancel from the time you receive the order, and then another 3 days to return the items to us."
+          },
+          {
+            "question": "What if my item is faulty?",
+            "answer": "If you suspect that your item may be faulty, please let us know immediately by bringing the product to your local Horizon Camp store or contacting our customer care team. We will try to resolve any issue with a faulty item as quickly as possible, but we need you to notify us as soon as you notice the problem."
+          }
+        ]
+      },
+      {
+        "title": "Orders",
+        "questions": [
+          {
+            "question": "Can I cancel my order?",
+            "answer": "Yes, you can cancel your order if it has not yet been handed over to the courier."
+          },
+          {
+            "question": "Can I change my order?",
+            "answer": "You can change your information or order if it has not yet been handed over to the courier by canceling the order and placing a new one. However, if the order has been accepted into our system, we regret that we cannot make any changes, including updates to billing/shipping address, products, payment methods, or delivery services."
+          }
+        ]
+      },
+      {
+        "title": "Online Shopping",
+        "questions": [
+          {
+            "question": "How do I use a discount code?",
+            "answer": "Once you've added items to your cart, you can choose the delivery method and then enter the discount code before proceeding to checkout. Please make sure you enter the code correctly and then click 'Apply'. This will refresh the cart page and display the discount. If the code is invalid, a red notification will appear at the top of the page, and the discount will not be applied. Some products may be excluded from promotional discounts."
+          },
+          {
+            "question": "I want to buy in bulk. Can I get a discount?",
+            "answer": "If you have any inquiries related to bulk purchases, please contact our group sales team for assistance."
+          },
+          {
+            "question": "Did you receive my order?",
+            "answer": "Once you've entered your order, delivery details, and payment, you'll be prompted to click 'Complete Order'. It may take a few minutes for the payment to be authorized, and your screen will automatically refresh to display your order number and confirmation. You will also receive an email shortly after to confirm your order. If you haven't received an email, please check your spam folder. If you still haven't received confirmation, it's unlikely that we've received your order. Please contact us if you'd like us to check."
+          },
+          {
+            "question": "How do I know when my order has been received?",
+            "answer": "After completing the checkout process, you will be provided with an order reference number, and we will send you a confirmation email to your registered email address. The email will detail your order with the reference number, products, and total order value. Please keep the reference number for any queries regarding your order. If you haven't received an email, check your spam folder. If your order status is 'Processing,' it means we have received your order and are preparing to ship it."
+          },
+          {
+            "question": "I'm looking for an item on the website, but it isn't listed. Can I order it?",
+            "answer": "Unfortunately, we can only place orders for items that are listed on our website."
+          },
+          {
+            "question": "Can you let me know if you're getting an item back in stock?",
+            "answer": "We cannot inform you when a product will be restocked. However, as soon as it becomes available, it will appear on our website for purchase."
+          }
+        ]
+      },
+      {
+        "title": "Delivery Information",
+        "questions": [
+          {
+            "question": "Do you deliver internationally?",
+            "answer": "Currently, we do not deliver internationally. We only offer delivery within Vietnam and the ability to reserve an item for collection in-store."
+          },
+          {
+            "question": "Can I track my order?",
+            "answer": "Yes! Simply follow the link in your email, and our service provider will inform you of the expected delivery time."
+          },
+          {
+            "question": "Where is my order?",
+            "answer": "You can track your order online using our tracking service. Just follow the link in your email or the My Account section on our website. Our service provider will let you know the expected delivery time. In case of any issues with your order, we will contact you via phone or email. However, if you have any concerns, please contact our Customer Care Team."
+          },
+          {
+            "question": "I received my item, but it was damaged. What should I do?",
+            "answer": "We are truly sorry for that! Please contact our Customer Care Team as soon as possible, and they will review the issue for you."
+          },
+          {
+            "question": "I received my item, but it was faulty. What should I do?",
+            "answer": "We are truly sorry for that! Please follow the instructions in your delivery note on how to return the item to our warehouse, and our Returns Team will review the issue for you. Alternatively, you can return your item to one of our stores. Use our Store Finder to locate the nearest branch and bring your delivery note so a member of our Retail Team can assist you further. If you wish to discuss your faulty item beforehand, please contact our Customer Care Team."
+          }
+        ]
+      },
+      {
+        "title": "General Information",
+        "questions": [
+          {
+            "question": "Can I place an order over the phone?",
+            "answer": "Yes, please call us at 0123 456 789 to speak to one of our customer advisors, who will be happy to take your order and advise you on our products."
+          },
+          {
+            "question": "How do I contact Customer Care?",
+            "answer": "If your question is not listed in our help center, please email us at horizoncamp.support@gmail.com."
+          },
+          {
+            "question": "What is your address?",
+            "answer": "Please use the following address for inquiries and complaints: Khu 2, Đường 3/2, Phường Xuân Khánh, Quận Ninh Kiều, Thành phố Cần Thơ."
+          },
+          {
+            "question": "Why isn't my discount code working?",
+            "answer": "Check that you have entered the code exactly as provided, including any special characters. Some products may be excluded from promotional discounts, and you can find details about this on the Terms and Conditions page. If you're still having trouble and received the code from a third party, the offer or discount may have expired."
+          }
+        ]
+      }
+    ]
   }
 }
