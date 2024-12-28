@@ -285,5 +285,134 @@
       "title": "Tại sao khách hàng lựa chọn Horizon Camp?",
       "description": "\"Bởi Khách Hàng - Của Khách Hàng - Vì Khách Hàng\" chính là nguồn gốc cho nguyên tố Your trong cái tên Horizon Camp. Sứ mệnh của chúng tôi sẽ không thể hoàn thành nếu trải nghiệm của các bạn không được trọn vẹn. Để làm được điều này, Horizon Camp đã trải qua quy trình lựa chọn các dòng sản phẩm chất lượng cao, phù hợp và tới từ những nhà sản xuất uy tín nhất."
     }
+  },
+  "faqs": {
+    "title": "Các câu hỏi thường gặp",
+    "sub_title": "Hãy gửi câu hỏi của bạn bằng cách viết email cho chúng tôi hoặc đơn giản là điền câu hỏi vào biểu mẫu tại trang ",
+    "contact": "Liên hệ",
+    "content": [
+      {
+        "title": "Tài khoản",
+        "questions": [
+          {
+            "question": "Tại sao mật khẩu của tôi không được chấp nhận?",
+            "answer": "Chúng tôi rất xin lỗi vì dường như có vấn đề với mật khẩu của bạn, dường như mật khẩu của bạn quá yếu hoặc không đúng yêu cầu mật khẩu của chúng tôi. Vui lòng đặt lại mật khẩu của bạn thông qua phần Tài khoản của tôi trên trang web."
+          },
+          {
+            "question": "Nếu tôi quên mật khẩu thì sao?",
+            "answer": "Đừng lo lắng, chúng tôi vẫn sẽ lưu địa chỉ email của bạn và các chi tiết khác trong hệ thống của chúng tôi. Vui lòng truy cập phần Tài khoản của tôi trên trang web, chọn tùy chọn quên mật khẩu và thực hiện theo các bước để đặt lại mật khẩu."
+          },
+          {
+            "question": "Tôi có thể đóng tài khoản trực tuyến của mình không?",
+            "answer": "Có, bạn chỉ cần truy cập phần Tài khoản của tôi và thực hiện các bước xóa tài khoản trực tuyến của mình tại mục Xóa tài khoản."
+          }
+        ]
+      },
+      {
+        "title": "TRẢ LẠI VÀ HOÀN TIỀN",
+        "questions": [
+          {
+            "question": "Làm thế nào để tôi trả lại một cái gì đó cho cửa hàng?",
+            "answer": "Bạn có thể tìm thấy tất cả các thông tin liên quan đến việc trả lại các mặt hàng cho chúng tôi trên trang Chính sách đổi trả ."
+          },
+          {
+            "question": "Tôi có thể giữ đơn hàng trong bao lâu trước khi trả lại cho bạn?",
+            "answer": "Bạn có 03 ngày để thông báo cho chúng tôi về các mặt hàng bạn muốn hủy kể từ thời điểm bạn nhận được đơn đặt hàng và sau đó 03 ngày nữa để trả lại các mặt hàng của bạn cho chúng tôi."
+          },
+          {
+            "question": "Nếu mặt hàng của tôi bị lỗi thì sao?",
+            "answer": "Nếu bạn lo ngại rằng mặt hàng của bạn có thể bị lỗi, vui lòng cho chúng tôi biết ngay bằng cách mang sản phẩm vào cửa hàng Horizon Camp địa phương hoặc liên hệ với nhóm chăm sóc khách hàng của chúng tôi. Chúng tôi sẽ cố gắng giải quyết mọi vấn đề với một mặt hàng bị lỗi càng nhanh càng tốt nhưng chúng tôi cần bạn thông báo cho chúng tôi ngay khi bạn phát hiện ra vấn đề."
+          }
+        ]
+      },
+      {
+        "title": "ĐƠN ĐẶT HÀNG",
+        "questions": [
+          {
+            "question": "Tôi có thể hủy đơn hàng hay không?",
+            "answer": "Có, Bạn có thể Hủy đơn hàng nếu đơn hàng của bạn vẫn chưa được bàn giao cho đơn vị vận chuyển."
+          },
+          {
+            "question": "Tôi có thể thay đổi đơn hàng của mình không?",
+            "answer": "Bạn có thể thay đổi thông tin hoặc đơn hàng nếu đơn chưa được bàn giao cho đơn vị vận chuyển bằng cách hủy đơn và đặt lại. Còn nếu đơn đã được chấp nhận vào hệ thống của chúng tôi thì tôi e rằng chúng tôi không thể thực hiện bất kỳ thay đổi nào. Điều này bao gồm cập nhật địa chỉ thanh toán / giao hàng, sản phẩm, phương thức thanh toán hoặc dịch vụ giao hàng."
+          }
+        ]
+      },
+      {
+        "title": "MUA SẮM TRỰC TUYẾN",
+        "questions": [
+          {
+            "question": "Làm cách nào để sử dụng mã giảm giá?",
+            "answer": "Khi bạn đã thêm các mặt hàng vào giỏ hàng của mình, bạn có thể chọn phương thức giao hàng và sau đó nhập mã giảm giá trước khi tiếp tục thanh toán. Vui lòng đảm bảo bạn nhập mã chính xác và sau đó nhấp vào “Áp dụng”. Điều này sẽ làm mới trang giỏ và hiển thị giảm giá. Nếu mã không hợp lệ, thông báo màu đỏ sẽ xuất hiện ở đầu trang và giảm giá sẽ không được áp dụng. Một số sản phẩm có thể được loại trừ khỏi giảm giá khuyến mại."
+          },
+          {
+            "question": "Tôi muốn mua hàng số lượng lớn, tôi có thể được giảm giá không?",
+            "answer": "Nếu bạn có bất kỳ thắc mắc nào liên quan đến mua hàng số lượng lớn, vui lòng liên hệ với nhóm bán hàng nhóm của chúng tôi , sẽ có những người hỗ trợ bạn."
+          },
+          {
+            "question": "Bạn đã nhận được đơn đặt hàng của tôi?",
+            "answer": "Khi bạn đã nhập đơn đặt hàng, chi tiết giao hàng và thanh toán, bạn sẽ được yêu cầu nhấp vào \"Hoàn tất đơn hàng\". Sẽ mất vài phút để thanh toán được ủy quyền và màn hình của bạn sẽ tự động làm mới để hiển thị số đơn đặt hàng và xác nhận đơn hàng. Bạn cũng sẽ nhận được một e-mail ngay sau đó để xác nhận đơn hàng của bạn. Nếu bạn chưa nhận được email, trước tiên bạn nên kiểm tra thư mục thư rác.Nếu điều này không xảy ra thì không chắc là chúng tôi đã nhận được đơn đặt hàng của bạn, tuy nhiên xin vui lòng Liên hệ với chúng tôi nếu bạn muốn chúng tôi kiểm tra."
+          },
+          {
+            "question": "Làm sao tôi biết khi nào đơn hàng của tôi đã được nhận?",
+            "answer": "Khi bạn đã hoàn tất quá trình thanh toán, bạn sẽ được cung cấp số tham chiếu đơn hàng và chúng tôi sẽ gửi cho bạn email xác nhận đến địa chỉ email mà bạn đã đăng ký. Email sẽ nêu chi tiết đơn hàng của bạn mà bạn đã đặt với số tham chiếu đơn hàng, sản phẩm và tổng giá trị đơn hàng. Điều quan trọng là bạn giữ lại số tham chiếu đơn hàng để đảm bảo rằng chúng tôi có thể giải quyết mọi truy vấn mà bạn có thể có về đơn hàng của mình một cách nhanh chóng. Nếu bạn chưa nhận được email, trước tiên bạn nên kiểm tra thư mục thư rác. Nếu trạng thái đơn hàng của bạn là “Đang xử lý”, điều này có nghĩa là chúng tôi đã nhận được đơn đặt hàng của bạn và nó đang chờ để được  gửi bởi chúng tôi."
+          },
+          {
+            "question": "Tôi đang tìm kiếm trên trang web cho một mặt hàng nhưng nó không được liệt kê, tôi có thể đặt hàng từ bạn không?",
+            "answer": "Thật không may, chúng tôi chỉ có thể đặt hàng cho các mặt hàng mà chúng tôi có thể thấy được liệt kê trên trang web."
+          },
+          {
+            "question": "Bạn có thể cho tôi biết nếu bạn đang nhận được một mặt hàng trong kho?",
+            "answer": "Chúng tôi không thể cho bạn biết khi nào một sản phẩm sẽ trở lại trong kho, tuy nhiên ngay khi sản phẩm đó xuất hiện như có sẵn trên trang web của chúng tôi để bạn có thể mua."
+          }
+        ]
+      },
+      {
+        "title": "THÔNG TIN GIAO HÀNG",
+        "questions": [
+          {
+            "question": "Bạn có giao hàng ở nước ngoài không?",
+            "answer": "Chúng tôi hiện không giao hàng ở nước ngoài. Chúng tôi chỉ cung cấp giao hàng tại Việt Nam cũng như khả năng dự trữ một mặt hàng để thu thập trong cửa hàng."
+          },
+          {
+            "question": "Tôi có thể theo dõi đơn hàng của tôi không?",
+            "answer": "Vâng! Chỉ cần theo dõi  liên kết trong email  của bạn và nhà cung cấp dịch vụ của chúng tôi sẽ cho bạn biết  thời gian họ sẽ giao hàng."
+          },
+          {
+            "question": "Đơn hàng của tôi đang ở đâu?",
+            "answer": "Bạn có thể theo dõi đơn hàng trực tuyến bằng dịch vụ theo dõi của chúng tôi. Chỉ cần theo liên kết trong email của bạn hoặc phần Tài khoản của tôi trên trang web và nhà cung cấp dịch vụ của chúng tôi sẽ cho bạn biết thời gian họ sẽ đến với việc giao hàng của bạn. Trong trường hợp có thể xảy ra sự cố với đơn đặt hàng của bạn, chúng tôi sẽ liên hệ với bạn qua điện thoại hoặc email để cho bạn biết, tuy nhiên nếu có điều gì bạn muốn thảo luận, vui lòng liên hệ với Nhóm Chăm sóc khách hàng của chúng tôi."
+          },
+          {
+            "question": "Tôi nhận được hàng của tôi nhưng nó đã bị hỏng, tôi phải làm gì?",
+            "answer": "Chúng tôi thực sự xin lỗi về điều đó! Vui lòng liên hệ với nhóm chăm sóc khách hàng của chúng tôi ngay khi bạn có thể và họ sẽ xem xét vấn đề cho bạn."
+          },
+          {
+            "question": "Tôi đã nhận được hàng của tôi nhưng nó bị lỗi, tôi phải làm gì?",
+            "answer": "Chúng tôi thực sự xin lỗi về điều đó! Vui lòng làm theo các hướng dẫn trong phiếu giao hàng của bạn về cách trả lại đơn đặt hàng của bạn cho Kho của chúng tôi và Nhóm Trả hàng của chúng tôi sẽ xem xét vấn đề cho bạn. Ngoài ra, bạn có thể trả lại đơn đặt hàng của bạn cho một trong các cửa hàng của chúng tôi. Sử dụng Trình tìm cửa hàng của chúng tôi để xác định chi nhánh gần nhất và mang theo phiếu giao hàng của bạn để một thành viên của Nhóm bán lẻ của chúng tôi có thể hỗ trợ bạn thêm. Nếu bạn muốn thảo luận trước về mặt hàng bị lỗi của mình, vui lòng liên hệ với Nhóm Chăm sóc khách hàng của chúng tôi."
+          }
+        ]
+      },
+      {
+        "title": "THÔNG TIN CHUNG",
+        "questions": [
+          {
+            "question": "Tôi có thể đặt hàng qua điện thoại không?",
+            "answer": "Có, vui lòng gọi cho chúng tôi theo số 0123 456 789 để nói chuyện với một trong những tư vấn khách hàng của chúng tôi, họ sẽ sẵn lòng nhận đơn đặt hàng và tư vấn cho bạn về các sản phẩm của chúng tôi."
+          },
+          {
+            "question": "Làm cách nào để liên lạc với bộ phận Chăm sóc khách hàng?",
+            "answer": "Nếu câu hỏi của bạn không được liệt kê trên trung tâm trợ giúp của chúng tôi thì xin vui lòng gửi email horizoncamp.support@gmail.com"
+          },
+          {
+            "question": "Địa chỉ của bạn là gì?",
+            "answer": "Vui lòng sử dụng địa chỉ sau cho các truy vấn và khiếu nại: Khu 2, Đường 3/2, Phường Xuân Khánh, Quận Ninh Kiều, Thành phố Cần Thơ."
+          },
+          {
+            "question": "Tại sao mã giảm giá của tôi không hoạt động?",
+            "answer": "Kiểm tra xem bạn đã nhập mã chính xác như được cung cấp, bao gồm bất kỳ ký tự đặc biệt nào. Một số sản phẩm có thể được loại trừ khỏi giảm giá khuyến mại và bạn có thể tìm thấy chi tiết về điều này trên trang Điều khoản và Điều kiện khuyến mãi. Nếu bạn vẫn gặp sự cố và đã nhận được mã giảm giá từ bên thứ ba thì có thể ưu đãi hoặc giảm giá đã hết hạn."
+          }
+        ]
+      }
+    ]
   }
 }
