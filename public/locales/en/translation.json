@@ -52,13 +52,17 @@
     "warranty-policy": "Warranty Policy",
     "return-policy": "Return Policy",
     "information-security": "Information Security",
-    "notfound": "404 Page Not Found"
+    "notfound": "404 Page Not Found",
+    "reset-password": "Reset Password",
+    "activate-account": "Activate Your Account"
   },
   "form-validation": {
     "required": {
       "fullname": "Please enter your full name",
       "email": "Please enter your email",
-      "phone": "Please enter your phone number"
+      "phone": "Please enter your phone number",
+      "password": "Please fill in password",
+      "confirm_password": "Please fill in confirmation password"
     },
     "format": {
       "email": "Invalid email format"
@@ -67,6 +71,11 @@
       "required": {
         "content": "Please enter the contact content"
       }
+    },
+    "password": {
+      "min": "Password must have at least 6 characters",
+      "max": "Password must have at most 20 characters",
+      "confirm_password_not_match": "Confirm password does not match"
     }
   },
   "order-instruction": {
@@ -414,5 +423,25 @@
         ]
       }
     ]
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "login_with": "Or login with",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot password?",
+    "fullname": "Full Name",
+    "confirm-password": "Confirm Password",
+    "activate-account": {
+      "title": "Activate Account",
+      "back_to_home": "Back to Home",
+      "message": {
+        "msg_1": "Congratulations! You have successfully registered an account at Horizon Camp with the email {{email}}.",
+        "msg_2": "To log in and use our services, please activate your registered account.",
+        "msg_3": "<strong>Note:</strong> If the account is not activated within <strong>1 day</strong>, the system will automatically <strong>cancel (delete)</strong> your account."
+      },
+      "activateNow": "Activate Account Now"
+    }
   }
 }

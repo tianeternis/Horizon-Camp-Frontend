@@ -19,6 +19,8 @@ import WarrantyPolicy from "@/pages/WarrantyPolicy";
 import ReturnPolicy from "@/pages/ReturnPolicy";
 import InformationSecurity from "@/pages/InformationSecurity";
 import NotFound from "@/pages/NotFound";
+import ResetPassword from "@/pages/ResetPassword";
+import ActivateAccount from "@/pages/ActivateAccount";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -68,6 +70,16 @@ const routes = [
         path: ROUTES.REGISTER.index,
         element: <Register />,
         handle: { crumb: () => crumb("title.register") },
+      },
+      {
+        path: ROUTES.RESET_PASSWORD.index,
+        element: <ResetPassword />,
+        handle: { crumb: () => crumb("title.reset-password") },
+      },
+      {
+        path: ROUTES.ACTIVATE_ACCOUNT.index,
+        element: <ActivateAccount />,
+        handle: { crumb: () => crumb("title.activate-account") },
       },
       {
         path: ROUTES.CART.index,

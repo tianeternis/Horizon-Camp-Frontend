@@ -52,13 +52,17 @@
     "warranty-policy": "Chính sách bảo hành",
     "return-policy": "Chính sách đổi trả",
     "information-security": "Bảo mật thông tin cá nhân",
-    "notfound": "404 Không tìm thấy trang"
+    "notfound": "404 Không tìm thấy trang",
+    "reset-password": "Lấy lại mật khẩu",
+    "activate-account": "Kích hoạt tài khoản"
   },
   "form-validation": {
     "required": {
       "fullname": "Vui lòng điền vào họ và tên",
       "email": "Vui lòng điền vào email",
-      "phone": "Vui lòng điền vào số điện thoại"
+      "phone": "Vui lòng điền vào số điện thoại",
+      "password": "Vui lòng điền vào mật khẩu",
+      "confirm_password": "Vui lòng điền vào mật khẩu xác nhận"
     },
     "format": {
       "email": "Email không hợp lệ"
@@ -67,6 +71,11 @@
       "required": {
         "content": "Vui lòng điền vào nội dung liên hệ"
       }
+    },
+    "password": {
+      "min": "Mật khẩu phải có ít nhất là 6 kí tự",
+      "max": "Mật khẩu phải có nhiều nhất là 20 kí tự",
+      "confirm_password_not_match": "Mật khẩu xác nhận không khớp"
     }
   },
   "order-instruction": {
@@ -418,6 +427,21 @@
   "auth": {
     "login": "Đăng nhập",
     "register": "Đăng ký",
-    "login_with": "Hoặc đăng nhập bằng"
+    "login_with": "Hoặc đăng nhập bằng",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "forgot_password": "Quên mật khẩu?",
+    "fullname": "Họ và tên",
+    "confirm_password": "Mật khẩu xác nhận",
+    "activate-account": {
+      "title": "Kích hoạt tài khoản",
+      "back_to_home": "Trở về Trang chủ",
+      "message": {
+        "msg_1": "Chúc mừng bạn đã đăng ký tài khoản tại Horizon Camp thành công bằng email {{email}}.",
+        "msg_2": "Để có thể đăng nhập và sử dụng các dịch vụ của chúng tôi, bạn vui lòng thực hiện Kích hoạt tài khoản đã đăng ký.",
+        "msg_3": "<strong>Lưu ý:</strong> Nếu tài khoản không được kích hoạt trong vòng <strong>1 ngày</strong>, hệ thống sẽ tự động <strong>hủy (xóa)</strong> tài khoản của bạn."
+      },
+      "activateNow": "Kích hoạt tài khoản ngay"
+    }
   }
 }

@@ -6,12 +6,12 @@ const SocialAuth = () => {
 
   return (
     <div className="w-full py-6">
-      <div className="mb-4 text-center text-sm text-gray-600 sm:flex sm:items-center sm:gap-4">
+      <div className="mb-4 text-center text-13px text-gray-600 sm:flex sm:items-center sm:gap-4 sm:text-sm">
         <div className="hidden w-full border-t border-solid border-black/10 sm:block"></div>
         <span className="shrink-0 grow">{t("auth.login_with")}</span>
         <div className="hidden w-full border-t border-solid border-black/10 sm:block"></div>
       </div>
-      <div className="mx-auto flex w-72 flex-nowrap gap-2 px-6 sm:w-2/3">
+      <div className="mx-auto flex w-72 flex-nowrap gap-2 sm:w-2/3 sm:px-6">
         <button
           className={`flex w-1/2 flex-nowrap items-center rounded-sm bg-blue-600 text-white`}
         >
