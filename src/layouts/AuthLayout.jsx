@@ -12,7 +12,7 @@ const AuthLayout = ({ children }) => {
     <div className="w-full bg-white sm:bg-transparent">
       <BodyLayout>
         <div className="auth w-full">
-          <div className="w-full sm:mx-auto sm:w-[32rem] sm:rounded-md sm:bg-white md:w-[34rem]">
+          <div className="w-full sm:mx-auto sm:w-[32rem] sm:rounded-md sm:bg-white sm:shadow-[0_0_8px_3px_rgba(0,0,0,0.02)] md:w-[34rem]">
             <div className="w-full px-3 text-black sm:p-6">
               <ul className="flex-nowraps mb-8 flex w-full gap-1 text-15px sm:text-base">
                 <li className="grow font-semibold">

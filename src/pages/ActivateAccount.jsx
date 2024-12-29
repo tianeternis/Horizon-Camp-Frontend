@@ -1,8 +1,12 @@
-import successCheck from "@/assets/images/success-check.png";
+import ActivationForm from "@/components/auth/activateAccount/ActivationForm";
+import ActivationInformaion from "@/components/auth/activateAccount/ActivationInformaion";
+import ActivationSkeleton from "@/components/auth/activateAccount/ActivationSkeleton";
+import CongratulationsConfetti from "@/components/auth/activateAccount/CongratulationsConfetti";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { PATHS } from "@/routes";
-import { Trans, useTranslation } from "react-i18next";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { IoMdArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -11,11 +15,29 @@ const ActivateAccount = ({}) => {
 
   useDynamicTitle(t("title.activate-account"));
 
+  const [isActivated, setIsActivated] = useState(false);
+  const [showSkeleton, setShowSkeleton] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  const handleAcceptActivate = () => {
+    setShowSkeleton(true);
+    setTimeout(() => {
+      setShowSkeleton(false);
+      setIsActivated(true);
+    }, 1000);
+  };
+
+  const handleActivateAccount = (data) => {
+    console.log(data);
+    setIsActivated(false);
+    setShowConfetti(true);
+  };
+
   return (
     <div className="w-full bg-white sm:bg-transparent">
       <BodyLayout>
         <div className="w-full">
-          <div className="w-full space-y-4 p-6 sm:mx-auto sm:w-[32rem] sm:rounded-md sm:bg-white md:w-[40rem]">
+          <div className="relative w-full space-y-4 p-6 sm:mx-auto sm:w-[34rem] sm:rounded-md sm:bg-white sm:shadow-[0_0_8px_3px_rgba(0,0,0,0.02)] md:w-[40rem]">
             <Link
               to={PATHS.home()}
               className="flex items-center gap-2 text-secondary hover:text-primary"
@@ -29,32 +51,16 @@ const ActivateAccount = ({}) => {
               <h4 className="pb-2 text-center text-xl font-semibold uppercase text-black md:text-2xl">
                 {t("auth.activate-account.title")}
               </h4>
-              <div className="sm:flex sm:items-center sm:gap-4">
-                <div className="hidden w-16 sm:block">
-                  <img
-                    src={successCheck}
-                    alt="Success..."
-                    loading="lazy"
-                    className="w-full"
-                  />
-                </div>
-                <div className="text-sm md:text-15px">
-                  {t("auth.activate-account.message.msg_1", {
-                    email: "thienvu@gmail.com",
-                  })}
-                </div>
-              </div>
-              <div className="space-y-4 text-sm md:text-15px">
-                <div>{t("auth.activate-account.message.msg_2")}</div>
-                <div>
-                  <Trans i18nKey="auth.activate-account.message.msg_3" />
-                </div>
-              </div>
-              <div className="w-full pt-4 text-center">
-                <button className="w-full rounded-md bg-main px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary sr-500:w-auto md:text-base">
-                  {t("auth.activate-account.activateNow")}
-                </button>
-              </div>
+              {isActivated === false &&
+                showSkeleton === false &&
+                showConfetti === false && (
+                  <ActivationInformaion handleAccept={handleAcceptActivate} />
+                )}
+              {showSkeleton === true && <ActivationSkeleton />}
+              {isActivated === true && (
+                <ActivationForm handleActivateAccount={handleActivateAccount} />
+              )}
+              {showConfetti === true && <CongratulationsConfetti />}
             </div>
           </div>
         </div>

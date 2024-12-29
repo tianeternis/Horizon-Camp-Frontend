@@ -62,7 +62,8 @@
       "email": "Please enter your email",
       "phone": "Please enter your phone number",
       "password": "Please fill in password",
-      "confirm_password": "Please fill in confirmation password"
+      "confirm_password": "Please fill in confirmation password",
+      "activation_code": "Please fill in activation code"
     },
     "format": {
       "email": "Invalid email format"
@@ -439,9 +440,21 @@
       "message": {
         "msg_1": "Congratulations! You have successfully registered an account at Horizon Camp with the email {{email}}.",
         "msg_2": "To log in and use our services, please activate your registered account.",
-        "msg_3": "<strong>Note:</strong> If the account is not activated within <strong>1 day</strong>, the system will automatically <strong>cancel (delete)</strong> your account."
+        "msg_3": "<strong>Note:</strong> If the account is not activated within <strong>1 day</strong>, the system will automatically <strong>cancel (delete)</strong> your account.",
+        "msg_4": "We have sent an activation code to the email {{email}}. Please check your inbox.",
+        "msg_5": {
+          "note": "Note",
+          "note_1": "The activation code is valid for <strong>10 minutes</strong> only.",
+          "note_2": "If you did not receive the code or the code has expired, you can request a resend. If you still do not receive the code after requesting a resend, please verify the accuracy of the email you registered and try again."
+        },
+        "msg_6": "Please enter the activation code here. If you have not received the code,"
       },
-      "activateNow": "Activate Account Now"
+      "activateNow": "Activate Account Now",
+      "send_code": "Resend Code",
+      "activate_code": "Activation Code",
+      "confirm_activate": "Confirm Activation",
+      "congratulations": "Congratulations, you have successfully activated your account!",
+      "login_now": "Login Now"
     }
   }
 }
