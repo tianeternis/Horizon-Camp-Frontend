@@ -1,5 +1,6 @@
+import RegisterForm from "@/components/auth/RegisterForm";
 import { useDynamicTitle } from "@/hooks";
-import BodyLayout from "@/layouts/BodyLayout";
+import AuthLayout from "@/layouts/AuthLayout";
 import { useTranslation } from "react-i18next";
 
 const Register = ({}) => {
@@ -7,7 +8,11 @@ const Register = ({}) => {
 
   useDynamicTitle(t("title.register"));
 
-  return <BodyLayout>Register </BodyLayout>;
+  return (
+    <AuthLayout>
+      <RegisterForm />
+    </AuthLayout>
+  );
 };
 
 export default Register;

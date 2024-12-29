@@ -1,5 +1,6 @@
+import LoginForm from "@/components/auth/LoginForm";
 import { useDynamicTitle } from "@/hooks";
-import BodyLayout from "@/layouts/BodyLayout";
+import AuthLayout from "@/layouts/AuthLayout";
 import { useTranslation } from "react-i18next";
 
 const Login = ({}) => {
@@ -7,7 +8,11 @@ const Login = ({}) => {
 
   useDynamicTitle(t("title.login"));
 
-  return <BodyLayout>Login </BodyLayout>;
+  return (
+    <AuthLayout>
+      <LoginForm />
+    </AuthLayout>
+  );
 };
 
 export default Login;

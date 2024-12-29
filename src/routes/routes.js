@@ -28,6 +28,8 @@ export const ROUTES = {
   WARRANTY_POLICY: { index: "warranty-policy" },
   RETURN_POLICY: { index: "return-policy" },
   INFORMATION_SECURITY: { index: "information-security" },
+  RESET_PASSWORD: { index: "reset-password" },
+  ACTIVATE_ACCOUNT: { index: "activate-account" },
   NOTFOUND: { index: "*" },
 };
 
@@ -50,4 +52,6 @@ export const PATHS = {
   warrantyPolicy: getPath(`/${ROUTES.WARRANTY_POLICY.index}`),
   returnPolicy: getPath(`/${ROUTES.RETURN_POLICY.index}`),
   informationSecurity: getPath(`/${ROUTES.INFORMATION_SECURITY.index}`),
+  resetPassword: getPath(`/${ROUTES.RESET_PASSWORD.index}`),
+  activateAccount: getPath(`/${ROUTES.ACTIVATE_ACCOUNT.index}`),
 };
