@@ -456,5 +456,25 @@
       "congratulations": "Chúc mừng bạn đã kích hoạt tài khoản thành công!",
       "login_now": "Đăng nhập ngay"
     }
+  },
+  "home": {
+    "intro": {
+      "intro_1": {
+        "title": "Đảm bảo chất lượng",
+        "description": "Đáp ứng nhu cầu du lịch, dã ngoại với số lượng lớn"
+      },
+      "intro_2": {
+        "title": "Cam kết chất lượng",
+        "description": "Tất cả sản phẩm đều đáp ứng tiêu chuẩn về an toàn và chất lượng"
+      },
+      "intro_3": {
+        "title": "Chính sách ưu đãi",
+        "description": "Khách hàng thân thiết, các chương trình thiện nguyện, cộng đồng"
+      },
+      "intro_4": {
+        "title": "Chính sách bảo hành",
+        "description": "Cung cấp cam kết sửa chữa hoặc đổi trả sản phẩm nếu có lỗi"
+      }
+    }
   }
 }

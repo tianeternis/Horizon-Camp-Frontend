@@ -1,4 +1,5 @@
-import homeBackgroundImage from "@/assets/images/home-bg-img.webp";
+import Banner from "@/components/home/Banner";
+import IntroduceQuality from "@/components/home/IntroduceQuality";
 import { useDynamicTitle } from "@/hooks";
 
 const Home = ({}) => {
@@ -6,13 +7,8 @@ const Home = ({}) => {
 
   return (
     <div>
-      <div className="relative h-screen w-full">
-        <img
-          src={homeBackgroundImage}
-          className="-z-10 h-full w-full object-cover object-center"
-        />
-      </div>
-      <div className="h-96">Home page</div>
+      <Banner />
+      <IntroduceQuality />
     </div>
   );
 };
