@@ -1,0 +1,4 @@
+.home-brands .swiper-wrapper {
+  display: flex;
+  align-items: center !important;
+}
