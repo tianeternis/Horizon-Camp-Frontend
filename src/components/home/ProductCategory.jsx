@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const ProductCategory = ({}) => {
   return (
-    <div className="w-full bg-white">
-      <div className="mx-auto max-w-screen-xl px-3 py-16">
+    <div className="w-full bg-transparent">
+      <div className="mx-auto max-w-screen-xl px-3 pb-4 pt-6 md:pt-10 lg:pt-12">
         <h4 className="relative mb-14 text-center text-xl font-bold uppercase text-secondary before:absolute before:-bottom-5 before:left-1/2 before:h-0.5 before:w-28 before:-translate-x-1/2 before:bg-secondary md:mb-20 md:text-3xl md:before:w-40">
           Danh mục sản phẩm
         </h4>
