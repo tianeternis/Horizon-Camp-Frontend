@@ -1,8 +1,12 @@
 import "@/assets/css/home.css";
 import Banner from "@/components/home/Banner";
+import Blogs from "@/components/home/Blogs";
 import Brands from "@/components/home/Brands";
+import Comments from "@/components/home/Comments";
+import FeaturedCategory from "@/components/home/FeaturedCategory";
 import IntroduceQuality from "@/components/home/IntroduceQuality";
 import ProductCategory from "@/components/home/ProductCategory";
+import Products from "@/components/home/Products";
 import { useDynamicTitle } from "@/hooks";
 
 const Home = ({}) => {
@@ -16,6 +20,10 @@ const Home = ({}) => {
         <Brands />
         <ProductCategory />
       </div>
+      <FeaturedCategory />
+      <Products />
+      <Blogs />
+      <Comments />
     </div>
   );
 };

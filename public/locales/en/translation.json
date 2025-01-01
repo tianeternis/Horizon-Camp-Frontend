@@ -475,6 +475,21 @@
         "title": "Warranty Policy",
         "description": "Providing a commitment to repair or replace products if defective"
       }
+    },
+    "product-category": {
+      "title": "Product Category"
+    },
+    "featured-category": {
+      "title": "Featured Category"
+    },
+    "products": {
+      "title": "Horizon Camp products"
+    },
+    "blogs": {
+      "title": "Camping Blog"
+    },
+    "comments": {
+      "title": "Customer reviews"
     }
   }
 }
