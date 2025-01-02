@@ -6,6 +6,7 @@ const Rating = ({
   setValue = (value) => {},
   precision = 0.1,
   readOnly = false,
+  max = 5,
   size = 32,
 }) => {
   return (
@@ -14,6 +15,7 @@ const Rating = ({
         value={value}
         precision={precision}
         readOnly={readOnly}
+        max={max}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
