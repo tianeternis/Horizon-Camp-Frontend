@@ -7,7 +7,9 @@ const Rating = ({
   precision = 0.1,
   readOnly = false,
   max = 5,
-  size = 32,
+  size,
+  colorFilled = "#ffe000",
+  colorEmpty = "#d1d1d1",
 }) => {
   return (
     <div className="w-full">
@@ -19,17 +21,18 @@ const Rating = ({
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
-        icon={<StarRoundedIcon style={{ fontSize: `${size}px` }} />}
-        emptyIcon={<StarRoundedIcon style={{ fontSize: `${size}px` }} />}
+        icon={<StarRoundedIcon style={{ fontSize: "inherit" }} />}
+        emptyIcon={<StarRoundedIcon style={{ fontSize: "inherit" }} />}
         sx={{
+          fontSize: size || "inherit",
           "& .MuiRating-iconFilled": {
-            color: "#ffe000",
+            color: colorFilled,
           },
           "& .MuiRating-iconEmpty": {
-            color: "#d1d1d1",
+            color: colorEmpty,
           },
           "& .MuiRating-iconHover": {
-            color: "#ffe000",
+            color: colorFilled,
           },
         }}
       />

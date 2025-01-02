@@ -22,8 +22,8 @@ const Home = ({}) => {
       </div>
       <FeaturedCategory />
       <Products />
-      <Blogs />
       <Comments />
+      <Blogs />
     </div>
   );
 };
