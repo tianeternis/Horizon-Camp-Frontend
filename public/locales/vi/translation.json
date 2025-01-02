@@ -486,10 +486,11 @@
       "title": "Sản phẩm của Horizon Camp"
     },
     "blogs": {
-      "title": "Blog cắm trại"
-    },
-    "comments": {
-      "title": "Đánh giá của khách hàng"
+      "title": "Blog cắm trại",
+      "see_all": "Xem tất cả"
     }
+  },
+  "blogs": {
+    "see_more": "Xem thêm"
   }
 }

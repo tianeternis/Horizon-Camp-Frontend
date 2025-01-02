@@ -1,8 +1,4 @@
-.home-brands .swiper-wrapper {
-  display: flex;
-  align-items: center !important;
-}
-
+.home-brands .swiper-wrapper,
 .home-comments .swiper-wrapper {
   display: flex;
   align-items: center !important;

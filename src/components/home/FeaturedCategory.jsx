@@ -58,7 +58,7 @@ const FeaturedCategory = ({}) => {
     <div className="w-full bg-[#fff9f4]">
       <div className="mx-auto max-w-screen-xl px-3">
         <div className="py-8 sm:py-14">
-          <h4 className="relative mb-14 text-center text-xl font-bold uppercase text-main before:absolute before:-bottom-5 before:left-1/2 before:h-0.5 before:w-28 before:-translate-x-1/2 before:bg-main md:mb-20 md:text-3xl md:before:w-40">
+          <h4 className="relative mb-14 text-center text-xl font-bold uppercase text-main before:absolute before:-bottom-2 before:left-1/2 before:h-0.5 before:w-28 before:-translate-x-1/2 before:bg-main md:mb-20 md:text-3xl md:before:-bottom-5 md:before:w-40">
             {t("home.featured-category.title")}
           </h4>
           <div className="grid grid-cols-2 gap-x-2.5 gap-y-6 sr-500:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">

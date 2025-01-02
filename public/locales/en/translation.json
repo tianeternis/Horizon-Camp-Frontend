@@ -486,10 +486,11 @@
       "title": "Horizon Camp products"
     },
     "blogs": {
-      "title": "Camping Blog"
-    },
-    "comments": {
-      "title": "Customer reviews"
+      "title": "Camping Blog",
+      "see_all": "See all"
     }
+  },
+  "blogs": {
+    "see_more": "See more"
   }
 }
