@@ -13,11 +13,21 @@ export default {
         "app-background": "#f7f7f7",
       },
       fontSize: {
+        "11px": ["0.6875rem", "0.875rem"],
         "13px": ["0.8125rem", "1.125rem"],
         "15px": ["0.9375rem", "1.375rem"],
       },
       screens: {
+        "sr-400": "400px",
         "sr-500": "500px",
+        "sr-550": "550px",
+        "sr-600": "600px",
+        "sr-650": "650px",
+        "sr-900": "900px",
+        "sr-1150": "1150px",
+      },
+      zIndex: {
+        1: "1",
       },
     },
   },

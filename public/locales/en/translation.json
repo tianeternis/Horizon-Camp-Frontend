@@ -11,7 +11,9 @@
     "picnic-blog": "Picnic Blog",
     "login": "Login",
     "register": "Register",
-    "close": "Close"
+    "close": "Close",
+    "see_all": "See all",
+    "see_more": "See more"
   },
   "search": {
     "placeholder": "What do you want to find?"
@@ -456,5 +458,43 @@
       "congratulations": "Congratulations, you have successfully activated your account!",
       "login_now": "Login Now"
     }
+  },
+  "home": {
+    "intro": {
+      "intro_1": {
+        "title": "Quality Assurance",
+        "description": "Meeting the needs of travel and camping with large quantities"
+      },
+      "intro_2": {
+        "title": "Quality Commitment",
+        "description": "All products meet safety and quality standards"
+      },
+      "intro_3": {
+        "title": "Special Offers Policy",
+        "description": "Loyal customers, charity programs, and community"
+      },
+      "intro_4": {
+        "title": "Warranty Policy",
+        "description": "Providing a commitment to repair or replace products if defective"
+      }
+    },
+    "product-category": {
+      "title": "Product Category"
+    },
+    "featured-category": {
+      "title": "Featured Category"
+    },
+    "products": {
+      "title": "Horizon Camp products",
+      "newest": "The newest",
+      "best_seler": "Best seller",
+      "discount": "Discounted"
+    },
+    "blogs": {
+      "title": "Camping Blog"
+    }
+  },
+  "products": {
+    "sold": "Sold"
   }
 }
