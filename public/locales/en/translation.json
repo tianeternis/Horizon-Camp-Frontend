@@ -11,7 +11,9 @@
     "picnic-blog": "Picnic Blog",
     "login": "Login",
     "register": "Register",
-    "close": "Close"
+    "close": "Close",
+    "see_all": "See all",
+    "see_more": "See more"
   },
   "search": {
     "placeholder": "What do you want to find?"
@@ -483,14 +485,16 @@
       "title": "Featured Category"
     },
     "products": {
-      "title": "Horizon Camp products"
+      "title": "Horizon Camp products",
+      "newest": "The newest",
+      "best_seler": "Best seller",
+      "discount": "Discounted"
     },
     "blogs": {
-      "title": "Camping Blog",
-      "see_all": "See all"
+      "title": "Camping Blog"
     }
   },
-  "blogs": {
-    "see_more": "See more"
+  "products": {
+    "sold": "Sold"
   }
 }

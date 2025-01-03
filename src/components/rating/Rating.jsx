@@ -12,7 +12,7 @@ const Rating = ({
   colorEmpty = "#d1d1d1",
 }) => {
   return (
-    <div className="w-full">
+    <div className="flex w-full items-center justify-center">
       <MUIRating
         value={value}
         precision={precision}

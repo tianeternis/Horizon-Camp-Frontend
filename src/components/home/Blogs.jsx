@@ -124,7 +124,7 @@ const Blogs = ({}) => {
                 to={PATHS.blogs()}
                 className="text-sm font-semibold text-secondary hover:text-main md:text-15px"
               >
-                {t("home.blogs.see_all")}...
+                {t("navigation.see_all")}...
               </Link>
             </div>
           </div>
