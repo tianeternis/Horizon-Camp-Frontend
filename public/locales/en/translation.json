@@ -13,7 +13,11 @@
     "register": "Register",
     "close": "Close",
     "see_all": "See all",
-    "see_more": "See more"
+    "see_more": "See more",
+    "profile": "My Account",
+    "purchase": "My Purchase",
+    "logout": "Logout",
+    "address_book": "Address Book"
   },
   "search": {
     "placeholder": "What do you want to find?"
@@ -56,7 +60,10 @@
     "information-security": "Information Security",
     "notfound": "404 Page Not Found",
     "reset-password": "Reset Password",
-    "activate-account": "Activate Your Account"
+    "activate-account": "Activate Your Account",
+    "profile": "My Account",
+    "address-book": "Address Book",
+    "purchase": "My Purchase"
   },
   "form-validation": {
     "required": {

@@ -21,6 +21,9 @@ import InformationSecurity from "@/pages/InformationSecurity";
 import NotFound from "@/pages/NotFound";
 import ResetPassword from "@/pages/ResetPassword";
 import ActivateAccount from "@/pages/ActivateAccount";
+import Profile from "@/pages/Profile";
+import AddressBook from "@/pages/AddressBook";
+import Purchase from "@/pages/Purchase";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -80,6 +83,26 @@ const routes = [
         path: ROUTES.ACTIVATE_ACCOUNT.index,
         element: <ActivateAccount />,
         handle: { crumb: () => crumb("title.activate-account") },
+      },
+      {
+        path: ROUTES.ACCOUNT.index,
+        handle: { crumb: () => crumb("title.profile") },
+        children: [
+          {
+            index: true,
+            element: <Profile />,
+          },
+          {
+            path: ROUTES.ACCOUNT.ADDRESS_BOOK.index,
+            element: <AddressBook />,
+            handle: { crumb: () => crumb("title.address-book") },
+          },
+          {
+            path: ROUTES.ACCOUNT.PURCHASE.index,
+            element: <Purchase />,
+            handle: { crumb: () => crumb("title.purchase") },
+          },
+        ],
       },
       {
         path: ROUTES.CART.index,

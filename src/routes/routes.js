@@ -16,6 +16,15 @@ export const ROUTES = {
       index: ":id",
     },
   },
+  ACCOUNT: {
+    index: "account",
+    ADDRESS_BOOK: {
+      index: "address-book",
+    },
+    PURCHASE: {
+      index: "purchase",
+    },
+  },
   CONTACT: { index: "contact" },
   FAQs: { index: "faqs" },
   BLOGS: { index: "blogs" },
@@ -54,4 +63,11 @@ export const PATHS = {
   informationSecurity: getPath(`/${ROUTES.INFORMATION_SECURITY.index}`),
   resetPassword: getPath(`/${ROUTES.RESET_PASSWORD.index}`),
   activateAccount: getPath(`/${ROUTES.ACTIVATE_ACCOUNT.index}`),
+  account: getPath(`/${ROUTES.ACCOUNT.index}`),
+  addressBook: getPath(
+    `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.ADDRESS_BOOK.index}`,
+  ),
+  purchase: getPath(
+    `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.PURCHASE.index}`,
+  ),
 };

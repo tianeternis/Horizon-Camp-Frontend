@@ -13,7 +13,11 @@
     "register": "Đăng ký",
     "close": "Đóng",
     "see_all": "Xem tất cả",
-    "see_more": "Xem thêm"
+    "see_more": "Xem thêm",
+    "profile": "Tài khoản của tôi",
+    "purchase": "Đơn hàng",
+    "logout": "Đăng xuất",
+    "address_book": "Sổ địa chỉ"
   },
   "search": {
     "placeholder": "Bạn muốn tìm gì?"
@@ -56,7 +60,10 @@
     "information-security": "Bảo mật thông tin cá nhân",
     "notfound": "404 Không tìm thấy trang",
     "reset-password": "Lấy lại mật khẩu",
-    "activate-account": "Kích hoạt tài khoản"
+    "activate-account": "Kích hoạt tài khoản",
+    "profile": "Tài khoản",
+    "address-book": "Sổ địa chỉ",
+    "purchase": "Đơn hàng"
   },
   "form-validation": {
     "required": {
