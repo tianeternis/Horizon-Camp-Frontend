@@ -514,18 +514,11 @@
     "delete_account": "Xóa tài khoản",
     "purchase": "Đơn hàng",
     "address_book": "Sổ địa chỉ",
-    "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
-    "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
-    "required_password": "Mật khẩu thì bắt buộc",
-    "required_confirm_password": "Mật khẩu xác nhận thì bắt buộc",
-    "confirm_password_not_match": "Mật khẩu xác nhận không khớp",
-    "different_current_password": "Mật khẩu mới phải khác với mật khẩu hiện tại",
     "profile-page": {
       "title_1": "Hồ sơ của tôi",
       "title_2": "Quản lý và bảo mật tài khoản của bạn",
       "personalInfor": "Thông tin cá nhân",
       "contactInfor": "Thông tin liên lạc",
-      "username": "Tên người dùng",
       "fullName": "Họ tên",
       "birthday": "Sinh nhật",
       "gender": "Giới tính",
@@ -565,15 +558,12 @@
         "thanks": "Tonatra cảm ơn!"
       }
     },
-    "editProfilePage": {
+    "edit-profile": {
       "title": "Sửa hồ sơ",
-      "username": "Tên người dùng",
       "fullName": "Họ tên",
       "birthday": "Sinh nhật",
       "gender": "Giới tính",
       "phone": "Điện thoại",
-      "address": "Địa chỉ",
-      "required_username": "Tên người dùng thì bắt buộc",
       "male": "Nam",
       "female": "Nữ",
       "other": "Khác",
