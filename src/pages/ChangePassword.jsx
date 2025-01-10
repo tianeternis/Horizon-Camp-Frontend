@@ -2,12 +2,12 @@ import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
-const AddressBook = ({}) => {
+const ChangePassword = ({}) => {
   const { t } = useTranslation();
 
-  useDynamicTitle(t("title.address-book"));
+  useDynamicTitle(t("title.change-password"));
 
-  return <BodyLayout>AddressBook </BodyLayout>;
+  return <BodyLayout>ChangePassword</BodyLayout>;
 };
 
-export default AddressBook;
+export default ChangePassword;

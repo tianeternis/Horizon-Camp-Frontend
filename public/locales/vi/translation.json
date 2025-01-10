@@ -63,7 +63,10 @@
     "activate-account": "Kích hoạt tài khoản",
     "profile": "Tài khoản",
     "address-book": "Sổ địa chỉ",
-    "purchase": "Đơn hàng"
+    "purchase": "Đơn hàng",
+    "edit-profile": "Sửa hồ sơ",
+    "change-password": "Đổi mật khẩu",
+    "delete-account": "Xóa tài khoản"
   },
   "form-validation": {
     "required": {
@@ -503,5 +506,81 @@
   },
   "products": {
     "sold": "Đã bán"
+  },
+  "account": {
+    "profile": "Hồ sơ",
+    "edit_profile": "Sửa hồ sơ",
+    "change_password": "Đổi mật khẩu",
+    "delete_account": "Xóa tài khoản",
+    "purchase": "Đơn hàng",
+    "address_book": "Sổ địa chỉ",
+    "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
+    "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
+    "required_password": "Mật khẩu thì bắt buộc",
+    "required_confirm_password": "Mật khẩu xác nhận thì bắt buộc",
+    "confirm_password_not_match": "Mật khẩu xác nhận không khớp",
+    "different_current_password": "Mật khẩu mới phải khác với mật khẩu hiện tại",
+    "profile-page": {
+      "title_1": "Hồ sơ của tôi",
+      "title_2": "Quản lý và bảo mật tài khoản của bạn",
+      "personalInfor": "Thông tin cá nhân",
+      "contactInfor": "Thông tin liên lạc",
+      "username": "Tên người dùng",
+      "fullName": "Họ tên",
+      "birthday": "Sinh nhật",
+      "gender": "Giới tính",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ"
+    },
+    "changePasswordPage": {
+      "title": "Đổi mật khẩu",
+      "currentPassword": "Mật khẩu hiện tại",
+      "newPassword": "Mật khẩu mới",
+      "confirmPassword": "Xác nhận mật khẩu",
+      "updatePassword": "Cập nhật mật khẩu",
+      "forgotPassword": "Tôi đã quên mật khẩu"
+    },
+    "deleteAccountPage": {
+      "title": "Xóa tài khoản",
+      "confirmation": {
+        "confirm_0": "Bạn đang yêu cầu xóa tài khoản của mình. Vui lòng lưu ý rằng:",
+        "confirm_1": "Tất cả thông tin cá nhân, đơn hàng, và lịch sử giao dịch của bạn sẽ bị xóa vĩnh viễn.",
+        "confirm_2": "Sau khi tài khoản bị xóa, bạn sẽ không thể khôi phục lại bất kỳ dữ liệu nào.",
+        "confirm_3": "Nếu bạn có bất kỳ đơn hàng nào đang chờ xử lý, chúng sẽ bị hủy và không thể hoàn tất.",
+        "confirm_4": "Việc xóa tài khoản không thể hoàn tác.",
+        "isAgreed": "Có, tôi muốn xóa vĩnh viễn tài khoản này và tất cả các dữ liệu của tài khoản.",
+        "delete": "Xóa bỏ"
+      },
+      "verify_identity": "Xác minh danh tính",
+      "password": "Mật khẩu",
+      "continue": "Tiếp tục",
+      "cancel": "Hủy",
+      "finishConfirm": "Việc xóa tài khoản sẽ không thể khôi phục lại. Bạn có chắc chắn muốn xóa tài khoản của mình không?",
+      "qualified": {
+        "warning_0": "Cảnh báo:",
+        "warning_1": "Tài khoản của bạn hiện đang có:",
+        "warning_2": "Vui lòng hoàn thành hết tất cả các đơn này trước khi thực hiện xóa tài khoản.",
+        "purchase": "đơn hàng đang được vận chuyển.",
+        "reservation": "đơn đặt bàn đã được xử lý và xác nhận.",
+        "thanks": "Tonatra cảm ơn!"
+      }
+    },
+    "editProfilePage": {
+      "title": "Sửa hồ sơ",
+      "username": "Tên người dùng",
+      "fullName": "Họ tên",
+      "birthday": "Sinh nhật",
+      "gender": "Giới tính",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ",
+      "required_username": "Tên người dùng thì bắt buộc",
+      "male": "Nam",
+      "female": "Nữ",
+      "other": "Khác",
+      "upload": "Tải lên",
+      "noAvt": "Gỡ ảnh",
+      "format": "Định dạng: Chấp nhận tất cả định dạng của hình ảnh",
+      "save": "Lưu"
+    }
   }
 }

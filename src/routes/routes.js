@@ -24,6 +24,15 @@ export const ROUTES = {
     PURCHASE: {
       index: "purchase",
     },
+    EDIT_PROFILE: {
+      index: "edit-profile",
+    },
+    CHANGE_PASSWORD: {
+      index: "change-password",
+    },
+    DELETE_ACCOUNT: {
+      index: "delete-account",
+    },
   },
   CONTACT: { index: "contact" },
   FAQs: { index: "faqs" },
@@ -69,5 +78,14 @@ export const PATHS = {
   ),
   purchase: getPath(
     `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.PURCHASE.index}`,
+  ),
+  editProfile: getPath(
+    `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.EDIT_PROFILE.index}`,
+  ),
+  changePassword: getPath(
+    `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.CHANGE_PASSWORD.index}`,
+  ),
+  deleteAccount: getPath(
+    `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.DELETE_ACCOUNT.index}`,
   ),
 };

@@ -12,7 +12,7 @@ import AccountMenu from "./AccountMenu";
 const TopBar = ({ toggleDrawer = (v) => {} }) => {
   const { t } = useTranslation();
 
-  const isAuth = true;
+  const isAuth = false;
 
   return (
     <div className="bg-white/85">

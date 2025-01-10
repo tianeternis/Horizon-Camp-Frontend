@@ -63,7 +63,10 @@
     "activate-account": "Activate Your Account",
     "profile": "My Account",
     "address-book": "Address Book",
-    "purchase": "My Purchase"
+    "purchase": "My Purchase",
+    "edit-profile": "Edit Profile",
+    "change-password": "Change Password",
+    "delete-account": "Delete Account"
   },
   "form-validation": {
     "required": {

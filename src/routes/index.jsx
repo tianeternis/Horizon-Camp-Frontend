@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { ROUTES } from "./routes";
 
+import AccountLayout from "@/layouts/AccountLayout";
 import MainLayout from "@/layouts/MainLayout";
 
 import Home from "@/pages/Home";
@@ -24,6 +25,9 @@ import ActivateAccount from "@/pages/ActivateAccount";
 import Profile from "@/pages/Profile";
 import AddressBook from "@/pages/AddressBook";
 import Purchase from "@/pages/Purchase";
+import EditProfile from "@/pages/EditProfile";
+import ChangePassword from "@/pages/ChangePassword";
+import DeleteAccount from "@/pages/DeleteAccount";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -86,6 +90,7 @@ const routes = [
       },
       {
         path: ROUTES.ACCOUNT.index,
+        element: <AccountLayout />,
         handle: { crumb: () => crumb("title.profile") },
         children: [
           {
@@ -101,6 +106,21 @@ const routes = [
             path: ROUTES.ACCOUNT.PURCHASE.index,
             element: <Purchase />,
             handle: { crumb: () => crumb("title.purchase") },
+          },
+          {
+            path: ROUTES.ACCOUNT.EDIT_PROFILE.index,
+            element: <EditProfile />,
+            handle: { crumb: () => crumb("title.edit-profile") },
+          },
+          {
+            path: ROUTES.ACCOUNT.CHANGE_PASSWORD.index,
+            element: <ChangePassword />,
+            handle: { crumb: () => crumb("title.change-password") },
+          },
+          {
+            path: ROUTES.ACCOUNT.DELETE_ACCOUNT.index,
+            element: <DeleteAccount />,
+            handle: { crumb: () => crumb("title.delete-account") },
           },
         ],
       },

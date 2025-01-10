@@ -2,12 +2,12 @@ import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
-const AddressBook = ({}) => {
+const DeleteAccount = ({}) => {
   const { t } = useTranslation();
 
-  useDynamicTitle(t("title.address-book"));
+  useDynamicTitle(t("title.delete-account"));
 
-  return <BodyLayout>AddressBook </BodyLayout>;
+  return <BodyLayout>DeleteAccount </BodyLayout>;
 };
 
-export default AddressBook;
+export default DeleteAccount;

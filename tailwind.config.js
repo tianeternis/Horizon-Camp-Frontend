@@ -20,6 +20,7 @@ export default {
       screens: {
         "sr-400": "400px",
         "sr-500": "500px",
+        "sr-530": "530px",
         "sr-550": "550px",
         "sr-600": "600px",
         "sr-650": "650px",
