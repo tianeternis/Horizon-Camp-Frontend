@@ -1,5 +1,5 @@
+import ChangePasswordForm from "@/components/account/changePassword/ChangePasswordForm";
 import { useDynamicTitle } from "@/hooks";
-import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
 const ChangePassword = ({}) => {
@@ -7,7 +7,20 @@ const ChangePassword = ({}) => {
 
   useDynamicTitle(t("title.change-password"));
 
-  return <BodyLayout>ChangePassword</BodyLayout>;
+  return (
+    <div className="divide-y divide-solid divide-black/10 px-2 text-black md:px-6">
+      <div className="py-4">
+        <p className="text-lg font-bold">
+          {t("account.change-password.title")}
+        </p>
+      </div>
+      <div className="py-6">
+        <div className="mx-auto sr-530:w-4/5 sm:w-full lg:w-4/5 xl:w-3/5">
+          <ChangePasswordForm />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ChangePassword;

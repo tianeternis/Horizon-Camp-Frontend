@@ -88,7 +88,8 @@
     "password": {
       "min": "Mật khẩu phải có ít nhất là 6 kí tự",
       "max": "Mật khẩu phải có nhiều nhất là 20 kí tự",
-      "confirm_password_not_match": "Mật khẩu xác nhận không khớp"
+      "confirm_password_not_match": "Mật khẩu xác nhận không khớp",
+      "different_current_password": "Mật khẩu mới phải khác với mật khẩu hiện tại"
     }
   },
   "order-instruction": {
@@ -525,13 +526,13 @@
       "phone": "Điện thoại",
       "address": "Địa chỉ"
     },
-    "changePasswordPage": {
+    "change-password": {
       "title": "Đổi mật khẩu",
-      "currentPassword": "Mật khẩu hiện tại",
-      "newPassword": "Mật khẩu mới",
-      "confirmPassword": "Xác nhận mật khẩu",
-      "updatePassword": "Cập nhật mật khẩu",
-      "forgotPassword": "Tôi đã quên mật khẩu"
+      "current_password": "Mật khẩu hiện tại",
+      "new_password": "Mật khẩu mới",
+      "confirm_password": "Xác nhận mật khẩu",
+      "update_password": "Cập nhật mật khẩu",
+      "forgot_password": "Tôi đã quên mật khẩu"
     },
     "deleteAccountPage": {
       "title": "Xóa tài khoản",

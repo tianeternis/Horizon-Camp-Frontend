@@ -88,7 +88,8 @@
     "password": {
       "min": "Password must have at least 6 characters",
       "max": "Password must have at most 20 characters",
-      "confirm_password_not_match": "Confirm password does not match"
+      "confirm_password_not_match": "Confirm password does not match",
+      "different_current_password": "New password must be different from current password"
     }
   },
   "order-instruction": {
