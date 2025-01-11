@@ -570,6 +570,16 @@
       "noAvt": "Remove",
       "format": "Format: Accepts all image formats",
       "save": "Save"
+    },
+    "address-book": {
+      "title": "My Addresses",
+      "add_new": "Add New Address",
+      "update": "Update",
+      "delete": "Delete",
+      "set_default": "Set as Default",
+      "default": "Default",
+      "address": "Address",
+      "add_new_mobile": "Add New"
     }
   },
   "modal": {

@@ -570,6 +570,16 @@
       "noAvt": "Gỡ ảnh",
       "format": "Định dạng: Chấp nhận tất cả định dạng của hình ảnh",
       "save": "Lưu"
+    },
+    "address-book": {
+      "title": "Địa chỉ của tôi",
+      "add_new": "Thêm địa chỉ mới",
+      "update": "Cập nhật",
+      "delete": "Xóa",
+      "set_default": "Thiết lập mặc định",
+      "default": "Mặc định",
+      "address": "Địa chỉ",
+      "add_new_mobile": "Thêm mới"
     }
   },
   "modal": {

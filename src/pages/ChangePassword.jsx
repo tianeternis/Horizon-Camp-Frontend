@@ -10,7 +10,7 @@ const ChangePassword = ({}) => {
   return (
     <div className="divide-y divide-solid divide-black/10 px-2 text-black md:px-6">
       <div className="py-4">
-        <p className="text-lg font-bold">
+        <p className="text-base font-bold sm:text-lg">
           {t("account.change-password.title")}
         </p>
       </div>

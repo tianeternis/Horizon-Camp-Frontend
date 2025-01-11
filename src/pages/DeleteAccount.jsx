@@ -27,7 +27,9 @@ const DeleteAccount = ({}) => {
   return (
     <div className="divide-y divide-solid divide-black/10 px-2 text-black md:px-6">
       <div className="py-4">
-        <p className="text-lg font-bold">{t("account.delete-account.title")}</p>
+        <p className="text-base font-bold sm:text-lg">
+          {t("account.delete-account.title")}
+        </p>
       </div>
       <div className="py-6">
         {loading === true && <TextSkeleton />}
