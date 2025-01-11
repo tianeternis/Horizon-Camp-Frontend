@@ -507,5 +507,74 @@
   },
   "products": {
     "sold": "Sold"
+  },
+  "account": {
+    "profile": "Profile",
+    "edit_profile": "Edit Profile",
+    "change_password": "Change Password",
+    "delete_account": "Delete Account",
+    "purchase": "Orders",
+    "address_book": "Address Book",
+    "profile-page": {
+      "title_1": "My Profile",
+      "title_2": "Manage and secure your account",
+      "personalInfor": "Personal Information",
+      "contactInfor": "Contact Information",
+      "fullName": "Full Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "phone": "Phone Number",
+      "address": "Address"
+    },
+    "change-password": {
+      "title": "Change Password",
+      "current_password": "Current Password",
+      "new_password": "New Password",
+      "confirm_password": "Confirm Password",
+      "update_password": "Update Password",
+      "forgot_password": "I forgot my password"
+    },
+    "delete-account": {
+      "title": "Delete Account",
+      "confirmation": {
+        "confirm_0": "You are requesting to delete your account. Please note that:",
+        "confirm_1": "All your personal information, orders, and transaction history will be permanently deleted.",
+        "confirm_2": "Once the account is deleted, you will not be able to recover any data.",
+        "confirm_3": "If you have any pending orders, they will be canceled and cannot be completed.",
+        "confirm_4": "Account deletion cannot be undone.",
+        "isAgreed": "Yes, I want to permanently delete this account and all its data."
+      },
+      "confirm_message": "Please enter your account password to confirm deletion:",
+      "password": "Password",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "finish_confirm": "Deleting an account cannot be restored. Are you sure you want to delete your account?",
+      "qualified": {
+        "warning_0": "Warning:",
+        "warning_1": "Your account is having now:",
+        "warning_2": "Please complete all of these forms before deleting your account.",
+        "purchase": "order is being shipped.",
+        "thanks": "Horizon Camp, thank you!"
+      }
+    },
+    "edit-profile": {
+      "title": "Edit Profile",
+      "fullName": "Full Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "phone": "Phone",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "upload": "Upload",
+      "noAvt": "Remove",
+      "format": "Format: Accepts all image formats",
+      "save": "Save"
+    }
+  },
+  "modal": {
+    "default_content": "Are you sure?",
+    "ok": "Yes, I'm sure",
+    "cancel": "No, cancel"
   }
 }

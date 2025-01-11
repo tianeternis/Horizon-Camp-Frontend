@@ -534,7 +534,7 @@
       "update_password": "Cập nhật mật khẩu",
       "forgot_password": "Tôi đã quên mật khẩu"
     },
-    "deleteAccountPage": {
+    "delete-account": {
       "title": "Xóa tài khoản",
       "confirmation": {
         "confirm_0": "Bạn đang yêu cầu xóa tài khoản của mình. Vui lòng lưu ý rằng:",
@@ -542,21 +542,19 @@
         "confirm_2": "Sau khi tài khoản bị xóa, bạn sẽ không thể khôi phục lại bất kỳ dữ liệu nào.",
         "confirm_3": "Nếu bạn có bất kỳ đơn hàng nào đang chờ xử lý, chúng sẽ bị hủy và không thể hoàn tất.",
         "confirm_4": "Việc xóa tài khoản không thể hoàn tác.",
-        "isAgreed": "Có, tôi muốn xóa vĩnh viễn tài khoản này và tất cả các dữ liệu của tài khoản.",
-        "delete": "Xóa bỏ"
+        "isAgreed": "Có, tôi muốn xóa vĩnh viễn tài khoản này và tất cả các dữ liệu của tài khoản."
       },
-      "verify_identity": "Xác minh danh tính",
+      "confirm_message": " Vui lòng nhập mật khẩu tài khoản của bạn để xác nhận xóa:",
       "password": "Mật khẩu",
-      "continue": "Tiếp tục",
+      "delete": "Xóa bỏ",
       "cancel": "Hủy",
-      "finishConfirm": "Việc xóa tài khoản sẽ không thể khôi phục lại. Bạn có chắc chắn muốn xóa tài khoản của mình không?",
+      "finish_confirm": "Việc xóa tài khoản sẽ không thể khôi phục lại. Bạn có chắc chắn muốn xóa tài khoản của mình không?",
       "qualified": {
         "warning_0": "Cảnh báo:",
         "warning_1": "Tài khoản của bạn hiện đang có:",
         "warning_2": "Vui lòng hoàn thành hết tất cả các đơn này trước khi thực hiện xóa tài khoản.",
         "purchase": "đơn hàng đang được vận chuyển.",
-        "reservation": "đơn đặt bàn đã được xử lý và xác nhận.",
-        "thanks": "Tonatra cảm ơn!"
+        "thanks": "Horizon Camp cảm ơn!"
       }
     },
     "edit-profile": {
@@ -573,5 +571,10 @@
       "format": "Định dạng: Chấp nhận tất cả định dạng của hình ảnh",
       "save": "Lưu"
     }
+  },
+  "modal": {
+    "default_content": "Bạn có chăc chắn hay không?",
+    "ok": "Có, tôi chắc chắn",
+    "cancel": "Không, hủy"
   }
 }
