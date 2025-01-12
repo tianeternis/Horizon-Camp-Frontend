@@ -3,7 +3,7 @@ import Avatar from "@/components/avatar/Avatar";
 import Input from "@/components/inputs/Input";
 import Radio from "@/components/inputs/Radio";
 import DateInput from "@/components/inputs/DateInput";
-import LoadingButton from "@/components/buttons/LoadingButton";
+import Button from "@/components/buttons/Button";
 import { Controller } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { editProfileSchema } from "./editProfileFormSchema";
@@ -162,7 +162,7 @@ const EditProfileForm = ({ profile }) => {
         </div>
       </form>
       <div className="w-full sr-530:flex sr-530:justify-center">
-        <LoadingButton
+        <Button
           form="edit_profile"
           label={t("account.edit-profile.save")}
           loading={false}

@@ -1,6 +1,6 @@
 import { CgSpinner } from "react-icons/cg";
 
-const LoadingButton = ({
+const Button = ({
   type = "submit",
   loading = false,
   label,
@@ -32,4 +32,4 @@ const LoadingButton = ({
   );
 };
 
-export default LoadingButton;
+export default Button;

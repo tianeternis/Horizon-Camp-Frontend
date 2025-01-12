@@ -579,7 +579,18 @@
       "set_default": "Thiết lập mặc định",
       "default": "Mặc định",
       "address": "Địa chỉ",
-      "add_new_mobile": "Thêm mới"
+      "add_new_mobile": "Thêm mới",
+      "confirm_delete": "Bạn có chắc muốn xóa địa chỉ này không?",
+      "new_address": "Địa chỉ mới",
+      "fullname": "Họ và tên",
+      "phone": "Số điện thoại",
+      "province": "Tỉnh/Thành phố",
+      "district": "Quận/Huyện",
+      "ward": "Phường/Xã",
+      "details": "Địa chỉ cụ thể",
+      "set_as_default": "Đặt làm địa chỉ mặc định",
+      "complete": "Hoàn thành",
+      "back": "Trở về"
     }
   },
   "modal": {

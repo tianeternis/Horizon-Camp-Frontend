@@ -579,7 +579,18 @@
       "set_default": "Set as Default",
       "default": "Default",
       "address": "Address",
-      "add_new_mobile": "Add New"
+      "add_new_mobile": "Add New",
+      "confirm_delete": "Are you sure you want to delete this address?",
+      "new_address": "New address",
+      "fullname": "Full name",
+      "phone": "Phone number",
+      "province": "City",
+      "district": "District",
+      "ward": "Ward",
+      "details": "Detail address",
+      "set_as_default": "Set as default address",
+      "complete": "Complete",
+      "back": "Back"
     }
   },
   "modal": {

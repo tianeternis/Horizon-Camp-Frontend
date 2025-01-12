@@ -1,5 +1,6 @@
 import Checkbox from "@/components/inputs/Checkbox";
 import PasswordInput from "@/components/inputs/PassowordInput";
+import ConfirmModal from "@/components/modals/ConfirmModal";
 import { useAppForm } from "@/hooks";
 import { PATHS } from "@/routes";
 import { useState } from "react";
@@ -7,7 +8,6 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { deleteAccountFormSchema } from "./deleteFormSchema";
 import { motion } from "framer-motion";
-import DeleteAccountModal from "./DeleteAccountModal";
 
 const DeleteConfirmation = ({ isPassAuthRequired = true }) => {
   const [agreement, setAgreement] = useState(false);
@@ -153,9 +153,10 @@ const DeleteConfirmation = ({ isPassAuthRequired = true }) => {
           </div>
         </motion.div>
       )}
-      <DeleteAccountModal
+      <ConfirmModal
         show={showDeleteModal}
         onClose={handleCloseModal}
+        content={t("account.delete-account.finish_confirm")}
         loading={loading}
         handleOk={handleDelete}
       />
