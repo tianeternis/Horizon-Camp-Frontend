@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { ROUTES } from "./routes";
 
+import AccountLayout from "@/layouts/AccountLayout";
 import MainLayout from "@/layouts/MainLayout";
 
 import Home from "@/pages/Home";
@@ -21,6 +22,12 @@ import InformationSecurity from "@/pages/InformationSecurity";
 import NotFound from "@/pages/NotFound";
 import ResetPassword from "@/pages/ResetPassword";
 import ActivateAccount from "@/pages/ActivateAccount";
+import Profile from "@/pages/Profile";
+import AddressBook from "@/pages/AddressBook";
+import Purchase from "@/pages/Purchase";
+import EditProfile from "@/pages/EditProfile";
+import ChangePassword from "@/pages/ChangePassword";
+import DeleteAccount from "@/pages/DeleteAccount";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -80,6 +87,42 @@ const routes = [
         path: ROUTES.ACTIVATE_ACCOUNT.index,
         element: <ActivateAccount />,
         handle: { crumb: () => crumb("title.activate-account") },
+      },
+      {
+        path: ROUTES.ACCOUNT.index,
+        element: <AccountLayout />,
+        handle: { crumb: () => crumb("title.profile") },
+        children: [
+          {
+            index: true,
+            element: <Profile />,
+          },
+          {
+            path: ROUTES.ACCOUNT.ADDRESS_BOOK.index,
+            element: <AddressBook />,
+            handle: { crumb: () => crumb("title.address-book") },
+          },
+          {
+            path: ROUTES.ACCOUNT.PURCHASE.index,
+            element: <Purchase />,
+            handle: { crumb: () => crumb("title.purchase") },
+          },
+          {
+            path: ROUTES.ACCOUNT.EDIT_PROFILE.index,
+            element: <EditProfile />,
+            handle: { crumb: () => crumb("title.edit-profile") },
+          },
+          {
+            path: ROUTES.ACCOUNT.CHANGE_PASSWORD.index,
+            element: <ChangePassword />,
+            handle: { crumb: () => crumb("title.change-password") },
+          },
+          {
+            path: ROUTES.ACCOUNT.DELETE_ACCOUNT.index,
+            element: <DeleteAccount />,
+            handle: { crumb: () => crumb("title.delete-account") },
+          },
+        ],
       },
       {
         path: ROUTES.CART.index,

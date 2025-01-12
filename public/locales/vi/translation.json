@@ -13,7 +13,11 @@
     "register": "Đăng ký",
     "close": "Đóng",
     "see_all": "Xem tất cả",
-    "see_more": "Xem thêm"
+    "see_more": "Xem thêm",
+    "profile": "Tài khoản của tôi",
+    "purchase": "Đơn hàng",
+    "logout": "Đăng xuất",
+    "address_book": "Sổ địa chỉ"
   },
   "search": {
     "placeholder": "Bạn muốn tìm gì?"
@@ -56,7 +60,13 @@
     "information-security": "Bảo mật thông tin cá nhân",
     "notfound": "404 Không tìm thấy trang",
     "reset-password": "Lấy lại mật khẩu",
-    "activate-account": "Kích hoạt tài khoản"
+    "activate-account": "Kích hoạt tài khoản",
+    "profile": "Tài khoản",
+    "address-book": "Sổ địa chỉ",
+    "purchase": "Đơn hàng",
+    "edit-profile": "Sửa hồ sơ",
+    "change-password": "Đổi mật khẩu",
+    "delete-account": "Xóa tài khoản"
   },
   "form-validation": {
     "required": {
@@ -65,7 +75,11 @@
       "phone": "Vui lòng điền vào số điện thoại",
       "password": "Vui lòng điền vào mật khẩu",
       "confirm_password": "Vui lòng điền vào mật khẩu xác nhận",
-      "activation_code": "Vui lòng điền vào mã kích hoạt tài khoản"
+      "activation_code": "Vui lòng điền vào mã kích hoạt tài khoản",
+      "province": "Vui lòng chọn Tỉnh/Thành phố",
+      "district": "Vui lòng chọn Quận/Huyện",
+      "ward": "Vui lòng chọn Phường/Xã",
+      "details_address": "Vui lòng điền vào địa chỉ cụ thể"
     },
     "format": {
       "email": "Email không hợp lệ"
@@ -78,7 +92,8 @@
     "password": {
       "min": "Mật khẩu phải có ít nhất là 6 kí tự",
       "max": "Mật khẩu phải có nhiều nhất là 20 kí tự",
-      "confirm_password_not_match": "Mật khẩu xác nhận không khớp"
+      "confirm_password_not_match": "Mật khẩu xác nhận không khớp",
+      "different_current_password": "Mật khẩu mới phải khác với mật khẩu hiện tại"
     }
   },
   "order-instruction": {
@@ -496,5 +511,96 @@
   },
   "products": {
     "sold": "Đã bán"
+  },
+  "account": {
+    "profile": "Hồ sơ",
+    "edit_profile": "Sửa hồ sơ",
+    "change_password": "Đổi mật khẩu",
+    "delete_account": "Xóa tài khoản",
+    "purchase": "Đơn hàng",
+    "address_book": "Sổ địa chỉ",
+    "profile-page": {
+      "title_1": "Hồ sơ của tôi",
+      "title_2": "Quản lý và bảo mật tài khoản của bạn",
+      "personalInfor": "Thông tin cá nhân",
+      "contactInfor": "Thông tin liên lạc",
+      "fullName": "Họ tên",
+      "birthday": "Sinh nhật",
+      "gender": "Giới tính",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ"
+    },
+    "change-password": {
+      "title": "Đổi mật khẩu",
+      "current_password": "Mật khẩu hiện tại",
+      "new_password": "Mật khẩu mới",
+      "confirm_password": "Xác nhận mật khẩu",
+      "update_password": "Cập nhật mật khẩu",
+      "forgot_password": "Tôi đã quên mật khẩu"
+    },
+    "delete-account": {
+      "title": "Xóa tài khoản",
+      "confirmation": {
+        "confirm_0": "Bạn đang yêu cầu xóa tài khoản của mình. Vui lòng lưu ý rằng:",
+        "confirm_1": "Tất cả thông tin cá nhân, đơn hàng, và lịch sử giao dịch của bạn sẽ bị xóa vĩnh viễn.",
+        "confirm_2": "Sau khi tài khoản bị xóa, bạn sẽ không thể khôi phục lại bất kỳ dữ liệu nào.",
+        "confirm_3": "Nếu bạn có bất kỳ đơn hàng nào đang chờ xử lý, chúng sẽ bị hủy và không thể hoàn tất.",
+        "confirm_4": "Việc xóa tài khoản không thể hoàn tác.",
+        "isAgreed": "Có, tôi muốn xóa vĩnh viễn tài khoản này và tất cả các dữ liệu của tài khoản."
+      },
+      "confirm_message": " Vui lòng nhập mật khẩu tài khoản của bạn để xác nhận xóa:",
+      "password": "Mật khẩu",
+      "delete": "Xóa bỏ",
+      "cancel": "Hủy",
+      "finish_confirm": "Việc xóa tài khoản sẽ không thể khôi phục lại. Bạn có chắc chắn muốn xóa tài khoản của mình không?",
+      "qualified": {
+        "warning_0": "Cảnh báo:",
+        "warning_1": "Tài khoản của bạn hiện đang có:",
+        "warning_2": "Vui lòng hoàn thành hết tất cả các đơn này trước khi thực hiện xóa tài khoản.",
+        "purchase": "đơn hàng đang được vận chuyển.",
+        "thanks": "Horizon Camp cảm ơn!"
+      }
+    },
+    "edit-profile": {
+      "title": "Sửa hồ sơ",
+      "fullName": "Họ tên",
+      "birthday": "Sinh nhật",
+      "gender": "Giới tính",
+      "phone": "Điện thoại",
+      "male": "Nam",
+      "female": "Nữ",
+      "other": "Khác",
+      "upload": "Tải lên",
+      "noAvt": "Gỡ ảnh",
+      "format": "Định dạng: Chấp nhận tất cả định dạng của hình ảnh",
+      "save": "Lưu"
+    },
+    "address-book": {
+      "title": "Địa chỉ của tôi",
+      "add_new": "Thêm địa chỉ mới",
+      "update": "Cập nhật",
+      "delete": "Xóa",
+      "set_default": "Thiết lập mặc định",
+      "default": "Mặc định",
+      "address": "Địa chỉ",
+      "add_new_mobile": "Thêm mới",
+      "confirm_delete": "Bạn có chắc muốn xóa địa chỉ này không?",
+      "new_address": "Địa chỉ mới",
+      "fullname": "Họ và tên",
+      "phone": "Số điện thoại",
+      "province": "Tỉnh/Thành phố",
+      "district": "Quận/Huyện",
+      "ward": "Phường/Xã",
+      "details": "Địa chỉ cụ thể",
+      "set_as_default": "Đặt làm địa chỉ mặc định",
+      "complete": "Hoàn thành",
+      "back": "Trở về",
+      "update_address": "Cập nhật địa chỉ"
+    }
+  },
+  "modal": {
+    "default_content": "Bạn có chăc chắn hay không?",
+    "ok": "Có, tôi chắc chắn",
+    "cancel": "Không, hủy"
   }
 }

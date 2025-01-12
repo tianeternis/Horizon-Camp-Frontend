@@ -13,7 +13,11 @@
     "register": "Register",
     "close": "Close",
     "see_all": "See all",
-    "see_more": "See more"
+    "see_more": "See more",
+    "profile": "My Account",
+    "purchase": "My Purchase",
+    "logout": "Logout",
+    "address_book": "Address Book"
   },
   "search": {
     "placeholder": "What do you want to find?"
@@ -56,7 +60,13 @@
     "information-security": "Information Security",
     "notfound": "404 Page Not Found",
     "reset-password": "Reset Password",
-    "activate-account": "Activate Your Account"
+    "activate-account": "Activate Your Account",
+    "profile": "My Account",
+    "address-book": "Address Book",
+    "purchase": "My Purchase",
+    "edit-profile": "Edit Profile",
+    "change-password": "Change Password",
+    "delete-account": "Delete Account"
   },
   "form-validation": {
     "required": {
@@ -65,7 +75,11 @@
       "phone": "Please enter your phone number",
       "password": "Please fill in password",
       "confirm_password": "Please fill in confirmation password",
-      "activation_code": "Please fill in activation code"
+      "activation_code": "Please fill in activation code",
+      "province": "Please select a city",
+      "district": "Please select a district",
+      "ward": "Please select a ward",
+      "details_address": "Please fill in details addresses"
     },
     "format": {
       "email": "Invalid email format"
@@ -78,7 +92,8 @@
     "password": {
       "min": "Password must have at least 6 characters",
       "max": "Password must have at most 20 characters",
-      "confirm_password_not_match": "Confirm password does not match"
+      "confirm_password_not_match": "Confirm password does not match",
+      "different_current_password": "New password must be different from current password"
     }
   },
   "order-instruction": {
@@ -496,5 +511,96 @@
   },
   "products": {
     "sold": "Sold"
+  },
+  "account": {
+    "profile": "Profile",
+    "edit_profile": "Edit Profile",
+    "change_password": "Change Password",
+    "delete_account": "Delete Account",
+    "purchase": "Orders",
+    "address_book": "Address Book",
+    "profile-page": {
+      "title_1": "My Profile",
+      "title_2": "Manage and secure your account",
+      "personalInfor": "Personal Information",
+      "contactInfor": "Contact Information",
+      "fullName": "Full Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "phone": "Phone Number",
+      "address": "Address"
+    },
+    "change-password": {
+      "title": "Change Password",
+      "current_password": "Current Password",
+      "new_password": "New Password",
+      "confirm_password": "Confirm Password",
+      "update_password": "Update Password",
+      "forgot_password": "I forgot my password"
+    },
+    "delete-account": {
+      "title": "Delete Account",
+      "confirmation": {
+        "confirm_0": "You are requesting to delete your account. Please note that:",
+        "confirm_1": "All your personal information, orders, and transaction history will be permanently deleted.",
+        "confirm_2": "Once the account is deleted, you will not be able to recover any data.",
+        "confirm_3": "If you have any pending orders, they will be canceled and cannot be completed.",
+        "confirm_4": "Account deletion cannot be undone.",
+        "isAgreed": "Yes, I want to permanently delete this account and all its data."
+      },
+      "confirm_message": "Please enter your account password to confirm deletion:",
+      "password": "Password",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "finish_confirm": "Deleting an account cannot be restored. Are you sure you want to delete your account?",
+      "qualified": {
+        "warning_0": "Warning:",
+        "warning_1": "Your account is having now:",
+        "warning_2": "Please complete all of these forms before deleting your account.",
+        "purchase": "order is being shipped.",
+        "thanks": "Horizon Camp, thank you!"
+      }
+    },
+    "edit-profile": {
+      "title": "Edit Profile",
+      "fullName": "Full Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "phone": "Phone",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "upload": "Upload",
+      "noAvt": "Remove",
+      "format": "Format: Accepts all image formats",
+      "save": "Save"
+    },
+    "address-book": {
+      "title": "My Addresses",
+      "add_new": "Add New Address",
+      "update": "Update",
+      "delete": "Delete",
+      "set_default": "Set as Default",
+      "default": "Default",
+      "address": "Address",
+      "add_new_mobile": "Add New",
+      "confirm_delete": "Are you sure you want to delete this address?",
+      "new_address": "New address",
+      "fullname": "Full name",
+      "phone": "Phone number",
+      "province": "City",
+      "district": "District",
+      "ward": "Ward",
+      "details": "Detail address",
+      "set_as_default": "Set as default address",
+      "complete": "Complete",
+      "back": "Back",
+      "update_address": "Update Address"
+    }
+  },
+  "modal": {
+    "default_content": "Are you sure?",
+    "ok": "Yes, I'm sure",
+    "cancel": "No, cancel"
   }
 }
