@@ -75,7 +75,11 @@
       "phone": "Vui lòng điền vào số điện thoại",
       "password": "Vui lòng điền vào mật khẩu",
       "confirm_password": "Vui lòng điền vào mật khẩu xác nhận",
-      "activation_code": "Vui lòng điền vào mã kích hoạt tài khoản"
+      "activation_code": "Vui lòng điền vào mã kích hoạt tài khoản",
+      "province": "Vui lòng chọn Tỉnh/Thành phố",
+      "district": "Vui lòng chọn Quận/Huyện",
+      "ward": "Vui lòng chọn Phường/Xã",
+      "details_address": "Vui lòng điền vào địa chỉ cụ thể"
     },
     "format": {
       "email": "Email không hợp lệ"
@@ -590,7 +594,8 @@
       "details": "Địa chỉ cụ thể",
       "set_as_default": "Đặt làm địa chỉ mặc định",
       "complete": "Hoàn thành",
-      "back": "Trở về"
+      "back": "Trở về",
+      "update_address": "Cập nhật địa chỉ"
     }
   },
   "modal": {

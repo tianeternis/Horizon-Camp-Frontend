@@ -1,4 +1,5 @@
 import AddAddressModal from "@/components/account/addressBook/AddAddressModal";
+import UpdateAddressModal from "@/components/account/addressBook/UpdateAddressModal";
 import ConfirmModal from "@/components/modals/ConfirmModal";
 import { useDynamicTitle } from "@/hooks";
 import { formatAddress } from "@/utils/format/address";
@@ -14,7 +15,7 @@ const addresses = [
     district: "Quận Ninh Kiều",
     ward: "Phường An Khánh",
     details: "Nguyễn Văn Cừ",
-    isDefault: true,
+    default: true,
   },
   {
     fullname: "Nguyễn Thiên Vũ",
@@ -23,7 +24,7 @@ const addresses = [
     district: "Quận Ninh Kiều",
     ward: "Phường An Khánh",
     details: "Nguyễn Văn Cừ",
-    isDefault: false,
+    default: false,
   },
   {
     fullname: "Nguyễn Thiên Vũ",
@@ -32,7 +33,7 @@ const addresses = [
     district: "Quận Ninh Kiều",
     ward: "Phường An Khánh",
     details: "Nguyễn Văn Cừ",
-    isDefault: false,
+    default: false,
   },
 ];
 
@@ -44,6 +45,8 @@ const AddressBook = ({}) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deletData, setDeleteData] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [updateData, setUpdateData] = useState(null);
 
   const handleRequestDelete = (address) => {
     if (address) {
@@ -70,6 +73,19 @@ const AddressBook = ({}) => {
 
   const handleOpenAddModal = () => {
     setShowAddModal(true);
+  };
+
+  const handleOpenUpdateModal = (address) => {
+    if (address) {
+      console.log("update address: ", address);
+      setUpdateData(address);
+      setShowUpdateModal(true);
+    }
+  };
+
+  const handleCloseUpdateModal = () => {
+    setUpdateData(null);
+    setShowUpdateModal(false);
   };
 
   return (
@@ -125,7 +141,7 @@ const AddressBook = ({}) => {
                       province: address.province,
                     })}
                   </div>
-                  {address.isDefault && (
+                  {address.default && (
                     <div className="w-fit rounded-md border border-solid border-orange-200 bg-orange-50 px-1.5 py-1 text-xs font-medium text-orange-500">
                       {t("account.address-book.default")}
                     </div>
@@ -133,10 +149,13 @@ const AddressBook = ({}) => {
                 </div>
                 <div className="flex items-center justify-between sr-530:w-1/2 sr-530:flex-col sr-530:items-end sr-530:justify-center sr-530:gap-3">
                   <div className="flex items-center gap-4 text-13px">
-                    <button className="text-blue-600 hover:text-blue-700">
+                    <button
+                      className="text-blue-600 hover:text-blue-700"
+                      onClick={() => handleOpenUpdateModal(address)}
+                    >
                       {t("account.address-book.update")}
                     </button>
-                    {!address.isDefault && (
+                    {!address.default && (
                       <button
                         className="text-red-500 hover:text-red-600"
                         onClick={() => handleRequestDelete(address)}
@@ -146,7 +165,7 @@ const AddressBook = ({}) => {
                     )}
                   </div>
                   <button
-                    disabled={address.isDefault}
+                    disabled={address.default}
                     className="w-fit rounded-sm border border-solid border-gray-400 bg-white/30 px-2 py-1 text-center text-xs hover:bg-white disabled:cursor-not-allowed disabled:opacity-80 disabled:hover:bg-white/30 sm:px-4 sm:py-1.5 md:bg-gray-50/50 md:hover:bg-gray-50 md:disabled:hover:bg-gray-50/50"
                     onClick={() => handleSetAsDefault(address)}
                   >
@@ -161,6 +180,11 @@ const AddressBook = ({}) => {
       <AddAddressModal
         show={showAddModal}
         onClose={() => setShowAddModal(false)}
+      />
+      <UpdateAddressModal
+        show={showUpdateModal}
+        onClose={handleCloseUpdateModal}
+        // address={updateData}
       />
       <ConfirmModal
         show={showDeleteModal}

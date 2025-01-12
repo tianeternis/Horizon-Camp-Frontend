@@ -75,7 +75,11 @@
       "phone": "Please enter your phone number",
       "password": "Please fill in password",
       "confirm_password": "Please fill in confirmation password",
-      "activation_code": "Please fill in activation code"
+      "activation_code": "Please fill in activation code",
+      "province": "Please select a city",
+      "district": "Please select a district",
+      "ward": "Please select a ward",
+      "details_address": "Please fill in details addresses"
     },
     "format": {
       "email": "Invalid email format"
@@ -590,7 +594,8 @@
       "details": "Detail address",
       "set_as_default": "Set as default address",
       "complete": "Complete",
-      "back": "Back"
+      "back": "Back",
+      "update_address": "Update Address"
     }
   },
   "modal": {

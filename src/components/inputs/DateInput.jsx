@@ -4,13 +4,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
-import { forwardRef } from "react";
 
 const DateInput = ({
   label,
   control,
   errors,
-  translation = false,
+  translation = true,
   maxDate = null,
   minDate = null,
   inputStyle = {

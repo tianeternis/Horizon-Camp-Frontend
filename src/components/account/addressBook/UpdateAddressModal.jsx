@@ -12,9 +12,21 @@ import { useTranslation } from "react-i18next";
 import { addressFormSchema } from "./addressFormSchama";
 import AddressBookForm from "./AddressBookForm";
 
-const FORM_ID = "add_new_address_form";
+const FORM_ID = "update_new_address_form";
 
-const AddAddressModal = ({ show = false, onClose = () => {} }) => {
+const UpdateAddressModal = ({
+  show = false,
+  onClose = () => {},
+  address = {
+    fullname: "Nguyễn Thiên Vũ",
+    phone: "0123456789",
+    province: { label: "Đồng Tháp", value: "dong-thap" },
+    district: { label: "Cần Thơ", value: "can-tho" },
+    ward: { label: "Hồ Chí Minh", value: "ho-chi-minh" },
+    details: "Kế bên em",
+    default: true,
+  },
+}) => {
   const { t } = useTranslation();
 
   const theme = useTheme();
@@ -26,7 +38,7 @@ const AddAddressModal = ({ show = false, onClose = () => {} }) => {
     formState: { errors },
     handleSubmit,
     reset,
-  } = useAppForm(addressFormSchema);
+  } = useAppForm(addressFormSchema, address);
 
   const handleClose = (e, reason) => {
     if (reason === "backdropClick" || reason === "escapeKeyDown") return;
@@ -34,8 +46,8 @@ const AddAddressModal = ({ show = false, onClose = () => {} }) => {
     reset();
   };
 
-  const handleAddNewAddress = (data) => {
-    console.log("new address", data);
+  const handleUpdateAddress = (data) => {
+    console.log("update address", data);
   };
 
   return (
@@ -55,7 +67,7 @@ const AddAddressModal = ({ show = false, onClose = () => {} }) => {
             padding: "24px",
           }}
         >
-          {t("account.address-book.new_address")}
+          {t("account.address-book.update_address")}
         </DialogTitle>
         <DialogContent sx={{ padding: "0 24px" }}>
           <AddressBookForm
@@ -63,7 +75,7 @@ const AddAddressModal = ({ show = false, onClose = () => {} }) => {
             register={register}
             errors={errors}
             control={control}
-            handleSubmitForm={handleSubmit(handleAddNewAddress)}
+            handleSubmitForm={handleSubmit(handleUpdateAddress)}
           />
         </DialogContent>
         <DialogActions sx={{ padding: "24px" }}>
@@ -85,4 +97,4 @@ const AddAddressModal = ({ show = false, onClose = () => {} }) => {
   );
 };
 
-export default AddAddressModal;
+export default UpdateAddressModal;
