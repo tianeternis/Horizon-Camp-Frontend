@@ -602,5 +602,27 @@
     "default_content": "Bạn có chăc chắn hay không?",
     "ok": "Có, tôi chắc chắn",
     "cancel": "Không, hủy"
+  },
+  "purchase": {
+    "status": {
+      "all": "Tất cả",
+      "to_confirm": "Chờ xác nhận",
+      "to_prepare": "Đang chuẩn bị",
+      "to_ship": "Đang vận chuyển",
+      "completed": "Hoàn thành",
+      "cancelled": "Đã hủy"
+    },
+    "search": "Bạn có thể tìm kiếm theo ID đơn hàng hoặc Tên Sản phẩm",
+    "orderId": "Mã đơn",
+    "seeMore": "Xem thêm sản phẩm",
+    "dish": "món ăn",
+    "buyAgain": "Mua lại",
+    "viewRating": "Xem đánh giá",
+    "payment": "Thanh toán",
+    "cancel": "Hủy đơn",
+    "cancelSuccess": "Hủy đơn thành công!",
+    "orderTotal": "Thành tiền",
+    "emptyData": "Chưa có đơn hàng",
+    "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn hàng với mã là {{id}} này không?"
   }
 }
