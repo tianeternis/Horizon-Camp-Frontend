@@ -25,6 +25,7 @@ export default {
         "sr-600": "600px",
         "sr-650": "650px",
         "sr-900": "900px",
+        "sr-950": "950px",
         "sr-1150": "1150px",
       },
       zIndex: {

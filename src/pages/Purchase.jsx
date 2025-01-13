@@ -1,6 +1,8 @@
+import EmptyPurchase from "@/components/purchase/EmptyPurchase";
+import PurchaseItem from "@/components/purchase/PurchaseItem";
 import Tabs from "@/components/tabs/Tabs";
 import { useDynamicTitle } from "@/hooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LuSearch } from "react-icons/lu";
 
@@ -50,6 +52,22 @@ const Purchase = ({}) => {
 
   const [tabKey, setTabKey] = useState(tabs.all.key);
   const [searchKeyWord, setSearchKeyWord] = useState("");
+  const [purchases, setPurchases] = useState(
+    Array.from({ length: 5 }, (v, k) => k + 1),
+  );
+
+  useEffect(() => {
+    const lengths = {
+      [tabs.all.key]: 6,
+      [tabs.pending_confirm.key]: 1,
+      [tabs.preparing.key]: 2,
+      [tabs.shipping.key]: 4,
+      [tabs.completed.key]: 3,
+      [tabs.cancelled.key]: 5,
+    };
+
+    setPurchases(Array.from({ length: lengths[tabKey] }, (v, k) => k + 1));
+  }, [tabKey]);
 
   return (
     <div className="h-full w-full space-y-4 bg-app-background">
@@ -73,8 +91,19 @@ const Purchase = ({}) => {
         </span>
       </div>
       <div className="space-y-4">
-        {/* {tabs[tabKey]?.tabContent} */}
-        <div className="h-96 w-full bg-white"></div>
+        {purchases.length > 0 ? (
+          purchases.map((item, index) => {
+            return (
+              <PurchaseItem
+                key={`order-${index}-${item?._id}`}
+                // item={item}
+                // handleCancelPurchase={handleCancelPurchase}
+              />
+            );
+          })
+        ) : (
+          <EmptyPurchase />
+        )}
       </div>
     </div>
   );
