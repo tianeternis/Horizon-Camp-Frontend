@@ -1,5 +1,6 @@
-import EmptyPurchase from "@/components/purchase/EmptyPurchase";
-import PurchaseItem from "@/components/purchase/PurchaseItem";
+import ConfirmModal from "@/components/modals/ConfirmModal";
+import EmptyPurchase from "@/components/purchase/list/EmptyPurchase";
+import PurchaseItem from "@/components/purchase/list/PurchaseItem";
 import Tabs from "@/components/tabs/Tabs";
 import { useDynamicTitle } from "@/hooks";
 import { useEffect, useState } from "react";
@@ -55,6 +56,11 @@ const Purchase = ({}) => {
   const [purchases, setPurchases] = useState(
     Array.from({ length: 5 }, (v, k) => k + 1),
   );
+  const [cancel, setCancel] = useState({
+    show: false,
+    data: null,
+    loading: false,
+  });
 
   useEffect(() => {
     const lengths = {
@@ -69,6 +75,19 @@ const Purchase = ({}) => {
     setPurchases(Array.from({ length: lengths[tabKey] }, (v, k) => k + 1));
   }, [tabKey]);
 
+  const handleRequestCancel = (data) => {
+    setCancel((prev) => ({ ...prev, show: true, data: data }));
+  };
+
+  const handleCancel = () => {
+    if (cancel.data) {
+      setCancel((prev) => ({ ...prev, loading: true }));
+      setTimeout(() => {
+        setCancel({ show: false, data: null, loading: false });
+      }, 3000);
+    }
+  };
+
   return (
     <div className="h-full w-full space-y-4 bg-app-background">
       <div className="rounded-sm bg-white text-black">
@@ -79,7 +98,7 @@ const Purchase = ({}) => {
           translation={true}
         />
       </div>
-      <div className="relative hidden w-full sm:block">
+      <form className="relative hidden w-full sm:block">
         <input
           value={searchKeyWord}
           onChange={(e) => setSearchKeyWord(e.target.value)}
@@ -89,18 +108,29 @@ const Purchase = ({}) => {
         <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 peer-focus:text-gray-800">
           <LuSearch className="h-5 w-5" />
         </span>
-      </div>
+      </form>
       <div className="space-y-4">
         {purchases.length > 0 ? (
-          purchases.map((item, index) => {
-            return (
-              <PurchaseItem
-                key={`order-${index}-${item?._id}`}
-                // item={item}
-                // handleCancelPurchase={handleCancelPurchase}
-              />
-            );
-          })
+          <>
+            {purchases.map((item, index) => {
+              return (
+                <PurchaseItem
+                  key={`order-${index}-${item?._id}`}
+                  // item={item}
+                  handleCancel={handleRequestCancel}
+                />
+              );
+            })}
+            <ConfirmModal
+              show={cancel.show}
+              onClose={() =>
+                setCancel({ show: false, data: null, loading: false })
+              }
+              handleOk={handleCancel}
+              content={t("purchase.delete_confirm", { id: cancel.data?._id })}
+              loading={cancel.loading}
+            />
+          </>
         ) : (
           <EmptyPurchase />
         )}

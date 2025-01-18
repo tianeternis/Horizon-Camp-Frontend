@@ -66,7 +66,8 @@
     "purchase": "My Purchase",
     "edit-profile": "Edit Profile",
     "change-password": "Change Password",
-    "delete-account": "Delete Account"
+    "delete-account": "Delete Account",
+    "order-details": "Order Details"
   },
   "form-validation": {
     "required": {
@@ -602,5 +603,26 @@
     "default_content": "Are you sure?",
     "ok": "Yes, I'm sure",
     "cancel": "No, cancel"
+  },
+  "purchase": {
+    "status": {
+      "all": "All",
+      "to_confirm": "To Confirm",
+      "to_prepare": "To Prepare",
+      "to_ship": "To Ship",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "search": "You can search by Order ID or Product Name",
+    "order_ID": "Order ID",
+    "see_more": "View more products",
+    "product": "product",
+    "buy_again": "Buy Again",
+    "view_rating": "View Rating",
+    "payment": "Payment",
+    "cancel": "Cancel",
+    "order_total": "Order Total",
+    "empty_data": "No orders yet",
+    "delete_confirm": "Are you sure you want to cancel the order with ID {{id}}?"
   }
 }

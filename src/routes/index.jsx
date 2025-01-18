@@ -28,6 +28,7 @@ import Purchase from "@/pages/Purchase";
 import EditProfile from "@/pages/EditProfile";
 import ChangePassword from "@/pages/ChangePassword";
 import DeleteAccount from "@/pages/DeleteAccount";
+import OrderDetails from "@/pages/OrderDetails";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -104,8 +105,18 @@ const routes = [
           },
           {
             path: ROUTES.ACCOUNT.PURCHASE.index,
-            element: <Purchase />,
             handle: { crumb: () => crumb("title.purchase") },
+            children: [
+              {
+                index: true,
+                element: <Purchase />,
+              },
+              {
+                path: ROUTES.ACCOUNT.PURCHASE.ORDER_DETAILS.index,
+                element: <OrderDetails />,
+                handle: { crumb: () => crumb("title.order-details") },
+              },
+            ],
           },
           {
             path: ROUTES.ACCOUNT.EDIT_PROFILE.index,

@@ -1,4 +1,5 @@
 import { ORDER_STATUS, PAYMENT_METHOD, PAYMENT_STATUS } from "@/constants";
+import { PATHS } from "@/routes";
 import { formatCurrency } from "@/utils/format/currency";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -23,13 +24,13 @@ const PurchaseItem = ({
     ],
     orderTotal: 150000,
   },
-  handleCancelPurchase = (data) => {},
+  handleCancel = (data) => {},
 }) => {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
   const goToDetail = () => {
-    navigate(`/account/purchase/order/${item?._id}`);
+    navigate(PATHS.orderDetails({ id: item?._id }));
   };
 
   const handleBuyAgain = async () => {};
@@ -38,8 +39,8 @@ const PurchaseItem = ({
 
   return (
     <div className="divide-y divide-dotted divide-black/20 rounded-sm bg-white text-sm text-black">
-      <div className="sr-950:justify-between flex items-center justify-end px-4 py-4 sm:justify-between sm:px-6 md:justify-end">
-        <span className="sr-950:inline hidden text-13px sm:inline md:hidden">
+      <div className="flex items-center justify-end px-4 py-4 sm:justify-between sm:px-6 md:justify-end sr-950:justify-between">
+        <span className="hidden text-13px sm:inline md:hidden sr-950:inline">
           <span className="font-semibold uppercase">
             {t("purchase.order_ID")}.{" "}
           </span>
@@ -152,7 +153,7 @@ const PurchaseItem = ({
         {/* {item?.orderStatus === ORDER_STATUS.pending && ( */}
         <button
           className="rounded bg-main px-4 py-2.5 text-13px font-medium text-white hover:bg-primary sr-530:px-8"
-          onClick={() => handleCancelPurchase(item)}
+          onClick={() => handleCancel(item)}
         >
           {t("purchase.cancel")}
         </button>

@@ -23,6 +23,9 @@ export const ROUTES = {
     },
     PURCHASE: {
       index: "purchase",
+      ORDER_DETAILS: {
+        index: "order/:id",
+      },
     },
     EDIT_PROFILE: {
       index: "edit-profile",
@@ -78,6 +81,9 @@ export const PATHS = {
   ),
   purchase: getPath(
     `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.PURCHASE.index}`,
+  ),
+  orderDetails: getPath(
+    `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.PURCHASE.index}/${ROUTES.ACCOUNT.PURCHASE.ORDER_DETAILS.index}`,
   ),
   editProfile: getPath(
     `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.EDIT_PROFILE.index}`,
