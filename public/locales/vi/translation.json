@@ -628,7 +628,7 @@
   "order-details": {
     "back": "Trở về",
     "order_ID": "Mã đơn",
-    "thanks": "Cảm ơn bạn đã mua sắm với Tonatra!",
+    "thanks": "Cảm ơn bạn đã mua sắm với Horizon Camp!",
     "buy_again": "Mua lại",
     "view_rating": "Xem đánh giá",
     "rate": "Đánh giá",
@@ -646,6 +646,13 @@
     "order_delivered": "Đơn hàng đã được giao",
     "order_canceled": "Đơn hàng đã bị hủy",
     "paid": "Đã thanh toán",
-    "not_paid": "Chưa thanh toán"
+    "not_paid": "Chưa thanh toán",
+    "review": {
+      "title": "Đánh giá đơn hàng",
+      "textarea_placeholder": "Hãy cho chúng tôi biết cảm nhận của bạn...",
+      "submit_review": "Gửi đánh giá",
+      "cancel": "Thoát",
+      "quality": "Chất lượng món ăn"
+    }
   }
 }

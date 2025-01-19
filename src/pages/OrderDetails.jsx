@@ -1,9 +1,13 @@
+import ConfirmModal from "@/components/modals/ConfirmModal";
+import RateModal from "@/components/purchase/details/RateModal";
+import ReviewModal from "@/components/purchase/details/ReviewModal";
 import { ORDER_STATUS, PAYMENT_METHOD, PAYMENT_STATUS } from "@/constants";
 import { useDynamicTitle } from "@/hooks";
 import { PATHS } from "@/routes";
 import { formatAddress } from "@/utils/format/address";
 import { formatCurrency } from "@/utils/format/currency";
 import { formatDateToDDMMYYYY } from "@/utils/format/date";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaReceipt, FaShippingFast } from "react-icons/fa";
 import { MdArrowBack, MdCancel } from "react-icons/md";
@@ -49,15 +53,30 @@ const OrderDetails = ({}) => {
 
   useDynamicTitle(t("title.order-details"));
 
+  const [showCancelModal, setShowCancelModal] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [showRateModal, setShowRateModal] = useState(false);
+
   const navigate = useNavigate();
 
   const back = () => {
     navigate(-1);
   };
 
-  const handleBuyAgain = async () => {};
+  const handleCancel = () => {
+    if (order) {
+      console.log(order);
+      setShowCancelModal(false);
+    }
+  };
 
-  const handlePayOrder = async () => {};
+  const handleBuyAgain = async () => {
+    console.log("buy again");
+  };
+
+  const handlePayOrder = async () => {
+    console.log("pay order");
+  };
 
   return (
     <div>
@@ -131,7 +150,7 @@ const OrderDetails = ({}) => {
             {/* {order?.rated === true && ( */}
             <button
               className="w-40 rounded bg-main px-8 py-2.5 text-13px font-medium text-white hover:bg-primary sm:w-52"
-              // onClick={() => setIsVisibleReviewModal(true)}
+              onClick={() => setShowReviewModal(true)}
             >
               {t("order-details.view_rating")}
             </button>
@@ -139,7 +158,7 @@ const OrderDetails = ({}) => {
             {/* {order?.rated === false && ( */}
             <button
               className="w-40 rounded bg-main px-8 py-2.5 text-13px font-medium text-white hover:bg-primary sm:w-52"
-              // onClick={() => setIsVisibleRateModal(true)}
+              onClick={() => setShowRateModal(true)}
             >
               {t("order-details.rate")}
             </button>
@@ -318,37 +337,43 @@ const OrderDetails = ({}) => {
           {order?.orderStatus === ORDER_STATUS.pending && (
             <button
               className="w-40 rounded bg-red-600 px-8 py-2.5 text-13px font-medium text-white hover:bg-red-700 sm:w-52"
-              //   onClick={() => setShowCancelModal(true)}
+              onClick={() => setShowCancelModal(true)}
             >
               {t("order-details.cancel_order")}
             </button>
           )}
         </div>
       </div>
-      {/* {order?.orderStatus === ORDER_STATUS.pending && (
-        <CancelModal
-          show={showCancelModal}
-          setShow={setShowCancelModal}
-          data={order}
-          refetchOrder={getOrder}
-        />
-      )}
-      {order?.rated === true && isVisibleReviewModal && (
-        <ReviewModal
-          show={isVisibleReviewModal}
-          handleClose={() => setIsVisibleReviewModal(false)}
-          orderId={order?._id}
-        />
-      )}
-      {order?.rated === false && isVisibleRateModal && (
-        <RateModal
-          show={isVisibleRateModal}
-          handleClose={() => setIsVisibleRateModal(false)}
-          dishes={order?.dishes}
-          orderId={order?._id}
-          refetchOrder={getOrder}
-        />
-      )} */}
+      {/* {order?.orderStatus === ORDER_STATUS.pending && ( */}
+      <ConfirmModal
+        show={showCancelModal}
+        onClose={() => setShowCancelModal(false)}
+        handleOk={handleCancel}
+        content={t("purchase.delete_confirm", { id: order?._id })}
+      />
+      {/* )} */}
+      {
+        // order?.rated === true &&
+        showReviewModal && (
+          <ReviewModal
+            show={showReviewModal}
+            onClose={() => setShowReviewModal(false)}
+            // orderId={order?._id}
+          />
+        )
+      }
+      {
+        // order?.rated === false &&
+        showRateModal && (
+          <RateModal
+            show={showRateModal}
+            onClose={() => setShowRateModal(false)}
+            // products={order?.products}
+            // orderId={order?._id}
+            // refetchOrder={getOrder}
+          />
+        )
+      }
     </div>
   );
 };
