@@ -13,6 +13,7 @@ import { BiMaleFemale } from "react-icons/bi";
 import { FaPhone } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import { TiUserDelete } from "react-icons/ti";
+import { PATHS } from "@/routes";
 
 const genders = {
   default: "",
@@ -52,10 +53,10 @@ const Profile = ({}) => {
               {t("account.profile-page.personalInfor")}
             </p>
             <div className="space-y-4 pl-8 text-sm">
-              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
-                <div className="sr-530:col-span-5 sr-530:text-gray-800 flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
+                <div className="flex items-center gap-2.5 sr-530:col-span-5 sr-530:text-gray-800">
                   <PiUserFill className="h-4 w-4" />
-                  <span className="sr-530:inline hidden">
+                  <span className="hidden sr-530:inline">
                     {t("account.profile-page.fullName")}
                   </span>
                 </div>
@@ -63,10 +64,10 @@ const Profile = ({}) => {
                   {information?.fullname}
                 </span>
               </div>
-              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
-                <div className="sr-530:col-span-5 sr-530:text-gray-800 flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
+                <div className="flex items-center gap-2.5 sr-530:col-span-5 sr-530:text-gray-800">
                   <FaBirthdayCake className="h-4 w-4" />
-                  <span className="sr-530:inline hidden">
+                  <span className="hidden sr-530:inline">
                     {t("account.profile-page.birthday")}
                   </span>
                 </div>
@@ -74,10 +75,10 @@ const Profile = ({}) => {
                   {information?.birthday}
                 </span>
               </div>
-              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
-                <div className="sr-530:col-span-5 sr-530:text-gray-800 flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
+                <div className="flex items-center gap-2.5 sr-530:col-span-5 sr-530:text-gray-800">
                   <BiMaleFemale className="h-4 w-4" />
-                  <span className="sr-530:inline hidden">
+                  <span className="hidden sr-530:inline">
                     {t("account.profile-page.gender")}
                   </span>
                 </div>
@@ -92,19 +93,19 @@ const Profile = ({}) => {
               {t("account.profile-page.contactInfor")}
             </p>
             <div className="space-y-4 pl-8 text-sm">
-              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
-                <div className="sr-530:col-span-5 sr-530:text-gray-800 flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
+                <div className="flex items-center gap-2.5 sr-530:col-span-5 sr-530:text-gray-800">
                   <MdAttachEmail className="h-4 w-4" />
-                  <span className="sr-530:inline hidden">Email</span>
+                  <span className="hidden sr-530:inline">Email</span>
                 </div>
                 <span className="sr-530:col-span-7 sr-530:font-medium">
                   {information?.email}
                 </span>
               </div>
-              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
-                <div className="sr-530:col-span-5 sr-530:text-gray-800 flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
+                <div className="flex items-center gap-2.5 sr-530:col-span-5 sr-530:text-gray-800">
                   <FaPhone className="h-4 w-4" />
-                  <span className="sr-530:inline hidden">
+                  <span className="hidden sr-530:inline">
                     {t("account.profile-page.phone")}
                   </span>
                 </div>
@@ -112,10 +113,10 @@ const Profile = ({}) => {
                   {information?.phoneNumber}
                 </span>
               </div>
-              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
-                <div className="sr-530:col-span-5 sr-530:text-gray-800 flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
+                <div className="flex items-center gap-2.5 sr-530:col-span-5 sr-530:text-gray-800">
                   <FaMapMarkerAlt className="h-4 w-4" />
-                  <span className="sr-530:inline hidden">
+                  <span className="hidden sr-530:inline">
                     {t("account.profile-page.address")}
                   </span>
                 </div>
@@ -137,10 +138,10 @@ const Profile = ({}) => {
           />
         </div>
       </div>
-      <div className="sr-530:flex-row flex flex-col gap-3 py-6 md:hidden">
+      <div className="flex flex-col gap-3 py-6 sr-530:flex-row md:hidden">
         <div className="grow rounded-md bg-orange-400 p-2 text-sm font-medium hover:bg-orange-500">
           <NavLink
-            to="/account/edit-profile"
+            to={PATHS.editProfile()}
             className="flex w-full flex-nowrap items-center justify-center gap-2.5"
           >
             <FaUserEdit className="h-5 w-5" />
@@ -149,7 +150,7 @@ const Profile = ({}) => {
         </div>
         <div className="grow rounded-md bg-blue-500 p-2 text-sm font-medium hover:bg-blue-600">
           <NavLink
-            to="/account/change-password"
+            to={PATHS.changePassword()}
             className="flex w-full flex-nowrap items-center justify-center gap-2.5"
           >
             <MdPassword className="h-5 w-5" />
@@ -158,7 +159,7 @@ const Profile = ({}) => {
         </div>
         <div className="grow rounded-md bg-red-500 p-2 text-sm font-medium hover:bg-red-600">
           <NavLink
-            to="/account/delete"
+            to={PATHS.deleteAccount()}
             className="flex w-full flex-nowrap items-center justify-center gap-2.5"
           >
             <TiUserDelete className="h-5 w-5" />
