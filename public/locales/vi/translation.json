@@ -66,7 +66,8 @@
     "purchase": "Đơn hàng",
     "edit-profile": "Sửa hồ sơ",
     "change-password": "Đổi mật khẩu",
-    "delete-account": "Xóa tài khoản"
+    "delete-account": "Xóa tài khoản",
+    "order-details": "Chi tiết đơn hàng"
   },
   "form-validation": {
     "required": {
@@ -602,5 +603,56 @@
     "default_content": "Bạn có chăc chắn hay không?",
     "ok": "Có, tôi chắc chắn",
     "cancel": "Không, hủy"
+  },
+  "purchase": {
+    "status": {
+      "all": "Tất cả",
+      "to_confirm": "Chờ xác nhận",
+      "to_prepare": "Đang chuẩn bị",
+      "to_ship": "Đang vận chuyển",
+      "completed": "Hoàn thành",
+      "cancelled": "Đã hủy"
+    },
+    "search": "Bạn có thể tìm kiếm theo ID đơn hàng hoặc Tên Sản phẩm",
+    "order_ID": "Mã đơn",
+    "see_more": "Xem thêm sản phẩm",
+    "product": "sản phẩm",
+    "buy_again": "Mua lại",
+    "view_rating": "Xem đánh giá",
+    "payment": "Thanh toán",
+    "cancel": "Hủy đơn",
+    "order_total": "Thành tiền",
+    "empty_data": "Chưa có đơn hàng",
+    "delete_confirm": "Bạn có chắc chắn muốn hủy đơn hàng với mã là {{id}} này không?"
+  },
+  "order-details": {
+    "back": "Trở về",
+    "order_ID": "Mã đơn",
+    "thanks": "Cảm ơn bạn đã mua sắm với Horizon Camp!",
+    "buy_again": "Mua lại",
+    "view_rating": "Xem đánh giá",
+    "rate": "Đánh giá",
+    "payment": "Thanh toán",
+    "rating": "Đánh giá",
+    "delivery_address": "Địa chỉ giao hàng",
+    "notes": "Ghi chú",
+    "payment_method": "Phương thức thanh toán",
+    "merchandise_subtotal": "Tổng tiền hàng",
+    "shipping_fee": "Phí vận chuyển",
+    "voucher_applied": "Mã giảm giá từ nhà hàng",
+    "order_total": "Thành tiền",
+    "cancel_order": "Hủy đặt hàng",
+    "order_placed": "Đơn hàng đã được đặt",
+    "order_delivered": "Đơn hàng đã được giao",
+    "order_canceled": "Đơn hàng đã bị hủy",
+    "paid": "Đã thanh toán",
+    "not_paid": "Chưa thanh toán",
+    "review": {
+      "title": "Đánh giá đơn hàng",
+      "textarea_placeholder": "Hãy cho chúng tôi biết cảm nhận của bạn...",
+      "submit_review": "Gửi đánh giá",
+      "cancel": "Thoát",
+      "quality": "Chất lượng món ăn"
+    }
   }
 }

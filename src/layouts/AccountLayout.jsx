@@ -23,7 +23,7 @@ const AccountLayout = ({}) => {
 
   return (
     <BodyLayout>
-      <div className="account py-2 md:flex md:flex-nowrap md:gap-6">
+      <div className="account md:flex md:flex-nowrap md:gap-6">
         <div className="hidden w-44 md:block md:shrink-0 lg:w-52">
           <div className="divide-y divide-solid divide-black/10 text-sm text-black">
             <div className="flex flex-nowrap items-center gap-4 py-4">
