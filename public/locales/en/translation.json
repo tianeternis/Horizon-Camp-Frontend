@@ -624,5 +624,35 @@
     "order_total": "Order Total",
     "empty_data": "No orders yet",
     "delete_confirm": "Are you sure you want to cancel the order with ID {{id}}?"
+  },
+  "order-details": {
+    "back": "Back",
+    "order_ID": "Order ID",
+    "thanks": "Thank you for shopping with Horizon Camp!",
+    "buy_again": "Buy Again",
+    "view_rating": "View Rating",
+    "rate": "Rate",
+    "payment": "Payment",
+    "rating": "Rating",
+    "delivery_address": "Delivery Address",
+    "notes": "Notes",
+    "payment_method": "Payment Method",
+    "merchandise_subtotal": "Merchandise Subtotal",
+    "shipping_fee": "Shipping Fee",
+    "voucher_applied": "Voucher Applied",
+    "order_total": "Order Total",
+    "cancel_order": "Cancel Order",
+    "order_placed": "Order Placed",
+    "order_delivered": "Order Delivered",
+    "order_canceled": "Order Canceled",
+    "paid": "Paid",
+    "not_paid": "Not Paid",
+    "review": {
+      "title": "Review Order",
+      "textarea_placeholder": "Let us know your thoughts...",
+      "submit_review": "Submit Review",
+      "cancel": "Cancel",
+      "quality": "Product Quality"
+    }
   }
 }
