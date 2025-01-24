@@ -654,5 +654,18 @@
       "cancel": "Thoát",
       "quality": "Chất lượng sản phẩm"
     }
+  },
+  "cart": {
+    "title": "Giỏ hàng của bạn",
+    "product": "Sản phẩm",
+    "price": "Đơn giá",
+    "quantity": "Số lượng",
+    "total_price": "Thành tiền",
+    "delete": "Xóa",
+    "total_payment": "Tổng thanh toán",
+    "total_product": "{{total}} sản phẩm",
+    "order": "Thanh toán",
+    "empty_cart": "Không có sản phẩm nào trong giỏ hàng của bạn.",
+    "add_to_cart": "Thêm ngay"
   }
 }
