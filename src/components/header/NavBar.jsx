@@ -59,10 +59,10 @@ const NavBar = ({}) => {
           </li>
           <li>
             <NavLink
-              to={PATHS.blogs()}
+              to={PATHS.picnicGuide()}
               className="font-medium duration-500 hover:text-main"
             >
-              {t("navigation.picnic-blog")}
+              {t("navigation.picnic-guide")}
             </NavLink>
           </li>
         </ul>

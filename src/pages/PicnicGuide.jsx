@@ -2,12 +2,12 @@ import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { useTranslation } from "react-i18next";
 
-const Blogs = ({}) => {
+const PicnicGuide = ({}) => {
   const { t } = useTranslation();
 
-  useDynamicTitle(t("title.picnic-blog"));
+  useDynamicTitle(t("title.picnic-guide"));
 
-  return <BodyLayout>Blogs </BodyLayout>;
+  return <BodyLayout>PicnicGuide </BodyLayout>;
 };
 
-export default Blogs;
+export default PicnicGuide;

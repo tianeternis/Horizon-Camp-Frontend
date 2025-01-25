@@ -9,7 +9,7 @@ import About from "@/pages/About";
 import Products from "@/pages/Products";
 import Contact from "@/pages/Contact";
 import FAQs from "@/pages/FAQs";
-import Blogs from "@/pages/Blogs";
+import PicnicGuide from "@/pages/PicnicGuide";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Cart from "@/pages/Cart";
@@ -65,9 +65,9 @@ const routes = [
         handle: { crumb: () => crumb("title.faqs") },
       },
       {
-        path: ROUTES.BLOGS.index,
-        element: <Blogs />,
-        handle: { crumb: () => crumb("title.picnic-blog") },
+        path: ROUTES.PICNIC_GUIDE.index,
+        element: <PicnicGuide />,
+        handle: { crumb: () => crumb("title.picnic-guide") },
       },
       {
         path: ROUTES.LOGIN.index,

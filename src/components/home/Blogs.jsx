@@ -121,7 +121,7 @@ const Blogs = ({}) => {
             </div>
             <div className="text-center">
               <Link
-                to={PATHS.blogs()}
+                to={PATHS.picnicGuide()}
                 className="text-sm font-semibold text-secondary hover:text-main md:text-15px"
               >
                 {t("navigation.see_all")}...
