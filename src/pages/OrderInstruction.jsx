@@ -1,5 +1,6 @@
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
+import { PATHS } from "@/routes";
 import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,10 @@ const OrderInstrution = ({}) => {
         <div className="space-y-4 rounded-sm bg-white px-4 py-3.5 text-justify text-sm sm:text-15px">
           <p>
             <Trans i18nKey="order-instruction.step_1" />{" "}
-            <Link to="/" className="font-medium text-blue-500 underline">
+            <Link
+              to={PATHS.home()}
+              className="font-medium text-blue-500 underline"
+            >
               Horizon Camp
             </Link>
             .

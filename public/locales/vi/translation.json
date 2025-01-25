@@ -654,5 +654,25 @@
       "cancel": "Thoát",
       "quality": "Chất lượng sản phẩm"
     }
+  },
+  "cart": {
+    "title": "Giỏ hàng của bạn",
+    "product": "Sản phẩm",
+    "price": "Đơn giá",
+    "quantity": "Số lượng",
+    "total_price": "Thành tiền",
+    "delete": "Xóa",
+    "total_payment": "Tổng thanh toán",
+    "total_product": "{{total}} sản phẩm",
+    "order": "Mua ngay",
+    "empty_cart": "Không có sản phẩm nào trong giỏ hàng của bạn.",
+    "add_to_cart": "Thêm ngay",
+    "change-variants": {
+      "title": "Thay đổi phân loại sản phẩm",
+      "size": "Kích thước",
+      "color": "Màu sắc",
+      "back": "Trở lại",
+      "confirm": "Xác nhận"
+    }
   }
 }
