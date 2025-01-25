@@ -654,5 +654,25 @@
       "cancel": "Cancel",
       "quality": "Product Quality"
     }
+  },
+  "cart": {
+    "title": "Your Cart",
+    "product": "Product",
+    "price": "Unit Price",
+    "quantity": "Quantity",
+    "total_price": "Total Price",
+    "delete": "Delete",
+    "total_payment": "Total Payment",
+    "total_product": "{{total}} products",
+    "order": "Buy Now",
+    "empty_cart": "There are no products in your cart.",
+    "add_to_cart": "Add Now",
+    "change-variants": {
+      "title": "Change Product Variants",
+      "size": "Size",
+      "color": "Color",
+      "back": "Go Back",
+      "confirm": "Confirm"
+    }
   }
 }
