@@ -1,23 +1,33 @@
-import { Pagination as MUIPagination } from "@mui/material";
-import { useState } from "react";
+import {
+  Pagination as MUIPagination,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
-const Pagination = ({}) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({
+  page = 1,
+  count = 5,
+  onChange = (event, page) => {},
+}) => {
+  const theme = useTheme();
+  const isMobileScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <MUIPagination
-      count={10}
+      count={count}
       variant="outlined"
-      page={currentPage}
-      onChange={(_, page) => setCurrentPage(page)}
-      hidePrevButton={currentPage === 1}
-      hideNextButton={currentPage === 10}
+      page={page}
+      onChange={(e, page) => onChange(e, page)}
+      hidePrevButton={page === 1}
+      hideNextButton={page === count}
+      boundaryCount={1}
+      siblingCount={isMobileScreen ? 0 : 1}
       sx={{
         "& .MuiButtonBase-root.MuiPaginationItem-root, & .MuiPaginationItem-ellipsis":
           {
             fontFamily: "var(--font-main)",
-            minWidth: { xs: 32, sm: 42 },
-            height: { xs: 32, sm: 42 },
+            minWidth: { xs: 34, sm: 42 },
+            height: { xs: 34, sm: 42 },
             fontSize: { xs: "12px", sm: "14px" },
             backgroundColor: "transparent",
             color: "#494949",
@@ -38,7 +48,7 @@ const Pagination = ({}) => {
           color: "#fff",
         },
         "& .MuiPaginationItem-ellipsis": {
-          lineHeight: { xs: "24px", sm: "34px" },
+          lineHeight: { xs: "28px", sm: "34px" },
         },
       }}
     />
