@@ -511,7 +511,20 @@
     }
   },
   "products": {
-    "sold": "Sold"
+    "title": "Tất cả sản phẩm",
+    "sold": "Sold",
+    "sort": {
+      "default": "Mặc định",
+      "a-z": "Tên A - Z",
+      "z-a": "Tên Z - A",
+      "asc_price": "Giá tăng dần",
+      "desc_price": "Giá giảm dần",
+      "newest_product": "Sản phẩm mới nhất",
+      "oldest_product": "Sản phẩm cũ nhất"
+    },
+    "search-filter": {
+      "title": "Bộ lọc tìm kiếm"
+    }
   },
   "account": {
     "profile": "Profile",

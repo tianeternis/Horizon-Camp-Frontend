@@ -1,11 +1,12 @@
 import Pagination from "@/components/pagination/Pagination";
-import ProductCard from "@/components/product/ProductCard";
+import ProductCard from "@/components/product/list/ProductCard";
+import SortMenu from "@/components/product/sort/SortMenu";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
+import { Tooltip } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TbArrowsSort } from "react-icons/tb";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineFilterAlt } from "react-icons/md";
 
 const Products = ({}) => {
   const { t } = useTranslation();
@@ -20,13 +21,16 @@ const Products = ({}) => {
         <div className="hidden h-96 w-64 shrink-0 bg-white sr-950:block"></div>
         <div className="w-full space-y-6">
           <div className="flex items-center justify-between">
-            <div className="text-lg font-bold uppercase">Tất cả sản phẩm</div>
-            <div className="flex min-w-60 items-center justify-between border-b border-solid border-b-gray-300 pb-1 text-gray-800">
-              <div className="flex items-center gap-2">
-                <TbArrowsSort className="h-4.5 w-4.5" />
-                <span className="text-sm font-medium">Mặc định</span>
-              </div>
-              <MdOutlineKeyboardArrowDown className="h-5 w-5" />
+            <div className="text-base font-bold uppercase md:text-lg">
+              {t("products.title")}
+            </div>
+            <div className="flex items-end justify-center gap-6">
+              <SortMenu />
+              <Tooltip title={t("products.search-filter.title")} arrow>
+                <button className="flex items-center justify-center rounded border border-solid border-gray-300 p-1 duration-300 hover:border-main hover:bg-main hover:text-white">
+                  <MdOutlineFilterAlt className="h-6 w-6" />
+                </button>
+              </Tooltip>
             </div>
           </div>
           <div className="space-y-8 sm:space-y-10 lg:space-y-12">
