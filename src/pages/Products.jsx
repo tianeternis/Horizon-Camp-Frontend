@@ -1,5 +1,6 @@
 import Pagination from "@/components/pagination/Pagination";
 import ProductCard from "@/components/product/list/ProductCard";
+import Sidebar from "@/components/product/sidebar/Sidebar";
 import SortMenu from "@/components/product/sort/SortMenu";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
@@ -18,7 +19,9 @@ const Products = ({}) => {
   return (
     <BodyLayout>
       <div className="flex gap-4">
-        <div className="hidden h-96 w-64 shrink-0 bg-white sr-950:block"></div>
+        <div className="shrink-0">
+          <Sidebar />
+        </div>
         <div className="w-full space-y-6">
           <div className="flex items-center justify-between">
             <div className="text-base font-bold uppercase md:text-lg">
@@ -26,11 +29,13 @@ const Products = ({}) => {
             </div>
             <div className="flex items-end justify-center gap-6">
               <SortMenu />
-              <Tooltip title={t("products.search-filter.title")} arrow>
-                <button className="flex items-center justify-center rounded border border-solid border-gray-300 p-1 duration-300 hover:border-main hover:bg-main hover:text-white">
-                  <MdOutlineFilterAlt className="h-6 w-6" />
-                </button>
-              </Tooltip>
+              <div className="sr-950:hidden">
+                <Tooltip title={t("products.search-filter.title")} arrow>
+                  <button className="flex items-center justify-center rounded border border-solid border-gray-300 p-1 duration-300 hover:border-main hover:bg-main hover:text-white">
+                    <MdOutlineFilterAlt className="h-6 w-6" />
+                  </button>
+                </Tooltip>
+              </div>
             </div>
           </div>
           <div className="space-y-8 sm:space-y-10 lg:space-y-12">

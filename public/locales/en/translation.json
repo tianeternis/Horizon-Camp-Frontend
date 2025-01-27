@@ -522,8 +522,28 @@
       "newest_product": "Sản phẩm mới nhất",
       "oldest_product": "Sản phẩm cũ nhất"
     },
+    "category": {
+      "title": "Danh mục sản phẩm"
+    },
     "search-filter": {
-      "title": "Bộ lọc tìm kiếm"
+      "title": "Bộ lọc tìm kiếm",
+      "costs": {
+        "title": "Mức giá",
+        "<100000": "Dưới 100.000đ",
+        "100000-200000": "Từ 100.000đ - 200.000đ",
+        "200000-500000": "Từ 200.000đ - 500.000đ",
+        "500000-1tr": "Từ 500.000đ - 1 triệu",
+        ">1tr": "Trên 1 triệu"
+      },
+      "brands": {
+        "title": "Thương hiệu"
+      },
+      "colors": {
+        "title": "Màu sắc"
+      },
+      "sizes": {
+        "title": "Kích thước"
+      }
     }
   },
   "account": {
