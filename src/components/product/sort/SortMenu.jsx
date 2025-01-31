@@ -9,6 +9,7 @@ import { BiSortAZ, BiSortDown, BiSortUp, BiSortZA } from "react-icons/bi";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { createTheme, ThemeProvider } from "@mui/material";
+import CustomThemeProvider from "@/utils/mui/CustomThemeProvider";
 
 const options = [
   {
@@ -78,20 +79,7 @@ const SortMenu = ({}) => {
 
   return (
     <div>
-      <ThemeProvider
-        theme={createTheme({
-          breakpoints: {
-            values: {
-              xs: 0,
-              sm: 640,
-              md: 768,
-              lg: 1024,
-              xl: 1280,
-              "2xl": 1536,
-            },
-          },
-        })}
-      >
+      <CustomThemeProvider>
         <List
           component="nav"
           sx={{
@@ -187,7 +175,7 @@ const SortMenu = ({}) => {
             </MenuItem>
           ))}
         </Menu>
-      </ThemeProvider>
+      </CustomThemeProvider>
     </div>
   );
 };

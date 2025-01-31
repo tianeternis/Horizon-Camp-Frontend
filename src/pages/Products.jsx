@@ -18,7 +18,7 @@ const Products = ({}) => {
 
   return (
     <BodyLayout>
-      <div className="flex gap-4">
+      <div className="flex sr-950:gap-4">
         <div className="shrink-0">
           <Sidebar />
         </div>

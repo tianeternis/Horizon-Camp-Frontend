@@ -23,15 +23,45 @@ const costs = [
   },
   {
     id: 4,
-    label: "Từ 500.000đ - 1 triệu",
+    label: "Từ 500.000đ - 1.000.000",
     value: "500000-1000000",
-    trans: "products.search-filter.costs.500000-1tr",
+    trans: "products.search-filter.costs.500000-1000000",
   },
   {
     id: 5,
-    label: "Trên 1 triệu",
-    value: ">1000000",
-    trans: "products.search-filter.costs.>1tr",
+    label: "Từ 1.000.000 - 1.500.000",
+    value: "1000000-1500000",
+    trans: "products.search-filter.costs.1000000-1500000",
+  },
+  {
+    id: 6,
+    label: "1.500.000đ - 3.000.000đ",
+    value: "1500000-3000000",
+    trans: "products.search-filter.costs.1500000-3000000",
+  },
+  {
+    id: 7,
+    label: "3.000.000đ - 5.000.000đ",
+    value: "3000000-5000000",
+    trans: "products.search-filter.costs.3000000-5000000",
+  },
+  {
+    id: 8,
+    label: "5.000.000đ - 7.000.000đ",
+    value: "5000000-7000000",
+    trans: "products.search-filter.costs.5000000-700000",
+  },
+  {
+    id: 9,
+    label: "7.000.000đ - 10.000.000đ",
+    value: "7000000-10000000",
+    trans: "products.search-filter.costs.7000000-1000000",
+  },
+  {
+    id: 10,
+    label: "Trên 10.000.000đ",
+    value: ">10000000",
+    trans: "products.search-filter.costs.>10000000",
   },
 ];
 

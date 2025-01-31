@@ -1,6 +1,6 @@
 const SidebarMenuLayout = ({ title, icon = <></>, children }) => {
   return (
-    <div className="w-full rounded-sm bg-white">
+    <div className="w-full bg-white sr-950:rounded-sm">
       <div className="w-full divide-y divide-solid divide-gray-200">
         <div className="flex items-center gap-2 px-4 py-3">
           {icon}
