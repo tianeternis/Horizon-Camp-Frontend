@@ -2,6 +2,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { PATHS } from "@/routes";
 
 const SubMenu = ({ menuItem = {}, path = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ const SubMenu = ({ menuItem = {}, path = "" }) => {
   return (
     <div className="w-full">
       <NavLink
-        to={`${path}/${menuItem?._id}`}
+        to={PATHS.productsByCategory({ "category-slug": menuItem?._id })}
         end
         className="group flex cursor-pointer flex-nowrap items-center justify-between py-2 hover:font-medium hover:text-primary"
       >
@@ -56,7 +57,7 @@ const SubMenu = ({ menuItem = {}, path = "" }) => {
           menuItem.subMenu.map((menu) => {
             return (
               <NavLink
-                to={`${path}/${menu?._id}`}
+                to={PATHS.productsByCategory({ "category-slug": menu?._id })}
                 end
                 key={menu?._id}
                 className="block cursor-pointer py-2 text-sm hover:font-medium hover:text-primary"

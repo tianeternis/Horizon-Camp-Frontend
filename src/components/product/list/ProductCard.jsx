@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { formatQuantity } from "@/utils/format/quantity";
 import { useTranslation } from "react-i18next";
+import { PATHS } from "@/routes";
 
 const ProductCard = ({}) => {
   const { t } = useTranslation();
@@ -25,7 +26,10 @@ const ProductCard = ({}) => {
             20%
           </div>
           <div className="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-2 opacity-0 transition-all duration-300 group-hover/actions:opacity-100 lg:flex">
-            <Link className="flex items-center justify-center rounded-full bg-white p-2.5 text-main hover:bg-main hover:text-white">
+            <Link
+              to={PATHS.productDetail({ "product-slug": 1 })}
+              className="flex items-center justify-center rounded-full bg-white p-2.5 text-main hover:bg-main hover:text-white"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -128,7 +132,10 @@ const ProductCard = ({}) => {
         </div>
         <div className="p-2">
           <div className="min-h-12 py-1 sm:min-h-14">
-            <Link className="line-clamp-2 text-sm font-semibold text-gray-800 hover:text-main sm:text-15px md:text-base">
+            <Link
+              to={PATHS.productDetail({ "product-slug": 1 })}
+              className="line-clamp-2 text-sm font-semibold text-gray-800 hover:text-main sm:text-15px md:text-base"
+            >
               Lều cắm trại tự bung cho 4 - 5 người thoáng mát, có mái hiên chống
               nắng mưa (KT 2x2x1.45m) K118
             </Link>

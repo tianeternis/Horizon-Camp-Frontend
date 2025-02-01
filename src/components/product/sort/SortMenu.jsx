@@ -1,15 +1,13 @@
 import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import CustomThemeProvider from "@/utils/mui/CustomThemeProvider";
 import { TbArrowsSort } from "react-icons/tb";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { BiSortAZ, BiSortDown, BiSortUp, BiSortZA } from "react-icons/bi";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { createTheme, ThemeProvider } from "@mui/material";
-import CustomThemeProvider from "@/utils/mui/CustomThemeProvider";
+import { Tooltip } from "@mui/material";
 
 const options = [
   {
@@ -83,6 +81,8 @@ const SortMenu = ({}) => {
         <List
           component="nav"
           sx={{
+            display: "flex",
+            alignItems: "flex-end",
             bgcolor: "transparent",
             padding: 0,
             "& .MuiButtonBase-root.MuiListItemButton-root": {
@@ -97,7 +97,7 @@ const SortMenu = ({}) => {
             aria-expanded={open ? "true" : undefined}
             onClick={handleClickListItem}
           >
-            <div className="flex min-w-48 items-center justify-between border-b border-solid border-b-gray-300 pb-1.5 text-gray-700 hover:border-b-main md:min-w-56">
+            <div className="hidden min-w-48 items-center justify-between border-b border-solid border-b-gray-300 pb-1.5 text-gray-700 hover:border-b-main sr-530:flex md:min-w-56">
               <div className="flex items-center gap-2">
                 {selected?.icon ?? (
                   <TbArrowsSort className="h-4 w-4 md:h-4.5 md:w-4.5" />
@@ -111,6 +111,13 @@ const SortMenu = ({}) => {
               <MdOutlineKeyboardArrowDown
                 className={`h-4 w-4 duration-300 md:h-5 md:w-5 ${open ? "rotate-180" : ""}`}
               />
+            </div>
+            <div className="sr-530:hidden">
+              <Tooltip title={t("products.sort.title")} arrow>
+                <div className="flex items-center justify-center rounded border border-solid border-gray-300 p-1 duration-300 hover:border-main hover:bg-main hover:text-white">
+                  <TbArrowsSort className="h-6 w-6" />
+                </div>
+              </Tooltip>
             </div>
           </button>
         </List>
@@ -138,7 +145,10 @@ const SortMenu = ({}) => {
                   display: "block",
                   position: "absolute",
                   top: 0,
-                  left: "50%",
+                  left: "90.5%",
+                  "@media (min-width:530px)": {
+                    left: "50%",
+                  },
                   width: 10,
                   height: 10,
                   bgcolor: "background.paper",

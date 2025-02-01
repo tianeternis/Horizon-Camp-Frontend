@@ -514,6 +514,7 @@
     "title": "Tất cả sản phẩm",
     "sold": "Sold",
     "sort": {
+      "title": "Sắp xếp",
       "default": "Mặc định",
       "a-z": "Tên A - Z",
       "z-a": "Tên Z - A",

@@ -1,5 +1,5 @@
 const getPath = (path) => (params) =>
-  path.replace(/:([a-zA-Z0-9_]+)/g, (match, paramName) => {
+  path.replace(/:([a-zA-Z0-9_-]+)/g, (match, paramName) => {
     // Kiểm tra nếu params có giá trị cho tham số động
     if (paramName in params) {
       return params[paramName]; // Thay thế tham số bằng giá trị trong params
@@ -12,9 +12,12 @@ export const ROUTES = {
   ABOUT: { index: "about" },
   PRODUCTS: {
     index: "products",
-    PRODUCT_DETAIL: {
-      index: ":id",
+    PRODUCTS_BY_CATEGORY: {
+      index: ":category-slug",
     },
+  },
+  PRODUCT_DETAIL: {
+    index: "product-detail/:product-slug",
   },
   ACCOUNT: {
     index: "account",
@@ -58,8 +61,9 @@ export const PATHS = {
   home: getPath(`/${ROUTES.HOME.index}`),
   about: getPath(`/${ROUTES.ABOUT.index}`),
   products: getPath(`/${ROUTES.PRODUCTS.index}`),
-  productDetail: getPath(
-    `/${ROUTES.PRODUCTS.index}/${ROUTES.PRODUCTS.PRODUCT_DETAIL.index}`,
+  productDetail: getPath(`/${ROUTES.PRODUCT_DETAIL.index}`),
+  productsByCategory: getPath(
+    `/${ROUTES.PRODUCTS.index}/${ROUTES.PRODUCTS.PRODUCTS_BY_CATEGORY.index}`,
   ),
   contact: getPath(`/${ROUTES.CONTACT.index}`),
   faqs: getPath(`/${ROUTES.FAQs.index}`),
