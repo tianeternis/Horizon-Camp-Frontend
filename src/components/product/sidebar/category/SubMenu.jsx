@@ -1,15 +1,25 @@
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { PATHS } from "@/routes";
+import { useProductContext } from "../../context/ProductContext";
 
 const SubMenu = ({ menuItem = {}, path = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { reset } = useProductContext();
+
   const toggleMenu = (e) => {
     e.preventDefault();
     setIsOpen((prev) => !prev);
+  };
+
+  const navigate = useNavigate();
+  const handleNavigateMenu = (e, _id) => {
+    e.preventDefault();
+    navigate(PATHS.productsByCategory({ "category-slug": _id }));
+    reset();
   };
 
   return (
@@ -18,6 +28,7 @@ const SubMenu = ({ menuItem = {}, path = "" }) => {
         to={PATHS.productsByCategory({ "category-slug": menuItem?._id })}
         end
         className="group flex cursor-pointer flex-nowrap items-center justify-between py-2 hover:font-medium hover:text-primary"
+        onClick={(e) => handleNavigateMenu(e, menuItem?._id)}
       >
         <div className="text-sm">{menuItem?.name}</div>
         {menuItem?.subMenu?.length > 0 && (
@@ -61,6 +72,7 @@ const SubMenu = ({ menuItem = {}, path = "" }) => {
                 end
                 key={menu?._id}
                 className="block cursor-pointer py-2 text-sm hover:font-medium hover:text-primary"
+                onClick={(e) => handleNavigateMenu(e, menu?._id)}
               >
                 {menu?.name}
               </NavLink>

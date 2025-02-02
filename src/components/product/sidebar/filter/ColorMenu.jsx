@@ -1,42 +1,59 @@
 import { Tooltip } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { FaCheck } from "react-icons/fa";
 import MenuLayout from "../../layout/MenuLayout";
+import { useProductContext } from "../../context/ProductContext";
+import { FILTER_KEY } from "../../constants";
 
-const colors = [
-  { _id: 1, value: "#FF0000", name: "Đỏ" },
-  { _id: 2, value: "#00FF00", name: "Xanh Lá" },
-  { _id: 3, value: "#0000FF", name: "Xanh Dương" },
-  { _id: 4, value: "#FFFF00", name: "Vàng" },
-  { _id: 5, value: "#FFA500", name: "Cam" },
-  { _id: 6, value: "#800080", name: "Tím" },
-  { _id: 7, value: "#FFFFFF", name: "Trắng" },
-  { _id: 8, value: "#000000", name: "Đen" },
-  { _id: 9, value: "#808080", name: "Xám" },
-  { _id: 10, value: "#FFC0CB", name: "Hồng" },
-  { _id: 11, value: "#A52A2A", name: "Nâu" },
-  { _id: 12, value: "#00FFFF", name: "Xanh Ngọc" },
+export const colors = [
+  { _id: 1, hex: "#FF0000", label: "Đỏ", value: "Đỏ" },
+  { _id: 2, hex: "#00FF00", label: "Xanh Lá", value: "Xanh Lá" },
+  { _id: 3, hex: "#0000FF", label: "Xanh Dương", value: "Xanh Dương" },
+  { _id: 4, hex: "#FFFF00", label: "Vàng", value: "Vàng" },
+  { _id: 5, hex: "#FFA500", label: "Cam", value: "Cam" },
+  { _id: 6, hex: "#800080", label: "Tím", value: "Tím" },
+  { _id: 7, hex: "#FFFFFF", label: "Trắng", value: "Trắng" },
+  { _id: 8, hex: "#000000", label: "Đen", value: "Đen" },
+  { _id: 9, hex: "#808080", label: "Xám", value: "Xám" },
+  { _id: 10, hex: "#FFC0CB", label: "Hồng", value: "Hồng" },
+  { _id: 11, hex: "#A52A2A", label: "Nâu", value: "Nâu" },
+  { _id: 12, hex: "#00FFFF", label: "Xanh Ngọc", value: "Xanh Ngọc" },
 ];
 
 const ColorMenu = ({}) => {
   const { t } = useTranslation();
 
+  const { filter, handleSelectFilter } = useProductContext();
+
   return (
     <MenuLayout title={t("products.search-filter.colors.title")}>
-      <div className="flex flex-wrap justify-between gap-2 bg-transparent py-2 text-gray-800">
+      <div className="flex flex-wrap gap-2 bg-transparent py-2 text-gray-800 sr-950:justify-between">
         {colors &&
           colors.length > 0 &&
           colors.map((color, index) => {
             return (
               <div key={`products-search-filter-color-${index}-${color?._id}`}>
-                <Tooltip title={color?.name} arrow>
-                  <div
+                <Tooltip title={color?.label} arrow>
+                  <button
                     className="h-7 w-7 cursor-pointer rounded-full"
                     style={{
-                      backgroundColor: color?.value,
+                      backgroundColor: color?.hex,
                       border:
-                        color?.name === "Trắng" ? "1px solid #e5e7eb" : "none",
+                        color?.label === "Trắng" ? "1px solid #e5e7eb" : "none",
                     }}
-                  ></div>
+                    onClick={() => handleSelectFilter(FILTER_KEY.COLORS, color)}
+                  >
+                    {filter?.[FILTER_KEY.COLORS]?.[color?._id] && (
+                      <div
+                        className="flex w-full items-center justify-center"
+                        style={{
+                          color: color?.label === "Trắng" ? "black" : "white",
+                        }}
+                      >
+                        <FaCheck className="h-2.5 w-2.5" />
+                      </div>
+                    )}
+                  </button>
                 </Tooltip>
               </div>
             );

@@ -1,15 +1,21 @@
+import "@/assets/css/products.css";
 import { ProductProvider } from "@/components/product/context/ProductContext";
 import Pagination from "@/components/pagination/Pagination";
 import ProductCard from "@/components/product/list/ProductCard";
 import Sidebar from "@/components/product/sidebar/Sidebar";
-import SortMenu from "@/components/product/sort/SortMenu";
+import SortMenu, { sorts } from "@/components/product/sort/SortMenu";
+import { FILTER_KEY } from "@/components/product/constants";
+import YourSelection from "@/components/product/sidebar/filter/YourSelection";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { Tooltip } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MdOutlineFilterAlt } from "react-icons/md";
-import { FILTER_KEY } from "@/components/product/constants";
+import _ from "lodash";
+import { useSearchParams } from "react-router-dom";
+
+const DEFAULT_SORT = sorts[0];
 
 const DEFAULT_FILTER = {
   [FILTER_KEY.COSTS]: {},
@@ -25,20 +31,90 @@ const Products = ({}) => {
 
   const [showDrawer, setShowDrawer] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState(DEFAULT_SORT);
   const [filter, setFilter] = useState(DEFAULT_FILTER);
 
-  const handleSelectFilter = (filterKey, value) => {};
+  const isEmptyFilter = useMemo(
+    () => Object.values(filter).every((filterValue) => _.isEmpty(filterValue)),
+    [filter],
+  );
 
-  const handleRemoveFilter = (filterKey, value) => {};
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const newParams = new URLSearchParams();
+
+    if (currentPage > 1) {
+      newParams.set("page", currentPage);
+    }
+
+    if (sortBy?.value !== DEFAULT_SORT?.value) {
+      newParams.set("sortBy", sortBy?.value);
+    }
+
+    if (!isEmptyFilter) {
+      Object.entries(filter).forEach(([filterKey, filterValue]) => {
+        if (!_.isEmpty(filterValue)) {
+          const values = Object.values(filterValue).map((item) => item?.value);
+          newParams.set(filterKey, values.join(","));
+        }
+      });
+    }
+
+    newParams.sort();
+    setSearchParams(newParams);
+  }, [currentPage, sortBy, filter, isEmptyFilter]);
+
+  const handleSelectFilter = (filterKey, value) => {
+    // Có value trong mục tương ứng với filterKey
+    if (filter?.[filterKey]?.[value?._id]) {
+      handleRemoveFilter(filterKey, value);
+    } else {
+      setFilter((prev) => {
+        const valueOfFilterKey = prev?.[filterKey];
+        return {
+          ...prev,
+          [filterKey]: { ...valueOfFilterKey, [value?._id]: value },
+        };
+      });
+    }
+  };
+
+  const handleRemoveFilter = (filterKey, value) => {
+    setFilter((prev) => {
+      const cloneFilter = _.cloneDeep(prev);
+      delete cloneFilter?.[filterKey]?.[value?._id];
+      return cloneFilter;
+    });
+  };
 
   const handleClearAllFilter = () => {
     setFilter(DEFAULT_FILTER);
   };
 
+  const reset = () => {
+    setCurrentPage(1);
+    setSortBy(DEFAULT_SORT);
+    setFilter(DEFAULT_FILTER);
+  };
+
   return (
     <BodyLayout>
-      <ProductProvider value={{ showDrawer, setShowDrawer }}>
-        <div className="flex sr-950:gap-4">
+      <ProductProvider
+        value={{
+          showDrawer,
+          setShowDrawer,
+          sortBy,
+          setSortBy,
+          filter,
+          handleSelectFilter,
+          handleRemoveFilter,
+          handleClearAllFilter,
+          isEmptyFilter,
+          reset,
+        }}
+      >
+        <div className="products flex sr-950:gap-4">
           <div className="shrink-0">
             <Sidebar />
           </div>
@@ -61,6 +137,7 @@ const Products = ({}) => {
                 </div>
               </div>
             </div>
+            {!isEmptyFilter && <YourSelection />}
             <div className="space-y-8 sm:space-y-10 lg:space-y-12">
               <div className="grid grid-cols-2 gap-3 sr-600:grid-cols-3 sr-900:grid-cols-4 sr-950:grid-cols-3 sr-1150:grid-cols-4">
                 {Array.from({ length: 10 }, (_, i) => (

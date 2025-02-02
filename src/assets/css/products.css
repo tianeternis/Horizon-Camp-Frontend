@@ -1,0 +1,4 @@
+.products a.active {
+  color: var(--color-main);
+  font-weight: 500;
+}

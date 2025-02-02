@@ -8,8 +8,9 @@ import { BiSortAZ, BiSortDown, BiSortUp, BiSortZA } from "react-icons/bi";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Tooltip } from "@mui/material";
+import { useProductContext } from "../context/ProductContext";
 
-const options = [
+export const sorts = [
   {
     label: "Mặc định",
     value: "default",
@@ -58,7 +59,8 @@ const SortMenu = ({}) => {
   const { t } = useTranslation();
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selected, setSelected] = useState(options[0]);
+
+  const { sortBy, setSortBy } = useProductContext();
 
   const open = Boolean(anchorEl);
 
@@ -67,7 +69,7 @@ const SortMenu = ({}) => {
   };
 
   const handleMenuItemClick = (event, option) => {
-    setSelected(option);
+    setSortBy(option);
     setAnchorEl(null);
   };
 
@@ -99,13 +101,13 @@ const SortMenu = ({}) => {
           >
             <div className="hidden min-w-48 items-center justify-between border-b border-solid border-b-gray-300 pb-1.5 text-gray-700 hover:border-b-main sr-530:flex md:min-w-56">
               <div className="flex items-center gap-2">
-                {selected?.icon ?? (
+                {sortBy?.icon ?? (
                   <TbArrowsSort className="h-4 w-4 md:h-4.5 md:w-4.5" />
                 )}
                 <span className="text-13px font-medium md:text-sm">
-                  {t(selected?.trans) === selected?.label
-                    ? selected?.label
-                    : t(selected?.trans)}
+                  {t(sortBy?.trans) === sortBy?.label
+                    ? sortBy?.label
+                    : t(sortBy?.trans)}
                 </span>
               </div>
               <MdOutlineKeyboardArrowDown
@@ -161,10 +163,10 @@ const SortMenu = ({}) => {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          {options.map((option, index) => (
+          {sorts.map((option, index) => (
             <MenuItem
               key={`sort-menu-option-${index}-${option?.value}`}
-              selected={option?.value === selected?.value}
+              selected={option?.value === sortBy?.value}
               onClick={(event) => handleMenuItemClick(event, option)}
               sx={{
                 fontFamily: "var(--font-main)",
