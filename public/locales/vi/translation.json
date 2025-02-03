@@ -507,7 +507,7 @@
       "discount": "Giảm giá"
     },
     "blogs": {
-      "title": "Blog cắm trại"
+      "title": "Cấm nang dã ngoại"
     }
   },
   "products": {
@@ -721,7 +721,7 @@
     "title": "Sắp xếp"
   },
   "picnic-guide": {
-    "title": "Cẩm nang cấm trại",
+    "title": "Cấm nang dã ngoại",
     "sort": {
       "default": "Mặc định",
       "a-z": "Tiêu đề A - Z",
