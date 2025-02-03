@@ -70,7 +70,7 @@ const SortMenu = ({
               />
             </div>
             <div className="sr-530:hidden">
-              <Tooltip title={t("products.sort.title")} arrow>
+              <Tooltip title={t("sort.title")} arrow>
                 <div className="flex items-center justify-center rounded border border-solid border-gray-300 p-1 duration-300 hover:border-main hover:bg-main hover:text-white">
                   <TbArrowsSort className="h-6 w-6" />
                 </div>

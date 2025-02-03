@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import BlogCard from "@/components/blog/BlogCard";
+import BlogCard from "@/components/blog/list/BlogCard";
 import { PATHS } from "@/routes";
 
 const blogs = [
