@@ -507,7 +507,7 @@
       "discount": "Discounted"
     },
     "blogs": {
-      "title": "Camping Blog"
+      "title": "Picnic Guide"
     }
   },
   "products": {
@@ -715,6 +715,19 @@
       "color": "Color",
       "back": "Go Back",
       "confirm": "Confirm"
+    }
+  },
+  "sort": {
+    "title": "Sort"
+  },
+  "picnic-guide": {
+    "title": "Picnic Guide",
+    "sort": {
+      "default": "Default",
+      "a-z": "Title A - Z",
+      "z-a": "Title Z - A",
+      "newest_guide": "Newest Guide",
+      "oldest_guide": "Oldest Guide"
     }
   }
 }
