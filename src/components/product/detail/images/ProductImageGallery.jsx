@@ -2,43 +2,35 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
 import "swiper/css/thumbs";
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css";
-import "lightgallery/css/lg-fullscreen.css";
-import "lightgallery/css/lg-rotate.css";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import LightGallery from "lightgallery/react";
-import lgZoom from "lightgallery/plugins/zoom";
-import lgThumbnail from "lightgallery/plugins/thumbnail";
-import lgFullscreen from "lightgallery/plugins/fullscreen";
-import lgRotate from "lightgallery/plugins/rotate";
-
-import { useRef, useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Download from "yet-another-react-lightbox/plugins/download";
+import { useState } from "react";
 
 const ProductImageGallery = ({ images = [] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
-  const galleryRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
 
   const openGallery = (index) => {
-    if (galleryRef.current) {
-      galleryRef.current.openGallery(index);
-    }
+    setIndex(index);
+    setOpen(true);
   };
 
   return (
     <div className="product-images w-full">
-      <LightGallery
-        onInit={(ref) => (galleryRef.current = ref.instance)}
-        speed={500}
-        plugins={[lgZoom, lgThumbnail, lgFullscreen, lgRotate]}
-        dynamic
-        dynamicEl={images?.map((img) => ({
-          src: img,
-          thumb: img,
-        }))}
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={images.map((src) => ({ src }))}
+        index={index}
+        plugins={[Zoom, Thumbnails, Fullscreen, Download]}
       />
       <div className="w-full">
         <Swiper
