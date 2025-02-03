@@ -2,3 +2,49 @@
   color: var(--color-main);
   font-weight: 500;
 }
+
+.product-detail .product-images .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-detail .product-images .mySwiper2 .swiper-button-prev,
+.product-detail .product-images .mySwiper2 .swiper-button-next {
+  visibility: hidden;
+  opacity: 0;
+  transition: 300ms ease;
+}
+
+.product-detail
+  .product-images
+  .mySwiper2:has(.swiper-slide:hover)
+  .swiper-button-prev,
+.product-detail
+  .product-images
+  .mySwiper2:has(.swiper-slide:hover)
+  .swiper-button-next,
+.product-detail .product-images .mySwiper2 .swiper-button-prev:hover,
+.product-detail .product-images .mySwiper2 .swiper-button-next:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.product-detail .product-images .mySwiper2 {
+  height: 80%;
+  width: 100%;
+}
+
+.product-detail .product-images .mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.product-detail .product-images .mySwiper .swiper-slide {
+  opacity: 0.6;
+}
+
+.product-detail .product-images .mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
