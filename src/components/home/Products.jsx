@@ -1,6 +1,6 @@
+import ProductCard from "@/components/product/list/ProductCard";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import ProductCard from "../product/ProductCard";
 import { PATHS } from "@/routes";
 import { Link } from "react-router-dom";
 
@@ -45,7 +45,7 @@ const Products = ({}) => {
             </div>
           </div>
           <div className="w-full space-y-6">
-            <div className="sr-900:grid-cols-4 sr-1150:grid-cols-5 grid grid-cols-2 gap-3 sr-600:grid-cols-3">
+            <div className="grid grid-cols-2 gap-3 sr-600:grid-cols-3 sr-900:grid-cols-4 sr-1150:grid-cols-5">
               {Array.from({ length: 10 }, (_, i) => (
                 <ProductCard key={`home-product-card-${i}`} />
               ))}

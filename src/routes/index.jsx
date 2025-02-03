@@ -9,7 +9,7 @@ import About from "@/pages/About";
 import Products from "@/pages/Products";
 import Contact from "@/pages/Contact";
 import FAQs from "@/pages/FAQs";
-import Blogs from "@/pages/Blogs";
+import PicnicGuide from "@/pages/PicnicGuide";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Cart from "@/pages/Cart";
@@ -29,6 +29,7 @@ import EditProfile from "@/pages/EditProfile";
 import ChangePassword from "@/pages/ChangePassword";
 import DeleteAccount from "@/pages/DeleteAccount";
 import OrderDetails from "@/pages/OrderDetails";
+import ProductDetail from "@/pages/ProductDetail";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -51,8 +52,27 @@ const routes = [
       },
       {
         path: ROUTES.PRODUCTS.index,
-        element: <Products />,
         handle: { crumb: () => crumb("title.product") },
+        children: [
+          {
+            index: true,
+            element: <Products />,
+          },
+          {
+            path: ROUTES.PRODUCTS.PRODUCTS_BY_CATEGORY.index,
+            element: <Products />,
+            handle: {
+              crumb: (data) => crumb(undefined, data?.crumb),
+            },
+          },
+        ],
+      },
+      {
+        path: ROUTES.PRODUCT_DETAIL.index,
+        element: <ProductDetail />,
+        handle: {
+          crumb: (data) => crumb(undefined, data?.crumb || "Chi tiết sản phẩm"),
+        },
       },
       {
         path: ROUTES.CONTACT.index,
@@ -65,9 +85,9 @@ const routes = [
         handle: { crumb: () => crumb("title.faqs") },
       },
       {
-        path: ROUTES.BLOGS.index,
-        element: <Blogs />,
-        handle: { crumb: () => crumb("title.picnic-blog") },
+        path: ROUTES.PICNIC_GUIDE.index,
+        element: <PicnicGuide />,
+        handle: { crumb: () => crumb("title.picnic-guide") },
       },
       {
         path: ROUTES.LOGIN.index,

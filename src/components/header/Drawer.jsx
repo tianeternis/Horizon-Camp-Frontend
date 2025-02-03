@@ -81,11 +81,11 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
             </li>
             <li className="py-3">
               <NavLink
-                to={PATHS.blogs()}
+                to={PATHS.picnicGuide()}
                 className="font-semibold duration-300 hover:text-main"
                 onClick={() => toggleDrawer(false)}
               >
-                {t("navigation.picnic-blog")}
+                {t("navigation.picnic-guide")}
               </NavLink>
             </li>
           </ul>

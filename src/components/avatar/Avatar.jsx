@@ -1,17 +1,4 @@
 import MUIAvatar from "@mui/material/Avatar";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-const theme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1440,
-    },
-  },
-});
 
 const stringToColor = (string) => {
   let hash = 0;
@@ -54,21 +41,19 @@ const Avatar = ({
   ...props
 }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <MUIAvatar
-        src={image || undefined}
-        alt=""
-        sx={{
-          width: size,
-          height: size,
-          fontSize: fontSize,
-          ...(image ? {} : { bgcolor: stringToColor(name) }),
-          ...sx,
-        }}
-        children={image ? undefined : stringAvatar(name)}
-        {...props}
-      />
-    </ThemeProvider>
+    <MUIAvatar
+      src={image || undefined}
+      alt=""
+      sx={{
+        width: size,
+        height: size,
+        fontSize: fontSize,
+        ...(image ? {} : { bgcolor: stringToColor(name) }),
+        ...sx,
+      }}
+      children={image ? undefined : stringAvatar(name)}
+      {...props}
+    />
   );
 };
 

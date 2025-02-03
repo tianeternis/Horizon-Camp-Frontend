@@ -8,7 +8,7 @@
     "about": "About Us",
     "product": "Product",
     "contact": "Contact",
-    "picnic-blog": "Picnic Blog",
+    "picnic-guide": "Picnic Guide",
     "login": "Login",
     "register": "Register",
     "close": "Close",
@@ -47,7 +47,7 @@
     "about": "About Us",
     "product": "Product",
     "contact": "Contact",
-    "picnic-blog": "Picnic Blog",
+    "picnic-guide": "Picnic Guide",
     "login": "Login",
     "register": "Register",
     "faqs": "Frequently Asked Questions - FAQs",
@@ -511,7 +511,49 @@
     }
   },
   "products": {
-    "sold": "Sold"
+    "title": "All Products",
+    "sold": "Sold",
+    "sort": {
+      "title": "Sort",
+      "default": "Default",
+      "a-z": "Name A - Z",
+      "z-a": "Name Z - A",
+      "asc_price": "Price Low to High",
+      "desc_price": "Price High to Low",
+      "newest_product": "Newest Products",
+      "oldest_product": "Oldest Products"
+    },
+    "category": {
+      "title": "Product Category"
+    },
+    "search-filter": {
+      "title": "Search Filter",
+      "costs": {
+        "title": "Price Range",
+        "<100000": "Under 100.000đ",
+        "100000-200000": "From 100.000đ - 200.000đ",
+        "200000-500000": "From 200.000đ - 500.000đ",
+        "500000-1000000": "From 500.000đ - 1.000.000đ",
+        "1000000-1500000": "From 1.000.000đ - 1.500.000đ",
+        "1500000-3000000": "From 1.500.000đ - 3.000.000đ",
+        "3000000-5000000": "From 3.000.000đ - 5.000.000đ",
+        "5000000-7000000": "From 5.000.000đ - 7.000.000đ",
+        "7000000-10000000": "From 7.000.000đ - 10.000.000đ",
+        ">10000000": "Above 10.000.000đ"
+      },
+      "brands": {
+        "title": "Brand"
+      },
+      "colors": {
+        "title": "Color"
+      },
+      "sizes": {
+        "title": "Size"
+      },
+      "your-selection": {
+        "clear_all": "Clear All"
+      }
+    }
   },
   "account": {
     "profile": "Profile",

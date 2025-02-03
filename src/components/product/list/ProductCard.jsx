@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { formatQuantity } from "@/utils/format/quantity";
 import { useTranslation } from "react-i18next";
+import { PATHS } from "@/routes";
 
 const ProductCard = ({}) => {
   const { t } = useTranslation();
 
   return (
     <div className="w-full">
-      <div className="w-full rounded-sm bg-white">
-        <div className="lg:before:z-1 group/actions relative w-full cursor-pointer overflow-hidden lg:before:absolute lg:before:left-0 lg:before:top-0 lg:before:h-full lg:before:w-full lg:before:bg-secondary/60 lg:before:opacity-0 lg:before:transition-all lg:before:duration-300 lg:before:hover:opacity-100">
+      <div className="w-full rounded-sm bg-white shadow">
+        <div className="group/actions relative w-full cursor-pointer overflow-hidden lg:before:absolute lg:before:left-0 lg:before:top-0 lg:before:z-1 lg:before:h-full lg:before:w-full lg:before:bg-secondary/60 lg:before:opacity-0 lg:before:transition-all lg:before:duration-300 lg:before:hover:opacity-100">
           <div>
             <img
               src={
@@ -18,14 +19,17 @@ const ProductCard = ({}) => {
               }
               alt=""
               loading="lazy"
-              className="sr-400:max-h-44 sr-400:min-h-4max-h-44 sr-550:max-h-52 sr-550:min-h-52 sr-650:max-h-48 sr-650:min-h-48 max-h-32 min-h-32 w-full rounded-t-sm object-cover object-center sr-500:max-h-48 sr-500:min-h-48 sr-600:max-h-40 sr-600:min-h-40 md:max-h-52 md:min-h-52"
+              className="sr-400:min-h-4max-h-44 max-h-32 min-h-32 w-full rounded-t-sm object-cover object-center sr-400:max-h-44 sr-500:max-h-48 sr-500:min-h-48 sr-550:max-h-52 sr-550:min-h-52 sr-600:max-h-40 sr-600:min-h-40 sr-650:max-h-48 sr-650:min-h-48 md:max-h-52 md:min-h-52"
             />
           </div>
-          <div className="z-1 absolute right-1.5 top-1.5 rounded-2xl bg-main px-2 py-1 text-xs font-medium text-white sm:px-3 sm:py-1.5 sm:text-13px">
+          <div className="absolute right-1.5 top-1.5 z-1 rounded-2xl bg-main px-2 py-1 text-xs font-medium text-white sm:px-3 sm:py-1.5 sm:text-13px">
             20%
           </div>
           <div className="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-2 opacity-0 transition-all duration-300 group-hover/actions:opacity-100 lg:flex">
-            <Link className="flex items-center justify-center rounded-full bg-white p-2.5 text-main hover:bg-main hover:text-white">
+            <Link
+              to={PATHS.productDetail({ "product-slug": 1 })}
+              className="flex items-center justify-center rounded-full bg-white p-2.5 text-main hover:bg-main hover:text-white"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -128,7 +132,10 @@ const ProductCard = ({}) => {
         </div>
         <div className="p-2">
           <div className="min-h-12 py-1 sm:min-h-14">
-            <Link className="line-clamp-2 text-sm font-semibold text-gray-800 hover:text-main sm:text-15px md:text-base">
+            <Link
+              to={PATHS.productDetail({ "product-slug": 1 })}
+              className="line-clamp-2 text-sm font-semibold text-gray-800 hover:text-main sm:text-15px md:text-base"
+            >
               Lều cắm trại tự bung cho 4 - 5 người thoáng mát, có mái hiên chống
               nắng mưa (KT 2x2x1.45m) K118
             </Link>
