@@ -141,7 +141,7 @@ const Products = ({}) => {
             <div className="space-y-8 sm:space-y-10 lg:space-y-12">
               <div className="grid grid-cols-2 gap-3 sr-600:grid-cols-3 sr-900:grid-cols-4 sr-950:grid-cols-3 sr-1150:grid-cols-4">
                 {Array.from({ length: 10 }, (_, i) => (
-                  <ProductCard key={`home-product-card-${i}`} />
+                  <ProductCard key={`products-product-card-${i}`} />
                 ))}
               </div>
               <div className="flex items-center justify-center">

@@ -716,5 +716,18 @@
       "back": "Trở lại",
       "confirm": "Xác nhận"
     }
+  },
+  "sort": {
+    "title": "Sắp xếp"
+  },
+  "picnic-guide": {
+    "title": "Cẩm nang cấm trại",
+    "sort": {
+      "default": "Mặc định",
+      "a-z": "Tiêu đề A - Z",
+      "z-a": "Tiêu đề Z - A",
+      "newest_guide": "Cẩm nang mới nhất",
+      "oldest_guide": "Cẩm nang cũ nhất"
+    }
   }
 }
