@@ -24,7 +24,7 @@ const ProductImageGallery = ({ images = [] }) => {
   };
 
   return (
-    <div className="product-images w-full">
+    <div className="product-images" style={{ width: "32rem" }}>
       <Lightbox
         open={open}
         close={() => setOpen(false)}
@@ -32,7 +32,29 @@ const ProductImageGallery = ({ images = [] }) => {
         index={index}
         plugins={[Zoom, Thumbnails, Fullscreen, Download]}
       />
-      <div className="w-full">
+      <div className="flex w-full gap-2">
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          loop={true}
+          spaceBetween={10}
+          slidesPerView={5}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          direction="vertical"
+          className="mySwiper"
+        >
+          {images?.map((image, i) => (
+            <SwiperSlide key={`product-images-gallery-thumb-slide-${i}`}>
+              <img
+                src={image}
+                alt=""
+                loading="lazy"
+                className="block h-full w-full rounded-sm border border-solid border-gray-200 object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
         <Swiper
           style={{
             "--swiper-navigation-color": "#fff",
@@ -50,30 +72,17 @@ const ProductImageGallery = ({ images = [] }) => {
               key={`product-image-gallery-${index}`}
               onClick={() => openGallery(index)}
             >
-              <div className="w-full">
-                <img src={img} alt="" className="cursor-pointer object-cover" />
+              <div
+                style={{
+                  height: "var(--height-carousel-image)",
+                }}
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="block h-full w-full cursor-pointer rounded-sm object-cover"
+                />
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Swiper
-          onSwiper={setThumbsSwiper}
-          loop={true}
-          spaceBetween={10}
-          slidesPerView={5}
-          freeMode={true}
-          watchSlidesProgress={true}
-          modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper"
-        >
-          {images?.map((image, i) => (
-            <SwiperSlide key={`product-images-gallery-thumb-slide-${i}`}>
-              <img
-                src={image}
-                alt=""
-                loading="lazy"
-                className="h-full w-full rounded-md border border-solid border-gray-200 object-cover"
-              />
             </SwiperSlide>
           ))}
         </Swiper>

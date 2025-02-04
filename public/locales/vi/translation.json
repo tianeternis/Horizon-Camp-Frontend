@@ -555,7 +555,20 @@
       }
     },
     "detail": {
-      "not_found": "Không tìm thấy sản phẩm."
+      "not_found": "Không tìm thấy sản phẩm.",
+      "see_all": "Xem tất cả",
+      "sold": "đã bán",
+      "color": "Màu sắc",
+      "size": "Kích thước",
+      "quantity": "Số lượng",
+      "add_to_cart": "Thêm vào giỏ hàng",
+      "buy_now": "Mua ngay",
+      "detail_information": "Thông tin chi tiết",
+      "category": "Danh mục",
+      "product_description": "Mô tả món ăn",
+      "product_review": "Đánh giá sản phẩm",
+      "review": "đánh giá",
+      "star": "sao"
     }
   },
   "account": {

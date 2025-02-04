@@ -8,6 +8,8 @@ import { useLoaderData } from "react-router-dom";
 
 const product = {
   name: "Khăn tấm trải du lịch chụp ảnh picnic, trải bàn ăn bằng nhựa PVC chống thấm nước gấp gọn tiện dụng K147",
+  brief:
+    "Đệm hơi siêu nhẹ Naturehike FC12, thiết kế gọn gàng, bền bỉ, dễ mang theo, phù hợp du lịch, cắm trại. Đệm hơi tự bơm, thoải mái như ở nhà!",
   images: [
     "https://bizweb.dktcdn.net/100/440/011/products/sp17.jpg?v=1634894825320",
     "https://bizweb.dktcdn.net/100/440/011/products/sp17-2.jpg?v=1634894826087",
@@ -15,7 +17,15 @@ const product = {
     "https://bizweb.dktcdn.net/100/440/011/products/sp17-3.png?v=1634894828543",
     "https://bizweb.dktcdn.net/100/440/011/products/sp17-4.jpg?v=1634894829343",
   ],
+  brand: {
+    image:
+      "https://dioutdoor.vn/media/2020/08/logo-brand-naturehike-65x33.png.webp",
+  },
   totalSold: 20000000,
+  averageRating: 4.5,
+  price: 150000,
+  discount: 2,
+  discountedPrice: 100000,
 };
 
 const ProductDetail = ({}) => {
