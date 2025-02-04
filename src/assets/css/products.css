@@ -35,14 +35,7 @@
   opacity: 1;
 }
 
-.product-detail .product-images .mySwiper2 {
-  height: 100%;
-  width: 84%;
-}
-
 .product-detail .product-images .mySwiper {
-  width: 16%;
-  height: var(--height-carousel-image);
   box-sizing: border-box;
 }
 

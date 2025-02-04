@@ -24,7 +24,7 @@ const ProductImageGallery = ({ images = [] }) => {
   };
 
   return (
-    <div className="product-images" style={{ width: "32rem" }}>
+    <div className="product-images sr-800:w-[22.5rem] mx-auto w-full sr-600:w-[30rem] md:w-[20rem] sr-950:w-[24rem] sr-1150:w-[32rem]">
       <Lightbox
         open={open}
         close={() => setOpen(false)}
@@ -32,7 +32,7 @@ const ProductImageGallery = ({ images = [] }) => {
         index={index}
         plugins={[Zoom, Thumbnails, Fullscreen, Download]}
       />
-      <div className="flex w-full gap-2">
+      <div className="flex w-full flex-col-reverse gap-2 sr-1150:flex-row">
         <Swiper
           onSwiper={setThumbsSwiper}
           loop={true}
@@ -41,8 +41,12 @@ const ProductImageGallery = ({ images = [] }) => {
           freeMode={true}
           watchSlidesProgress={true}
           modules={[FreeMode, Navigation, Thumbs]}
-          direction="vertical"
-          className="mySwiper"
+          breakpoints={{
+            1150: {
+              direction: "vertical",
+            },
+          }}
+          className="mySwiper h-4/5 w-full sr-1150:!h-[27rem] sr-1150:!w-[16%]"
         >
           {images?.map((image, i) => (
             <SwiperSlide key={`product-images-gallery-thumb-slide-${i}`}>
@@ -65,18 +69,14 @@ const ProductImageGallery = ({ images = [] }) => {
           navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2"
+          className="mySwiper2 h-1/5 w-full sr-1150:!h-full sr-1150:!w-[84%]"
         >
           {images?.map((img, index) => (
             <SwiperSlide
               key={`product-image-gallery-${index}`}
               onClick={() => openGallery(index)}
             >
-              <div
-                style={{
-                  height: "var(--height-carousel-image)",
-                }}
-              >
+              <div className="sr-1150:h-[27rem]">
                 <img
                   src={img}
                   alt=""

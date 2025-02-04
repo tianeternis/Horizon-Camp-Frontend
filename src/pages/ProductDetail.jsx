@@ -8,8 +8,6 @@ import { useLoaderData } from "react-router-dom";
 
 const product = {
   name: "Khăn tấm trải du lịch chụp ảnh picnic, trải bàn ăn bằng nhựa PVC chống thấm nước gấp gọn tiện dụng K147",
-  brief:
-    "Đệm hơi siêu nhẹ Naturehike FC12, thiết kế gọn gàng, bền bỉ, dễ mang theo, phù hợp du lịch, cắm trại. Đệm hơi tự bơm, thoải mái như ở nhà!",
   images: [
     "https://bizweb.dktcdn.net/100/440/011/products/sp17.jpg?v=1634894825320",
     "https://bizweb.dktcdn.net/100/440/011/products/sp17-2.jpg?v=1634894826087",
@@ -23,9 +21,22 @@ const product = {
   },
   totalSold: 20000000,
   averageRating: 4.5,
+  totalReview: 1000,
   price: 150000,
   discount: 2,
   discountedPrice: 100000,
+  colors: [
+    { _id: 1, hex: "#FF0000", label: "Đỏ", value: "Đỏ" },
+    { _id: 2, hex: "#00FF00", label: "Xanh Lá", value: "Xanh Lá" },
+    { _id: 3, hex: "#0000FF", label: "Xanh Dương", value: "Xanh Dương" },
+    { _id: 4, hex: "#FFFF00", label: "Vàng", value: "Vàng" },
+  ],
+  sizes: [
+    { _id: 1, label: "XS", value: "XS" },
+    { _id: 2, label: "S", value: "S" },
+    { _id: 3, label: "M", value: "M" },
+    { _id: 4, label: "L", value: "L" },
+  ],
 };
 
 const ProductDetail = ({}) => {

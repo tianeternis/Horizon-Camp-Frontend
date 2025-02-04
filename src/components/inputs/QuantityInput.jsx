@@ -10,6 +10,7 @@ const QuantityInput = ({
   iconClass = "",
   value = 1,
   max = 50,
+  disabled = false,
   onChange = (quantity) => {}, // Thay đổi do click vào nút tăng/giảm hoặc gõ trực tiếp vào input
   onInputBlur = (quantity) => {}, // Khi blur ra khỏi input
   onButtonClick = (quantity) => {}, // // Khi click vào nút tăng/giảm
@@ -57,9 +58,11 @@ const QuantityInput = ({
   return (
     <div
       className={`flex h-8 flex-nowrap rounded-sm border border-solid border-gray-300 bg-transparent ${rootClass}`}
+      style={disabled ? { opacity: 0.6 } : {}}
     >
       <button
-        className={`flex w-8 shrink-0 items-center justify-center bg-transparent text-main duration-150 hover:bg-primary hover:text-white ${buttonClass}`}
+        className={`flex w-8 shrink-0 items-center justify-center bg-transparent text-main duration-150 hover:bg-primary hover:text-white disabled:hover:bg-transparent disabled:hover:text-main ${buttonClass}`}
+        disabled={disabled}
         onClick={() => decreaseQuantity()}
       >
         <FaMinus className={`h-3 w-3 ${iconClass}`} />
@@ -69,10 +72,12 @@ const QuantityInput = ({
         onChange={(e) => handleChangeInput(e.target.value)}
         onBlur={(e) => handleBlur(e.target.value)}
         className={`w-12 border-x border-gray-300 bg-transparent text-center text-sm text-black outline-none ${inputClass}`}
+        disabled={disabled}
         {...inputProps}
       />
       <button
-        className={`flex w-8 shrink-0 items-center justify-center bg-transparent text-main duration-150 hover:bg-primary hover:text-white ${buttonClass}`}
+        className={`flex w-8 shrink-0 items-center justify-center bg-transparent text-main duration-150 hover:bg-primary hover:text-white disabled:hover:bg-transparent disabled:hover:text-main ${buttonClass}`}
+        disabled={disabled}
         onClick={() => increaseQuantity()}
       >
         <FaPlus className={`h-3 w-3 ${iconClass}`} />
