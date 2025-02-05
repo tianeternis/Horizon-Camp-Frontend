@@ -565,8 +565,11 @@
       "buy_now": "Mua ngay",
       "detail_information": "Thông tin chi tiết",
       "category": "Danh mục",
-      "product_description": "Mô tả món ăn",
+      "brand": "Thương hiệu",
+      "product_description": "Mô tả sản phẩm",
       "product_review": "Đánh giá sản phẩm",
+      "similar_product": "Sản phẩm cùng danh mục khác",
+      "recommend_product": "Có thể bạn thích",
       "review": "đánh giá",
       "star": "sao"
     }
