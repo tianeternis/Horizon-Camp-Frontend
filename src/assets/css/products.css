@@ -46,3 +46,7 @@
 .product-detail .product-images .mySwiper .swiper-slide-thumb-active {
   opacity: 1;
 }
+
+.product-detail .similar-product .swiper-wrapper {
+  contain: inline-size;
+}

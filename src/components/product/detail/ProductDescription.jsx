@@ -7,10 +7,10 @@ const ProductDescription = ({ product = {} }) => {
   return (
     <div className="w-full divide-y divide-solid divide-gray-200 rounded-sm bg-white">
       <div className="space-y-4 px-4 py-6">
-        <div className="shrink-0 text-base font-semibold lg:text-lg">
+        <div className="shrink-0 text-base font-semibold sr-950:text-lg">
           {t("products.detail.detail_information")}
         </div>
-        <div className="space-y-5 text-sm">
+        <div className="space-y-5 text-13px sr-950:text-sm">
           <div className="flex gap-2">
             <span className="w-1/3 shrink-0 text-gray-800 lg:w-1/4 xl:w-1/5">
               {t("products.detail.category")}
@@ -49,10 +49,10 @@ const ProductDescription = ({ product = {} }) => {
         </div>
       </div>
       <div className="space-y-4 px-4 py-6">
-        <div className="shrink-0 text-base font-semibold lg:text-lg">
+        <div className="shrink-0 text-base font-semibold sr-950:text-lg">
           {t("products.detail.detail_information")}
         </div>
-        <div className="text-justify text-sm leading-6">
+        <div className="text-justify text-13px leading-6 sr-950:text-sm">
           {product?.description}
         </div>
       </div>

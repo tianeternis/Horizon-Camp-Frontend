@@ -1,6 +1,7 @@
 import "@/assets/css/products.css";
 import ProductDescription from "@/components/product/detail/ProductDescription";
 import ProductInformation from "@/components/product/detail/ProductInformation";
+import ProductReview from "@/components/product/detail/ProductReview";
 import RecommendedProduct from "@/components/product/detail/RecommendedProduct";
 import SimilarProduct from "@/components/product/detail/SimilarProduct";
 import { useDynamicTitle } from "@/hooks";
@@ -100,8 +101,8 @@ const ProductDetail = ({}) => {
             <div className="grow space-y-3">
               <ProductInformation product={product} />
               <ProductDescription product={product} />
-              {/* <DishReview dish={dish} /> */}
-              {/* <SimilarProduct /> */}
+              <ProductReview product={product} />
+              <SimilarProduct />
               <RecommendedProduct />
             </div>
           </div>
