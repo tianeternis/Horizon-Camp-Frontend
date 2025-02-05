@@ -553,6 +553,24 @@
       "your-selection": {
         "clear_all": "Clear All"
       }
+    },
+    "detail": {
+      "not_found": "Not product found.",
+      "sold": "sold",
+      "color": "Color",
+      "size": "Size",
+      "quantity": "Quantity",
+      "add_to_cart": "Add to cart",
+      "buy_now": "Buy now",
+      "detail_information": "Detail Information",
+      "category": "Category",
+      "brand": "Brand",
+      "product_description": "Product Description",
+      "product_review": "Product Review",
+      "similar_product": "Products in the same category",
+      "recommend_product": "You may also like",
+      "review": "review",
+      "star": "star"
     }
   },
   "account": {
