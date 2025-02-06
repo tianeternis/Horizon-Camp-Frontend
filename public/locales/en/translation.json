@@ -67,7 +67,8 @@
     "edit-profile": "Edit Profile",
     "change-password": "Change Password",
     "delete-account": "Delete Account",
-    "order-details": "Order Details"
+    "order-details": "Order Details",
+    "checkout": "Checkout"
   },
   "form-validation": {
     "required": {
@@ -746,6 +747,40 @@
       "z-a": "Title Z - A",
       "newest_guide": "Newest Guide",
       "oldest_guide": "Oldest Guide"
+    }
+  },
+  "order": {
+    "checkout": {
+      "title": "Checkout",
+      "product": {
+        "title": "Product Information",
+        "product": "Product",
+        "price": "Unit Price",
+        "quantity": "Quantity",
+        "total_price": "Total Price"
+      },
+      "address": {
+        "title": "Address Information",
+        "edit": "Edit Address",
+        "new_address": "New Address",
+        "default": "Default"
+      },
+      "delivery-method": {
+        "title": "Shipping Method"
+      },
+      "payment-method": {
+        "title": "Payment Method"
+      },
+      "checkout-detail": {
+        "title": "Checkout Details",
+        "merchandise_subtotal": "Merchandise Subtotal",
+        "shipping_fee": "Shipping Fee",
+        "total_payment": "Total Payment",
+        "place_order": "Place Order",
+        "notes": {
+          "note_1": "By clicking \"Place Order\", you are agreeing to Horizon Camp's Terms and Conditions"
+        }
+      }
     }
   }
 }
