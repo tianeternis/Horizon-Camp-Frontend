@@ -1,19 +1,22 @@
-import { FormControlLabel, Radio as RadioMUI, RadioGroup } from "@mui/material";
+import CustomThemeProvider from "@/utils/mui/CustomThemeProvider";
+import { Radio as RadioMUI } from "@mui/material";
 
 const Radio = ({ ...props }) => {
   return (
-    <RadioMUI
-      sx={{
-        padding: 0,
-        "& .MuiSvgIcon-root": {
-          fontSize: 20,
-        },
-        "&.Mui-checked": {
-          color: "var(--color-main)",
-        },
-      }}
-      {...props}
-    />
+    <CustomThemeProvider>
+      <RadioMUI
+        sx={{
+          padding: 0,
+          "& .MuiSvgIcon-root": {
+            fontSize: { xs: 16, sm: 20 },
+          },
+          "&.Mui-checked": {
+            color: "var(--color-main)",
+          },
+        }}
+        {...props}
+      />
+    </CustomThemeProvider>
   );
 };
 

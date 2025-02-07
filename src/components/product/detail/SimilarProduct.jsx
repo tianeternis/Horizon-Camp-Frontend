@@ -30,7 +30,7 @@ const SimilarProduct = ({}) => {
         </div>
         <Link className="hidden w-fit items-center gap-2 text-gray-800 hover:text-main 2xl:flex">
           <span className="text-xs font-semibold md:text-13px">
-            {t("navigation.see_all")}
+            {t("navigation.view_all")}
           </span>
           <span>
             <svg
@@ -108,7 +108,7 @@ const SimilarProduct = ({}) => {
         </div>
         <div className="text-center 2xl:hidden">
           <Link className="text-xs font-semibold text-gray-800 hover:text-main md:text-13px">
-            {t("navigation.see_all")}...
+            {t("navigation.view_all")}...
           </Link>
         </div>
       </div>

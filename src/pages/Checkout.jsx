@@ -15,7 +15,7 @@ const Checkout = ({}) => {
   return (
     <BodyLayout>
       <div className="space-y-4">
-        <div className="text-lg font-bold uppercase">
+        <div className="text-base font-bold uppercase sm:text-lg">
           {t("order.checkout.title")}
         </div>
         <div className="space-y-3">

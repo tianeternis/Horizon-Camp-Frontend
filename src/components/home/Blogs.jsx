@@ -124,7 +124,7 @@ const Blogs = ({}) => {
                 to={PATHS.picnicGuide()}
                 className="text-sm font-semibold text-secondary hover:text-main md:text-15px"
               >
-                {t("navigation.see_all")}...
+                {t("navigation.view_all")}...
               </Link>
             </div>
           </div>

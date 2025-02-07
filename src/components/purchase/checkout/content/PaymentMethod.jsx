@@ -20,7 +20,7 @@ const PaymentMethod = ({}) => {
       title={t("order.checkout.payment-method.title")}
       icon={<BiDollarCircle />}
     >
-      <div className="px-6 py-4 text-sm text-black">
+      <div className="p-4 text-13px text-black sm:px-6 sm:text-sm">
         <RadioGroup
           id="checkout-payment-method"
           value={paymentMethod}

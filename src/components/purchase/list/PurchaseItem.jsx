@@ -111,7 +111,7 @@ const PurchaseItem = ({
           );
         })}
         <div className="py-2.5 text-center text-13px text-gray-500">
-          {t("purchase.see_more")}
+          {t("purchase.view_more")}
         </div>
       </div>
       <div className="flex items-center justify-between bg-[#fffefa] px-4 py-3 sm:px-6">

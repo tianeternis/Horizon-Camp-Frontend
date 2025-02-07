@@ -11,9 +11,9 @@
     "picnic-guide": "Picnic Guide",
     "login": "Login",
     "register": "Register",
-    "close": "Close",
-    "see_all": "See all",
-    "see_more": "See more",
+    "view_all": "View all",
+    "view_more": "View more",
+    "view_less": "View less",
     "profile": "My Account",
     "purchase": "My Purchase",
     "logout": "Logout",
@@ -676,7 +676,7 @@
     },
     "search": "You can search by Order ID or Product Name",
     "order_ID": "Order ID",
-    "see_more": "View more products",
+    "view_more": "View more products",
     "product": "product",
     "buy_again": "Buy Again",
     "view_rating": "View Rating",
@@ -777,9 +777,7 @@
         "shipping_fee": "Shipping Fee",
         "total_payment": "Total Payment",
         "place_order": "Place Order",
-        "notes": {
-          "note_1": "By clicking \"Place Order\", you are agreeing to Horizon Camp's Terms and Conditions"
-        }
+        "notes": "By clicking \"Place Order\", you are agreeing to Horizon Camp's Terms and Conditions"
       }
     }
   }

@@ -12,8 +12,9 @@
     "login": "Đăng nhập",
     "register": "Đăng ký",
     "close": "Đóng",
-    "see_all": "Xem tất cả",
-    "see_more": "Xem thêm",
+    "view_all": "Xem tất cả",
+    "view_more": "Xem thêm",
+    "view_less": "Thu gọn",
     "profile": "Tài khoản của tôi",
     "purchase": "Đơn hàng",
     "logout": "Đăng xuất",
@@ -676,7 +677,7 @@
     },
     "search": "Bạn có thể tìm kiếm theo ID đơn hàng hoặc Tên Sản phẩm",
     "order_ID": "Mã đơn",
-    "see_more": "Xem thêm sản phẩm",
+    "view_more": "Xem thêm sản phẩm",
     "product": "sản phẩm",
     "buy_again": "Mua lại",
     "view_rating": "Xem đánh giá",
@@ -777,9 +778,7 @@
         "shipping_fee": "Phí vận chuyển",
         "total_payment": "Tổng thanh toán",
         "place_order": "Đặt hàng",
-        "notes": {
-          "note_1": "Nhấn \"Đặt hàng\" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản Horizon Camp"
-        }
+        "notes": "Nhấn \"Đặt hàng\" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản Horizon Camp"
       }
     }
   }

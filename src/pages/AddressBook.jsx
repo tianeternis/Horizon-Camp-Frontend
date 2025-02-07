@@ -1,5 +1,5 @@
-import AddAddressModal from "@/components/account/addressBook/AddAddressModal";
-import UpdateAddressModal from "@/components/account/addressBook/UpdateAddressModal";
+import AddAddressModal from "@/components/address/AddAddressModal";
+import UpdateAddressModal from "@/components/address/UpdateAddressModal";
 import ConfirmModal from "@/components/modals/ConfirmModal";
 import { useDynamicTitle } from "@/hooks";
 import { formatAddress } from "@/utils/format/address";

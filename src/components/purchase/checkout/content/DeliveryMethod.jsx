@@ -12,12 +12,12 @@ const DeliveryMethod = ({}) => {
       title={t("order.checkout.delivery-method.title")}
       icon={<TbTruckDelivery />}
     >
-      <div className="px-6 py-4">
+      <div className="p-4 sm:px-6">
         <div className="flex items-center gap-2">
           <Radio id="checkout-delivery-radio" checked />
           <label
             htmlFor="checkout-delivery-radio"
-            className="block w-full cursor-pointer text-sm text-black"
+            className="block w-full cursor-pointer text-13px text-black sm:text-sm"
           >
             <div className="flex items-center justify-between">
               <span>Giao hàng tiêu chuẩn</span>
