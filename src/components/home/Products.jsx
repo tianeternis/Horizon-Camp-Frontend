@@ -56,7 +56,7 @@ const Products = ({}) => {
                 className="flex w-fit items-center gap-2 text-gray-800 hover:text-main"
               >
                 <span className="text-xs font-semibold md:text-13px">
-                  {t("navigation.see_more")}
+                  {t("navigation.view_more")}
                 </span>
                 <span>
                   <svg

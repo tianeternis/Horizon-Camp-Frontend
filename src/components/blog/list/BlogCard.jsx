@@ -45,7 +45,7 @@ const BlogCard = ({ blog = {} }) => {
           <div className="w-full">
             <Link className="flex w-fit items-center gap-2 text-gray-800 hover:text-main">
               <span className="text-11px font-semibold md:text-xs">
-                {t("navigation.see_more")}
+                {t("navigation.view_more")}
               </span>
               <span>
                 <svg

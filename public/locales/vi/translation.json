@@ -12,8 +12,9 @@
     "login": "Đăng nhập",
     "register": "Đăng ký",
     "close": "Đóng",
-    "see_all": "Xem tất cả",
-    "see_more": "Xem thêm",
+    "view_all": "Xem tất cả",
+    "view_more": "Xem thêm",
+    "view_less": "Thu gọn",
     "profile": "Tài khoản của tôi",
     "purchase": "Đơn hàng",
     "logout": "Đăng xuất",
@@ -67,7 +68,8 @@
     "edit-profile": "Sửa hồ sơ",
     "change-password": "Đổi mật khẩu",
     "delete-account": "Xóa tài khoản",
-    "order-details": "Chi tiết đơn hàng"
+    "order-details": "Chi tiết đơn hàng",
+    "checkout": "Thanh toán"
   },
   "form-validation": {
     "required": {
@@ -675,7 +677,7 @@
     },
     "search": "Bạn có thể tìm kiếm theo ID đơn hàng hoặc Tên Sản phẩm",
     "order_ID": "Mã đơn",
-    "see_more": "Xem thêm sản phẩm",
+    "view_more": "Xem thêm sản phẩm",
     "product": "sản phẩm",
     "buy_again": "Mua lại",
     "view_rating": "Xem đánh giá",
@@ -746,6 +748,38 @@
       "z-a": "Tiêu đề Z - A",
       "newest_guide": "Cẩm nang mới nhất",
       "oldest_guide": "Cẩm nang cũ nhất"
+    }
+  },
+  "order": {
+    "checkout": {
+      "title": "Thanh toán",
+      "product": {
+        "title": "Thông tin sản phẩm",
+        "product": "Sản phẩm",
+        "price": "Đơn giá",
+        "quantity": "Số lượng",
+        "total_price": "Thành tiền"
+      },
+      "address": {
+        "title": "Thông tin địa chỉ",
+        "edit": "Sửa địa chỉ",
+        "new_address": "Địa chỉ mới",
+        "default": "Mặc định"
+      },
+      "delivery-method": {
+        "title": "Phương thức vận chuyển"
+      },
+      "payment-method": {
+        "title": "Phương thức thanh toán"
+      },
+      "checkout-detail": {
+        "title": "Chi tiết thanh toán",
+        "merchandise_subtotal": "Tổng tiền hàng",
+        "shipping_fee": "Phí vận chuyển",
+        "total_payment": "Tổng thanh toán",
+        "place_order": "Đặt hàng",
+        "notes": "Nhấn \"Đặt hàng\" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản Horizon Camp"
+      }
     }
   }
 }

@@ -54,6 +54,7 @@ export const ROUTES = {
   INFORMATION_SECURITY: { index: "information-security" },
   RESET_PASSWORD: { index: "reset-password" },
   ACTIVATE_ACCOUNT: { index: "activate-account" },
+  CHECKOUT: { index: "checkout" },
   NOTFOUND: { index: "*" },
 };
 
@@ -98,4 +99,5 @@ export const PATHS = {
   deleteAccount: getPath(
     `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.DELETE_ACCOUNT.index}`,
   ),
+  checkout: getPath(`/${ROUTES.CHECKOUT.index}`),
 };

@@ -18,7 +18,7 @@ const RecommendedProduct = ({}) => {
         </div>
         <div className="flex w-full justify-center">
           <Link className="w-full rounded-sm border border-solid border-gray-200 bg-white py-2 text-center text-sm text-gray-800 shadow-sm hover:border-main hover:bg-main hover:text-white sr-400:w-6/10 sr-500:w-5/10 sm:w-3/10">
-            {t("navigation.see_more")}
+            {t("navigation.view_more")}
           </Link>
         </div>
       </div>

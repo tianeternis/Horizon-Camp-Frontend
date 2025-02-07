@@ -30,6 +30,7 @@ import ChangePassword from "@/pages/ChangePassword";
 import DeleteAccount from "@/pages/DeleteAccount";
 import OrderDetails from "@/pages/OrderDetails";
 import ProductDetail from "@/pages/ProductDetail";
+import Checkout from "@/pages/Checkout";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -159,6 +160,11 @@ const routes = [
         path: ROUTES.CART.index,
         element: <Cart />,
         handle: { crumb: () => crumb("title.cart") },
+      },
+      {
+        path: ROUTES.CHECKOUT.index,
+        element: <Checkout />,
+        handle: { crumb: () => crumb("title.checkout") },
       },
       {
         path: ROUTES.WISHLIST.index,
