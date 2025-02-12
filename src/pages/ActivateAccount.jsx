@@ -1,11 +1,10 @@
 import ActivationForm from "@/components/auth/activateAccount/ActivationForm";
-import ActivationInformaion from "@/components/auth/activateAccount/ActivationInformaion";
 import ActivationSkeleton from "@/components/auth/activateAccount/ActivationSkeleton";
 import CongratulationsConfetti from "@/components/auth/activateAccount/CongratulationsConfetti";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { PATHS } from "@/routes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoMdArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -19,13 +18,13 @@ const ActivateAccount = ({}) => {
   const [showSkeleton, setShowSkeleton] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const handleAcceptActivate = () => {
+  useEffect(() => {
     setShowSkeleton(true);
     setTimeout(() => {
       setShowSkeleton(false);
       setIsActivated(true);
     }, 1000);
-  };
+  }, []);
 
   const handleActivateAccount = (data) => {
     console.log(data);
@@ -49,13 +48,8 @@ const ActivateAccount = ({}) => {
             </Link>
             <div className="w-full space-y-6">
               <h4 className="pb-2 text-center text-xl font-semibold uppercase text-black md:text-2xl">
-                {t("auth.activate-account.title")}
+                {t("auth.activate-account.title.main")}
               </h4>
-              {isActivated === false &&
-                showSkeleton === false &&
-                showConfetti === false && (
-                  <ActivationInformaion handleAccept={handleAcceptActivate} />
-                )}
               {showSkeleton === true && <ActivationSkeleton />}
               {isActivated === true && (
                 <ActivationForm handleActivateAccount={handleActivateAccount} />
