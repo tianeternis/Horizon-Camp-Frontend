@@ -17,7 +17,7 @@ export const loginFormSchema = yup
 
 export const registerFormSchema = yup
   .object({
-    fullname: yup.string().required("form-validation.required.fullname"),
+    fullName: yup.string().required("form-validation.required.fullname"),
     email: yup
       .string()
       .email("form-validation.format.email")

@@ -452,7 +452,7 @@
     "password": "Password",
     "forgot_password": "Forgot password?",
     "fullname": "Full Name",
-    "confirm-password": "Confirm Password",
+    "confirm_password": "Confirm Password",
     "activate-account": {
       "title": "Activate Account",
       "back_to_home": "Back to Home",

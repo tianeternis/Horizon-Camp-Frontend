@@ -3,6 +3,10 @@ import PasswordInput from "@/components/inputs/PassowordInput";
 import { useAppForm } from "@/hooks";
 import { registerFormSchema } from "./authFormSchema";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { register as apiRegister } from "@/services/authService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { PATHS } from "@/routes";
 
 const RegisterForm = ({}) => {
   const { t } = useTranslation();
@@ -13,8 +17,22 @@ const RegisterForm = ({}) => {
     formState: { errors },
   } = useAppForm(registerFormSchema);
 
-  const handleRegister = (data) => {
-    console.log(data);
+  const navigate = useNavigate();
+
+  const handleRegister = async (data) => {
+    const res = await apiRegister(data);
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      navigate(PATHS.login());
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      console.log(res.EM);
+    }
+
+    if (res && res.EC === StatusCodes.INACTIVE_ACCOUNT) {
+      navigate(PATHS.activateAccount());
+    }
   };
 
   return (
@@ -28,7 +46,7 @@ const RegisterForm = ({}) => {
         onSubmit={handleSubmit(handleRegister)}
       >
         <Input
-          label="fullname"
+          label="fullName"
           register={register}
           errors={errors}
           placeholder={t("auth.fullname")}
