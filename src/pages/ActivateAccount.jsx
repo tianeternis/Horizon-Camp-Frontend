@@ -4,6 +4,8 @@ import CongratulationsConfetti from "@/components/auth/activateAccount/Congratul
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { PATHS } from "@/routes";
+import { verifyActivationCode } from "@/services/authService";
+import StatusCodes from "@/utils/status/StatusCodes";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoMdArrowBack } from "react-icons/io";
@@ -26,10 +28,19 @@ const ActivateAccount = ({}) => {
     }, 1000);
   }, []);
 
-  const handleActivateAccount = (data) => {
-    console.log(data);
-    setIsActivated(false);
-    setShowConfetti(true);
+  const handleActivateAccount = async (data) => {
+    const res = await verifyActivationCode({
+      activationCode: data?.activationCode,
+    });
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      setIsActivated(false);
+      setShowConfetti(true);
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      console.log(res.EM);
+    }
   };
 
   return (

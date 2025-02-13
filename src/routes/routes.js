@@ -53,7 +53,7 @@ export const ROUTES = {
   RETURN_POLICY: { index: "return-policy" },
   INFORMATION_SECURITY: { index: "information-security" },
   RESET_PASSWORD: { index: "reset-password" },
-  ACTIVATE_ACCOUNT: { index: "activate-account" },
+  ACTIVATE_ACCOUNT: { index: "activate-account/:token" },
   CHECKOUT: { index: "checkout" },
   NOTFOUND: { index: "*" },
 };

@@ -1,5 +1,9 @@
 import successCheck from "@/assets/images/success-check.png";
 import warningIcon from "@/assets/images/warning-icon.png";
+import Button from "@/components/buttons/Button";
+import { PATHS } from "@/routes";
+import { sendActivationCode } from "@/services/authService";
+import StatusCodes from "@/utils/status/StatusCodes";
 import {
   Dialog,
   DialogActions,
@@ -8,22 +12,44 @@ import {
   useTheme,
 } from "@mui/material";
 import { Trans, useTranslation } from "react-i18next";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaXmark } from "react-icons/fa6";
 
 const NotificationModal = ({
   show = false,
   onClose = () => {},
-  onSubmit = () => {},
   data = { _id: "", email: "", success: false },
 }) => {
   const { t } = useTranslation();
 
+  const [loading, setLoading] = useState(false);
+
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const navigate = useNavigate();
 
   const handleClose = (e, reason) => {
     if (reason === "backdropClick" || reason === "escapeKeyDown") return;
     onClose();
+  };
+
+  const handleSubmit = async () => {
+    if (data._id) {
+      setLoading(true);
+      const res = await sendActivationCode(data._id);
+      setLoading(false);
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        handleClose();
+        navigate(PATHS.activateAccount({ token: res.DT?.activateToken }));
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        console.log(res.EM);
+      }
+    }
   };
 
   return (
@@ -73,12 +99,12 @@ const NotificationModal = ({
           </DialogContent>
           <DialogActions sx={{ padding: 0 }}>
             <div className="w-full pt-4 text-center">
-              <button
-                className="w-full rounded-md bg-main px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary sr-500:w-auto md:text-base"
-                onClick={onSubmit}
-              >
-                {t("auth.activate-account.activateNow")}
-              </button>
+              <Button
+                label={t("auth.activate-account.activateNow")}
+                loading={loading}
+                buttonClass="w-full rounded-md bg-main px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary sr-500:w-auto md:text-base"
+                onClick={handleSubmit}
+              />
             </div>
             <button
               className="absolute right-4 top-4 text-xl text-gray-400 hover:text-main"
