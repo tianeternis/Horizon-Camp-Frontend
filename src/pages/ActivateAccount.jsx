@@ -4,12 +4,16 @@ import CongratulationsConfetti from "@/components/auth/activateAccount/Congratul
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { PATHS } from "@/routes";
-import { verifyActivationCode } from "@/services/authService";
+import {
+  sendActivationCode,
+  verifyActivationCode,
+} from "@/services/authService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoMdArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ActivateAccount = ({}) => {
   const { t } = useTranslation();
@@ -19,6 +23,9 @@ const ActivateAccount = ({}) => {
   const [isActivated, setIsActivated] = useState(false);
   const [showSkeleton, setShowSkeleton] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const params = useParams();
 
   useEffect(() => {
     setShowSkeleton(true);
@@ -30,6 +37,7 @@ const ActivateAccount = ({}) => {
 
   const handleActivateAccount = async (data) => {
     const res = await verifyActivationCode({
+      _id: params?.id,
       activationCode: data?.activationCode,
     });
 
@@ -39,7 +47,21 @@ const ActivateAccount = ({}) => {
     }
 
     if (res && res.EC === StatusCodes.ERRROR) {
-      console.log(res.EM);
+      toast.error(res.EM);
+    }
+  };
+
+  const handleResendCode = async () => {
+    setLoading(true);
+    const res = await sendActivationCode(params?.id);
+    setLoading(false);
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      toast.success(res.EM);
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      toast.error(res.EM);
     }
   };
 
@@ -63,7 +85,11 @@ const ActivateAccount = ({}) => {
               </h4>
               {showSkeleton === true && <ActivationSkeleton />}
               {isActivated === true && (
-                <ActivationForm handleActivateAccount={handleActivateAccount} />
+                <ActivationForm
+                  handleActivateAccount={handleActivateAccount}
+                  handleResendCode={handleResendCode}
+                  loading={loading}
+                />
               )}
               {showConfetti === true && <CongratulationsConfetti />}
             </div>

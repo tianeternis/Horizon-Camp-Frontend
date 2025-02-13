@@ -7,6 +7,7 @@ import { useState } from "react";
 import { register as apiRegister } from "@/services/authService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import NotificationModal from "./NotificationModal";
+import { toast } from "react-toastify";
 
 const RegisterForm = ({}) => {
   const { t } = useTranslation();
@@ -32,7 +33,7 @@ const RegisterForm = ({}) => {
     }
 
     if (res && res.EC === StatusCodes.ERRROR) {
-      console.log(res.EM);
+      toast.error(res.EM);
     }
   };
 

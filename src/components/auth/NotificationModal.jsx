@@ -15,6 +15,7 @@ import { Trans, useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaXmark } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const NotificationModal = ({
   show = false,
@@ -43,11 +44,11 @@ const NotificationModal = ({
 
       if (res && res.EC === StatusCodes.SUCCESS) {
         handleClose();
-        navigate(PATHS.activateAccount({ token: res.DT?.activateToken }));
+        navigate(PATHS.activateAccount({ id: res.DT?._id }));
       }
 
       if (res && res.EC === StatusCodes.ERRROR) {
-        console.log(res.EM);
+        toast.error(res.EM);
       }
     }
   };

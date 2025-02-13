@@ -457,10 +457,13 @@
       "title": "Activate Account",
       "back_to_home": "Back to Home",
       "message": {
-        "msg_1": "Congratulations! You have successfully registered an account at Horizon Camp with the email {{email}}.",
+        "msg_1": {
+          "success": "Congratulations, you have successfully registered for an account at Horizon Camp using email {{email}}.",
+          "inactive": "The account exists but has not been activated. Please check your email {{email}} to activate the account."
+        },
         "msg_2": "To log in and use our services, please activate your registered account.",
         "msg_3": "<strong>Note:</strong> If the account is not activated within <strong>1 day</strong>, the system will automatically <strong>cancel (delete)</strong> your account.",
-        "msg_4": "We have sent an activation code to the email {{email}}. Please check your inbox.",
+        "msg_4": "We have sent an activation code to your email. Please check your inbox.",
         "msg_5": {
           "note": "Note",
           "note_1": "The activation code is valid for <strong>10 minutes</strong> only.",

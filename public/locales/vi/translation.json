@@ -468,7 +468,7 @@
         },
         "msg_2": "Để có thể đăng nhập và sử dụng các dịch vụ của chúng tôi, bạn vui lòng thực hiện Kích hoạt tài khoản đã đăng ký.",
         "msg_3": "<strong>Lưu ý:</strong> Nếu tài khoản không được kích hoạt trong vòng <strong>1 ngày</strong>, hệ thống sẽ tự động <strong>hủy (xóa)</strong> tài khoản của bạn.",
-        "msg_4": "Chúng tôi đã gửi mã kích hoạt đến email {{email}}. Bạn vui lòng kiểm tra lại email của mình.",
+        "msg_4": "Chúng tôi đã gửi mã kích hoạt đến email của bạn. Bạn vui lòng kiểm tra lại email của mình.",
         "msg_5": {
           "note": "Lưu ý",
           "note_1": "Mã kích hoạt chỉ có hiệu lực trong <strong>10 phút</strong>.",
