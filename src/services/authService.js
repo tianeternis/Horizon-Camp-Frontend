@@ -11,3 +11,11 @@ export const sendActivationCode = (id) => {
 export const verifyActivationCode = (data) => {
   return axios.post(`/auth/verify-activation-code`, data);
 };
+
+export const login = (data) => {
+  return axios.post(`/auth/login`, data);
+};
+
+export const logout = (data) => {
+  return axios.post(`/auth/logout`, data);
+};

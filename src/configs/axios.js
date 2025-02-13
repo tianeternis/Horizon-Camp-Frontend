@@ -1,3 +1,4 @@
+import { store } from "@/redux/store";
 import axios from "axios";
 import i18next from "i18next";
 
@@ -19,6 +20,10 @@ instance.interceptors.request.use(
     const url = new URL(config.url, config.baseURL);
     url.searchParams.set("lang", lang);
     config.url = url.pathname + url.search;
+
+    // Thêm access token
+    const access_token = store.getState().user.account.accessToken;
+    config.headers.Authorization = "Bearer " + access_token;
 
     return config;
   },
