@@ -38,9 +38,14 @@ export const userSlice = createSlice({
       },
     }),
     logoutSuccess: (_, __) => initialState,
+    updateAccessToken: (state, action) => ({
+      ...state,
+      account: { ...state.account, accessToken: action?.payload?.accessToken },
+    }),
   },
 });
 
-export const { loginSuccess, logoutSuccess } = userSlice.actions;
+export const { loginSuccess, logoutSuccess, updateAccessToken } =
+  userSlice.actions;
 
 export default userSlice.reducer;
