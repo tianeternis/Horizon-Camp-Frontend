@@ -3,8 +3,13 @@ import Input from "@/components/inputs/Input";
 import { useAppForm } from "@/hooks";
 import { Trans, useTranslation } from "react-i18next";
 import { activationFormSchema } from "./ActivationFormSchema";
+import { CgSpinner } from "react-icons/cg";
 
-const ActivationForm = ({ handleActivateAccount = (data) => {} }) => {
+const ActivationForm = ({
+  handleActivateAccount = (data) => {},
+  handleResendCode = () => {},
+  loading = false,
+}) => {
   const { t } = useTranslation();
 
   const {
@@ -25,9 +30,7 @@ const ActivationForm = ({ handleActivateAccount = (data) => {} }) => {
           />
         </div>
         <div className="text-sm md:text-15px">
-          {t("auth.activate-account.message.msg_4", {
-            email: "thienvu@gmail.com",
-          })}
+          {t("auth.activate-account.message.msg_4")}
         </div>
       </div>
       <div className="space-y-2 text-sm md:text-15px">
@@ -44,9 +47,17 @@ const ActivationForm = ({ handleActivateAccount = (data) => {} }) => {
       <div className="w-full border-t border-dashed border-black/15"></div>
       <div className="space-y-4">
         <div className="text-sm md:text-15px">
-          {t("auth.activate-account.message.msg_6")}{" "}
-          <button className="font-semibold text-orange-500 hover:text-orange-600">
+          {t("auth.activate-account.message.msg_6")}
+          <button
+            className="inline-flex items-center gap-1.5 font-semibold text-orange-500 hover:text-orange-600"
+            onClick={handleResendCode}
+          >
             {t("auth.activate-account.send_code")}
+            {loading && (
+              <span className="text-xl">
+                <CgSpinner className="animate-spin" />
+              </span>
+            )}
           </button>
           .
         </div>

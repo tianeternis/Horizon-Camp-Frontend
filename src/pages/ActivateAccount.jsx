@@ -1,14 +1,19 @@
 import ActivationForm from "@/components/auth/activateAccount/ActivationForm";
-import ActivationInformaion from "@/components/auth/activateAccount/ActivationInformaion";
 import ActivationSkeleton from "@/components/auth/activateAccount/ActivationSkeleton";
 import CongratulationsConfetti from "@/components/auth/activateAccount/CongratulationsConfetti";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { PATHS } from "@/routes";
-import { useState } from "react";
+import {
+  sendActivationCode,
+  verifyActivationCode,
+} from "@/services/authService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoMdArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ActivateAccount = ({}) => {
   const { t } = useTranslation();
@@ -18,19 +23,46 @@ const ActivateAccount = ({}) => {
   const [isActivated, setIsActivated] = useState(false);
   const [showSkeleton, setShowSkeleton] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleAcceptActivate = () => {
+  const params = useParams();
+
+  useEffect(() => {
     setShowSkeleton(true);
     setTimeout(() => {
       setShowSkeleton(false);
       setIsActivated(true);
     }, 1000);
+  }, []);
+
+  const handleActivateAccount = async (data) => {
+    const res = await verifyActivationCode({
+      _id: params?.id,
+      activationCode: data?.activationCode,
+    });
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      setIsActivated(false);
+      setShowConfetti(true);
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      toast.error(res.EM);
+    }
   };
 
-  const handleActivateAccount = (data) => {
-    console.log(data);
-    setIsActivated(false);
-    setShowConfetti(true);
+  const handleResendCode = async () => {
+    setLoading(true);
+    const res = await sendActivationCode(params?.id);
+    setLoading(false);
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      toast.success(res.EM);
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      toast.error(res.EM);
+    }
   };
 
   return (
@@ -49,16 +81,15 @@ const ActivateAccount = ({}) => {
             </Link>
             <div className="w-full space-y-6">
               <h4 className="pb-2 text-center text-xl font-semibold uppercase text-black md:text-2xl">
-                {t("auth.activate-account.title")}
+                {t("auth.activate-account.title.main")}
               </h4>
-              {isActivated === false &&
-                showSkeleton === false &&
-                showConfetti === false && (
-                  <ActivationInformaion handleAccept={handleAcceptActivate} />
-                )}
               {showSkeleton === true && <ActivationSkeleton />}
               {isActivated === true && (
-                <ActivationForm handleActivateAccount={handleActivateAccount} />
+                <ActivationForm
+                  handleActivateAccount={handleActivateAccount}
+                  handleResendCode={handleResendCode}
+                  loading={loading}
+                />
               )}
               {showConfetti === true && <CongratulationsConfetti />}
             </div>

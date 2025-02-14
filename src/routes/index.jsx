@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { ROUTES } from "./routes";
+import PrivateRoute from "./private/PrivateRoute";
 
 import AccountLayout from "@/layouts/AccountLayout";
 import MainLayout from "@/layouts/MainLayout";
@@ -112,7 +113,11 @@ const routes = [
       },
       {
         path: ROUTES.ACCOUNT.index,
-        element: <AccountLayout />,
+        element: (
+          <PrivateRoute>
+            <AccountLayout />
+          </PrivateRoute>
+        ),
         handle: { crumb: () => crumb("title.profile") },
         children: [
           {
@@ -158,12 +163,20 @@ const routes = [
       },
       {
         path: ROUTES.CART.index,
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
         handle: { crumb: () => crumb("title.cart") },
       },
       {
         path: ROUTES.CHECKOUT.index,
-        element: <Checkout />,
+        element: (
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        ),
         handle: { crumb: () => crumb("title.checkout") },
       },
       {

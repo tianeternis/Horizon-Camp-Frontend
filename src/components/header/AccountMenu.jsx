@@ -1,17 +1,38 @@
 import { PATHS } from "@/routes";
 import Avatar from "@/components/avatar/Avatar";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { RiAccountPinCircleLine } from "react-icons/ri";
 import { TbClipboardText } from "react-icons/tb";
 import { PiSignOutBold, PiMapPinLineBold } from "react-icons/pi";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "@/services/authService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { logoutSuccess } from "@/redux/reducer/userSlice";
+import { toast } from "react-toastify";
+import { auth, signOut } from "@/configs/firebase";
 
 const AccountMenu = ({}) => {
   const { t } = useTranslation();
 
-  const handleLogout = () => {
-    console.log("Logout");
+  const account = useSelector((state) => state.user.account);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    const res = await logout({ _id: account?._id });
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      await signOut(auth);
+      dispatch(logoutSuccess());
+      navigate(PATHS.login());
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      toast.error(res.EM);
+    }
   };
 
   return (
@@ -19,37 +40,36 @@ const AccountMenu = ({}) => {
       <Link to={PATHS.account()}>
         <div className="flex items-center gap-2">
           <Avatar
-            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPWvOjVHl42q9oj7AqNHC6aJgi9CeYKshgOQ&s"
-            name="Thiên Vũ"
+            image={account?.avatar}
+            name={account?.fullName}
             sx={{
               width: { xs: 28, md: 38 },
               height: { xs: 28, md: 38 },
+              fontSize: { xs: 12, md: 16 },
             }}
           />
-          <div className="hidden items-center gap-1 text-15px font-medium text-secondary md:flex">
-            <span>Thiên Vũ</span>
+          <div className="hidden items-center gap-1 text-sm font-medium text-secondary md:flex lg:text-15px">
+            <span>{account?.fullName}</span>
             <MdKeyboardArrowDown className="h-5 w-5" />
           </div>
         </div>
       </Link>
       <div className="invisible absolute -right-6 z-40 origin-bottom scale-90 pt-4 opacity-0 transition-all duration-300 will-change-transform group-hover:visible group-hover:scale-100 group-hover:opacity-100 md:right-0">
         <div className="relative min-w-36 max-w-44 rounded-sm bg-white shadow-lg before:absolute before:-top-1.5 before:right-8 before:h-3.5 before:w-3.5 before:rotate-45 before:bg-white md:max-w-52 md:before:right-14">
-          <div className="flex flex-col">
+          <div className="flex flex-col py-2">
             <div className="flex items-center gap-2 px-3 py-2 md:py-3">
               <div className="hidden md:block">
                 <Avatar
-                  image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPWvOjVHl42q9oj7AqNHC6aJgi9CeYKshgOQ&s"
-                  name="Thiên Vũ"
+                  image={account?.avatar}
+                  name={account?.fullName}
                   size={40}
                 />
               </div>
               <div className="space-y-1 overflow-hidden">
                 <div className="truncate text-sm font-semibold">
-                  Mộc Thiên Vũ
+                  {account?.fullName}
                 </div>
-                <div className="truncate text-xs">
-                  mocthienvu.green@gmail.com
-                </div>
+                <div className="truncate text-xs">{account?.email}</div>
               </div>
             </div>
             <div className="border-b border-solid border-black/15"></div>

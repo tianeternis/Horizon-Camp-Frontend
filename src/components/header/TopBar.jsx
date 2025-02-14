@@ -8,11 +8,12 @@ import { BiUser } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { PATHS } from "@/routes";
 import AccountMenu from "./AccountMenu";
+import { useSelector } from "react-redux";
 
 const TopBar = ({ toggleDrawer = (v) => {} }) => {
   const { t } = useTranslation();
 
-  const isAuth = false;
+  const isAuth = useSelector((state) => state.user.isAuth);
 
   return (
     <div className="bg-white/85">
