@@ -447,7 +447,8 @@
   "auth": {
     "login": "Login",
     "register": "Register",
-    "login_with": "Or login with",
+    "or": "Or",
+    "login_with_google": "Sign in with Google",
     "email": "Email",
     "password": "Password",
     "forgot_password": "Forgot password?",

@@ -448,7 +448,8 @@
   "auth": {
     "login": "Đăng nhập",
     "register": "Đăng ký",
-    "login_with": "Hoặc đăng nhập bằng",
+    "or": "Hoặc",
+    "login_with_google": "Đăng nhập bằng Google",
     "email": "Email",
     "password": "Mật khẩu",
     "forgot_password": "Quên mật khẩu?",
