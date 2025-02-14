@@ -454,6 +454,7 @@
     "forgot_password": "Forgot password?",
     "fullname": "Full Name",
     "confirm_password": "Confirm Password",
+    "login_with_google_error": "An error occurred. Please try again later.",
     "activate-account": {
       "title": "Activate Account",
       "back_to_home": "Back to Home",

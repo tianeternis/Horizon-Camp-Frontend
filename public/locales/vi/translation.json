@@ -455,6 +455,7 @@
     "forgot_password": "Quên mật khẩu?",
     "fullname": "Họ và tên",
     "confirm_password": "Mật khẩu xác nhận",
+    "login_with_google_error": "Đã xảy ra lỗi. Vui lòng thử lại sau.",
     "activate-account": {
       "title": {
         "main": "Kích hoạt tài khoản",

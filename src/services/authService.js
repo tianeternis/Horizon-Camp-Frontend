@@ -16,6 +16,10 @@ export const login = (data) => {
   return axios.post(`/auth/login`, data);
 };
 
+export const loginWithGoogle = (data) => {
+  return axios.post(`/auth/login-with-google`, data);
+};
+
 export const logout = (data) => {
   return axios.post(`/auth/logout`, data);
 };

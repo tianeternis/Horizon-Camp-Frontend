@@ -11,6 +11,7 @@ import { logout } from "@/services/authService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { logoutSuccess } from "@/redux/reducer/userSlice";
 import { toast } from "react-toastify";
+import { auth, signOut } from "@/configs/firebase";
 
 const AccountMenu = ({}) => {
   const { t } = useTranslation();
@@ -24,6 +25,7 @@ const AccountMenu = ({}) => {
     const res = await logout({ _id: account?._id });
 
     if (res && res.EC === StatusCodes.SUCCESS) {
+      await signOut(auth);
       dispatch(logoutSuccess());
       navigate(PATHS.login());
     }
