@@ -3,21 +3,25 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
-import { useState } from "react";
-
-const brands = [
-  "https://dioutdoor.vn/media/2020/07/logo-leatherman-1024x213.png.webp",
-  "https://dioutdoor.vn/media/2020/08/logo-brand-naturehike.png.webp",
-  "https://dioutdoor.vn/media/2024/02/logo-beston-battery-300x50.png",
-  "https://dioutdoor.vn/media/2023/12/Logo-brand-maxsun.png.webp",
-  "https://dioutdoor.vn/media/2020/08/logo-brand-Opinel-1024x442.png.webp",
-  "https://dioutdoor.vn/media/2020/08/logo-brand-sawyer.png.webp",
-  "https://dioutdoor.vn/media/2020/08/logo-brand-Trangia-1024x255.png.webp",
-  "https://dioutdoor.vn/media/2021/07/logo-black-sticker.svg",
-];
+import { useEffect, useState } from "react";
+import { getBrands } from "@/services/brandService";
+import StatusCodes from "@/utils/status/StatusCodes";
 
 const Brands = ({}) => {
   const [swiper, setSwiper] = useState(null);
+  const [brands, setBrands] = useState([]);
+
+  useEffect(() => {
+    const fetchBrands = async () => {
+      const res = await getBrands();
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        setBrands(res.DT?.data);
+      }
+    };
+
+    fetchBrands();
+  }, []);
 
   const handlePrevClick = () => {
     if (swiper) {
@@ -69,15 +73,17 @@ const Brands = ({}) => {
               },
             }}
           >
-            {brands.map((brand, i) => (
-              <SwiperSlide key={`slide-brand-${i}`}>
-                <div className="flex items-center justify-center">
-                  <Link>
-                    <img src={brand} alt="" className="w-32" />
-                  </Link>
-                </div>
-              </SwiperSlide>
-            ))}
+            {brands &&
+              brands.length > 0 &&
+              brands.map((brand, i) => (
+                <SwiperSlide key={`slide-brand-${i}-${brand?._id}`}>
+                  <div className="flex items-center justify-center">
+                    <Link>
+                      <img src={brand?.image?.path} alt="" className="w-32" />
+                    </Link>
+                  </div>
+                </SwiperSlide>
+              ))}
           </Swiper>
           <button
             className="invisible absolute right-4 top-1/2 z-20 -translate-y-1/2 translate-x-2 transform rounded-full bg-main p-2.5 text-white duration-150 hover:text-secondary group-hover:visible group-hover:translate-x-0 md:p-3 xl:right-20 xl:translate-x-6 xl:bg-transparent xl:p-0 xl:text-black"
