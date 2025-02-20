@@ -5,9 +5,26 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { MdArrowDropDown } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { PATHS } from "@/routes";
+import { useEffect, useState } from "react";
+import { getCategories } from "@/services/categoryService";
+import StatusCodes from "@/utils/status/StatusCodes";
 
 const NavBar = ({}) => {
   const { t } = useTranslation();
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const res = await getCategories();
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        setCategories(res.DT?.data);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   return (
     <div className="relative bg-secondary/85 text-white">
@@ -38,7 +55,24 @@ const NavBar = ({}) => {
               <MdArrowDropDown className="h-5 w-5 transform duration-500 group-hover:rotate-180" />
             </NavLink>
             <div className="invisible absolute left-0 top-full z-40 w-full translate-y-8 transform border-t border-solid border-white/50 bg-secondary/85 opacity-0 transition-all duration-500 ease-in-out will-change-transform group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-              <div className="h-80"></div>
+              <div className="h-52">
+                <div className="mx-auto max-w-screen-xl px-3 py-6 text-sm text-white">
+                  <div className="grid grid-cols-5 gap-4">
+                    {categories?.map((category, i) => (
+                      <div key={`navbar-category-menu-${i}-${category?._id}`}>
+                        <Link
+                          to={PATHS.productsByCategory({
+                            "category-slug": category?.slug,
+                          })}
+                          className="hover:text-main"
+                        >
+                          {category?.name}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
           <li>

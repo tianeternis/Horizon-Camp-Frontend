@@ -536,6 +536,9 @@
       "title": "Search Filter",
       "costs": {
         "title": "Price Range",
+        "from": "Min",
+        "to": "Max",
+        "apply": "Apply",
         "<100000": "Under 100.000đ",
         "100000-200000": "From 100.000đ - 200.000đ",
         "200000-500000": "From 200.000đ - 500.000đ",

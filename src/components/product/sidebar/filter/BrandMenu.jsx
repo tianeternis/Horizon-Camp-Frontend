@@ -3,39 +3,36 @@ import { useTranslation } from "react-i18next";
 import MenuLayout from "../../layout/MenuLayout";
 import { useProductContext } from "../../context/ProductContext";
 import { FILTER_KEY } from "../../constants";
-
-export const brands = [
-  {
-    _id: 1,
-    label: "Blackgog",
-    value: "blackdog",
-  },
-  {
-    _id: 2,
-    label: "Fire-Maple",
-    value: "fire-mmaple",
-  },
-  {
-    _id: 3,
-    label: "Givi",
-    value: "givi",
-  },
-  {
-    _id: 4,
-    label: "Jack Wolfskin",
-    value: "jack-wolfskin",
-  },
-  {
-    _id: 5,
-    label: "Naturehike",
-    value: "naturehike",
-  },
-];
+import { useEffect, useState } from "react";
+import { getBrands } from "@/services/brandService";
+import StatusCodes from "@/utils/status/StatusCodes";
 
 const BrandMenu = ({}) => {
   const { t } = useTranslation();
 
   const { filter, handleSelectFilter } = useProductContext();
+
+  const [brands, setBrands] = useState([]);
+
+  useEffect(() => {
+    const fetchBrands = async () => {
+      const res = await getBrands();
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        const data = res.DT?.data;
+
+        const newData = data?.map((item) => ({
+          _id: item?._id,
+          label: item?.name,
+          value: item?.slug,
+        }));
+
+        setBrands(newData);
+      }
+    };
+
+    fetchBrands();
+  }, []);
 
   return (
     <MenuLayout title={t("products.search-filter.brands.title")}>

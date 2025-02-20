@@ -1,37 +1,39 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
 import { ROUTES } from "./routes";
 import PrivateRoute from "./private/PrivateRoute";
+import { CategoryLoader } from "./loader";
 
-import AccountLayout from "@/layouts/AccountLayout";
-import MainLayout from "@/layouts/MainLayout";
+const MainLayout = lazy(() => import("@/layouts/MainLayout"));
+const AccountLayout = lazy(() => import("@/layouts/AccountLayout"));
 
-import Home from "@/pages/Home";
-import About from "@/pages/About";
-import Products from "@/pages/Products";
-import Contact from "@/pages/Contact";
-import FAQs from "@/pages/FAQs";
-import PicnicGuide from "@/pages/PicnicGuide";
-import Login from "@/pages/Login";
-import Register from "@/pages/Register";
-import Cart from "@/pages/Cart";
-import Wishlist from "@/pages/Wishlist";
-import OrderInstruction from "@/pages/OrderInstruction";
-import DeliveryAndReceipt from "@/pages/DeliveryAndReceipt";
-import WarrantyPolicy from "@/pages/WarrantyPolicy";
-import ReturnPolicy from "@/pages/ReturnPolicy";
-import InformationSecurity from "@/pages/InformationSecurity";
-import NotFound from "@/pages/NotFound";
-import ResetPassword from "@/pages/ResetPassword";
-import ActivateAccount from "@/pages/ActivateAccount";
-import Profile from "@/pages/Profile";
-import AddressBook from "@/pages/AddressBook";
-import Purchase from "@/pages/Purchase";
-import EditProfile from "@/pages/EditProfile";
-import ChangePassword from "@/pages/ChangePassword";
-import DeleteAccount from "@/pages/DeleteAccount";
-import OrderDetails from "@/pages/OrderDetails";
-import ProductDetail from "@/pages/ProductDetail";
-import Checkout from "@/pages/Checkout";
+const Home = lazy(() => import("@/pages/Home"));
+const About = lazy(() => import("@/pages/About"));
+const Products = lazy(() => import("@/pages/Products"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const FAQs = lazy(() => import("@/pages/FAQs"));
+const PicnicGuide = lazy(() => import("@/pages/PicnicGuide"));
+const Login = lazy(() => import("@/pages/Login"));
+const Register = lazy(() => import("@/pages/Register"));
+const Cart = lazy(() => import("@/pages/Cart"));
+const Wishlist = lazy(() => import("@/pages/Wishlist"));
+const OrderInstruction = lazy(() => import("@/pages/OrderInstruction"));
+const DeliveryAndReceipt = lazy(() => import("@/pages/DeliveryAndReceipt"));
+const WarrantyPolicy = lazy(() => import("@/pages/WarrantyPolicy"));
+const ReturnPolicy = lazy(() => import("@/pages/ReturnPolicy"));
+const InformationSecurity = lazy(() => import("@/pages/InformationSecurity"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
+const ResetPassword = lazy(() => import("@/pages/ResetPassword"));
+const ActivateAccount = lazy(() => import("@/pages/ActivateAccount"));
+const Profile = lazy(() => import("@/pages/Profile"));
+const AddressBook = lazy(() => import("@/pages/AddressBook"));
+const Purchase = lazy(() => import("@/pages/Purchase"));
+const EditProfile = lazy(() => import("@/pages/EditProfile"));
+const ChangePassword = lazy(() => import("@/pages/ChangePassword"));
+const DeleteAccount = lazy(() => import("@/pages/DeleteAccount"));
+const OrderDetails = lazy(() => import("@/pages/OrderDetails"));
+const ProductDetail = lazy(() => import("@/pages/ProductDetail"));
+const Checkout = lazy(() => import("@/pages/Checkout"));
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -63,6 +65,7 @@ const routes = [
           {
             path: ROUTES.PRODUCTS.PRODUCTS_BY_CATEGORY.index,
             element: <Products />,
+            loader: CategoryLoader,
             handle: {
               crumb: (data) => crumb(undefined, data?.crumb),
             },

@@ -1,6 +1,8 @@
 export const PASSWORD_MIN = 6;
 export const PASSWORD_MAX = 20;
 
+export const PAGE_SIZE = 10;
+
 export const ORDER_STATUS = {
   pending: "Chờ xác nhận",
   preparing: "Đang chuẩn bị",

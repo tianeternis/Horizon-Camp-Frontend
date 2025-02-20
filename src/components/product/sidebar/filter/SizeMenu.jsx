@@ -2,23 +2,36 @@ import { useTranslation } from "react-i18next";
 import MenuLayout from "../../layout/MenuLayout";
 import { useProductContext } from "../../context/ProductContext";
 import { FILTER_KEY } from "../../constants";
-
-export const sizes = [
-  { _id: 1, label: "XS", value: "XS" },
-  { _id: 2, label: "S", value: "S" },
-  { _id: 3, label: "M", value: "M" },
-  { _id: 4, label: "L", value: "L" },
-  { _id: 5, label: "XL", value: "XL" },
-  { _id: 6, label: "XXL", value: "XXL" },
-  { _id: 7, label: "XXXL", value: "XXXL" },
-  { _id: 8, label: "4XL", value: "4XL" },
-  { _id: 9, label: "5XL", value: "5XL" },
-];
+import { useEffect, useState } from "react";
+import { getSizes } from "@/services/variantService";
+import StatusCodes from "@/utils/status/StatusCodes";
 
 const SizeMenu = ({}) => {
   const { t } = useTranslation();
 
   const { filter, handleSelectFilter } = useProductContext();
+
+  const [sizes, setSizes] = useState([]);
+
+  useEffect(() => {
+    const fetchColors = async () => {
+      const res = await getSizes();
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        const data = res.DT;
+
+        const newData = data?.map((item) => ({
+          _id: item?._id,
+          label: item?.name,
+          value: item?.name,
+        }));
+
+        setSizes(newData);
+      }
+    };
+
+    fetchColors();
+  }, []);
 
   return (
     <MenuLayout title={t("products.search-filter.sizes.title")}>

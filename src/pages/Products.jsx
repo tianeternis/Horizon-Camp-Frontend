@@ -13,12 +13,13 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MdOutlineFilterAlt } from "react-icons/md";
 import _ from "lodash";
-import { useSearchParams } from "react-router-dom";
+import { useLoaderData, useParams, useSearchParams } from "react-router-dom";
+import { getProducts } from "@/services/productService";
+import { PAGE_SIZE } from "@/constants";
 
 const DEFAULT_SORT = sorts[0];
 
 const DEFAULT_FILTER = {
-  [FILTER_KEY.COSTS]: {},
   [FILTER_KEY.BRANDS]: {},
   [FILTER_KEY.COLORS]: {},
   [FILTER_KEY.SIZES]: {},
@@ -27,10 +28,15 @@ const DEFAULT_FILTER = {
 const Products = ({}) => {
   const { t } = useTranslation();
 
-  useDynamicTitle(t("title.product"));
+  const category = useLoaderData();
+
+  useDynamicTitle(category?.name || t("title.product"));
+
+  const [products, setProducts] = useState([]);
 
   const [showDrawer, setShowDrawer] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [priceRange, setPriceRange] = useState({ from: "", to: "" });
   const [sortBy, setSortBy] = useState(DEFAULT_SORT);
   const [filter, setFilter] = useState(DEFAULT_FILTER);
 
@@ -40,6 +46,25 @@ const Products = ({}) => {
   );
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const params = useParams();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const category = params?.["category-slug"];
+      const query = Object.fromEntries([...searchParams]);
+
+      const res = await getProducts({
+        category,
+        ...query,
+        page: query?.page ? query.page : 1,
+        limit: PAGE_SIZE,
+      });
+
+      console.log(res);
+    };
+
+    fetchProducts();
+  }, [searchParams, params?.["category-slug"]]);
 
   useEffect(() => {
     const newParams = new URLSearchParams();
@@ -50,6 +75,14 @@ const Products = ({}) => {
 
     if (sortBy?.value !== DEFAULT_SORT?.value) {
       newParams.set("sortBy", sortBy?.value);
+    }
+
+    if (priceRange?.from) {
+      newParams.set("minPrice", priceRange?.from);
+    }
+
+    if (priceRange?.to) {
+      newParams.set("maxPrice", priceRange?.to);
     }
 
     if (!isEmptyFilter) {
@@ -63,7 +96,7 @@ const Products = ({}) => {
 
     newParams.sort();
     setSearchParams(newParams);
-  }, [currentPage, sortBy, filter, isEmptyFilter]);
+  }, [currentPage, priceRange, sortBy, filter, isEmptyFilter]);
 
   const handleSelectFilter = (filterKey, value) => {
     // Có value trong mục tương ứng với filterKey
@@ -112,6 +145,8 @@ const Products = ({}) => {
           handleClearAllFilter,
           isEmptyFilter,
           reset,
+          priceRange,
+          setPriceRange,
         }}
       >
         <div className="products flex sr-950:gap-4">

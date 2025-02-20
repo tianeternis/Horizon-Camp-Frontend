@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { MdOutlineFilterAlt } from "react-icons/md";
-import CostMenu from "./CostMenu";
+import PriceRange from "./PriceRange";
 import BrandMenu from "./BrandMenu";
 import ColorMenu from "./ColorMenu";
 import SizeMenu from "./SizeMenu";
@@ -15,7 +15,7 @@ const SearchFilter = ({}) => {
       icon={<MdOutlineFilterAlt className="h-5 w-5" />}
     >
       <div className="divide-y divide-solid divide-gray-200">
-        <CostMenu />
+        <PriceRange />
         <BrandMenu />
         <ColorMenu />
         <SizeMenu />
