@@ -33,7 +33,9 @@ const CartItem = ({
           />
           <div className="sm:flex sm:flex-nowrap sm:items-center sm:gap-4">
             <div className="h-18 w-18 shrink-0 md:h-20 md:w-20 lg:h-22 lg:w-22">
-              <Link to={PATHS.productDetail({ id: cartItem?._id })}>
+              <Link
+                to={PATHS.productDetail({ "product-slug": cartItem?.slug })}
+              >
                 <img
                   src={cartItem?.image}
                   alt="..."
@@ -44,17 +46,35 @@ const CartItem = ({
             </div>
             <div className="hidden space-y-1 sm:block">
               <span className="line-clamp-2 duration-300 hover:text-primary">
-                <Link to={PATHS.productDetail({ id: cartItem?._id })}>
+                <Link
+                  to={PATHS.productDetail({ "product-slug": cartItem?.slug })}
+                >
                   {cartItem?.name}
                 </Link>
               </span>
-              <button
-                className="flex items-center gap-0.5 text-gray-500 hover:text-gray-800"
-                onClick={() => setShowVariantsModal(true)}
-              >
-                <span className="text-xs">{cartItem?.variant}</span>
-                <IoMdArrowDropdown className="h-4 w-4" />
-              </button>
+              {(() => {
+                const color = cartItem?.color?.name;
+                const size = cartItem?.size?.name;
+
+                if (color || size) {
+                  const variant = [];
+
+                  if (color) variant.push(color);
+                  if (size) variant.push(size);
+
+                  return (
+                    <button
+                      className="flex items-center gap-0.5 text-gray-500 hover:text-gray-800"
+                      onClick={() => setShowVariantsModal(true)}
+                    >
+                      <span className="text-xs">{variant.join(",")}</span>
+                      <IoMdArrowDropdown className="h-4 w-4" />
+                    </button>
+                  );
+                } else {
+                  return null;
+                }
+              })()}
             </div>
           </div>
         </div>
@@ -62,18 +82,36 @@ const CartItem = ({
           <div className="col-span-12 space-y-1 sm:hidden">
             <div className="pr-3">
               <span className="line-clamp-1 duration-300 hover:text-primary">
-                <Link to={PATHS.productDetail({ id: cartItem?._id })}>
+                <Link
+                  to={PATHS.productDetail({ "product-slug": cartItem?.slug })}
+                >
                   {cartItem?.name}
                 </Link>
               </span>
             </div>
-            <button
-              className="flex items-center gap-0.5 text-gray-500 hover:text-gray-800"
-              onClick={() => setShowVariantsModal(true)}
-            >
-              <span className="text-11px">{cartItem?.variant}</span>
-              <IoMdArrowDropdown className="h-4 w-4" />
-            </button>
+            {(() => {
+              const color = cartItem?.color?.name;
+              const size = cartItem?.size?.name;
+
+              if (color || size) {
+                const variant = [];
+
+                if (color) variant.push(color);
+                if (size) variant.push(size);
+
+                return (
+                  <button
+                    className="flex items-center gap-0.5 text-gray-500 hover:text-gray-800"
+                    onClick={() => setShowVariantsModal(true)}
+                  >
+                    <span className="text-11px">{variant.join(",")}</span>
+                    <IoMdArrowDropdown className="h-4 w-4" />
+                  </button>
+                );
+              } else {
+                return null;
+              }
+            })()}
           </div>
           <div className="col-span-12 flex flex-row-reverse justify-between sm:grid sm:grid-cols-12 sm:items-center sm:justify-center sm:gap-2">
             <div className="flex flex-col items-center justify-center sm:col-span-6 md:space-x-2 lg:col-span-4">

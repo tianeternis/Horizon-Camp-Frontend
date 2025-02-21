@@ -729,6 +729,7 @@
     "order": "Buy Now",
     "empty_cart": "There are no products in your cart.",
     "add_to_cart": "Add Now",
+    "lack_quantity": "Please select a product classification.",
     "change-variants": {
       "title": "Change Product Variants",
       "size": "Size",

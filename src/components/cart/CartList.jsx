@@ -26,7 +26,7 @@ const CartList = ({ carts = [] }) => {
         return {};
       } else {
         const newSelected = {};
-        carts.forEach((cart) => (newSelected[cart?._id] = cart));
+        carts.forEach((cart) => (newSelected[cart?.detailID] = cart));
         return newSelected;
       }
     });
@@ -35,10 +35,10 @@ const CartList = ({ carts = [] }) => {
   const handleSelectProduct = (cartItem) => {
     setSelected((prev) => {
       const newSelected = _.cloneDeep(prev);
-      if (newSelected[cartItem?._id]) {
-        delete newSelected[cartItem?._id];
+      if (newSelected[cartItem?.detailID]) {
+        delete newSelected[cartItem?.detailID];
       } else {
-        newSelected[cartItem?._id] = cartItem;
+        newSelected[cartItem?.detailID] = cartItem;
       }
       return newSelected;
     });
@@ -81,7 +81,7 @@ const CartList = ({ carts = [] }) => {
               key={index}
               cartItem={cartItem}
               select={{
-                isSelected: !!selected[cartItem?._id],
+                isSelected: !!selected[cartItem?.detailID],
                 onSelect: handleSelectProduct,
               }}
               onDelete={handleDeleteProduct}

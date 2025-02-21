@@ -7,7 +7,7 @@ const EmptyCart = ({}) => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-4 rounded-sm bg-white pb-6">
+    <div className="flex w-full flex-col items-center justify-center gap-4 rounded-sm bg-white pb-12 pt-6">
       <img
         src={emptyCart}
         alt="Empty cart..."

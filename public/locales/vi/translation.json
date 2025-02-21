@@ -734,6 +734,7 @@
     "order": "Mua ngay",
     "empty_cart": "Không có sản phẩm nào trong giỏ hàng của bạn.",
     "add_to_cart": "Thêm ngay",
+    "lack_quantity": "Vui lòng chọn phân loại sản phẩm.",
     "change-variants": {
       "title": "Thay đổi phân loại sản phẩm",
       "size": "Kích thước",
