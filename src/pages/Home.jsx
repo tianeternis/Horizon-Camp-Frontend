@@ -21,7 +21,7 @@ const Home = ({}) => {
         <ProductCategory />
       </div>
       <FeaturedCategory />
-      <Products />
+      {/* <Products /> */}
       <Comments />
       <Blogs />
     </div>

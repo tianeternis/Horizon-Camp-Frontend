@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import { ROUTES } from "./routes";
 import PrivateRoute from "./private/PrivateRoute";
-import { CategoryLoader } from "./loader";
+import { CategoryLoader, ProductLoader } from "./loader";
 
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
 const AccountLayout = lazy(() => import("@/layouts/AccountLayout"));
@@ -75,6 +75,7 @@ const routes = [
       {
         path: ROUTES.PRODUCT_DETAIL.index,
         element: <ProductDetail />,
+        loader: ProductLoader,
         handle: {
           crumb: (data) => crumb(undefined, data?.crumb || "Chi tiết sản phẩm"),
         },

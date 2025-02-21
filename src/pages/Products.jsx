@@ -22,6 +22,8 @@ import {
 } from "react-router-dom";
 import { getProducts } from "@/services/productService";
 import { PAGE_SIZE } from "@/constants";
+import StatusCodes from "@/utils/status/StatusCodes";
+import Spin from "@/components/spin/Spin";
 
 const DEFAULT_SORT = sorts[0];
 
@@ -42,10 +44,14 @@ const Products = ({}) => {
   const [products, setProducts] = useState([]);
 
   const [showDrawer, setShowDrawer] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
   const [priceRange, setPriceRange] = useState({ from: "", to: "" });
   const [sortBy, setSortBy] = useState(DEFAULT_SORT);
   const [filter, setFilter] = useState(DEFAULT_FILTER);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pagination, setPagination] = useState({ total: 0, count: 0 });
 
   const isEmptyFilter = useMemo(
     () => Object.values(filter).every((filterValue) => _.isEmpty(filterValue)),
@@ -56,6 +62,7 @@ const Products = ({}) => {
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
       const category = params?.["category-slug"];
       const query = Object.fromEntries([...searchParams]);
 
@@ -66,7 +73,15 @@ const Products = ({}) => {
         limit: PAGE_SIZE,
       });
 
-      console.log(res);
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        setProducts(res.DT?.data);
+        setPagination({
+          total: res.DT?.pagination?.total,
+          count: res.DT?.pagination?.count,
+        });
+      }
+
+      setLoading(false);
     };
 
     fetchProducts();
@@ -192,21 +207,42 @@ const Products = ({}) => {
                 </div>
               </div>
             </div>
+
             {!isEmptyFilter && <YourSelection />}
-            <div className="space-y-8 sm:space-y-10 lg:space-y-12">
-              <div className="grid grid-cols-2 gap-3 sr-600:grid-cols-3 sr-900:grid-cols-4 sr-950:grid-cols-3 sr-1150:grid-cols-4">
-                {Array.from({ length: 10 }, (_, i) => (
-                  <ProductCard key={`products-product-card-${i}`} />
-                ))}
+
+            {loading ? (
+              <div className="flex items-center justify-center py-14 text-3xl">
+                <Spin />
               </div>
-              <div className="flex items-center justify-center">
-                <Pagination
-                  count={6}
-                  page={currentPage}
-                  onChange={(_, page) => setCurrentPage(page)}
-                />
-              </div>
-            </div>
+            ) : (
+              <>
+                {products && products.length > 0 ? (
+                  <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+                    <div className="grid grid-cols-2 gap-3 sr-600:grid-cols-3 sr-900:grid-cols-4 sr-950:grid-cols-3 sr-1150:grid-cols-4">
+                      {products?.map((product, i) => (
+                        <ProductCard
+                          key={`products-product-card-${i}-${product?._id}`}
+                          product={product}
+                        />
+                      ))}
+                    </div>
+                    {pagination.count > 1 && (
+                      <div className="flex items-center justify-center">
+                        <Pagination
+                          count={pagination?.count}
+                          page={currentPage}
+                          onChange={(_, page) => setCurrentPage(page)}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="my-4 rounded-md border border-solid border-orange-100 bg-orange-50 p-6 text-sm text-secondary">
+                    {t("products.no_data")}
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </div>
       </ProductProvider>

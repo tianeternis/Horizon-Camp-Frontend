@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Tooltip } from "@mui/material";
 import { Link } from "react-router-dom";
 import ProductImageGallery from "./images/ProductImageGallery";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { FaCheck, FaStar } from "react-icons/fa";
 
 const VARIANT_TYPE = {
@@ -20,6 +20,25 @@ const ProductInformation = ({ product = {} }) => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
+
+  const priceWithVariant = useMemo(() => {
+    const colorID = selectedColor?._id;
+    const sizeID = selectedSize?._id;
+    const variants = product?.variants || [];
+
+    const variant = variants.find(
+      (item) => colorID === item?.color?._id && sizeID === item?.size?._id,
+    );
+    return variant
+      ? {
+          price: variant?.price,
+          discountedPrice: variant?.discountedPrice,
+          quantity: variant?.quantity,
+        }
+      : null;
+  }, [selectedColor, setSelectedSize]);
+
+  console.log(priceWithVariant);
 
   const handleChangeVariant = (type, value) => {
     const setVariant = (previousValue, value) => {
@@ -40,9 +59,15 @@ const ProductInformation = ({ product = {} }) => {
   return (
     <div className="flex w-full flex-col gap-4 rounded-sm bg-white p-4 md:flex-row lg:gap-6">
       <div className="shrink-0">
-        <ProductImageGallery images={product?.images} />
+        <ProductImageGallery
+          images={
+            product?.images && product?.images?.length > 0
+              ? product?.images?.map((item) => item?.image?.path)
+              : []
+          }
+        />
       </div>
-      <div className="grow space-y-6">
+      <div className="grow space-y-8">
         <div className="space-y-2">
           <div className="text-xl font-semibold text-black sr-950:text-2xl">
             {product?.name}
@@ -51,18 +76,18 @@ const ProductInformation = ({ product = {} }) => {
             <div className="flex items-center divide-x divide-solid divide-gray-300">
               <span className="flex items-center justify-center gap-2 pr-4">
                 <span className="text-13px text-black sr-950:text-sm">
-                  {product?.averageRating}
+                  {+product?.averageRating}
                 </span>
                 <div className="text-15px sr-950:text-lg">
                   <div className="hidden sr-400:block">
-                    <Rating readOnly value={product?.averageRating} />
+                    <Rating readOnly value={+product?.averageRating} />
                   </div>
                   <FaStar className="text-sm text-yellow-300 sr-400:hidden" />
                 </div>
               </span>
               <div className="px-4">
                 <span className="text-13px text-black sr-950:text-sm">
-                  {formatQuantity(product?.totalReview)}
+                  {formatQuantity(product?.ratingCount)}
                 </span>
                 <span className="ms-1 text-11px sr-950:text-13px">
                   {t("products.detail.review")}
@@ -70,7 +95,7 @@ const ProductInformation = ({ product = {} }) => {
               </div>
               <div className="pl-4">
                 <span className="text-13px text-black sr-950:text-sm">
-                  {formatQuantity(product?.totalSold)}
+                  {formatQuantity(product?.soldNumber)}
                 </span>
                 <span className="ms-1 text-11px sr-950:text-13px">
                   {t("products.detail.sold")}
@@ -79,21 +104,31 @@ const ProductInformation = ({ product = {} }) => {
             </div>
             <div className="flex w-full items-center justify-between rounded-sm bg-app-background px-2 py-2 sr-400:px-6">
               <div className="flex items-center space-x-3">
-                <span className="text-xl font-semibold text-primary sr-950:text-2xl">
-                  {formatCurrency(product?.discountedPrice)}
-                </span>
-                {product?.discount > 0 && (
-                  <>
-                    <span className="text-sm text-slate-400 line-through sr-950:text-base">
-                      {formatCurrency(product?.price)}
+                <div className="flex flex-col sr-650:flex-row sr-650:items-center sr-650:gap-3 md:flex-col md:items-start md:gap-0 xl:flex-row xl:items-center xl:gap-3">
+                  <span className="text-base font-semibold text-primary sr-500:text-xl sr-950:text-2xl">
+                    {priceWithVariant
+                      ? formatCurrency(priceWithVariant?.discountedPrice)
+                      : product?.price?.multiple
+                        ? `${formatCurrency(product?.price?.discountedFirstPrice)} - ${formatCurrency(product?.price?.discountedLastPrice)}`
+                        : formatCurrency(product?.price?.discountedPrice)}
+                  </span>
+                  {product?.discount && product?.discount?.value > 0 ? (
+                    <span className="text-13px text-slate-400 line-through sr-500:text-sm sr-950:text-15px">
+                      {priceWithVariant
+                        ? formatCurrency(priceWithVariant?.price)
+                        : product?.price?.multiple
+                          ? `${formatCurrency(product?.price?.firstPrice)} - ${formatCurrency(product?.price?.lastPrice)}`
+                          : formatCurrency(product?.price?.price)}
                     </span>
-                    <span className="rounded-md bg-primary px-1.5 py-1 text-11px font-medium text-white sr-950:text-xs">
-                      -{product?.discount}%
-                    </span>
-                  </>
-                )}
+                  ) : null}
+                </div>
+                {product?.discount && product?.discount?.value > 0 ? (
+                  <span className="block rounded-md bg-primary px-1.5 py-1 text-10px font-medium text-white sr-500:text-11px sr-950:text-xs">
+                    -{product?.discount?.value}%
+                  </span>
+                ) : null}
               </div>
-              <div className="hidden rounded-sm p-2 shadow-[0_0_2px_rgba(0,0,0,0.3)] sr-500:block sr-950:p-2.5">
+              <div className="hidden rounded-sm p-2 shadow-[0_0_2px_rgba(0,0,0,0.3)] sr-500:block md:hidden sr-900:block sr-950:p-2.5">
                 <img
                   src={product?.brand?.image}
                   alt=""
@@ -104,27 +139,26 @@ const ProductInformation = ({ product = {} }) => {
             </div>
           </div>
         </div>
-        <div className="space-y-6">
-          <div className="flex items-center gap-6">
-            <span className="w-3/12 shrink-0 text-13px sr-500:w-2/12 sr-950:text-sm">
-              {t("products.detail.color")}
-            </span>
-            <div className="flex flex-wrap items-center gap-2">
-              {product?.colors &&
-                product?.colors?.length > 0 &&
-                product?.colors?.map((color, index) => {
+        <div className="space-y-8">
+          {product?.colors && product?.colors?.length > 0 ? (
+            <div className="flex items-center gap-6">
+              <span className="w-3/12 shrink-0 text-13px sr-500:w-2/12 sr-950:text-sm">
+                {t("products.detail.color")}
+              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                {product?.colors?.map((color, index) => {
                   return (
                     <div
                       key={`product-detail-color-${index}-${color?._id}`}
                       className="flex items-center justify-center"
                     >
-                      <Tooltip title={color?.label} arrow>
+                      <Tooltip title={color?.name} arrow>
                         <button
                           className="h-5 w-5 cursor-pointer rounded-full sr-950:h-6 sr-950:w-6"
                           style={{
                             backgroundColor: color?.hex,
                             border:
-                              color?.label === "Trắng"
+                              color?.name === "Trắng"
                                 ? "1px solid #e5e7eb"
                                 : "none",
                           }}
@@ -137,7 +171,7 @@ const ProductInformation = ({ product = {} }) => {
                               className="flex w-full items-center justify-center"
                               style={{
                                 color:
-                                  color?.label === "Trắng" ? "black" : "white",
+                                  color?.name === "Trắng" ? "black" : "white",
                               }}
                             >
                               <FaCheck className="h-2 w-2 sr-950:h-2.5 sr-950:w-2.5" />
@@ -148,16 +182,16 @@ const ProductInformation = ({ product = {} }) => {
                     </div>
                   );
                 })}
+              </div>
             </div>
-          </div>
-          <div className="flex items-center gap-6">
-            <span className="w-3/12 shrink-0 text-13px sr-500:w-2/12 sr-950:text-sm">
-              {t("products.detail.size")}
-            </span>
-            <div className="flex flex-wrap gap-2 bg-transparent text-gray-800">
-              {product?.sizes &&
-                product?.sizes?.length > 0 &&
-                product?.sizes?.map((size, index) => {
+          ) : null}
+          {product?.sizes && product?.sizes?.length > 0 ? (
+            <div className="flex items-center gap-6">
+              <span className="w-3/12 shrink-0 text-13px sr-500:w-2/12 sr-950:text-sm">
+                {t("products.detail.size")}
+              </span>
+              <div className="flex flex-wrap gap-2 bg-transparent text-gray-800">
+                {product?.sizes?.map((size, index) => {
                   return (
                     <div key={`product-detail-size-${index}-${size?._id}`}>
                       <button
@@ -166,13 +200,14 @@ const ProductInformation = ({ product = {} }) => {
                           handleChangeVariant(VARIANT_TYPE.SIZE, size)
                         }
                       >
-                        {size?.label}
+                        {size?.name}
                       </button>
                     </div>
                   );
                 })}
+              </div>
             </div>
-          </div>
+          ) : null}
           <div className="flex items-center gap-6">
             <span className="w-3/12 shrink-0 text-13px sr-500:w-2/12 sr-950:text-sm">
               {t("products.detail.quantity")}
@@ -185,6 +220,13 @@ const ProductInformation = ({ product = {} }) => {
               buttonClass="!w-7 sr-950:!w-8"
               inputClass="w-10 sr-950:w-12 text-xs sr-950:text-sm"
             />
+            {priceWithVariant && (
+              <span className="text-13px text-gray-800">
+                {t("products.detail.remain_product", {
+                  quantity: priceWithVariant?.quantity,
+                })}
+              </span>
+            )}
           </div>
         </div>
         <div className="flex w-full gap-2">

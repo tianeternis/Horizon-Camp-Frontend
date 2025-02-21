@@ -5,7 +5,7 @@ import { formatQuantity } from "@/utils/format/quantity";
 import { useTranslation } from "react-i18next";
 import { PATHS } from "@/routes";
 
-const ProductCard = ({}) => {
+const ProductCard = ({ product = {} }) => {
   const { t } = useTranslation();
 
   return (
@@ -14,20 +14,20 @@ const ProductCard = ({}) => {
         <div className="group/actions relative w-full cursor-pointer overflow-hidden lg:before:absolute lg:before:left-0 lg:before:top-0 lg:before:z-1 lg:before:h-full lg:before:w-full lg:before:bg-secondary/60 lg:before:opacity-0 lg:before:transition-all lg:before:duration-300 lg:before:hover:opacity-100">
           <div>
             <img
-              src={
-                "https://bizweb.dktcdn.net/100/440/011/products/sp9.jpg?v=1634875820087"
-              }
+              src={product?.image}
               alt=""
               loading="lazy"
-              className="sr-400:min-h-4max-h-44 max-h-32 min-h-32 w-full rounded-t-sm object-cover object-center sr-400:max-h-44 sr-500:max-h-48 sr-500:min-h-48 sr-550:max-h-52 sr-550:min-h-52 sr-600:max-h-40 sr-600:min-h-40 sr-650:max-h-48 sr-650:min-h-48 md:max-h-52 md:min-h-52"
+              className="sr-400:min-h-4max-h-44 max-h-32 min-h-32 w-full rounded-t-sm object-contain object-center sr-400:max-h-44 sr-500:max-h-48 sr-500:min-h-48 sr-550:max-h-52 sr-550:min-h-52 sr-600:max-h-40 sr-600:min-h-40 sr-650:max-h-48 sr-650:min-h-48 md:max-h-52 md:min-h-52"
             />
           </div>
-          <div className="absolute right-1.5 top-1.5 z-1 rounded-2xl bg-main px-2 py-1 text-xs font-medium text-white sm:px-3 sm:py-1.5 sm:text-13px">
-            20%
-          </div>
+          {product?.discount && product?.discount > 0 ? (
+            <div className="absolute right-1.5 top-1.5 z-1 rounded-2xl bg-main px-2 py-1 text-xs font-medium text-white sm:px-3 sm:py-1.5 sm:text-13px">
+              {product?.discount}%
+            </div>
+          ) : null}
           <div className="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-2 opacity-0 transition-all duration-300 group-hover/actions:opacity-100 lg:flex">
             <Link
-              to={PATHS.productDetail({ "product-slug": 1 })}
+              to={PATHS.productDetail({ "product-slug": product?.slug })}
               className="flex items-center justify-center rounded-full bg-white p-2.5 text-main hover:bg-main hover:text-white"
             >
               <svg
@@ -133,28 +133,50 @@ const ProductCard = ({}) => {
         <div className="p-2">
           <div className="min-h-12 py-1 sm:min-h-14">
             <Link
-              to={PATHS.productDetail({ "product-slug": 1 })}
+              to={PATHS.productDetail({ "product-slug": product?.slug })}
               className="line-clamp-2 text-sm font-semibold text-gray-800 hover:text-main sm:text-15px md:text-base"
             >
-              Lều cắm trại tự bung cho 4 - 5 người thoáng mát, có mái hiên chống
-              nắng mưa (KT 2x2x1.45m) K118
+              {product?.name}
             </Link>
           </div>
           <div className="space-x-2 py-1">
-            <span className="text-15px font-bold text-primary sm:text-base">
-              {formatCurrency(1200000)}
-            </span>
-            <span className="hidden text-xs text-gray-500 line-through sr-500:inline sr-600:hidden sm:inline sm:text-13px">
-              {formatCurrency(1500000)}
-            </span>
+            {(() => {
+              const dFirstPrice = product?.variants?.[0]?.discountedPrice;
+              const dLastPrice =
+                product?.variants[product?.variants?.length - 1]
+                  ?.discountedPrice;
+
+              if (dFirstPrice === dLastPrice) {
+                const firstPrice = product?.variants?.[0]?.price;
+
+                return (
+                  <>
+                    <span className="text-15px font-bold text-primary sm:text-base">
+                      {formatCurrency(dFirstPrice)}
+                    </span>
+                    <span className="hidden text-xs text-gray-500 line-through sr-500:inline sr-600:hidden sm:inline sm:text-13px">
+                      {formatCurrency(firstPrice)}
+                    </span>
+                  </>
+                );
+              } else {
+                return (
+                  <span className="text-15px font-bold text-primary sm:text-base">
+                    {formatCurrency(dFirstPrice)} - {formatCurrency(dLastPrice)}
+                  </span>
+                );
+              }
+            })()}
           </div>
           <div className="flex items-center justify-between py-1">
             <div className="flex items-center gap-1.5 text-xs font-medium sm:text-13px">
-              4.2{" "}
+              {product?.averageRating}{" "}
               <FaStar className="h-3.5 w-3.5 text-yellow-300 sm:h-4 sm:w-4" />
             </div>
             <span className="text-xs sm:text-13px">
-              <span className="font-medium">{formatQuantity(1500)}</span>{" "}
+              <span className="font-medium">
+                {formatQuantity(product?.soldNumber)}
+              </span>{" "}
               <span className="lowercase">{t("products.sold")}</span>
             </span>
           </div>

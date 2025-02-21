@@ -24,7 +24,7 @@ const ProductImageGallery = ({ images = [] }) => {
   };
 
   return (
-    <div className="product-images sr-800:w-[22.5rem] mx-auto w-full sr-600:w-[30rem] md:w-[20rem] sr-950:w-[24rem] sr-1150:w-[32rem]">
+    <div className="product-images mx-auto w-full sr-600:w-[30rem] md:w-[20rem] sr-800:w-[22.5rem] sr-950:w-[24rem] sr-1150:w-[32rem]">
       <Lightbox
         open={open}
         close={() => setOpen(false)}
@@ -61,8 +61,8 @@ const ProductImageGallery = ({ images = [] }) => {
         </Swiper>
         <Swiper
           style={{
-            "--swiper-navigation-color": "#fff",
-            "--swiper-pagination-color": "#fff",
+            "--swiper-navigation-color": "var(--color-main)",
+            "--swiper-pagination-color": "var(--color-main)",
           }}
           loop={true}
           spaceBetween={10}

@@ -25,3 +25,7 @@ export const getProducts = ({
     },
   });
 };
+
+export const getProductBySlug = (slug) => {
+  return axios.get(`/product/get/slug/${slug}`);
+};

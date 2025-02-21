@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { IoIosArrowForward } from "react-icons/io";
 
 const ProductDescription = ({ product = {} }) => {
   const { t } = useTranslation();
@@ -16,15 +15,7 @@ const ProductDescription = ({ product = {} }) => {
               {t("products.detail.category")}
             </span>
             <span className="flex flex-wrap items-center gap-1.5 font-medium text-primary">
-              {product?.category && product?.category[0] && (
-                <>
-                  <span>{product?.category[0]?.name}</span>
-                  <IoIosArrowForward />
-                </>
-              )}
-              {product?.category && product?.category[1] && (
-                <span>{product?.category[1]?.name}</span>
-              )}
+              {product?.category?.name}
             </span>
           </div>
           <div className="flex gap-2">
@@ -33,9 +24,9 @@ const ProductDescription = ({ product = {} }) => {
             </span>
             <span className="font-medium">{product?.brand?.name}</span>
           </div>
-          {product?.additionalInformation &&
-            product?.additionalInformation?.length > 0 &&
-            product?.additionalInformation?.map((item, i) => (
+          {product?.attributes &&
+            product?.attributes?.length > 0 &&
+            product?.attributes?.map((item, i) => (
               <div
                 key={`product-description-additional-information-${item?._id}-${i}`}
                 className="flex gap-2"
