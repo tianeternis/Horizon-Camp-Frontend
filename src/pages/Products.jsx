@@ -13,7 +13,13 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MdOutlineFilterAlt } from "react-icons/md";
 import _ from "lodash";
-import { useLoaderData, useParams, useSearchParams } from "react-router-dom";
+import {
+  useLoaderData,
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { getProducts } from "@/services/productService";
 import { PAGE_SIZE } from "@/constants";
 
@@ -29,6 +35,7 @@ const Products = ({}) => {
   const { t } = useTranslation();
 
   const category = useLoaderData();
+  const params = useParams();
 
   useDynamicTitle(category?.name || t("title.product"));
 
@@ -45,8 +52,7 @@ const Products = ({}) => {
     [filter],
   );
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const params = useParams();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -65,6 +71,9 @@ const Products = ({}) => {
 
     fetchProducts();
   }, [searchParams, params?.["category-slug"]]);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const newParams = new URLSearchParams();
@@ -95,8 +104,18 @@ const Products = ({}) => {
     }
 
     newParams.sort();
-    setSearchParams(newParams);
+
+    const path = `${location.pathname}${newParams.size > 0 ? `?${newParams.toString()}` : ""}`;
+    if (path !== `${location.pathname}${location.search}`) {
+      navigate(path);
+    }
   }, [currentPage, priceRange, sortBy, filter, isEmptyFilter]);
+
+  useEffect(() => {
+    if (!location.search) {
+      reset();
+    }
+  }, [location]);
 
   const handleSelectFilter = (filterKey, value) => {
     // Có value trong mục tương ứng với filterKey
@@ -129,6 +148,7 @@ const Products = ({}) => {
     setCurrentPage(1);
     setSortBy(DEFAULT_SORT);
     setFilter(DEFAULT_FILTER);
+    setPriceRange({ from: "", to: "" });
   };
 
   return (

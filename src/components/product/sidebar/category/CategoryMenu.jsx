@@ -29,10 +29,10 @@ const CategoryMenu = ({}) => {
 
   const navigate = useNavigate();
 
-  const handleNavigateMenu = (e, _id) => {
+  const handleNavigateMenu = async (e, _id) => {
     e.preventDefault();
-    navigate(PATHS.productsByCategory({ "category-slug": _id }));
     reset();
+    navigate(PATHS.productsByCategory({ "category-slug": _id }));
   };
 
   return (
