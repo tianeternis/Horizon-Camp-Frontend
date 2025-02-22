@@ -44,7 +44,10 @@ const Cart = ({}) => {
           {t("cart.title")}
         </p>
         <div>
-          <CartList carts={carts} />
+          <CartList
+            carts={carts}
+            refetch={async () => await fetchProductsFromCart(user?._id)}
+          />
         </div>
       </div>
     </BodyLayout>

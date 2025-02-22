@@ -6,8 +6,11 @@ import { HiMiniXMark } from "react-icons/hi2";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import _ from "lodash";
+import _, { debounce } from "lodash";
 import ChangeVariantsModal from "./ChangeVariantsModal";
+import { updateQuantityOfCart } from "@/services/cartService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { toast } from "react-toastify";
 
 const CartItem = ({
   cartItem = {},
@@ -16,12 +19,30 @@ const CartItem = ({
     onSelect: (cartItem) => {},
   },
   onDelete = (item) => {},
+  refetch = () => {},
 }) => {
   const [showVariantsModal, setShowVariantsModal] = useState(false);
 
   const handleDelete = () => {
     onDelete(cartItem);
   };
+
+  const changeQuantity = async (quantity) => {
+    if (cartItem?.detailID && quantity) {
+      const res = await updateQuantityOfCart(cartItem?.detailID, { quantity });
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        toast.success(res.EM);
+        refetch();
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+      }
+    }
+  };
+
+  const changeQuantityByButton = debounce(changeQuantity, 300);
 
   return (
     <div>
@@ -128,8 +149,8 @@ const CartItem = ({
             <div className="flex items-end justify-end sm:col-span-6 sm:items-center sm:justify-center lg:col-span-4">
               <QuantityInput
                 value={cartItem?.quantity}
-                //   onButtonClick={changeQuantityByButton}
-                //   onInputBlur={changeQuantity}
+                onButtonClick={changeQuantityByButton}
+                onInputBlur={changeQuantity}
                 rootClass="!h-6 sm:!h-8"
                 buttonClass="!w-6 sm:!w-8"
                 inputClass="w-8 sm:w-12 text-xs sm:text-sm"
@@ -153,7 +174,8 @@ const CartItem = ({
         <ChangeVariantsModal
           show={showVariantsModal}
           onClose={() => setShowVariantsModal(false)}
-          product={cartItem}
+          cartItem={cartItem}
+          refetch={refetch}
         />
       )}
     </div>

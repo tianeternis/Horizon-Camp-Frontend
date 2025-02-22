@@ -7,3 +7,7 @@ export const getColors = () => {
 export const getSizes = () => {
   return axios.get(`/variant/get-sizes`);
 };
+
+export const getVariantsByProductID = (productID) => {
+  return axios.get(`/variant/get-variants/product/${productID}`);
+};

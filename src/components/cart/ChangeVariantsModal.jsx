@@ -1,4 +1,7 @@
 import Button from "@/components/buttons/Button";
+import { updateVariantOfCart } from "@/services/cartService";
+import { getVariantsByProductID } from "@/services/variantService";
+import StatusCodes from "@/utils/status/StatusCodes";
 import {
   Dialog,
   DialogActions,
@@ -7,39 +10,76 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-
-const colors = [
-  { _id: 1, name: "Đỏ", value: "#FF0000" },
-  { _id: 2, name: "Xanh Lá", value: "#00FF00" },
-  { _id: 3, name: "Xanh Dương", value: "#0000FF" },
-  { _id: 4, name: "Vàng", value: "#FFFF00" },
-  { _id: 5, name: "Tím", value: "#800080" },
-  { _id: 6, name: "Xanh Ngọc", value: "#00FFFF" },
-  { _id: 7, name: "Cam", value: "#FFA500" },
-];
-
-const sizes = [
-  { _id: 1, value: "S" },
-  { _id: 2, value: "M" },
-  { _id: 3, value: "L" },
-  { _id: 4, value: "XL" },
-  { _id: 5, value: "XXL" },
-];
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const ChangeVariantsModal = ({
   show = false,
   onClose = () => {},
-  product = {},
+  cartItem = {},
+  refetch = () => {},
 }) => {
   const { t } = useTranslation();
 
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const [colors, setColors] = useState([]);
+  const [sizes, setSizes] = useState([]);
+  const [variants, setVariants] = useState([]);
+
   const [selectedColor, setSelectedColor] = useState({});
   const [selectedSize, setSelectedSize] = useState({});
+
+  const variant = useMemo(() => {
+    const colorID = selectedColor?._id;
+    const sizeID = selectedSize?._id;
+
+    const variant = variants?.find(
+      (item) => colorID === item?.color?._id && sizeID === item?.size?._id,
+    );
+    return variant
+      ? {
+          _id: variant?._id,
+          productID: variant?.productID,
+          quantity: variant?.quantity,
+        }
+      : null;
+  }, [selectedColor, setSelectedSize, variants]);
+
+  useEffect(() => {
+    if (cartItem?.productID) {
+      const fetchVariants = async () => {
+        const res = await getVariantsByProductID(cartItem?.productID);
+
+        if (res && res.EC === StatusCodes.SUCCESS) {
+          const data = res.DT;
+
+          const newColors = [],
+            newSizes = [];
+          data?.forEach((item) => {
+            if (item?.color?._id) {
+              newColors.push(item?.color);
+            }
+
+            if (item?.size?._id) {
+              newSizes.push(item?.size);
+            }
+          });
+
+          setVariants(data);
+          setColors(newColors);
+          setSizes(newSizes);
+        }
+      };
+
+      fetchVariants();
+      setSelectedColor(cartItem?.color);
+      setSelectedSize(cartItem?.size);
+    }
+  }, []);
 
   const handleClose = (e, reason) => {
     if (reason === "backdropClick" || reason === "escapeKeyDown") return;
@@ -54,8 +94,24 @@ const ChangeVariantsModal = ({
     setSelectedSize(size);
   };
 
-  const handleSubmitVariants = () => {
-    console.log("submit variants", product, selectedColor, selectedSize);
+  const user = useSelector((state) => state.user.account);
+
+  const handleSubmitVariants = async () => {
+    if (user?._id && variant?._id) {
+      const res = await updateVariantOfCart(user?._id, {
+        variantID: variant?._id,
+      });
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        toast.success(res.EM);
+        handleClose();
+        refetch();
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+      }
+    }
   };
 
   return (
@@ -77,67 +133,82 @@ const ChangeVariantsModal = ({
             {t("cart.change-variants.title")}
           </div>
           <div className="mt-2 text-xs text-gray-800 sm:text-sm">
-            {product?.name}
+            {cartItem?.name}
           </div>
         </DialogTitle>
         <DialogContent sx={{ padding: "0 24px" }}>
-          <div className="space-y-8">
-            <div className="grid grid-cols-12 gap-2">
-              <div className="col-span-3 text-13px text-gray-600 sm:text-15px">
-                {t("cart.change-variants.color")}
-              </div>
-              <div className="col-span-9">
-                <div className="flex flex-wrap gap-4">
-                  {colors &&
-                    colors.length > 0 &&
-                    colors.map((color, i) => (
-                      <div
-                        key={`product-variant-color-${i}-${color?._id}`}
-                        className="w-fit"
-                        onClick={() => handleSelectColor(color)}
-                      >
+          <div className="space-y-4">
+            <div className="space-y-8">
+              {colors && colors?.length > 0 && (
+                <div className="grid grid-cols-12 gap-2">
+                  <div className="col-span-3 text-13px text-gray-600 sm:text-15px">
+                    {t("cart.change-variants.color")}
+                  </div>
+                  <div className="col-span-9">
+                    <div className="flex flex-wrap gap-4">
+                      {colors.map((color, i) => (
                         <div
-                          className={`relative flex cursor-pointer items-center justify-center gap-2 rounded-sm border border-solid border-gray-300 px-3 py-2 text-black hover:border-primary hover:text-primary ${selectedColor?._id === color?._id ? "border-primary text-primary after:absolute after:bottom-0 after:right-0 after:h-0 after:w-0 after:border-b-[12px] after:border-l-[12px] after:border-solid after:border-b-primary after:border-l-transparent" : ""}`}
+                          key={`product-variant-color-${i}-${color?._id}`}
+                          className="w-fit"
+                          onClick={() => handleSelectColor(color)}
                         >
-                          <span
-                            style={{ background: color?.value }}
-                            className="block h-4 w-4 shrink-0 rounded-full"
-                          ></span>
-                          <span className="text-11px sm:text-xs">
-                            {color?.name}
-                          </span>
+                          <div
+                            className={`relative flex cursor-pointer items-center justify-center gap-2 rounded-sm border border-solid border-gray-300 px-3 py-2 text-black hover:border-primary hover:text-primary ${selectedColor?._id === color?._id ? "border-primary text-primary after:absolute after:bottom-0 after:right-0 after:h-0 after:w-0 after:border-b-[12px] after:border-l-[12px] after:border-solid after:border-b-primary after:border-l-transparent" : ""}`}
+                          >
+                            <span
+                              style={{
+                                background: color?.hex,
+                                border: "1px solid #d1dbd5",
+                              }}
+                              className="block h-4 w-4 shrink-0 rounded-full"
+                            ></span>
+                            <span className="text-11px sm:text-xs">
+                              {color?.name}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+              {sizes && sizes?.length > 0 && (
+                <div className="grid grid-cols-12 gap-2">
+                  <div className="col-span-3 text-13px text-gray-600 sm:text-15px">
+                    {t("cart.change-variants.size")}
+                  </div>
+                  <div className="col-span-9">
+                    <div className="flex flex-wrap gap-4">
+                      {sizes.map((size, i) => (
+                        <div
+                          key={`product-variant-size-${i}-${size?._id}`}
+                          className="w-fit"
+                          onClick={() => handleSelectSize(size)}
+                        >
+                          <div
+                            className={`relative flex w-16 cursor-pointer items-center justify-center gap-2 rounded-sm border border-solid border-gray-300 py-2 text-black hover:border-primary hover:text-primary ${selectedSize?._id === size?._id ? "border-primary text-primary after:absolute after:bottom-0 after:right-0 after:h-0 after:w-0 after:border-b-[12px] after:border-l-[12px] after:border-solid after:border-b-primary after:border-l-transparent" : ""}`}
+                          >
+                            <span className="text-11px sm:text-xs">
+                              {size?.name}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            {variant && (
+              <div className="grid grid-cols-12 gap-2">
+                <div className="col-span-3"></div>
+                <div className="col-span-9 text-sm">
+                  {t("products.detail.remain_product", {
+                    quantity: variant?.quantity,
+                  })}
                 </div>
               </div>
-            </div>
-            <div className="grid grid-cols-12 gap-2">
-              <div className="col-span-3 text-13px text-gray-600 sm:text-15px">
-                {t("cart.change-variants.size")}
-              </div>
-              <div className="col-span-9">
-                <div className="flex flex-wrap gap-4">
-                  {sizes &&
-                    sizes.length > 0 &&
-                    sizes.map((size, i) => (
-                      <div
-                        key={`product-variant-size-${i}-${size?._id}`}
-                        className="w-fit"
-                        onClick={() => handleSelectSize(size)}
-                      >
-                        <div
-                          className={`relative flex w-16 cursor-pointer items-center justify-center gap-2 rounded-sm border border-solid border-gray-300 py-2 text-black hover:border-primary hover:text-primary ${selectedSize?._id === size?._id ? "border-primary text-primary after:absolute after:bottom-0 after:right-0 after:h-0 after:w-0 after:border-b-[12px] after:border-l-[12px] after:border-solid after:border-b-primary after:border-l-transparent" : ""}`}
-                        >
-                          <span className="text-11px sm:text-xs">
-                            {size?.value}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </DialogContent>
         <DialogActions sx={{ padding: "24px" }}>
