@@ -6,8 +6,12 @@ import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 import { useMemo, useState } from "react";
 import _ from "lodash";
+import { removeProductsFromCart } from "@/services/cartService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
-const CartList = ({ carts = [] }) => {
+const CartList = ({ carts = [], refetch = () => {} }) => {
   const { t } = useTranslation();
 
   const [selected, setSelected] = useState({});
@@ -26,7 +30,7 @@ const CartList = ({ carts = [] }) => {
         return {};
       } else {
         const newSelected = {};
-        carts.forEach((cart) => (newSelected[cart?._id] = cart));
+        carts.forEach((cart) => (newSelected[cart?.detailID] = cart));
         return newSelected;
       }
     });
@@ -35,21 +39,45 @@ const CartList = ({ carts = [] }) => {
   const handleSelectProduct = (cartItem) => {
     setSelected((prev) => {
       const newSelected = _.cloneDeep(prev);
-      if (newSelected[cartItem?._id]) {
-        delete newSelected[cartItem?._id];
+      if (newSelected[cartItem?.detailID]) {
+        delete newSelected[cartItem?.detailID];
       } else {
-        newSelected[cartItem?._id] = cartItem;
+        newSelected[cartItem?.detailID] = cartItem;
       }
       return newSelected;
     });
   };
 
-  const handleDeleteProducts = () => {
-    console.log("delete products: ", Object.keys(selected));
+  const handleRemoveMultipleProducts = async (userID, data) => {
+    const res = await removeProductsFromCart(userID, data);
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      refetch();
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      toast.error(res.EM);
+    }
   };
 
-  const handleDeleteProduct = (product) => {
-    console.log("delete product: ", product);
+  const user = useSelector((state) => state.user.account);
+
+  const handleDeleteProducts = async () => {
+    const ids = Object.keys(selected);
+
+    if (ids.length > 0 && user?._id) {
+      await handleRemoveMultipleProducts(user?._id, { data: ids });
+    } else {
+      toast.error(t("cart.remove_multiple_not"));
+    }
+  };
+
+  const handleDeleteProduct = async (cartItem) => {
+    if (cartItem?.detailID && user?._id) {
+      await handleRemoveMultipleProducts(user?._id, {
+        data: [cartItem?.detailID],
+      });
+    }
   };
 
   return carts && carts.length > 0 ? (
@@ -81,10 +109,11 @@ const CartList = ({ carts = [] }) => {
               key={index}
               cartItem={cartItem}
               select={{
-                isSelected: !!selected[cartItem?._id],
+                isSelected: !!selected[cartItem?.detailID],
                 onSelect: handleSelectProduct,
               }}
               onDelete={handleDeleteProduct}
+              refetch={refetch}
             />
           );
         })}

@@ -4,10 +4,15 @@ import { formatCurrency } from "@/utils/format/currency";
 import { formatQuantity } from "@/utils/format/quantity";
 import { useTranslation } from "react-i18next";
 import { Tooltip } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProductImageGallery from "./images/ProductImageGallery";
 import { useMemo, useState } from "react";
 import { FaCheck, FaStar } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { addProductToCart } from "@/services/cartService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { toast } from "react-toastify";
+import { PATHS } from "@/routes";
 
 const VARIANT_TYPE = {
   COLOR: "color",
@@ -21,6 +26,8 @@ const ProductInformation = ({ product = {} }) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
+  const [message, setMessage] = useState("");
+
   const priceWithVariant = useMemo(() => {
     const colorID = selectedColor?._id;
     const sizeID = selectedSize?._id;
@@ -31,6 +38,7 @@ const ProductInformation = ({ product = {} }) => {
     );
     return variant
       ? {
+          _id: variant?._id,
           price: variant?.price,
           discountedPrice: variant?.discountedPrice,
           quantity: variant?.quantity,
@@ -38,10 +46,9 @@ const ProductInformation = ({ product = {} }) => {
       : null;
   }, [selectedColor, setSelectedSize]);
 
-  console.log(priceWithVariant);
-
   const handleChangeVariant = (type, value) => {
     const setVariant = (previousValue, value) => {
+      setMessage("");
       return previousValue?._id === value?._id ? null : value;
     };
 
@@ -54,7 +61,33 @@ const ProductInformation = ({ product = {} }) => {
     }
   };
 
-  const handleAddToCart = () => {};
+  const isAuth = useSelector((state) => state.user.isAuth);
+  const user = useSelector((state) => state.user.account);
+  const navigate = useNavigate();
+
+  const handleAddToCart = async () => {
+    if (user?._id && priceWithVariant?._id && quantity > 0) {
+      if (isAuth) {
+        const res = await addProductToCart(
+          user?._id,
+          priceWithVariant?._id,
+          quantity,
+        );
+
+        if (res && res.EC === StatusCodes.SUCCESS) {
+          toast.success(res.EM);
+        }
+
+        if (res && res.EC === StatusCodes.ERRROR) {
+          toast.error(res.EM);
+        }
+      } else {
+        navigate(PATHS.login());
+      }
+    } else {
+      setMessage("cart.lack_quantity");
+    }
+  };
 
   return (
     <div className="flex w-full flex-col gap-4 rounded-sm bg-white p-4 md:flex-row lg:gap-6">
@@ -228,6 +261,13 @@ const ProductInformation = ({ product = {} }) => {
               </span>
             )}
           </div>
+          {message && (
+            <div className="w-full rounded-sm border border-solid border-red-200 bg-red-50 p-2 sm:p-4">
+              <span className="text-13px text-red-500 sm:text-sm">
+                {t(message)}
+              </span>
+            </div>
+          )}
         </div>
         <div className="flex w-full gap-2">
           <button

@@ -1,39 +1,41 @@
 import CartList from "@/components/cart/CartList";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
+import { getProductsFromCart } from "@/services/cartService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
-const carts = [
-  {
-    _id: 1,
-    image:
-      "https://bizweb.dktcdn.net/100/440/011/products/sp16-4.jpg?v=1634894750800",
-    name: "Thảm dã ngoại, bạt trải picnic họa tiết caro chống thấm nước gấp gọn tiện lợi K148",
-    variant: "Màu xám, 2XL",
-    quantity: 1,
-    discountedPrice: 90000,
-    discount: 10,
-    price: 1000000,
-    totalPrice: 500000,
-  },
-  {
-    _id: 2,
-    image:
-      "https://bizweb.dktcdn.net/100/440/011/products/sp16-4.jpg?v=1634894750800",
-    name: "Thảm dã ngoại, bạt trải picnic họa tiết caro chống thấm nước gấp gọn tiện lợi K148",
-    variant: "Màu xám, 2XL",
-    quantity: 1,
-    discountedPrice: 90000,
-    discount: 10,
-    price: 1000000,
-    totalPrice: 500000,
-  },
-];
+import { useSelector } from "react-redux";
 
 const Cart = ({}) => {
   const { t } = useTranslation();
 
   useDynamicTitle(t("title.cart"));
+
+  const [carts, setCarts] = useState([]);
+
+  const user = useSelector((state) => state.user.account);
+
+  const fetchProductsFromCart = async (userID) => {
+    const res = await getProductsFromCart(userID);
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      const data = res.DT?.data;
+
+      const newData = data?.map((item) => ({
+        ...item,
+        totalPrice: +item?.quantity * +item?.discountedPrice,
+      }));
+
+      setCarts(newData);
+    }
+  };
+
+  useEffect(() => {
+    if (user?._id) {
+      fetchProductsFromCart(user?._id);
+    }
+  }, [user?._id]);
 
   return (
     <BodyLayout>
@@ -42,7 +44,10 @@ const Cart = ({}) => {
           {t("cart.title")}
         </p>
         <div>
-          <CartList carts={carts} />
+          <CartList
+            carts={carts}
+            refetch={async () => await fetchProductsFromCart(user?._id)}
+          />
         </div>
       </div>
     </BodyLayout>
