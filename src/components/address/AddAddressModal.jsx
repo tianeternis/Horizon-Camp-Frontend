@@ -11,10 +11,18 @@ import {
 import { useTranslation } from "react-i18next";
 import { addressFormSchema } from "./addressFormSchama";
 import AddressBookForm from "./AddressBookForm";
+import { useSelector } from "react-redux";
+import { createNewAddress } from "@/services/addressService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { toast } from "react-toastify";
 
 const FORM_ID = "add_new_address_form";
 
-const AddAddressModal = ({ show = false, onClose = () => {} }) => {
+const AddAddressModal = ({
+  show = false,
+  onClose = () => {},
+  refetch = () => {},
+}) => {
   const { t } = useTranslation();
 
   const theme = useTheme();
@@ -26,6 +34,8 @@ const AddAddressModal = ({ show = false, onClose = () => {} }) => {
     formState: { errors },
     handleSubmit,
     reset,
+    watch,
+    setValue,
   } = useAppForm(addressFormSchema);
 
   const handleClose = (e, reason) => {
@@ -34,8 +44,21 @@ const AddAddressModal = ({ show = false, onClose = () => {} }) => {
     reset();
   };
 
-  const handleAddNewAddress = (data) => {
-    console.log("new address", data);
+  const user = useSelector((state) => state.user.account);
+  const handleAddNewAddress = async (data) => {
+    if (data && user?._id) {
+      const res = await createNewAddress({ userID: user?._id, ...data });
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        toast.success(res.EM);
+        handleClose();
+        refetch(user?._id);
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+      }
+    }
   };
 
   return (
@@ -63,6 +86,10 @@ const AddAddressModal = ({ show = false, onClose = () => {} }) => {
             register={register}
             errors={errors}
             control={control}
+            watch={watch}
+            setValue={(name, value) =>
+              setValue(name, value, { shouldValidate: true })
+            }
             handleSubmitForm={handleSubmit(handleAddNewAddress)}
           />
         </DialogContent>

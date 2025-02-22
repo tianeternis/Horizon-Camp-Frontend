@@ -11,21 +11,17 @@ import {
 import { useTranslation } from "react-i18next";
 import { addressFormSchema } from "./addressFormSchama";
 import AddressBookForm from "./AddressBookForm";
+import { updateAddress } from "@/services/addressService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { toast } from "react-toastify";
 
 const FORM_ID = "update_new_address_form";
 
 const UpdateAddressModal = ({
   show = false,
   onClose = () => {},
-  address = {
-    fullname: "Nguyễn Thiên Vũ",
-    phone: "0123456789",
-    province: { label: "Đồng Tháp", value: "dong-thap" },
-    district: { label: "Cần Thơ", value: "can-tho" },
-    ward: { label: "Hồ Chí Minh", value: "ho-chi-minh" },
-    details: "Kế bên em",
-    default: true,
-  },
+  address,
+  refetch = () => {},
 }) => {
   const { t } = useTranslation();
 
@@ -38,6 +34,8 @@ const UpdateAddressModal = ({
     formState: { errors },
     handleSubmit,
     reset,
+    watch,
+    setValue,
   } = useAppForm(addressFormSchema, address);
 
   const handleClose = (e, reason) => {
@@ -46,8 +44,20 @@ const UpdateAddressModal = ({
     reset();
   };
 
-  const handleUpdateAddress = (data) => {
-    console.log("update address", data);
+  const handleUpdateAddress = async (data) => {
+    if (data && address?._id) {
+      delete data?._id;
+      const res = await updateAddress(address?._id, data);
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        toast.success(res.EM);
+        handleClose();
+        refetch();
+      }
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+      }
+    }
   };
 
   return (
@@ -75,7 +85,12 @@ const UpdateAddressModal = ({
             register={register}
             errors={errors}
             control={control}
+            watch={watch}
+            setValue={(name, value) =>
+              setValue(name, value, { shouldValidate: true })
+            }
             handleSubmitForm={handleSubmit(handleUpdateAddress)}
+            disableDefault={address?.default}
           />
         </DialogContent>
         <DialogActions sx={{ padding: "24px" }}>

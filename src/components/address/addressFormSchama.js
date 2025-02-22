@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 export const addressFormSchema = yup
   .object({
-    fullname: yup.string().required("form-validation.required.fullname"),
+    fullName: yup.string().required("form-validation.required.fullname"),
     phone: yup.string().required("form-validation.required.phone"),
     province: yup.object().required("form-validation.required.province"),
     district: yup.object().required("form-validation.required.district"),

@@ -663,7 +663,8 @@
       "set_as_default": "Đặt làm địa chỉ mặc định",
       "complete": "Hoàn thành",
       "back": "Trở về",
-      "update_address": "Cập nhật địa chỉ"
+      "update_address": "Cập nhật địa chỉ",
+      "no_data": "Chưa có địa chỉ nào."
     }
   },
   "modal": {

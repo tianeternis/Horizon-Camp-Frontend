@@ -36,6 +36,7 @@ const Select = ({
             isOptionEqualToValue={(option, value) =>
               option.value === value.value
             }
+            getOptionKey={(option) => option?.value}
             getOptionLabel={(option) => option.label || ""}
             value={field.value || null}
             onChange={(_, value) => field.onChange(value)}

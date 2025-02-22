@@ -2,7 +2,9 @@ import ControlledCheckbox from "@/components/inputs/ControlledCheckbox";
 import Input from "@/components/inputs/Input";
 import Select from "@/components/inputs/Select";
 import Textarea from "@/components/inputs/Textarea";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { fetchDistricts, fetchProvinces, fetchWard } from "./api";
 
 const options = [
   { label: "Cần Thơ", value: "can-tho" },
@@ -33,8 +35,62 @@ const AddressBookForm = ({
   errors,
   control,
   handleSubmitForm,
+  watch,
+  setValue,
+  disableDefault = false,
 }) => {
   const { t } = useTranslation();
+
+  const [provinces, setProvinces] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [wards, setWards] = useState([]);
+
+  const province = watch("province");
+  const district = watch("district");
+  const ward = watch("ward");
+
+  useEffect(() => {
+    fetchProvinces(setProvinces);
+  }, []);
+
+  useEffect(() => {
+    if (province) {
+      fetchDistricts(province?.value, setDistricts);
+    } else {
+      setDistricts([]);
+    }
+
+    setWards([]);
+  }, [province]);
+
+  useEffect(() => {
+    if (district) {
+      fetchWard(district?.value, setWards);
+    } else {
+      setWards([]);
+    }
+  }, [district]);
+
+  const handleChangeProvince = async (_, province) => {
+    setValue("province", province);
+    if (district) {
+      setValue("district", null);
+    }
+    if (ward) {
+      setValue("ward", null);
+    }
+  };
+
+  const handleChangeDistrict = async (_, district) => {
+    setValue("district", district);
+    if (ward) {
+      setValue("ward", null);
+    }
+  };
+
+  const handleChangeWard = async (_, ward) => {
+    setValue("ward", ward);
+  };
 
   return (
     <form
@@ -47,7 +103,7 @@ const AddressBookForm = ({
           {t("account.address-book.fullname")}
         </label>
         <Input
-          label="fullname"
+          label="fullName"
           register={register}
           errors={errors}
           className="w-full rounded border border-solid border-black/15 px-3 py-2 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:py-2.5 sm:text-sm"
@@ -72,11 +128,12 @@ const AddressBookForm = ({
           label="province"
           control={control}
           errors={errors}
-          options={options}
+          options={provinces}
           inputStyle={{
             fontSize: { xs: "13px", sm: "14px" },
             padding: { xs: "8px 12px", sm: "10px 12px" },
           }}
+          onChange={handleChangeProvince}
         />
       </div>
       <div className="col-span-12 space-y-1">
@@ -87,11 +144,12 @@ const AddressBookForm = ({
           label="district"
           control={control}
           errors={errors}
-          options={options}
+          options={districts}
           inputStyle={{
             fontSize: { xs: "13px", sm: "14px" },
             padding: { xs: "8px 12px", sm: "10px 12px" },
           }}
+          onChange={handleChangeDistrict}
         />
       </div>
       <div className="col-span-12 space-y-1">
@@ -102,11 +160,12 @@ const AddressBookForm = ({
           label="ward"
           control={control}
           errors={errors}
-          options={options}
+          options={wards}
           inputStyle={{
             fontSize: { xs: "13px", sm: "14px" },
             padding: { xs: "8px 12px", sm: "10px 12px" },
           }}
+          onChange={handleChangeWard}
         />
       </div>
       <div className="col-span-12 space-y-1">
@@ -121,20 +180,22 @@ const AddressBookForm = ({
           className="-mb-1.5 w-full rounded border border-solid border-black/15 px-3 py-2 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:py-2.5 sm:text-sm"
         />
       </div>
-      <div className="col-span-12 flex items-center gap-2.5">
-        <ControlledCheckbox
-          id="set_as_address_default_checkbox"
-          label="default"
-          control={control}
-          errors={errors}
-        />
-        <label
-          htmlFor="set_as_address_default_checkbox"
-          className="text-13px font-medium text-gray-600"
-        >
-          {t("account.address-book.set_as_default")}
-        </label>
-      </div>
+      {!disableDefault && (
+        <div className="col-span-12 flex items-center gap-2.5">
+          <ControlledCheckbox
+            id="set_as_address_default_checkbox"
+            label="default"
+            control={control}
+            errors={errors}
+          />
+          <label
+            htmlFor="set_as_address_default_checkbox"
+            className="text-13px font-medium text-gray-600"
+          >
+            {t("account.address-book.set_as_default")}
+          </label>
+        </div>
+      )}
     </form>
   );
 };

@@ -658,7 +658,8 @@
       "set_as_default": "Set as default address",
       "complete": "Complete",
       "back": "Back",
-      "update_address": "Update Address"
+      "update_address": "Update Address",
+      "no_data": "There are no addresses yet."
     }
   },
   "modal": {
