@@ -2,6 +2,7 @@ import emptyData from "@/assets/images/empty-data.png";
 import AddAddressModal from "@/components/address/AddAddressModal";
 import UpdateAddressModal from "@/components/address/UpdateAddressModal";
 import ConfirmModal from "@/components/modals/ConfirmModal";
+import Spin from "@/components/spin/Spin";
 import { useDynamicTitle } from "@/hooks";
 import {
   deleteAddress,
@@ -16,36 +17,6 @@ import { LuMapPinPlus } from "react-icons/lu";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-// const addresses = [
-//   {
-//     fullname: "Nguyễn Thiên Vũ",
-//     phone: "0123456789",
-//     province: "Cần Thơ",
-//     district: "Quận Ninh Kiều",
-//     ward: "Phường An Khánh",
-//     details: "Nguyễn Văn Cừ",
-//     default: true,
-//   },
-//   {
-//     fullname: "Nguyễn Thiên Vũ",
-//     phone: "0123456788",
-//     province: "Cần Thơ",
-//     district: "Quận Ninh Kiều",
-//     ward: "Phường An Khánh",
-//     details: "Nguyễn Văn Cừ",
-//     default: false,
-//   },
-//   {
-//     fullname: "Nguyễn Thiên Vũ",
-//     phone: "0123456777",
-//     province: "Cần Thơ",
-//     district: "Quận Ninh Kiều",
-//     ward: "Phường An Khánh",
-//     details: "Nguyễn Văn Cừ",
-//     default: false,
-//   },
-// ];
-
 const AddressBook = ({}) => {
   const { t } = useTranslation();
 
@@ -59,12 +30,18 @@ const AddressBook = ({}) => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [updateData, setUpdateData] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   const fetchAddresses = async (userID) => {
+    setLoading(true);
+
     const res = await getAddressesByUserID(userID);
 
     if (res && res.EC === StatusCodes.SUCCESS) {
       setAddresses(res.DT);
     }
+
+    setLoading(false);
   };
 
   const user = useSelector((state) => state.user.account);
@@ -173,7 +150,11 @@ const AddressBook = ({}) => {
               <span>{t("account.address-book.add_new_mobile")}</span>
             </button>
           </div>
-          {addresses && addresses?.length > 0 ? (
+          {loading ? (
+            <div className="flex w-full items-center justify-center py-8 text-2xl md:py-16">
+              <Spin />
+            </div>
+          ) : addresses && addresses?.length > 0 ? (
             <div className="divide-y divide-solid divide-black/10">
               {addresses.map((address, i) => (
                 <div

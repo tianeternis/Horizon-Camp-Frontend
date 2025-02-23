@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { MdOutlineReceiptLong } from "react-icons/md";
 import ContentContainerLayout from "../layout/ContentContainerLayout";
 
-const CheckoutDetail = ({}) => {
+const CheckoutDetail = ({ shippingFee = 0 }) => {
   const { t } = useTranslation();
 
   return (
@@ -21,7 +21,7 @@ const CheckoutDetail = ({}) => {
           </div>
           <div className="flex items-center justify-between text-13px sm:text-sm">
             <span>{t("order.checkout.checkout-detail.shipping_fee")}</span>
-            <span className="font-medium">{formatCurrency(100000)}</span>
+            <span className="font-medium">{formatCurrency(shippingFee)}</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-13px sm:text-sm">

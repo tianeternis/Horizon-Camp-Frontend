@@ -4,7 +4,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import ContentContainerLayout from "../layout/ContentContainerLayout";
 import Radio from "../components/Radio";
 
-const DeliveryMethod = ({}) => {
+const DeliveryMethod = ({ fee = 0 }) => {
   const { t } = useTranslation();
 
   return (
@@ -21,7 +21,7 @@ const DeliveryMethod = ({}) => {
           >
             <div className="flex items-center justify-between">
               <span>Giao hàng tiêu chuẩn</span>
-              <span>{formatCurrency(15000)}</span>
+              <span>{formatCurrency(fee)}</span>
             </div>
           </label>
         </div>
