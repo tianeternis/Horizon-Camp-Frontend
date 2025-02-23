@@ -1,19 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BiDollarCircle } from "react-icons/bi";
 import ContentContainerLayout from "../layout/ContentContainerLayout";
-import Radio from "../components/Radio";
 import RadioGroup from "../components/RadioGroup";
+import { getPaymentMethods } from "@/services/orderService";
+import StatusCodes from "@/utils/status/StatusCodes";
 
-const PAYMENT_METHOD = [
-  { _id: 1, label: "Thanh toán khi nhận hàng - COD" },
-  { _id: 2, label: "Thanh toán qua VNPay" },
-];
-
-const PaymentMethod = ({}) => {
+const PaymentMethod = ({ paymentMethod, setPaymentMethod = (value) => {} }) => {
   const { t } = useTranslation();
 
-  const [paymentMethod, setPaymentMethod] = useState(PAYMENT_METHOD?.[0]?._id);
+  const [paymentMethods, setPaymentMethods] = useState([]);
+
+  useEffect(() => {
+    const fetchPaymentMethods = async () => {
+      const res = await getPaymentMethods();
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        const data = res.DT;
+
+        const newData = data?.map((item) => ({
+          _id: item?._id,
+          label: item?.name,
+        }));
+
+        setPaymentMethods(newData);
+        setPaymentMethod(newData?.[0]?._id);
+      }
+    };
+
+    fetchPaymentMethods();
+  }, []);
 
   return (
     <ContentContainerLayout
@@ -25,7 +41,7 @@ const PaymentMethod = ({}) => {
           id="checkout-payment-method"
           value={paymentMethod}
           setValue={setPaymentMethod}
-          options={PAYMENT_METHOD}
+          options={paymentMethods}
         />
       </div>
     </ContentContainerLayout>

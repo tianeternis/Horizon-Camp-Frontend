@@ -3,6 +3,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import BackToTop from "@/components/backTop/BackToTop";
 import LanguageSwitcher from "@/components/language/LanguageSwitcher";
+import NotifyModal from "@/components/notify/NotifyModal";
 
 const INDEX_LIST = ["/"];
 
@@ -21,6 +22,8 @@ const MainLayout = ({}) => {
 
       <BackToTop />
       <LanguageSwitcher />
+
+      <NotifyModal />
     </div>
   );
 };

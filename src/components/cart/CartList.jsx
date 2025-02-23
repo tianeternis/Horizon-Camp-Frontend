@@ -1,15 +1,17 @@
 import { formatCurrency } from "@/utils/format/currency";
 import Checkbox from "@/components/inputs/Checkbox";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 import { useMemo, useState } from "react";
-import _ from "lodash";
+import _, { isEmpty } from "lodash";
 import { removeProductsFromCart } from "@/services/cartService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import { notify } from "@/components/notify";
+import { useNavigate } from "react-router-dom";
+import { PATHS } from "@/routes";
 
 const CartList = ({ carts = [], refetch = () => {} }) => {
   const { t } = useTranslation();
@@ -68,7 +70,7 @@ const CartList = ({ carts = [], refetch = () => {} }) => {
     if (ids.length > 0 && user?._id) {
       await handleRemoveMultipleProducts(user?._id, { data: ids });
     } else {
-      toast.error(t("cart.remove_multiple_not"));
+      notify.show(t("cart.no_selection"));
     }
   };
 
@@ -77,6 +79,16 @@ const CartList = ({ carts = [], refetch = () => {} }) => {
       await handleRemoveMultipleProducts(user?._id, {
         data: [cartItem?.detailID],
       });
+    }
+  };
+
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    if (isEmpty(selected)) {
+      notify.show(t("cart.no_selection"));
+    } else {
+      const newSelection = Object.keys(selected);
+      navigate(`${PATHS.checkout()}?items=${newSelection?.join(",")}`);
     }
   };
 
@@ -163,9 +175,12 @@ const CartList = ({ carts = [], refetch = () => {} }) => {
             >
               {t("cart.delete")}
             </span>
-            <Link className="w-fit rounded-md bg-main px-4 py-2 text-center font-semibold text-white hover:bg-primary sm:px-10 sm:py-2.5 sr-1150:w-full">
+            <button
+              className="w-fit rounded-sm bg-main px-4 py-2 text-center font-semibold text-white hover:bg-primary sm:px-10 sm:py-2.5 sr-1150:w-full"
+              onClick={() => handleCheckout()}
+            >
               {t("cart.order")}
-            </Link>
+            </button>
           </div>
         </div>
       </div>

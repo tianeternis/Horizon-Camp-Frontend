@@ -731,7 +731,7 @@
     "empty_cart": "There are no products in your cart.",
     "add_to_cart": "Add Now",
     "lack_quantity": "Please select a product classification.",
-    "remove_multiple_not": "Please select at least one product you want to delete.",
+    "no_selection": "Please select at least one product to continue!",
     "change-variants": {
       "title": "Change Product Variants",
       "size": "Size",
@@ -774,6 +774,10 @@
       },
       "payment-method": {
         "title": "Payment Method"
+      },
+      "notes": {
+        "title": "Notes",
+        "placeholder": "(Optional) Message for the shop..."
       },
       "checkout-detail": {
         "title": "Checkout Details",

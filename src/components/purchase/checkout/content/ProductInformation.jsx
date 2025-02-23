@@ -24,7 +24,7 @@ const products = [
   },
 ];
 
-const ProductInformation = ({}) => {
+const ProductInformation = ({ products = [] }) => {
   const { t } = useTranslation();
 
   return (
@@ -66,12 +66,20 @@ const ProductInformation = ({}) => {
                   <div className="line-clamp-2 font-medium sr-530:line-clamp-3">
                     {product?.name}
                   </div>
-                  <div className="text-xs text-gray-700 sm:text-13px">
-                    {product?.variant}
-                  </div>
+                  {(product?.color || product?.size) && (
+                    <div className="text-xs text-gray-700 sm:text-13px">
+                      {(() => {
+                        const variant = [];
+                        if (product?.color) variant.push(product?.color);
+                        if (product?.size) variant.push(product?.size);
+
+                        return variant.join(", ");
+                      })()}
+                    </div>
+                  )}
                   <div className="flex items-center justify-between text-xs sr-530:hidden">
                     <div className="text-right">
-                      {formatCurrency(product?.unitPrice)}
+                      {formatCurrency(product?.discountedPrice)}
                     </div>
                     <div className="text-right font-medium text-main">
                       x{product?.quantity}
@@ -81,14 +89,16 @@ const ProductInformation = ({}) => {
               </div>
               <div className="hidden grow space-y-0.5 sr-530:block md:col-span-6 md:grid md:grid-cols-6 md:gap-2">
                 <div className="col-span-2 text-right">
-                  {formatCurrency(product?.unitPrice)}
+                  {formatCurrency(product?.discountedPrice)}
                 </div>
                 <div className="col-span-2 text-right">
                   <span className="md:hidden">x</span>
                   <span>{product?.quantity}</span>
                 </div>
                 <div className="col-span-2 pt-1 text-right font-medium text-primary md:p-0">
-                  {formatCurrency(+product?.unitPrice * +product?.quantity)}
+                  {formatCurrency(
+                    +product?.discountedPrice * +product?.quantity,
+                  )}
                 </div>
               </div>
             </div>
