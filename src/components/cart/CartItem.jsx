@@ -27,7 +27,7 @@ const CartItem = ({
     onDelete(cartItem);
   };
 
-  const changeQuantity = async (quantity) => {
+  const changeQuantity = async (quantity, setQuantity) => {
     if (cartItem?.detailID && quantity) {
       const res = await updateQuantityOfCart(cartItem?.detailID, { quantity });
 
@@ -38,6 +38,7 @@ const CartItem = ({
 
       if (res && res.EC === StatusCodes.ERRROR) {
         toast.error(res.EM);
+        setQuantity(cartItem?.quantity);
       }
     }
   };

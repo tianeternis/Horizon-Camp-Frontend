@@ -676,7 +676,8 @@
       "completed": "Completed",
       "cancelled": "Cancelled"
     },
-    "search": "You can search by Order ID or Product Name",
+    "search": "You can search by Order ID",
+    "empty_search_key": "Please enter order ID to continue searching.",
     "order_ID": "Order ID",
     "view_more": "View more products",
     "product": "product",

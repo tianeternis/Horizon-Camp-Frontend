@@ -4,28 +4,7 @@ import { formatCurrency } from "@/utils/format/currency";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-const PurchaseItem = ({
-  item = {
-    _id: "01234hjjsbsbbss164",
-    orderStatus: "Chờ xác nhận",
-    paymentStatus: false,
-    paymentMethod: "Thanh toán khi nhận hàng",
-    products: [
-      {
-        _id: 1,
-        image:
-          "https://bizweb.dktcdn.net/100/440/011/products/sp16-4.jpg?v=1634894750800",
-        name: "Thảm dã ngoại, bạt trải picnic họa tiết caro chống thấm nước gấp gọn tiện lợi K148",
-        quantity: 1,
-        discountedPrice: 90000,
-        discount: 10,
-        price: 1000000,
-      },
-    ],
-    orderTotal: 150000,
-  },
-  handleCancel = (data) => {},
-}) => {
+const PurchaseItem = ({ item, handleCancel = (data) => {} }) => {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
@@ -51,9 +30,7 @@ const PurchaseItem = ({
             {item?.orderStatus}
           </span>
           <span className="pl-2 font-semibold uppercase text-primary">
-            {item?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID
-              ? t("order-details.not_paid")
-              : t("order-details.paid")}
+            {item?.paymentStatus}
           </span>
         </div>
       </div>
@@ -61,15 +38,15 @@ const PurchaseItem = ({
         className="cursor-pointer divide-y divide-solid divide-black/10 px-4 sm:px-6"
         onClick={() => goToDetail()}
       >
-        {item?.products?.slice(0, 2)?.map((product, index) => {
+        {item?.orderDetails?.slice(0, 2)?.map((detail, index) => {
           return (
             <div
-              key={`order-product-${index}-${product?._id}`}
+              key={`order-detail-${index}-${detail?._id}`}
               className="flex gap-4 py-2.5"
             >
               <div className="h-16 w-16 shrink-0 sr-530:h-20 sr-530:w-20">
                 <img
-                  src={product?.image}
+                  src={detail?.image}
                   loading="lazy"
                   className="object-contain"
                 />
@@ -77,32 +54,44 @@ const PurchaseItem = ({
               <div className="flex grow flex-col justify-between overflow-hidden text-sm sr-530:flex-row sr-530:items-center sr-530:gap-6">
                 <div className="sr-530:space-y-1">
                   <div className="font-medium max-sr-530:truncate sr-530:line-clamp-2">
-                    {product?.name}
+                    {detail?.name}
                   </div>
                   <div className="hidden text-xs text-gray-500 sr-530:block">
-                    Màu xám, 2XL
+                    {(() => {
+                      let variant = [];
+                      if (detail?.color) variant.push(detail?.color);
+                      if (detail?.size) variant.push(detail?.size);
+
+                      return variant.join(", ");
+                    })()}
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-2 sr-530:flex-col-reverse sr-530:gap-0">
                   <span className="mt-2 hidden font-medium text-primary sr-530:inline">
                     {formatCurrency(
-                      +product?.discountedPrice * +product?.quantity,
+                      +detail?.discountedPrice * +detail?.quantity,
                     )}
                   </span>
                   <div className="flex w-full items-center justify-between text-11px sr-530:w-fit sr-530:text-sm">
-                    <span className="sr-530:hidden">Màu xám, 2XL</span>
-                    <span>x{product?.quantity}</span>
+                    <span className="sr-530:hidden">
+                      {(() => {
+                        let variant = [];
+                        if (detail?.color) variant.push(detail?.color);
+                        if (detail?.size) variant.push(detail?.size);
+
+                        return variant.join(", ");
+                      })()}
+                    </span>
+                    <span>x{detail?.quantity}</span>
                   </div>
                   <span>
-                    {product?.discount && product?.discount > 0 ? (
+                    {detail?.discount && detail?.discount > 0 ? (
                       <span className="me-2 text-13px text-gray-500 line-through">
-                        {formatCurrency(product?.price)}
+                        {formatCurrency(detail?.price)}
                       </span>
-                    ) : (
-                      <></>
-                    )}
+                    ) : null}
                     <span className="font-medium text-primary sr-530:text-black">
-                      {formatCurrency(product?.discountedPrice)}
+                      {formatCurrency(detail?.discountedPrice)}
                     </span>
                   </span>
                 </div>
@@ -110,13 +99,13 @@ const PurchaseItem = ({
             </div>
           );
         })}
-        <div className="py-2.5 text-center text-13px text-gray-500">
+        <div className="py-2.5 text-center text-xs text-gray-500 md:text-13px">
           {t("purchase.view_more")}
         </div>
       </div>
       <div className="flex items-center justify-between bg-[#fffefa] px-4 py-3 sm:px-6">
         <span className="text-xs sr-530:text-13px">
-          {item?.products?.length ?? 1} {t("purchase.product")}
+          {item?.orderDetails?.length ?? 1} {t("purchase.product")}
         </span>
         <div className="flex items-center gap-1.5">
           <span>{t("purchase.order_total")}:</span>
@@ -125,41 +114,34 @@ const PurchaseItem = ({
           </span>
         </div>
       </div>
-      {/* {[
-        ORDER_STATUS.pending,
-        ORDER_STATUS.completed,
-        ORDER_STATUS.canceled,
-      ].includes(item?.orderStatus) && ( */}
-      <div className="flex items-center justify-end gap-3 bg-[#fffefa] px-4 py-3 sm:px-6">
-        {/* {(item?.orderStatus === ORDER_STATUS.completed ||
-            item?.orderStatus === ORDER_STATUS.canceled) && ( */}
-        <button
-          className="rounded bg-main px-4 py-2.5 text-13px font-medium text-white hover:bg-primary sr-530:px-8"
-          onClick={() => handleBuyAgain()}
-        >
-          {t("purchase.buy_again")}
-        </button>
-        {/* )} */}
-        {/* {item?.orderStatus === ORDER_STATUS.pending &&
-            item?.paymentMethod === PAYMENT_METHOD.VNPAY &&
-            item?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID && ( */}
-        <button
-          className="rounded border border-solid border-gray-200 bg-white px-4 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-50 sr-530:px-8"
-          onClick={() => handlePayOrder()}
-        >
-          {t("purchase.payment")}
-        </button>
-        {/* )} */}
-        {/* {item?.orderStatus === ORDER_STATUS.pending && ( */}
-        <button
-          className="rounded bg-main px-4 py-2.5 text-13px font-medium text-white hover:bg-primary sr-530:px-8"
-          onClick={() => handleCancel(item)}
-        >
-          {t("purchase.cancel")}
-        </button>
-        {/* )} */}
-      </div>
-      {/* )} */}
+      {item?.actions && (
+        <div className="flex items-center justify-end gap-3 bg-[#fffefa] px-4 py-3 sm:px-6">
+          {item?.actions?.buyAgain && (
+            <button
+              className="rounded bg-main px-4 py-2.5 text-13px font-medium text-white hover:bg-primary sr-530:px-8"
+              onClick={() => handleBuyAgain()}
+            >
+              {t("purchase.buy_again")}
+            </button>
+          )}
+          {item?.actions?.pay && (
+            <button
+              className="rounded border border-solid border-gray-200 bg-white px-4 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-50 sr-530:px-8"
+              onClick={() => handlePayOrder()}
+            >
+              {t("purchase.payment")}
+            </button>
+          )}
+          {item?.actions?.cancel && (
+            <button
+              className="rounded bg-main px-4 py-2.5 text-13px font-medium text-white hover:bg-primary sr-530:px-8"
+              onClick={() => handleCancel(item)}
+            >
+              {t("purchase.cancel")}
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };

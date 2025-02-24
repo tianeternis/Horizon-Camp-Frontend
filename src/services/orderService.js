@@ -7,3 +7,17 @@ export const getProductsForOrder = (itemsID) => {
 export const getPaymentMethods = () => {
   return axios.get(`/order/get-payment-methods`);
 };
+
+export const getOrderStatuses = () => {
+  return axios.get(`/order/get-order-statuses`);
+};
+
+export const createNewOrder = (data) => {
+  return axios.post(`/order/create`, data);
+};
+
+export const getOrders = (userID, { search, status, page, limit }) => {
+  return axios.get(`/order/get-orders/user/${userID}`, {
+    params: { search, status, page, limit },
+  });
+};

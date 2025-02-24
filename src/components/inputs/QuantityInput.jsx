@@ -11,15 +11,15 @@ const QuantityInput = ({
   value = 1,
   max = 50,
   disabled = false,
-  onChange = (quantity) => {}, // Thay đổi do click vào nút tăng/giảm hoặc gõ trực tiếp vào input
-  onInputBlur = (quantity) => {}, // Khi blur ra khỏi input
-  onButtonClick = (quantity) => {}, // // Khi click vào nút tăng/giảm
+  onChange = (quantity, setQuantity) => {}, // Thay đổi do click vào nút tăng/giảm hoặc gõ trực tiếp vào input
+  onInputBlur = (quantity, setQuantity) => {}, // Khi blur ra khỏi input
+  onButtonClick = (quantity, setQuantity) => {}, // // Khi click vào nút tăng/giảm
   ...inputProps
 }) => {
   const [quantity, setQuantity] = useState(value);
 
   useEffect(() => {
-    onChange(quantity);
+    onChange(quantity, setQuantity);
   }, [quantity]);
 
   const handleChangeInput = (value) => {
@@ -33,14 +33,14 @@ const QuantityInput = ({
   const increaseQuantity = () => {
     if (+quantity < max) {
       setQuantity(+quantity + 1);
-      onButtonClick(+quantity + 1);
+      onButtonClick(+quantity + 1, setQuantity);
     }
   };
 
   const decreaseQuantity = () => {
     if (+quantity > 1) {
       setQuantity(+quantity - 1);
-      onButtonClick(+quantity - 1);
+      onButtonClick(+quantity - 1, setQuantity);
     }
   };
 
@@ -52,7 +52,7 @@ const QuantityInput = ({
         : +value;
 
     setQuantity(newQuantity);
-    onInputBlur(newQuantity);
+    onInputBlur(newQuantity, setQuantity);
   };
 
   return (

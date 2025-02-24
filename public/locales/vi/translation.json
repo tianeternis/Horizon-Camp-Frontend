@@ -681,7 +681,8 @@
       "completed": "Hoàn thành",
       "cancelled": "Đã hủy"
     },
-    "search": "Bạn có thể tìm kiếm theo ID đơn hàng hoặc Tên Sản phẩm",
+    "search": "Bạn có thể tìm kiếm theo ID đơn hàng",
+    "empty_search_key": "Vui lòng nhập ID đơn hàng để tiếp tục tìm kiếm.",
     "order_ID": "Mã đơn",
     "view_more": "Xem thêm sản phẩm",
     "product": "sản phẩm",

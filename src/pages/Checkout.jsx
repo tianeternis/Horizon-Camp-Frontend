@@ -1,3 +1,4 @@
+import { notify } from "@/components/notify";
 import AddressInformation from "@/components/purchase/checkout/content/AddressInformation";
 import CheckoutDetail from "@/components/purchase/checkout/content/CheckoutDetail";
 import DeliveryMethod from "@/components/purchase/checkout/content/DeliveryMethod";
@@ -6,12 +7,14 @@ import PaymentMethod from "@/components/purchase/checkout/content/PaymentMethod"
 import ProductInformation from "@/components/purchase/checkout/content/ProductInformation";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
+import { PATHS } from "@/routes";
 import { getShippingFee } from "@/services/ghnService";
-import { getProductsForOrder } from "@/services/orderService";
+import { createNewOrder, getProductsForOrder } from "@/services/orderService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Checkout = ({}) => {
@@ -87,17 +90,37 @@ const Checkout = ({}) => {
     }
   }, [address]);
 
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.account);
   const handleSubmit = async () => {
     const detailsID = products?.map((product) => product?.detailID);
 
-    console.log(
+    const res = await createNewOrder({
+      userID: user?._id,
       detailsID,
-      address,
-      paymentMethod,
+      addressID: address?._id,
+      paymentMethodID: paymentMethod,
       notes,
       shippingFee,
-      subTotal,
-    );
+      subTotal: subTotal + shippingFee,
+    });
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      toast.success(res.EM);
+      navigate(PATHS.purchase());
+    }
+
+    if (
+      res &&
+      (res.EC === StatusCodes.MISSING_PRODUCT ||
+        res.EC === StatusCodes.NOT_ENOUGH_PRODUCT)
+    ) {
+      notify.show(res.EM);
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      toast.error(res.EM);
+    }
   };
 
   return (
