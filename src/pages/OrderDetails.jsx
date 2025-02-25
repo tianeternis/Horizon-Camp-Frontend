@@ -113,9 +113,9 @@ const OrderDetails = ({}) => {
             </button>
           </div>
         )}
-        {order?.actions && (
+        {(order?.actions?.buyAgain || order?.rating?.hasRating) && (
           <div className="flex items-center justify-end gap-4 bg-white p-4 px-5">
-            {order?.actions?.buyAgain && (
+            {order?.actions && order?.actions?.buyAgain && (
               <button
                 className="w-40 rounded border border-solid border-gray-200 bg-gray-50 px-8 py-2.5 text-13px font-medium hover:bg-gray-100 sm:w-52"
                 onClick={() => handleBuyAgain()}
@@ -123,26 +123,26 @@ const OrderDetails = ({}) => {
                 {t("order-details.buy_again")}
               </button>
             )}
-            {/* {order?.orderStatus === ORDER_STATUS.completed && ( */}
-            <>
-              {/* {order?.rated === true && ( */}
-              <button
-                className="w-40 rounded bg-main px-8 py-2.5 text-13px font-medium text-white hover:bg-primary sm:w-52"
-                onClick={() => setShowReviewModal(true)}
-              >
-                {t("order-details.view_rating")}
-              </button>
-              {/* )} */}
-              {/* {order?.rated === false && ( */}
-              <button
-                className="w-40 rounded bg-main px-8 py-2.5 text-13px font-medium text-white hover:bg-primary sm:w-52"
-                onClick={() => setShowRateModal(true)}
-              >
-                {t("order-details.rate")}
-              </button>
-              {/* )} */}
-            </>
-            {/* )} */}
+            {order?.rating && order?.rating?.hasRating && (
+              <>
+                {order?.rating?.rated && (
+                  <button
+                    className="w-40 rounded bg-main px-8 py-2.5 text-13px font-medium text-white hover:bg-primary sm:w-52"
+                    onClick={() => setShowReviewModal(true)}
+                  >
+                    {t("order-details.view_rating")}
+                  </button>
+                )}
+                {!order?.rating?.rated && (
+                  <button
+                    className="w-40 rounded bg-main px-8 py-2.5 text-13px font-medium text-white hover:bg-primary sm:w-52"
+                    onClick={() => setShowRateModal(true)}
+                  >
+                    {t("order-details.rate")}
+                  </button>
+                )}
+              </>
+            )}
           </div>
         )}
         <div className="divide-y divide-solid divide-black/10 px-5">
