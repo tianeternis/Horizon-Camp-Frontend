@@ -21,3 +21,7 @@ export const getOrders = (userID, { search, status, page, limit }) => {
     params: { search, status, page, limit },
   });
 };
+
+export const getOrderByID = (id) => {
+  return axios.get(`/order/get-order-detail/${id}`);
+};

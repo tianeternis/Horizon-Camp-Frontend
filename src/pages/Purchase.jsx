@@ -4,7 +4,7 @@ import EmptyPurchase from "@/components/purchase/list/EmptyPurchase";
 import PurchaseItem from "@/components/purchase/list/PurchaseItem";
 import Spin from "@/components/spin/Spin";
 import Tabs from "@/components/tabs/Tabs";
-import { PAGE_SIZE } from "@/constants";
+import { ORDER_PAGE_SIZE } from "@/constants";
 import { useDynamicTitle } from "@/hooks";
 import { getOrders } from "@/services/orderService";
 import { OrderStatus } from "@/utils/status/OrderStatus";
@@ -92,7 +92,7 @@ const Purchase = ({}) => {
   const user = useSelector((state) => state.user.account);
   useEffect(() => {
     if (user?._id && tabKey && currentPage) {
-      fetchOrders(user?._id, null, tabKey, currentPage, PAGE_SIZE);
+      fetchOrders(user?._id, null, tabKey, currentPage, ORDER_PAGE_SIZE);
     }
   }, [tabKey, currentPage]);
 
@@ -114,7 +114,13 @@ const Purchase = ({}) => {
     const formData = new FormData(e.target);
     const searchKey = formData.get("search");
 
-    await fetchOrders(user?._id, searchKey, tabKey, currentPage, PAGE_SIZE);
+    await fetchOrders(
+      user?._id,
+      searchKey,
+      tabKey,
+      currentPage,
+      ORDER_PAGE_SIZE,
+    );
   };
 
   return (
@@ -138,7 +144,7 @@ const Purchase = ({}) => {
           <LuSearch className="h-5 w-5" />
         </span>
       </form>
-      <div className="space-y-8">
+      <div className="space-y-4">
         {loading ? (
           <div className="flex items-center justify-center py-14 text-xl md:py-20 md:text-3xl">
             <Spin />
