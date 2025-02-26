@@ -3,7 +3,7 @@ import RateModal from "@/components/purchase/details/RateModal";
 import ReviewModal from "@/components/purchase/details/ReviewModal";
 import { useDynamicTitle } from "@/hooks";
 import { PATHS } from "@/routes";
-import { getOrderByID } from "@/services/orderService";
+import { cancelOrder, getOrderByID } from "@/services/orderService";
 import { formatAddress } from "@/utils/format/address";
 import { formatCurrency } from "@/utils/format/currency";
 import { formatDateToHHMMDDMMYYYY } from "@/utils/format/date";
@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import { FaReceipt, FaShippingFast } from "react-icons/fa";
 import { MdArrowBack, MdCancel } from "react-icons/md";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const OrderDetails = ({}) => {
   const { t } = useTranslation();
@@ -26,6 +27,8 @@ const OrderDetails = ({}) => {
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showRateModal, setShowRateModal] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   const fetchOrder = async (id) => {
     const res = await getOrderByID(id);
@@ -46,15 +49,22 @@ const OrderDetails = ({}) => {
     navigate(-1);
   };
 
-  const handleCancel = () => {
+  const handleCancel = async () => {
     if (order) {
-      console.log(order);
-      setShowCancelModal(false);
-    }
-  };
+      setLoading(true);
+      const res = await cancelOrder(order?._id);
 
-  const handleBuyAgain = async () => {
-    console.log("buy again");
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        toast.success(res.EM);
+        setShowCancelModal(false);
+        await fetchOrder(order?._id);
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+      }
+      setLoading(false);
+    }
   };
 
   const handlePayOrder = async () => {
@@ -113,16 +123,8 @@ const OrderDetails = ({}) => {
             </button>
           </div>
         )}
-        {(order?.actions?.buyAgain || order?.rating?.hasRating) && (
+        {order?.rating?.hasRating && (
           <div className="flex items-center justify-end gap-4 bg-white p-4 px-5">
-            {order?.actions && order?.actions?.buyAgain && (
-              <button
-                className="w-40 rounded border border-solid border-gray-200 bg-gray-50 px-8 py-2.5 text-13px font-medium hover:bg-gray-100 sm:w-52"
-                onClick={() => handleBuyAgain()}
-              >
-                {t("order-details.buy_again")}
-              </button>
-            )}
             {order?.rating && order?.rating?.hasRating && (
               <>
                 {order?.rating?.rated && (
@@ -333,6 +335,7 @@ const OrderDetails = ({}) => {
           onClose={() => setShowCancelModal(false)}
           handleOk={handleCancel}
           content={t("purchase.delete_confirm", { id: order?._id })}
+          loading={loading}
         />
       )}
       {

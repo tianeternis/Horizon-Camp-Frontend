@@ -11,8 +11,6 @@ const PurchaseItem = ({ item, handleCancel = (data) => {} }) => {
     navigate(PATHS.orderDetails({ id: item?._id }));
   };
 
-  const handleBuyAgain = async () => {};
-
   const handlePayOrder = async () => {};
 
   return (
@@ -115,14 +113,6 @@ const PurchaseItem = ({ item, handleCancel = (data) => {} }) => {
       </div>
       {item?.actions && (
         <div className="flex items-center justify-end gap-3 bg-[#fffefa] px-4 py-3 sm:px-6">
-          {item?.actions?.buyAgain && (
-            <button
-              className="rounded bg-main px-4 py-2.5 text-13px font-medium text-white hover:bg-primary sr-530:px-8"
-              onClick={() => handleBuyAgain()}
-            >
-              {t("purchase.buy_again")}
-            </button>
-          )}
           {item?.actions?.pay && (
             <button
               className="rounded border border-solid border-gray-200 bg-white px-4 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-50 sr-530:px-8"

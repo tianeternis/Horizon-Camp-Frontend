@@ -6,13 +6,14 @@ import Spin from "@/components/spin/Spin";
 import Tabs from "@/components/tabs/Tabs";
 import { ORDER_PAGE_SIZE } from "@/constants";
 import { useDynamicTitle } from "@/hooks";
-import { getOrders } from "@/services/orderService";
+import { cancelOrder, getOrders } from "@/services/orderService";
 import { OrderStatus } from "@/utils/status/OrderStatus";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LuSearch } from "react-icons/lu";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const tabs = {
   all: {
@@ -100,12 +101,27 @@ const Purchase = ({}) => {
     setCancel((prev) => ({ ...prev, show: true, data: data }));
   };
 
-  const handleCancel = () => {
+  const handleCancel = async () => {
     if (cancel.data) {
       setCancel((prev) => ({ ...prev, loading: true }));
-      setTimeout(() => {
+      const res = await cancelOrder(cancel.data?._id);
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        toast.success(res.EM);
         setCancel({ show: false, data: null, loading: false });
-      }, 3000);
+        await fetchOrders(
+          user?._id,
+          null,
+          tabKey,
+          currentPage,
+          ORDER_PAGE_SIZE,
+        );
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+        setCancel((prev) => ({ ...prev, loading: false }));
+      }
     }
   };
 

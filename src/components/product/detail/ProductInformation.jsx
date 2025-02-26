@@ -272,7 +272,6 @@ const ProductInformation = ({ product = {} }) => {
             <QuantityInput
               value={quantity}
               onChange={(quantity) => setQuantity(quantity)}
-              disabled={selectedColor === null || selectedSize === null}
               rootClass="!h-7 sr-950:!h-8"
               buttonClass="!w-7 sr-950:!w-8"
               inputClass="w-10 sr-950:w-12 text-xs sr-950:text-sm"
