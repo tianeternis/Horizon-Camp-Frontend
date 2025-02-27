@@ -34,6 +34,7 @@ const DeleteAccount = lazy(() => import("@/pages/DeleteAccount"));
 const OrderDetails = lazy(() => import("@/pages/OrderDetails"));
 const ProductDetail = lazy(() => import("@/pages/ProductDetail"));
 const Checkout = lazy(() => import("@/pages/Checkout"));
+const PaymentResult = lazy(() => import("@/pages/PaymentResult"));
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -182,6 +183,15 @@ const routes = [
           </PrivateRoute>
         ),
         handle: { crumb: () => crumb("title.checkout") },
+      },
+      {
+        path: ROUTES.PAYMENT_RESULT.index,
+        element: (
+          <PrivateRoute>
+            <PaymentResult />
+          </PrivateRoute>
+        ),
+        handle: { crumb: () => crumb("title.payment_result") },
       },
       {
         path: ROUTES.WISHLIST.index,

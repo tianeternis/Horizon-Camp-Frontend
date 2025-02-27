@@ -89,6 +89,30 @@ const ProductInformation = ({ product = {} }) => {
     }
   };
 
+  const handleBuyNow = async () => {
+    if (user?._id && priceWithVariant?._id && quantity > 0) {
+      if (isAuth) {
+        const res = await addProductToCart(
+          user?._id,
+          priceWithVariant?._id,
+          quantity,
+        );
+
+        if (res && res.EC === StatusCodes.SUCCESS) {
+          navigate(`${PATHS.checkout()}?items=${res.DT?._id}`);
+        }
+
+        if (res && res.EC === StatusCodes.ERRROR) {
+          toast.error(res.EM);
+        }
+      } else {
+        navigate(PATHS.login());
+      }
+    } else {
+      setMessage("cart.lack_quantity");
+    }
+  };
+
   return (
     <div className="flex w-full flex-col gap-4 rounded-sm bg-white p-4 md:flex-row lg:gap-6">
       <div className="shrink-0">
@@ -248,7 +272,6 @@ const ProductInformation = ({ product = {} }) => {
             <QuantityInput
               value={quantity}
               onChange={(quantity) => setQuantity(quantity)}
-              disabled={selectedColor === null || selectedSize === null}
               rootClass="!h-7 sr-950:!h-8"
               buttonClass="!w-7 sr-950:!w-8"
               inputClass="w-10 sr-950:w-12 text-xs sr-950:text-sm"
@@ -276,9 +299,12 @@ const ProductInformation = ({ product = {} }) => {
           >
             {t("products.detail.add_to_cart")}
           </button>
-          <Link className="grow rounded-sm border border-solid border-gray-400 bg-transparent p-2 text-center text-13px font-semibold text-black hover:border-main hover:bg-main hover:text-white sr-530:px-4 sr-950:py-2.5 sr-950:text-sm">
+          <button
+            className="grow rounded-sm border border-solid border-gray-400 bg-transparent p-2 text-center text-13px font-semibold text-black hover:border-main hover:bg-main hover:text-white sr-530:px-4 sr-950:py-2.5 sr-950:text-sm"
+            onClick={() => handleBuyNow()}
+          >
             {t("products.detail.buy_now")}
-          </Link>
+          </button>
         </div>
       </div>
     </div>

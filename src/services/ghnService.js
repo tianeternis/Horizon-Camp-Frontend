@@ -28,3 +28,16 @@ export const getWardsByDistrictID = (districtID) => {
     configHeader,
   );
 };
+
+export const getShippingFee = (districtID, wardCode, weight = 0) => {
+  return axios.post(
+    `https://online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee`,
+    {
+      to_ward_code: wardCode,
+      to_district_id: districtID,
+      weight,
+      service_type_id: 2,
+    },
+    configHeader,
+  );
+};
