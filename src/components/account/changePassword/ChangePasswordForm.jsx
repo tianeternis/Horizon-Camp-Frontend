@@ -4,6 +4,11 @@ import { PATHS } from "@/routes";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { changePasswordFormSchema } from "./changePasswordFormSchema";
+import { changePassword } from "@/services/userService";
+import { useDispatch, useSelector } from "react-redux";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { toast } from "react-toastify";
+import { logoutSuccess } from "@/redux/reducer/userSlice";
 
 const ChangePasswordForm = () => {
   const { t } = useTranslation();
@@ -14,8 +19,20 @@ const ChangePasswordForm = () => {
     formState: { errors },
   } = useAppForm(changePasswordFormSchema);
 
+  const user = useSelector((state) => state.user.account);
+
+  const dispatch = useDispatch();
   const handleChangePassword = async (data) => {
-    console.log(data);
+    const res = await changePassword(user?._id, data);
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      toast.success(res.EM);
+      dispatch(logoutSuccess());
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      toast.error(res.EM);
+    }
   };
 
   return (

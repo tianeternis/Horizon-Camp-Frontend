@@ -11,15 +11,12 @@ import { TiUserDelete } from "react-icons/ti";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { LuMapPinHouse } from "react-icons/lu";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const AccountLayout = ({}) => {
   const { t } = useTranslation();
 
-  const account = {
-    avatar:
-      "https://i.pinimg.com/550x/e6/eb/28/e6eb285f58d7b13a0974014ba87734dc.jpg",
-    name: "Thiên Vũ",
-  };
+  const account = useSelector((state) => state.user.account);
 
   return (
     <BodyLayout>
@@ -27,9 +24,21 @@ const AccountLayout = ({}) => {
         <div className="hidden w-44 md:block md:shrink-0 lg:w-52">
           <div className="divide-y divide-solid divide-black/10 text-sm text-black">
             <div className="flex flex-nowrap items-center gap-4 py-4">
-              <Avatar size={50} image={account.avatar} name={account.name} />
+              <Avatar
+                size={50}
+                fontSize={20}
+                image={account?.avatar}
+                name={account?.fullName}
+              />
               <div className="space-y-1">
-                <p className="font-semibold">{account.name}</p>
+                <p className="font-semibold">
+                  {(() => {
+                    const words = account?.fullName?.trim()?.split(/\s+/);
+                    return words?.length <= 2
+                      ? account?.fullName
+                      : words?.slice(-2)?.join(" ");
+                  })()}
+                </p>
                 <Link
                   to={PATHS.editProfile()}
                   className="flex flex-nowrap items-center gap-2 font-medium text-gray-500"
@@ -85,18 +94,20 @@ const AccountLayout = ({}) => {
                   </span>
                 </NavLink>
               </li>
-              <li className="group py-2 font-medium">
-                <NavLink
-                  to={PATHS.changePassword()}
-                  className="flex flex-nowrap items-center gap-4"
-                >
-                  <MdPassword className="h-5 w-5 text-blue-500" />
-                  <span className="duration-300 group-hover:text-main">
-                    {t("account.change_password")}
-                  </span>
-                </NavLink>
-              </li>
-              <li className="group py-2 font-medium">
+              {!account?.isGoogleAuth && (
+                <li className="group py-2 font-medium">
+                  <NavLink
+                    to={PATHS.changePassword()}
+                    className="flex flex-nowrap items-center gap-4"
+                  >
+                    <MdPassword className="h-5 w-5 text-blue-500" />
+                    <span className="duration-300 group-hover:text-main">
+                      {t("account.change_password")}
+                    </span>
+                  </NavLink>
+                </li>
+              )}
+              {/* <li className="group py-2 font-medium">
                 <NavLink
                   to={PATHS.deleteAccount()}
                   className="flex flex-nowrap items-center gap-4"
@@ -106,7 +117,7 @@ const AccountLayout = ({}) => {
                     {t("account.delete_account")}
                   </span>
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

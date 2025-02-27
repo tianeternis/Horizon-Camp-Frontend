@@ -83,7 +83,8 @@
       "province": "Please select a city",
       "district": "Please select a district",
       "ward": "Please select a ward",
-      "details_address": "Please fill in details addresses"
+      "details_address": "Please fill in details addresses",
+      "reset_password_code": "Please fill in the verification code."
     },
     "format": {
       "email": "Invalid email format"

@@ -8,6 +8,14 @@ import { Controller } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { editProfileSchema } from "./editProfileFormSchema";
 import { useTranslation } from "react-i18next";
+import { editProfile } from "@/services/userService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { updateProfile } from "@/redux/reducer/userSlice";
+import { useNavigate } from "react-router-dom";
+import { PATHS } from "@/routes";
+import dayjs from "dayjs";
 
 const EditProfileForm = ({ profile }) => {
   const {
@@ -18,15 +26,17 @@ const EditProfileForm = ({ profile }) => {
     setValue,
     formState: { errors },
   } = useAppForm(editProfileSchema, {
-    fullname: profile?.fullname,
-    phoneNumber: profile?.phoneNumber,
+    fullName: profile?.fullName,
+    phone: profile?.phone,
     gender: profile?.gender,
-    birthday: profile?.birthday,
+    birthday: profile?.birthday ? dayjs(profile?.birthday) : null,
     avatar: profile?.avatar,
   });
 
   const avatar = watch("avatar");
   const [avtPreview, setAvtPreview] = useState();
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (avatar) {
@@ -42,8 +52,22 @@ const EditProfileForm = ({ profile }) => {
     };
   }, [avatar]);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSaveProfile = async (data) => {
-    console.log(data);
+    setLoading(true);
+    const res = await editProfile(profile?._id, data);
+
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      toast.success(res.EM);
+      dispatch(updateProfile(res.DT));
+      navigate(PATHS.account());
+    }
+
+    if (res && res.EC === StatusCodes.ERRROR) {
+      toast.error(res.EM);
+    }
+    setLoading(false);
   };
 
   const handleRemoveAvatar = () => {
@@ -69,7 +93,7 @@ const EditProfileForm = ({ profile }) => {
                 <span className="text-red-500">*</span>
               </label>
               <Input
-                label="fullname"
+                label="fullName"
                 register={register}
                 errors={errors}
                 className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500"
@@ -80,7 +104,7 @@ const EditProfileForm = ({ profile }) => {
                 {t("account.edit-profile.phone")}
               </label>
               <Input
-                label="phoneNumber"
+                label="phone"
                 register={register}
                 className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500"
               />
@@ -128,7 +152,7 @@ const EditProfileForm = ({ profile }) => {
                 fontSize: { xs: 36, sm: 50 },
               }}
               image={avtPreview}
-              name={profile?.fullname}
+              name={profile?.fullName}
             />
             <div className="space-x-2.5">
               <Controller
@@ -165,7 +189,7 @@ const EditProfileForm = ({ profile }) => {
         <Button
           form="edit_profile"
           label={t("account.edit-profile.save")}
-          loading={false}
+          loading={loading}
           buttonClass="w-full rounded-md bg-main px-4 py-2 text-sm justify-center font-semibold text-white hover:bg-primary disabled:hover:bg-main sr-530:w-1/2 lg:w-fit lg:px-8"
         />
       </div>
