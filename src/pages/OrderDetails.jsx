@@ -4,6 +4,7 @@ import ReviewModal from "@/components/purchase/details/ReviewModal";
 import { useDynamicTitle } from "@/hooks";
 import { PATHS } from "@/routes";
 import { cancelOrder, getOrderByID } from "@/services/orderService";
+import { createUrlPayment } from "@/services/paymentService";
 import { formatAddress } from "@/utils/format/address";
 import { formatCurrency } from "@/utils/format/currency";
 import { formatDateToHHMMDDMMYYYY } from "@/utils/format/date";
@@ -68,7 +69,25 @@ const OrderDetails = ({}) => {
   };
 
   const handlePayOrder = async () => {
-    console.log("pay order");
+    if (order?._id) {
+      const res = await createUrlPayment({ orderId: order?._id });
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        const url = res.DT?.vnpUrl;
+
+        if (!url) {
+          toast.error(t("payment.modal.error_message"));
+        }
+
+        window.location.replace(url);
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+      }
+    } else {
+      toast.error(t("payment.modal.error_message"));
+    }
   };
 
   return (

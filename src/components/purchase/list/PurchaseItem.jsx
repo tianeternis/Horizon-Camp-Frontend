@@ -1,7 +1,10 @@
 import { PATHS } from "@/routes";
+import { createUrlPayment } from "@/services/paymentService";
 import { formatCurrency } from "@/utils/format/currency";
+import StatusCodes from "@/utils/status/StatusCodes";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PurchaseItem = ({ item, handleCancel = (data) => {} }) => {
   const { t } = useTranslation();
@@ -11,7 +14,27 @@ const PurchaseItem = ({ item, handleCancel = (data) => {} }) => {
     navigate(PATHS.orderDetails({ id: item?._id }));
   };
 
-  const handlePayOrder = async () => {};
+  const handlePayOrder = async () => {
+    if (item?._id) {
+      const res = await createUrlPayment({ orderId: item?._id });
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        const url = res.DT?.vnpUrl;
+
+        if (!url) {
+          toast.error(t("payment.modal.error_message"));
+        }
+
+        window.location.replace(url);
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+      }
+    } else {
+      toast.error(t("payment.modal.error_message"));
+    }
+  };
 
   return (
     <div className="divide-y divide-dotted divide-black/20 rounded-sm bg-white text-sm text-black">

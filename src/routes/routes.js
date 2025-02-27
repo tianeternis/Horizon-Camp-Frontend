@@ -55,6 +55,7 @@ export const ROUTES = {
   RESET_PASSWORD: { index: "reset-password" },
   ACTIVATE_ACCOUNT: { index: "activate-account/:id" },
   CHECKOUT: { index: "checkout" },
+  PAYMENT_RESULT: { index: "payment/result" },
   NOTFOUND: { index: "*" },
 };
 
@@ -100,4 +101,5 @@ export const PATHS = {
     `/${ROUTES.ACCOUNT.index}/${ROUTES.ACCOUNT.DELETE_ACCOUNT.index}`,
   ),
   checkout: getPath(`/${ROUTES.CHECKOUT.index}`),
+  paymentResult: getPath(`/${ROUTES.PAYMENT_RESULT.index}`),
 };

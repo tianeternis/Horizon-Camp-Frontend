@@ -70,7 +70,8 @@
     "change-password": "Đổi mật khẩu",
     "delete-account": "Xóa tài khoản",
     "order-details": "Chi tiết đơn hàng",
-    "checkout": "Thanh toán"
+    "checkout": "Thanh toán",
+    "payment_result": "Kết quả thanh toán"
   },
   "form-validation": {
     "required": {
@@ -793,6 +794,32 @@
         "place_order": "Đặt hàng",
         "notes": "Nhấn \"Đặt hàng\" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản Horizon Camp"
       }
+    }
+  },
+  "payment": {
+    "modal": {
+      "message": "Chúc mừng bạn đã đặt hàng thành công. Bạn có muốn thanh toán cho đơn hàng này không?",
+      "notes_label": "Lưu ý",
+      "notes": "Trong vòng 1 giờ kể từ khi đặt hàng thành công, nếu đơn hàng vẫn chưa được thanh toán thì hệ thống sẽ tự động hủy đơn hàng.",
+      "pay_later": "Thanh toán sau",
+      "pay_now": "Thanh toán ngay",
+      "error_message": "Đã có lỗi xảy ra, vui lòng thử lại sau"
+    },
+    "result": {
+      "success_message": "Thanh toán thành công!",
+      "failure_message": "Thanh toán thất bại!",
+      "success_description": "Thanh toán thành công. Horizon Camp cảm ơn quý khách đã tin tưởng sử dụng dịch vụ của cửa hàng.",
+      "failure_description": "Thanh toán thất bại. Vui lòng thanh toán lại cho đơn hàng trong vòng 1 giờ kể từ khi đặt hàng thành công, nếu không đơn hàng sẽ bị hủy.",
+      "order_id": "Mã đơn hàng",
+      "order_status": "Trạng thái đơn hàng",
+      "customer_name": "Họ tên khách hàng",
+      "phone": "Số điện thoại",
+      "address": "Địa chỉ nhận hàng",
+      "payment_method": "Hình thức thanh toán",
+      "order_total": "Tổng thanh toán",
+      "payment_status": "Trạng thái thanh toán",
+      "buy_more": "Mua thêm",
+      "order_page": "Trang đơn hàng"
     }
   }
 }

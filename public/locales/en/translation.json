@@ -69,7 +69,8 @@
     "change-password": "Change Password",
     "delete-account": "Delete Account",
     "order-details": "Order Details",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "payment_result": "Payment result"
   },
   "form-validation": {
     "required": {
@@ -788,6 +789,32 @@
         "place_order": "Place Order",
         "notes": "By clicking \"Place Order\", you are agreeing to Horizon Camp's Terms and Conditions"
       }
+    }
+  },
+  "payment": {
+    "modal": {
+      "message": "Congratulations on your successful order. Do you want to pay for this order?",
+      "notes_label": "Notes",
+      "notes": "Within 1 hour from successful order placement, if the order has not yet been paid, the system will automatically cancel the order.",
+      "pay_later": "Pay later",
+      "pay_now": "Pay now",
+      "error_message": "An error occurred, please try again later"
+    },
+    "result": {
+      "success_message": "Payment successful!",
+      "failure_message": "Payment failed!",
+      "success_description": "Payment successful. Horizon Camp thanks you for trusting to use the store's services.",
+      "failure_description": "Payment failed. Please pay for the order again within 1 hour of successful order, otherwise the order will be canceled.",
+      "order_id": "Order ID",
+      "order_status": "Order status",
+      "customer_name": "Customer's full name",
+      "phone": "Phone number",
+      "address": "Delivery address",
+      "payment_method": "Payment method",
+      "order_total": "Total payment",
+      "payment_status": "Payment status",
+      "buy_more": "Buy more",
+      "order_page": "Order page"
     }
   }
 }

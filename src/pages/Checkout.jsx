@@ -5,6 +5,7 @@ import DeliveryMethod from "@/components/purchase/checkout/content/DeliveryMetho
 import Notes from "@/components/purchase/checkout/content/Notes";
 import PaymentMethod from "@/components/purchase/checkout/content/PaymentMethod";
 import ProductInformation from "@/components/purchase/checkout/content/ProductInformation";
+import ConfirmPaymentModal from "@/components/purchase/checkout/modal/ConfirmPaymentModal";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import { PATHS } from "@/routes";
@@ -30,6 +31,11 @@ const Checkout = ({}) => {
   const [shippingFee, setShippingFee] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [notes, setNotes] = useState("");
+
+  const [confirmPayment, setConfirmPayment] = useState({
+    show: false,
+    data: null,
+  });
 
   const totalQuantity = useMemo(() => {
     if (products?.length > 0) {
@@ -106,8 +112,14 @@ const Checkout = ({}) => {
     });
 
     if (res && res.EC === StatusCodes.SUCCESS) {
-      toast.success(res.EM);
-      navigate(PATHS.purchase());
+      const data = res.DT;
+
+      if (data?.isVNPAY) {
+        setConfirmPayment({ show: true, data: data?._id });
+      } else {
+        toast.success(res.EM);
+        navigate(PATHS.purchase());
+      }
     }
 
     if (
@@ -148,6 +160,13 @@ const Checkout = ({}) => {
           />
         </div>
       </div>
+      {confirmPayment.show && confirmPayment.data && (
+        <ConfirmPaymentModal
+          show={confirmPayment.show}
+          onClose={() => setConfirmPayment({ show: false, data: null })}
+          orderID={confirmPayment.data}
+        />
+      )}
     </BodyLayout>
   );
 };
