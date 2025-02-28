@@ -8,6 +8,7 @@ import { PATHS } from "@/routes";
 import { useEffect, useState } from "react";
 import { getCategories } from "@/services/categoryService";
 import StatusCodes from "@/utils/status/StatusCodes";
+import Search from "../search/Search";
 
 const NavBar = ({}) => {
   const { t } = useTranslation();
@@ -110,12 +111,15 @@ const NavBar = ({}) => {
         </div>
       </div>
       <div className="flex w-full justify-center px-3 py-2.5 sm:py-3 md:hidden">
-        <div className="relative w-full sm:w-3/4">
+        {/* <div className="relative w-full sm:w-3/4">
           <input
             className="w-full rounded-2xl border border-solid border-white bg-transparent px-4 py-2.5 text-xs outline-none placeholder:text-white/85"
             placeholder={t("search.placeholder")}
           />
           <RiSearch2Line className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 cursor-pointer text-main" />
+        </div> */}
+        <div className="w-full sm:w-3/4">
+          <Search />
         </div>
       </div>
     </div>

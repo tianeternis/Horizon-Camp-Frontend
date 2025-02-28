@@ -10,6 +10,7 @@ export const getProducts = ({
   sortBy,
   page,
   limit,
+  search,
 }) => {
   return axios.get(`/product/get-for-customer`, {
     params: {
@@ -22,6 +23,7 @@ export const getProducts = ({
       sortBy,
       page,
       limit,
+      search,
     },
   });
 };

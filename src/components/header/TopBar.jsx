@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { PATHS } from "@/routes";
 import AccountMenu from "./AccountMenu";
 import { useSelector } from "react-redux";
+import Search from "../search/Search";
 
 const TopBar = ({ toggleDrawer = (v) => {} }) => {
   const { t } = useTranslation();
@@ -21,12 +22,15 @@ const TopBar = ({ toggleDrawer = (v) => {} }) => {
         <NavLink to={PATHS.home()} className="flex items-center justify-center">
           <img src={logo} className="w-16 md:w-24 lg:w-28" />
         </NavLink>
-        <div className="relative hidden w-1/2 md:block">
+        {/* <div className="relative hidden w-1/2 md:block">
           <input
             className="w-full rounded-full border border-solid border-secondary/80 bg-transparent px-4 py-2.5 text-sm outline-none"
             placeholder={t("search.placeholder")}
           />
           <RiSearch2Line className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 cursor-pointer text-main" />
+        </div> */}
+        <div className="hidden w-1/2 md:block">
+          <Search />
         </div>
 
         <div className="hidden md:block">

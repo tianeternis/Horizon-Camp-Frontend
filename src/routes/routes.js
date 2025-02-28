@@ -15,6 +15,7 @@ export const ROUTES = {
     PRODUCTS_BY_CATEGORY: {
       index: ":category-slug",
     },
+    SEARCH: { index: "search/:keyword" },
   },
   PRODUCT_DETAIL: {
     index: "product-detail/:product-slug",
@@ -67,6 +68,7 @@ export const PATHS = {
   productsByCategory: getPath(
     `/${ROUTES.PRODUCTS.index}/${ROUTES.PRODUCTS.PRODUCTS_BY_CATEGORY.index}`,
   ),
+  search: getPath(`/${ROUTES.PRODUCTS.index}/${ROUTES.PRODUCTS.SEARCH.index}`),
   contact: getPath(`/${ROUTES.CONTACT.index}`),
   faqs: getPath(`/${ROUTES.FAQs.index}`),
   picnicGuide: getPath(`/${ROUTES.PICNIC_GUIDE.index}`),
