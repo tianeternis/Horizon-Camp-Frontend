@@ -22,7 +22,10 @@
     "address_book": "Sổ địa chỉ"
   },
   "search": {
-    "placeholder": "Bạn muốn tìm gì?"
+    "placeholder": "Bạn muốn tìm gì?",
+    "results": "Kết quả tìm kiếm",
+    "no_data": "Không tìm thấy bất kỳ kết quả nào",
+    "sub_title": "Kết quả tìm kiếm cho từ khóa"
   },
   "footer": {
     "description": "Khơi nguồn cảm hứng cho hành trình khám phá thiên nhiên. Đồng hành cùng bạn để biến mọi chuyến đi thành kỷ niệm đáng nhớ.",
@@ -71,7 +74,8 @@
     "delete-account": "Xóa tài khoản",
     "order-details": "Chi tiết đơn hàng",
     "checkout": "Thanh toán",
-    "payment_result": "Kết quả thanh toán"
+    "payment_result": "Kết quả thanh toán",
+    "search_results": "Kết quả tìm kiếm"
   },
   "form-validation": {
     "required": {

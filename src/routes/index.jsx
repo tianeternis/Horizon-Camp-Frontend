@@ -65,6 +65,13 @@ const routes = [
             element: <Products />,
           },
           {
+            path: ROUTES.PRODUCTS.SEARCH.index,
+            element: <Products />,
+            handle: {
+              crumb: () => crumb("title.search_results"),
+            },
+          },
+          {
             path: ROUTES.PRODUCTS.PRODUCTS_BY_CATEGORY.index,
             element: <Products />,
             loader: CategoryLoader,

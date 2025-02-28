@@ -21,7 +21,10 @@
     "address_book": "Address Book"
   },
   "search": {
-    "placeholder": "What do you want to find?"
+    "placeholder": "What do you want to find?",
+    "results": "Search results",
+    "no_data": "No results found",
+    "sub_title": "Search results for keywords"
   },
   "footer": {
     "description": "Inspiration for a journey to explore nature. Accompanying you to turn every trip into a memorable memory.",
@@ -70,7 +73,8 @@
     "delete-account": "Delete Account",
     "order-details": "Order Details",
     "checkout": "Checkout",
-    "payment_result": "Payment result"
+    "payment_result": "Payment result",
+    "search_results": "Search results"
   },
   "form-validation": {
     "required": {
@@ -816,6 +820,24 @@
       "payment_status": "Payment status",
       "buy_more": "Buy more",
       "order_page": "Order page"
+    }
+  },
+  "reset-password": {
+    "back": "Return",
+    "title": "Recover password",
+    "confirm-email": {
+      "message": "To reset your password, please provide the email of your registered member account:",
+      "confirm": "Confirm"
+    },
+    "set-new-password": {
+      "message": "We have sent a verification code to your email. Please check your email and complete the form below to complete password reset:",
+      "password": "New password",
+      "code": "Verification code",
+      "confirm": "Confirm",
+      "send-code": {
+        "message": "If the verification code has expired",
+        "action": "Resend code"
+      }
     }
   }
 }
