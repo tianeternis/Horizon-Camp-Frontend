@@ -1,22 +1,33 @@
 import EditProfileForm from "@/components/account/editProfile/EditProfileForm";
 import { useDynamicTitle } from "@/hooks";
+import { getUser } from "@/services/userService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const EditProfile = ({}) => {
   const { t } = useTranslation();
 
   useDynamicTitle(t("title.edit-profile"));
 
-  const information = {
-    fullname: "Nguyễn Thiên Vũ",
-    birthday: "2003-01-01",
-    gender: "male",
-    email: "thienvu@gmail.com",
-    phoneNumber: "0123456789",
-    address: "Nguyễn Văn Cừ, Phường Xuân Khách, Quận Ninh Kiều, Cần Thơ",
-    avatar:
-      "https://i.pinimg.com/550x/e6/eb/28/e6eb285f58d7b13a0974014ba87734dc.jpg",
-  };
+  const [account, setAccount] = useState(null);
+
+  const user = useSelector((state) => state.user.account);
+
+  useEffect(() => {
+    if (user?._id) {
+      const fetchUser = async () => {
+        const res = await getUser(user?._id);
+
+        if (res && res.EC === StatusCodes.SUCCESS) {
+          setAccount(res.DT);
+        }
+      };
+
+      fetchUser();
+    }
+  }, []);
 
   return (
     <div className="divide-y divide-solid divide-black/10 px-2 text-black md:px-6">
@@ -26,7 +37,7 @@ const EditProfile = ({}) => {
         </p>
       </div>
       <div className="py-6">
-        {information && <EditProfileForm profile={information} />}
+        {account && <EditProfileForm profile={account} />}
       </div>
     </div>
   );

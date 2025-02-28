@@ -84,7 +84,8 @@
       "province": "Vui lòng chọn Tỉnh/Thành phố",
       "district": "Vui lòng chọn Quận/Huyện",
       "ward": "Vui lòng chọn Phường/Xã",
-      "details_address": "Vui lòng điền vào địa chỉ cụ thể"
+      "details_address": "Vui lòng điền vào địa chỉ cụ thể",
+      "reset_password_code": "Vui lòng điền vào mã xác minh."
     },
     "format": {
       "email": "Email không hợp lệ"
@@ -820,6 +821,24 @@
       "payment_status": "Trạng thái thanh toán",
       "buy_more": "Mua thêm",
       "order_page": "Trang đơn hàng"
+    }
+  },
+  "reset-password": {
+    "back": "Trở về",
+    "title": "Lấy lại mật khẩu",
+    "confirm-email": {
+      "message": "Để có thể đặt lại mật khẩu, bạn vui lòng cung cấp email của tài khoản thành viên đã đăng ký:",
+      "confirm": "Xác nhận"
+    },
+    "set-new-password": {
+      "message": "Chúng tôi đã gửi mã xác minh đến email của bạn. Vui lòng kiểm tra email và hoàn thành biểu mẫu bên dưới để hoàn tất lấy lại mật khẩu:",
+      "password": "Mật khẩu mới",
+      "code": "Mã xác minh",
+      "confirm": "Xác nhận",
+      "send-code": {
+        "message": "Nếu mã xác minh đã hết hạn",
+        "action": "Gửi lại mã"
+      }
     }
   }
 }

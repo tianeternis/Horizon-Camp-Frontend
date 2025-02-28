@@ -14,29 +14,34 @@ import { FaPhone } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import { TiUserDelete } from "react-icons/ti";
 import { PATHS } from "@/routes";
-
-const genders = {
-  default: "",
-  male: "Nam",
-  female: "Nữ",
-  other: "Khác",
-};
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { getUser } from "@/services/userService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { formatDateToDDMMYYYY } from "@/utils/format/date";
 
 const Profile = ({}) => {
   const { t } = useTranslation();
 
   useDynamicTitle(t("title.profile"));
 
-  const information = {
-    fullname: "Nguyễn Thiên Vũ",
-    birthday: "01/01/2003",
-    gender: "male",
-    email: "thienvu@gmail.com",
-    phoneNumber: "0123456789",
-    address: "Nguyễn Văn Cừ, Phường Xuân Khách, Quận Ninh Kiều, Cần Thơ",
-    avatar:
-      "https://i.pinimg.com/550x/e6/eb/28/e6eb285f58d7b13a0974014ba87734dc.jpg",
-  };
+  const [information, setInformation] = useState(null);
+
+  const user = useSelector((state) => state.user.account);
+
+  useEffect(() => {
+    if (user?._id) {
+      const fetchUser = async () => {
+        const res = await getUser(user?._id);
+
+        if (res && res.EC === StatusCodes.SUCCESS) {
+          setInformation(res.DT);
+        }
+      };
+
+      fetchUser();
+    }
+  }, []);
 
   return (
     <div className="divide-y divide-solid divide-black/10 px-2 text-black md:px-6">
@@ -61,7 +66,7 @@ const Profile = ({}) => {
                   </span>
                 </div>
                 <span className="sr-530:col-span-7 sr-530:font-medium">
-                  {information?.fullname}
+                  {information?.fullName}
                 </span>
               </div>
               <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
@@ -72,7 +77,7 @@ const Profile = ({}) => {
                   </span>
                 </div>
                 <span className="sr-530:col-span-7 sr-530:font-medium">
-                  {information?.birthday}
+                  {formatDateToDDMMYYYY(information?.birthday)}
                 </span>
               </div>
               <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
@@ -83,7 +88,7 @@ const Profile = ({}) => {
                   </span>
                 </div>
                 <span className="sr-530:col-span-7 sr-530:font-medium">
-                  {genders?.[information?.gender]}
+                  {information?.genderDisplay}
                 </span>
               </div>
             </div>
@@ -110,18 +115,7 @@ const Profile = ({}) => {
                   </span>
                 </div>
                 <span className="sr-530:col-span-7 sr-530:font-medium">
-                  {information?.phoneNumber}
-                </span>
-              </div>
-              <div className="flex items-center gap-2.5 sr-530:grid sr-530:grid-cols-12 sr-530:gap-2">
-                <div className="flex items-center gap-2.5 sr-530:col-span-5 sr-530:text-gray-800">
-                  <FaMapMarkerAlt className="h-4 w-4" />
-                  <span className="hidden sr-530:inline">
-                    {t("account.profile-page.address")}
-                  </span>
-                </div>
-                <span className="sr-530:col-span-7 sr-530:font-medium">
-                  {information?.address}
+                  {information?.phone}
                 </span>
               </div>
             </div>
@@ -132,14 +126,15 @@ const Profile = ({}) => {
             sx={{
               width: { xs: 100, sm: 120, lg: 150 },
               height: { xs: 100, sm: 120, lg: 150 },
+              fontSize: { xs: 45, sm: 60, lg: 80 },
             }}
             image={information?.avatar}
-            name={information.fullname}
+            name={information?.fullName}
           />
         </div>
       </div>
       <div className="flex flex-col gap-3 py-6 sr-530:flex-row md:hidden">
-        <div className="grow rounded-md bg-orange-400 p-2 text-sm font-medium hover:bg-orange-500">
+        <div className="grow rounded-md bg-orange-400 p-2 text-sm font-medium text-white hover:bg-orange-500">
           <NavLink
             to={PATHS.editProfile()}
             className="flex w-full flex-nowrap items-center justify-center gap-2.5"
@@ -148,16 +143,18 @@ const Profile = ({}) => {
             <span>{t("account.edit_profile")}</span>
           </NavLink>
         </div>
-        <div className="grow rounded-md bg-blue-500 p-2 text-sm font-medium hover:bg-blue-600">
-          <NavLink
-            to={PATHS.changePassword()}
-            className="flex w-full flex-nowrap items-center justify-center gap-2.5"
-          >
-            <MdPassword className="h-5 w-5" />
-            <span>{t("account.change_password")}</span>
-          </NavLink>
-        </div>
-        <div className="grow rounded-md bg-red-500 p-2 text-sm font-medium hover:bg-red-600">
+        {!information?.isGoogle && (
+          <div className="grow rounded-md bg-blue-500 p-2 text-sm font-medium text-white hover:bg-blue-600">
+            <NavLink
+              to={PATHS.changePassword()}
+              className="flex w-full flex-nowrap items-center justify-center gap-2.5"
+            >
+              <MdPassword className="h-5 w-5" />
+              <span>{t("account.change_password")}</span>
+            </NavLink>
+          </div>
+        )}
+        {/* <div className="grow rounded-md bg-red-500 p-2 text-sm font-medium text-white hover:bg-red-600">
           <NavLink
             to={PATHS.deleteAccount()}
             className="flex w-full flex-nowrap items-center justify-center gap-2.5"
@@ -165,7 +162,7 @@ const Profile = ({}) => {
             <TiUserDelete className="h-5 w-5" />
             <span>{t("account.delete_account")}</span>
           </NavLink>
-        </div>
+        </div> */}
       </div>
     </div>
   );

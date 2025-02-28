@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import { ROUTES } from "./routes";
 import PrivateRoute from "./private/PrivateRoute";
+import ChangePasswordRoute from "./private/ChangePasswordRoute";
 import { CategoryLoader, ProductLoader } from "./loader";
 
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
@@ -156,14 +157,18 @@ const routes = [
           },
           {
             path: ROUTES.ACCOUNT.CHANGE_PASSWORD.index,
-            element: <ChangePassword />,
+            element: (
+              <ChangePasswordRoute>
+                <ChangePassword />
+              </ChangePasswordRoute>
+            ),
             handle: { crumb: () => crumb("title.change-password") },
           },
-          {
-            path: ROUTES.ACCOUNT.DELETE_ACCOUNT.index,
-            element: <DeleteAccount />,
-            handle: { crumb: () => crumb("title.delete-account") },
-          },
+          // {
+          //   path: ROUTES.ACCOUNT.DELETE_ACCOUNT.index,
+          //   element: <DeleteAccount />,
+          //   handle: { crumb: () => crumb("title.delete-account") },
+          // },
         ],
       },
       {
