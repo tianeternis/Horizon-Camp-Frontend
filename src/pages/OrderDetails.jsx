@@ -357,28 +357,25 @@ const OrderDetails = ({}) => {
           loading={loading}
         />
       )}
-      {
-        // order?.rated === true &&
-        showReviewModal && (
-          <ReviewModal
-            show={showReviewModal}
-            onClose={() => setShowReviewModal(false)}
-            // orderId={order?._id}
-          />
-        )
-      }
-      {
-        // order?.rated === false &&
-        showRateModal && (
-          <RateModal
-            show={showRateModal}
-            onClose={() => setShowRateModal(false)}
-            // products={order?.products}
-            // orderId={order?._id}
-            // refetchOrder={getOrder}
-          />
-        )
-      }
+      {order?.rating?.hasRating && (
+        <>
+          {order?.rating?.rated && showReviewModal && (
+            <ReviewModal
+              show={showReviewModal}
+              onClose={() => setShowReviewModal(false)}
+              orderID={order?._id}
+            />
+          )}
+          {!order?.rating?.rated && showRateModal && (
+            <RateModal
+              show={showRateModal}
+              onClose={() => setShowRateModal(false)}
+              details={order?.orderDetails}
+              refetch={async () => await fetchOrder(order?._id)}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 };

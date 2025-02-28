@@ -1,5 +1,7 @@
 import Button from "@/components/buttons/Button";
 import Rating from "@/components/rating/Rating";
+import { addNewReview } from "@/services/reviewService";
+import StatusCodes from "@/utils/status/StatusCodes";
 import {
   Dialog,
   DialogActions,
@@ -11,27 +13,15 @@ import {
 import _ from "lodash";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
-const products = [
-  {
-    _id: 1,
-    image:
-      "https://bizweb.dktcdn.net/100/440/011/products/sp16-4.jpg?v=1634894750800",
-    name: "Thảm dã ngoại, bạt trải picnic họa tiết caro chống thấm nước gấp gọn tiện lợi K148",
-    quantity: 1,
-    variant: "Màu xám, 2XL",
-  },
-  {
-    _id: 2,
-    image:
-      "https://bizweb.dktcdn.net/100/440/011/products/sp16-4.jpg?v=1634894750800",
-    name: "Thảm dã ngoại, bạt trải picnic họa tiết caro chống thấm nước gấp gọn tiện lợi K148",
-    quantity: 1,
-    variant: "Màu xám, 2XL",
-  },
-];
-
-const RateModal = ({ show = false, onClose = () => {} }) => {
+const RateModal = ({
+  show = false,
+  onClose = () => {},
+  details = [],
+  refetch = () => {},
+}) => {
   const { t } = useTranslation();
 
   const theme = useTheme();
@@ -40,9 +30,9 @@ const RateModal = ({ show = false, onClose = () => {} }) => {
   const [ratings, setRatings] = useState(
     (() => {
       const rating = {};
-      products.forEach((product) => {
-        rating[product?._id] = {
-          productId: product?._id,
+      details.forEach((detail) => {
+        rating[detail?._id] = {
+          detailID: detail?._id,
           rating: 0,
           review: "",
         };
@@ -90,19 +80,29 @@ const RateModal = ({ show = false, onClose = () => {} }) => {
 
   const isValid = useMemo(() => checkRatings(ratings), [ratings]);
 
+  const user = useSelector((state) => state.user.account);
+
   const handleSubmitReview = async () => {
     const isValid = checkRatings(ratings);
 
-    if (isValid) {
+    if (isValid && user?._id) {
       const data = Object.values(ratings);
 
       setLoading(true);
-      console.log(data);
 
-      setTimeout(() => {
-        setLoading(false);
+      const res = await addNewReview(user?._id, { reviews: data });
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        toast.success(res.EM);
         handleClose();
-      }, 3000);
+        refetch();
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        toast.error(res.EM);
+      }
+
+      setLoading(false);
     }
   };
 
@@ -127,33 +127,37 @@ const RateModal = ({ show = false, onClose = () => {} }) => {
         </DialogTitle>
         <DialogContent sx={{ padding: "0 24px" }}>
           <div className="divide-y divide-solid divide-gray-300 font-main">
-            {products &&
-              products.length > 0 &&
-              products.map((product, i) => {
+            {details &&
+              details.length > 0 &&
+              details.map((detail, i) => {
                 return (
                   <div
-                    key={`review-${i}-${product?._id}`}
+                    key={`review-${i}-${detail?._id}`}
                     className="space-y-4 py-6"
                   >
                     <div className="flex items-center gap-2">
                       <div className="h-10 w-10 shrink-0">
                         <img
-                          src={product?.image}
+                          src={detail?.image}
                           loading="lazy"
                           className="object-contain"
                         />
                       </div>
-                      <div className="flex flex-col gap-0.5">
+                      <div className="flex flex-grow flex-col gap-0.5">
                         <span className="line-clamp-1 text-sm font-medium">
-                          {product?.name}
+                          {detail?.name}
                         </span>
                         <div className="flex items-center justify-between text-xs">
                           <span className="text-gray-600">
-                            {product?.variant}
+                            {(() => {
+                              const variant = [];
+                              if (detail?.color) variant.push(detail?.color);
+                              if (detail?.size) variant.push(detail?.size);
+
+                              return variant.join(", ");
+                            })()}
                           </span>
-                          <span className="text-main">
-                            x{product?.quantity}
-                          </span>
+                          <span className="text-main">x{detail?.quantity}</span>
                         </div>
                       </div>
                     </div>
@@ -163,9 +167,9 @@ const RateModal = ({ show = false, onClose = () => {} }) => {
                           {t("order-details.review.quality")}
                         </div>
                         <Rating
-                          value={ratings[product?._id].rating}
+                          value={ratings[detail?._id].rating}
                           setValue={(value) =>
-                            handleChangeRate(product?._id, value)
+                            handleChangeRate(detail?._id, value)
                           }
                           precision={1}
                           size={26}
@@ -180,7 +184,7 @@ const RateModal = ({ show = false, onClose = () => {} }) => {
                             "order-details.review.textarea_placeholder",
                           )}
                           onChange={(e) =>
-                            handleChangeReview(product?._id, e.target.value)
+                            handleChangeReview(detail?._id, e.target.value)
                           }
                         />
                       </div>
