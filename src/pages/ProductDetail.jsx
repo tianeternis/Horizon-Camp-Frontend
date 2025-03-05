@@ -4,7 +4,7 @@ import ProductInformation from "@/components/product/detail/ProductInformation";
 import ProductReview from "@/components/product/detail/ProductReview";
 import RecommendedProduct from "@/components/product/detail/RecommendedProduct";
 import SimilarProduct from "@/components/product/detail/SimilarProduct";
-import { useDynamicTitle } from "@/hooks";
+import { useDynamicTitle, useTopPage } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
 import _ from "lodash";
 import { useTranslation } from "react-i18next";
@@ -16,6 +16,7 @@ const ProductDetail = ({}) => {
   const { t } = useTranslation();
 
   useDynamicTitle(product?.name || "Horizon Camp");
+  useTopPage([product]);
 
   return (
     <BodyLayout>
@@ -30,11 +31,11 @@ const ProductDetail = ({}) => {
               <ProductInformation product={product} />
               <ProductDescription product={product} />
               <ProductReview productID={product?._id} />
-              <SimilarProduct
+              {/* <SimilarProduct
                 categorySlug={product?.category?.slug}
                 productID={product?._id}
-              />
-              {/* <RecommendedProduct /> */}
+              /> */}
+              <RecommendedProduct productID={product?._id} />
             </div>
           </div>
         )}

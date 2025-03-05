@@ -11,13 +11,13 @@ const ProductCard = ({ product = {} }) => {
   return (
     <div className="w-full">
       <div className="w-full rounded-sm bg-white shadow">
-        <div className="group/actions relative w-full cursor-pointer overflow-hidden lg:before:absolute lg:before:left-0 lg:before:top-0 lg:before:z-1 lg:before:h-full lg:before:w-full lg:before:bg-secondary/60 lg:before:opacity-0 lg:before:transition-all lg:before:duration-300 lg:before:hover:opacity-100">
+        {/* <div className="group/actions relative w-full cursor-pointer overflow-hidden lg:before:absolute lg:before:left-0 lg:before:top-0 lg:before:z-1 lg:before:h-full lg:before:w-full lg:before:bg-secondary/60 lg:before:opacity-0 lg:before:transition-all lg:before:duration-300 lg:before:hover:opacity-100">
           <div>
             <img
               src={product?.image}
               alt=""
               loading="lazy"
-              className="sr-400:min-h-4max-h-44 max-h-32 min-h-32 w-full rounded-t-sm object-contain object-center sr-400:max-h-44 sr-500:max-h-48 sr-500:min-h-48 sr-550:max-h-52 sr-550:min-h-52 sr-600:max-h-40 sr-600:min-h-40 sr-650:max-h-48 sr-650:min-h-48 md:max-h-52 md:min-h-52"
+              className="sr-400:min-h-4max-h-44 max-h-32 min-h-32 w-full rounded-t-sm object-cover object-top sr-400:max-h-44 sr-500:max-h-48 sr-500:min-h-48 sr-550:max-h-52 sr-550:min-h-52 sr-600:max-h-40 sr-600:min-h-40 sr-650:max-h-48 sr-650:min-h-48 md:max-h-52 md:min-h-52"
             />
           </div>
           {product?.discount && product?.discount > 0 ? (
@@ -129,7 +129,25 @@ const ProductCard = ({ product = {} }) => {
               </svg>
             </div>
           </div>
-        </div>
+        </div> */}
+        <Link
+          to={PATHS.productDetail({ "product-slug": product?.slug })}
+          className="group w-full cursor-pointer overflow-hidden"
+        >
+          <div className="overflow-hidden">
+            <img
+              src={product?.image}
+              alt=""
+              loading="lazy"
+              className="sr-400:min-h-4max-h-44 max-h-32 min-h-32 w-full rounded-t-sm object-cover object-top duration-500 group-hover:scale-105 sr-400:max-h-44 sr-500:max-h-48 sr-500:min-h-48 sr-550:max-h-52 sr-550:min-h-52 sr-600:max-h-40 sr-600:min-h-40 sr-650:max-h-48 sr-650:min-h-48 md:max-h-52 md:min-h-52"
+            />
+          </div>
+          {product?.discount && product?.discount > 0 ? (
+            <div className="absolute right-1.5 top-1.5 z-1 rounded-2xl bg-main px-2 py-1 text-xs font-medium text-white sm:px-3 sm:py-1.5 sm:text-13px">
+              {product?.discount}%
+            </div>
+          ) : null}
+        </Link>
         <div className="p-2">
           <div className="min-h-12 py-1 sm:min-h-14">
             <Link

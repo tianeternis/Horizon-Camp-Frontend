@@ -6,6 +6,7 @@ import ProductCard from "../list/ProductCard";
 import { Link } from "react-router-dom";
 import { getProducts } from "@/services/productService";
 import StatusCodes from "@/utils/status/StatusCodes";
+import { PATHS } from "@/routes";
 
 const SimilarProduct = ({ categorySlug, productID }) => {
   const { t } = useTranslation();
@@ -54,7 +55,10 @@ const SimilarProduct = ({ categorySlug, productID }) => {
           <div className="shrink-0 text-base font-semibold lg:text-lg">
             {t("products.detail.similar_product")}
           </div>
-          <Link className="hidden w-fit items-center gap-2 text-gray-800 hover:text-main 2xl:flex">
+          <Link
+            to={PATHS.productsByCategory({ "category-slug": categorySlug })}
+            className="hidden w-fit items-center gap-2 text-gray-800 hover:text-main 2xl:flex"
+          >
             <span className="text-xs font-semibold md:text-13px">
               {t("navigation.view_all")}
             </span>

@@ -31,3 +31,9 @@ export const getProducts = ({
 export const getProductBySlug = (slug) => {
   return axios.get(`/product/get/slug/${slug}`);
 };
+
+export const getRecommendationsForProduct = (productID, limit) => {
+  return axios.get(`/product/get/recommendations/${productID}`, {
+    params: { limit },
+  });
+};

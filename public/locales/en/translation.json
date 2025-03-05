@@ -575,7 +575,7 @@
       "product_description": "Product Description",
       "product_review": "Product Review",
       "similar_product": "Products in the same category",
-      "recommend_product": "You may also like",
+      "recommend_product": "Similar products",
       "review": "review",
       "star": "star",
       "remain_product": "Remaining {{quantity}} product"

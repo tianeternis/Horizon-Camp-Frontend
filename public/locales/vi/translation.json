@@ -580,7 +580,7 @@
       "product_description": "Mô tả sản phẩm",
       "product_review": "Đánh giá sản phẩm",
       "similar_product": "Sản phẩm cùng danh mục khác",
-      "recommend_product": "Có thể bạn thích",
+      "recommend_product": "Sản phẩm tương tự",
       "review": "đánh giá",
       "star": "sao",
       "remain_product": "Còn lại {{quantity}} sản phẩm"
