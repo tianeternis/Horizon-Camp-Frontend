@@ -13,3 +13,9 @@ export const getReviewsForProduct = (productID, page, limit) => {
     params: { page, limit },
   });
 };
+
+export const getReviewsForHome = (limit) => {
+  return axios.get(`/review/get-for-home`, {
+    params: { limit },
+  });
+};

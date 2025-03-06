@@ -8,7 +8,7 @@ import { getProducts } from "@/services/productService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { PATHS } from "@/routes";
 
-const SimilarProduct = ({ categorySlug, productID }) => {
+const SimilarProduct = ({ brand, productID }) => {
   const { t } = useTranslation();
 
   const [products, setProducts] = useState([]);
@@ -16,10 +16,10 @@ const SimilarProduct = ({ categorySlug, productID }) => {
   const [swiper, setSwiper] = useState(null);
 
   useEffect(() => {
-    if (categorySlug) {
+    if (brand && brand?._id) {
       const fetchProducts = async () => {
         const res = await getProducts({
-          category: categorySlug,
+          brands: brand?.slug,
           page: 1,
           limit: 10,
         });
@@ -33,7 +33,7 @@ const SimilarProduct = ({ categorySlug, productID }) => {
 
       fetchProducts();
     }
-  }, [categorySlug, productID]);
+  }, [brand]);
 
   const handlePrevClick = () => {
     if (swiper) {
@@ -53,10 +53,10 @@ const SimilarProduct = ({ categorySlug, productID }) => {
       <div className="similar-product w-full space-y-2 pt-4">
         <div className="flex items-center justify-between">
           <div className="shrink-0 text-base font-semibold lg:text-lg">
-            {t("products.detail.similar_product")}
+            {t("products.detail.similar_brand_product", { brand: brand?.name })}
           </div>
           <Link
-            to={PATHS.productsByCategory({ "category-slug": categorySlug })}
+            to={`${PATHS.products()}?brand=${brand?.slug}`}
             className="hidden w-fit items-center gap-2 text-gray-800 hover:text-main 2xl:flex"
           >
             <span className="text-xs font-semibold md:text-13px">
@@ -137,7 +137,10 @@ const SimilarProduct = ({ categorySlug, productID }) => {
             </button>
           </div>
           <div className="text-center 2xl:hidden">
-            <Link className="text-xs font-semibold text-gray-800 hover:text-main md:text-13px">
+            <Link
+              to={`${PATHS.products()}?brand=${brand?.slug}`}
+              className="text-xs font-semibold text-gray-800 hover:text-main md:text-13px"
+            >
               {t("navigation.view_all")}...
             </Link>
           </div>

@@ -33,7 +33,22 @@ export const getProductBySlug = (slug) => {
 };
 
 export const getRecommendationsForProduct = (productID, limit) => {
-  return axios.get(`/product/get/recommendations/${productID}`, {
+  return axios.get(
+    `/product/get/recommendations/similar-products/${productID}`,
+    {
+      params: { limit },
+    },
+  );
+};
+
+export const getRecommendationProducts = (userID, limit) => {
+  return axios.get(`/product/get/recommendations/recommendation-products`, {
+    params: { userID, limit },
+  });
+};
+
+export const getBestSellerProducts = (limit) => {
+  return axios.get(`/product/get-best-seller`, {
     params: { limit },
   });
 };

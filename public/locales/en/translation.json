@@ -517,7 +517,7 @@
       "title": "Horizon Camp products",
       "newest": "The newest",
       "best_seler": "Best seller",
-      "discount": "Discounted"
+      "recommendations": "For you"
     },
     "blogs": {
       "title": "Picnic Guide"
@@ -574,7 +574,7 @@
       "brand": "Brand",
       "product_description": "Product Description",
       "product_review": "Product Review",
-      "similar_product": "Products in the same category",
+      "similar_brand_product": "Other products from {{brand}}",
       "recommend_product": "Similar products",
       "review": "review",
       "star": "star",

@@ -1,19 +1,85 @@
 import ProductCard from "@/components/product/list/ProductCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PATHS } from "@/routes";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {
+  getBestSellerProducts,
+  getProducts,
+  getRecommendationProducts,
+} from "@/services/productService";
+import StatusCodes from "@/utils/status/StatusCodes";
+
+const LIMIT = 10;
 
 const TABS = {
   NEWEST: "newest",
   BEST_SELER: "best_seler",
-  DISCOUNT: "discount",
+  RECOMMENDATION: "discount",
 };
 
 const Products = ({}) => {
   const { t } = useTranslation();
 
-  const [activeTab, setActiveTab] = useState(TABS.NEWEST);
+  const [activeTab, setActiveTab] = useState(TABS.RECOMMENDATION);
+  const [products, setProducts] = useState([]);
+
+  const user = useSelector((state) => state.user.account);
+
+  useEffect(() => {
+    if (activeTab === TABS.RECOMMENDATION) {
+      const fetchProducts = async () => {
+        const res = await getRecommendationProducts(user?._id, LIMIT);
+
+        if (res && res.EC === StatusCodes.SUCCESS) {
+          setProducts(res.DT);
+        }
+
+        if (res && res.EC === StatusCodes.ERRROR) {
+          setProducts([]);
+        }
+      };
+
+      fetchProducts();
+    }
+
+    if (activeTab === TABS.NEWEST) {
+      const fetchProducts = async () => {
+        const res = await getProducts({
+          sortBy: "new",
+          page: 1,
+          limit: LIMIT,
+        });
+
+        if (res && res.EC === StatusCodes.SUCCESS) {
+          setProducts(res.DT?.data);
+        }
+
+        if (res && res.EC === StatusCodes.ERRROR) {
+          setProducts([]);
+        }
+      };
+
+      fetchProducts();
+    }
+
+    if (activeTab === TABS.BEST_SELER) {
+      const fetchProducts = async () => {
+        const res = await getBestSellerProducts(LIMIT);
+
+        if (res && res.EC === StatusCodes.SUCCESS) {
+          setProducts(res.DT);
+        }
+
+        if (res && res.EC === StatusCodes.ERRROR) {
+          setProducts([]);
+        }
+      };
+
+      fetchProducts();
+    }
+  }, [activeTab]);
 
   return (
     <div className="w-full bg-transparent">
@@ -24,6 +90,12 @@ const Products = ({}) => {
               {t("home.products.title")}
             </h4>
             <div className="flex items-center justify-center gap-2 md:gap-4">
+              <div
+                className={`cursor-pointer rounded-3xl border border-solid border-gray-300 px-2.5 py-2 text-13px duration-150 hover:border-main hover:bg-main hover:font-medium hover:text-white md:px-8 md:text-sm ${activeTab === TABS.RECOMMENDATION ? "border-main bg-main font-semibold text-white" : ""}`}
+                onClick={() => setActiveTab(TABS.RECOMMENDATION)}
+              >
+                {t("home.products.recommendations")}
+              </div>
               <div
                 className={`cursor-pointer rounded-3xl border border-solid border-gray-300 px-2.5 py-2 text-13px duration-150 hover:border-main hover:bg-main hover:font-medium hover:text-white md:px-8 md:text-sm ${activeTab === TABS.NEWEST ? "border-main bg-main font-semibold text-white" : ""}`}
                 onClick={() => setActiveTab(TABS.NEWEST)}
@@ -36,19 +108,17 @@ const Products = ({}) => {
               >
                 {t("home.products.best_seler")}
               </div>
-              <div
-                className={`cursor-pointer rounded-3xl border border-solid border-gray-300 px-2.5 py-2 text-13px duration-150 hover:border-main hover:bg-main hover:font-medium hover:text-white md:px-8 md:text-sm ${activeTab === TABS.DISCOUNT ? "border-main bg-main font-semibold text-white" : ""}`}
-                onClick={() => setActiveTab(TABS.DISCOUNT)}
-              >
-                {t("home.products.discount")}
-              </div>
             </div>
           </div>
           <div className="w-full space-y-6">
             <div className="grid grid-cols-2 gap-3 sr-600:grid-cols-3 sr-900:grid-cols-4 sr-1150:grid-cols-5">
-              {Array.from({ length: 10 }, (_, i) => (
-                <ProductCard key={`home-product-card-${i}`} />
-              ))}
+              {products?.length > 0 &&
+                products?.map((product, i) => (
+                  <ProductCard
+                    key={`home-product-card-${i}`}
+                    product={product}
+                  />
+                ))}
             </div>
             <div className="flex w-full justify-center lg:justify-end">
               <Link
@@ -56,7 +126,7 @@ const Products = ({}) => {
                 className="flex w-fit items-center gap-2 text-gray-800 hover:text-main"
               >
                 <span className="text-xs font-semibold md:text-13px">
-                  {t("navigation.view_more")}
+                  {t("navigation.view_all")}
                 </span>
                 <span>
                   <svg

@@ -31,10 +31,7 @@ const ProductDetail = ({}) => {
               <ProductInformation product={product} />
               <ProductDescription product={product} />
               <ProductReview productID={product?._id} />
-              {/* <SimilarProduct
-                categorySlug={product?.category?.slug}
-                productID={product?._id}
-              /> */}
+              <SimilarProduct brand={product?.brand} productID={product?._id} />
               <RecommendedProduct productID={product?._id} />
             </div>
           </div>

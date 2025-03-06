@@ -6,42 +6,42 @@ import Rating from "@/components/rating/Rating";
 import Avatar from "@/components/avatar/Avatar";
 import { RiDoubleQuotesL } from "react-icons/ri";
 
-const reviews = [
-  {
-    name: "Dũng Nguyễn",
-    content:
-      "Lều là một phần rất quan trọng trong trải nghiệm của khách hàng. Trải qua nhiều chặng đường, khách hàng của Tôi đều phản hồi tích cực về chất lượng của lều. Lều chắc chắn, thông thoáng, tạo cảm giác ấm cúng khi ngủ giữa thiên nhiên. Tôi đánh giá 5/5 sao về chất lượng sản phẩm. Cảm ơn nhiều",
-    avatar:
-      "https://bizweb.dktcdn.net/100/440/011/themes/894889/assets/image_customer_review_3.jpg?1702953098418",
-    star: 5,
-  },
-  {
-    name: "Nhung Nguyễn",
-    content:
-      "Lều là một phần rất quan trọng trong trải nghiệm của khách hàng. Trải qua nhiều chặng đường, khách hàng của Tôi đều phản hồi tích cực về chất lượng của lều. Lều chắc chắn, thông thoáng, tạo cảm giác ấm cúng khi ngủ giữa thiên nhiên. Tôi đánh giá 5/5 sao về chất lượng sản phẩm. Cảm ơn nhiều",
-    avatar:
-      "https://bizweb.dktcdn.net/100/440/011/themes/894889/assets/image_customer_review_4.jpg?1702953098418",
-    star: 4,
-  },
-  {
-    name: "Thương Nguyễn",
-    content:
-      "Lều là một phần rất quan trọng trong trải nghiệm của khách hàng. Trải qua nhiều chặng đường, khách hàng của Tôi đều phản hồi tích cực về chất lượng của lều. Lều chắc chắn, thông thoáng, tạo cảm giác ấm cúng khi ngủ giữa thiên nhiên. Tôi đánh giá 5/5 sao về chất lượng sản phẩm. Cảm ơn nhiều",
-    avatar:
-      "https://bizweb.dktcdn.net/100/440/011/themes/894889/assets/image_customer_review_2.jpg?1702953098418",
-    star: 3,
-  },
-  {
-    name: "Hạnh Nguyễn",
-    content:
-      "Lều là một phần rất quan trọng trong trải nghiệm của khách hàng. Trải qua nhiều chặng đường, khách hàng của Tôi đều phản hồi tích cực về chất lượng của lều. Lều chắc chắn, thông thoáng, tạo cảm giác ấm cúng khi ngủ giữa thiên nhiên. Tôi đánh giá 5/5 sao về chất lượng sản phẩm. Cảm ơn nhiều",
-    avatar:
-      "https://bizweb.dktcdn.net/100/440/011/themes/894889/assets/image_customer_review_1.jpg?1702953098418",
-    star: 5,
-  },
-];
+// const reviews = [
+//   {
+//     name: "Dũng Nguyễn",
+//     content:
+//       "Lều là một phần rất quan trọng trong trải nghiệm của khách hàng. Trải qua nhiều chặng đường, khách hàng của Tôi đều phản hồi tích cực về chất lượng của lều. Lều chắc chắn, thông thoáng, tạo cảm giác ấm cúng khi ngủ giữa thiên nhiên. Tôi đánh giá 5/5 sao về chất lượng sản phẩm. Cảm ơn nhiều",
+//     avatar:
+//       "https://bizweb.dktcdn.net/100/440/011/themes/894889/assets/image_customer_review_3.jpg?1702953098418",
+//     star: 5,
+//   },
+//   {
+//     name: "Nhung Nguyễn",
+//     content:
+//       "Lều là một phần rất quan trọng trong trải nghiệm của khách hàng. Trải qua nhiều chặng đường, khách hàng của Tôi đều phản hồi tích cực về chất lượng của lều. Lều chắc chắn, thông thoáng, tạo cảm giác ấm cúng khi ngủ giữa thiên nhiên. Tôi đánh giá 5/5 sao về chất lượng sản phẩm. Cảm ơn nhiều",
+//     avatar:
+//       "https://bizweb.dktcdn.net/100/440/011/themes/894889/assets/image_customer_review_4.jpg?1702953098418",
+//     star: 4,
+//   },
+//   {
+//     name: "Thương Nguyễn",
+//     content:
+//       "Lều là một phần rất quan trọng trong trải nghiệm của khách hàng. Trải qua nhiều chặng đường, khách hàng của Tôi đều phản hồi tích cực về chất lượng của lều. Lều chắc chắn, thông thoáng, tạo cảm giác ấm cúng khi ngủ giữa thiên nhiên. Tôi đánh giá 5/5 sao về chất lượng sản phẩm. Cảm ơn nhiều",
+//     avatar:
+//       "https://bizweb.dktcdn.net/100/440/011/themes/894889/assets/image_customer_review_2.jpg?1702953098418",
+//     star: 3,
+//   },
+//   {
+//     name: "Hạnh Nguyễn",
+//     content:
+//       "Lều là một phần rất quan trọng trong trải nghiệm của khách hàng. Trải qua nhiều chặng đường, khách hàng của Tôi đều phản hồi tích cực về chất lượng của lều. Lều chắc chắn, thông thoáng, tạo cảm giác ấm cúng khi ngủ giữa thiên nhiên. Tôi đánh giá 5/5 sao về chất lượng sản phẩm. Cảm ơn nhiều",
+//     avatar:
+//       "https://bizweb.dktcdn.net/100/440/011/themes/894889/assets/image_customer_review_1.jpg?1702953098418",
+//     star: 5,
+//   },
+// ];
 
-const Comments = ({}) => {
+const Comments = ({ reviews = [] }) => {
   const { t } = useTranslation();
 
   const [swiper, setSwiper] = useState(null);
@@ -80,21 +80,21 @@ const Comments = ({}) => {
               loop={true}
               onSwiper={setSwiper}
             >
-              {reviews.map((review, i) => (
+              {reviews?.map((review, i) => (
                 <SwiperSlide key={`slide-review-${i}`}>
                   <div className="w-full space-y-3 text-white">
                     <div className="flex items-center justify-center pb-3">
                       <RiDoubleQuotesL className="h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14" />
                     </div>
                     <div className="text-center text-sm sm:text-15px md:text-base">
-                      {review?.content}
+                      {review?.comment}
                     </div>
                     <div className="text-center text-base font-bold sm:text-lg">
-                      {review?.name}
+                      {review?.fullName}
                     </div>
                     <div className="text-center text-2xl sm:text-3xl md:text-[32px]">
                       <Rating
-                        value={review?.star}
+                        value={review?.rating}
                         readOnly={true}
                         colorFilled="#fffc00"
                         colorEmpty="#fff"
@@ -105,7 +105,7 @@ const Comments = ({}) => {
               ))}
             </Swiper>
             <div className="w-full">
-              <div className="sr-600:w-96 mx-auto flex w-full items-center justify-center gap-2 sm:w-[26rem] md:w-[32rem]">
+              <div className="mx-auto flex w-full items-center justify-center gap-2 sr-600:w-96 sm:w-[26rem] md:w-[32rem]">
                 <button
                   className="z-20 flex items-center justify-center rounded-full bg-white p-3"
                   onClick={() => handlePrevClick()}
@@ -146,13 +146,13 @@ const Comments = ({}) => {
                     },
                   }}
                 >
-                  {reviews.map((review, i) => (
+                  {reviews?.map((review, i) => (
                     <SwiperSlide key={`thumb-slide-review-${i}`}>
                       {({ isActive }) => (
                         <div className="flex w-full items-center justify-center">
                           <Avatar
                             image={review?.avatar}
-                            name={review?.name}
+                            name={review?.fullName}
                             sx={
                               isActive
                                 ? {

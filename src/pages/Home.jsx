@@ -8,9 +8,26 @@ import IntroduceQuality from "@/components/home/IntroduceQuality";
 import ProductCategory from "@/components/home/ProductCategory";
 import Products from "@/components/home/Products";
 import { useDynamicTitle } from "@/hooks";
+import { useEffect, useState } from "react";
+import { getReviewsForHome } from "@/services/reviewService";
+import StatusCodes from "@/utils/status/StatusCodes";
 
 const Home = ({}) => {
   useDynamicTitle("Horizon Camp");
+
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const res = await getReviewsForHome(6);
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        setReviews(res.DT);
+      }
+    };
+
+    fetchReviews();
+  }, []);
 
   return (
     <div>
@@ -21,8 +38,8 @@ const Home = ({}) => {
         <ProductCategory />
       </div>
       <FeaturedCategory />
-      {/* <Products /> */}
-      <Comments />
+      <Products />
+      {reviews && reviews?.length > 0 && <Comments reviews={reviews} />}
       <Blogs />
     </div>
   );

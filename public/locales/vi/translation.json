@@ -522,7 +522,7 @@
       "title": "Sản phẩm của Horizon Camp",
       "newest": "Mới nhất",
       "best_seler": "Bán chạy",
-      "discount": "Giảm giá"
+      "recommendations": "Gợi ý cho bạn"
     },
     "blogs": {
       "title": "Cấm nang dã ngoại"
@@ -579,7 +579,7 @@
       "brand": "Thương hiệu",
       "product_description": "Mô tả sản phẩm",
       "product_review": "Đánh giá sản phẩm",
-      "similar_product": "Sản phẩm cùng danh mục khác",
+      "similar_brand_product": "Sản phẩm khác của {{brand}}",
       "recommend_product": "Sản phẩm tương tự",
       "review": "đánh giá",
       "star": "sao",
