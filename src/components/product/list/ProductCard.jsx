@@ -132,7 +132,7 @@ const ProductCard = ({ product = {} }) => {
         </div> */}
         <Link
           to={PATHS.productDetail({ "product-slug": product?.slug })}
-          className="group w-full cursor-pointer overflow-hidden"
+          className="group relative w-full cursor-pointer overflow-hidden"
         >
           <div className="overflow-hidden">
             <img
