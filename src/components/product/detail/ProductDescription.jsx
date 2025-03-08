@@ -41,7 +41,7 @@ const ProductDescription = ({ product = {} }) => {
       </div>
       <div className="space-y-4 px-4 py-6">
         <div className="shrink-0 text-base font-semibold sr-950:text-lg">
-          {t("products.detail.detail_information")}
+          {t("products.detail.product_description")}
         </div>
         <div className="text-justify text-13px leading-6 sr-950:text-sm">
           {product?.description}

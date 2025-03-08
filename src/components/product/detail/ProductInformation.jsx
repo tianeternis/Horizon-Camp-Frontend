@@ -8,11 +8,12 @@ import { Link, useNavigate } from "react-router-dom";
 import ProductImageGallery from "./images/ProductImageGallery";
 import { useMemo, useState } from "react";
 import { FaCheck, FaStar } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart } from "@/services/cartService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { toast } from "react-toastify";
 import { PATHS } from "@/routes";
+import { setCartItemsQuantity } from "@/redux/reducer/cartSlide";
 
 const VARIANT_TYPE = {
   COLOR: "color",
@@ -64,6 +65,7 @@ const ProductInformation = ({ product = {} }) => {
   const isAuth = useSelector((state) => state.user.isAuth);
   const user = useSelector((state) => state.user.account);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleAddToCart = async () => {
     if (user?._id && priceWithVariant?._id && quantity > 0) {
@@ -76,6 +78,11 @@ const ProductInformation = ({ product = {} }) => {
 
         if (res && res.EC === StatusCodes.SUCCESS) {
           toast.success(res.EM);
+          if (res.DT && res.DT?.cartItemsQuantity) {
+            dispatch(
+              setCartItemsQuantity({ quantity: res.DT?.cartItemsQuantity }),
+            );
+          }
         }
 
         if (res && res.EC === StatusCodes.ERRROR) {
@@ -99,7 +106,12 @@ const ProductInformation = ({ product = {} }) => {
         );
 
         if (res && res.EC === StatusCodes.SUCCESS) {
-          navigate(`${PATHS.checkout()}?items=${res.DT?._id}`);
+          if (res.DT && res.DT?.cartItemsQuantity) {
+            dispatch(
+              setCartItemsQuantity({ quantity: res.DT?.cartItemsQuantity }),
+            );
+          }
+          navigate(`${PATHS.checkout()}?items=${res.DT?.new?._id}`);
         }
 
         if (res && res.EC === StatusCodes.ERRROR) {

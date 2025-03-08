@@ -10,11 +10,14 @@ import { PATHS } from "@/routes";
 import AccountMenu from "./AccountMenu";
 import { useSelector } from "react-redux";
 import Search from "../search/Search";
+import Badge from "../badge/Badge";
 
 const TopBar = ({ toggleDrawer = (v) => {} }) => {
   const { t } = useTranslation();
 
   const isAuth = useSelector((state) => state.user.isAuth);
+
+  const cartItemsQuantity = useSelector((state) => state?.cart?.quantity);
 
   return (
     <div className="bg-white/85">
@@ -22,13 +25,6 @@ const TopBar = ({ toggleDrawer = (v) => {} }) => {
         <NavLink to={PATHS.home()} className="flex items-center justify-center">
           <img src={logo} className="w-16 md:w-24 lg:w-28" />
         </NavLink>
-        {/* <div className="relative hidden w-1/2 md:block">
-          <input
-            className="w-full rounded-full border border-solid border-secondary/80 bg-transparent px-4 py-2.5 text-sm outline-none"
-            placeholder={t("search.placeholder")}
-          />
-          <RiSearch2Line className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 cursor-pointer text-main" />
-        </div> */}
         <div className="hidden w-1/2 md:block">
           <Search />
         </div>
@@ -87,17 +83,19 @@ const TopBar = ({ toggleDrawer = (v) => {} }) => {
               </div>
             </div>
           )}
-          <Link
+          {/* <Link
             to={PATHS.wishlist()}
             className="text-secondary duration-500 hover:text-main"
           >
             <AiOutlineHeart className="h-6 w-6" />
-          </Link>
+          </Link> */}
           <Link
             to={PATHS.cart()}
             className="text-secondary duration-500 hover:text-main"
           >
-            <LuShoppingCart className="h-6 w-6" />
+            <Badge content={cartItemsQuantity || 0}>
+              <LuShoppingCart className="h-6 w-6" />
+            </Badge>
           </Link>
           <div className="cursor-pointer text-secondary duration-500 hover:text-main">
             <span onClick={() => toggleDrawer(true)}>

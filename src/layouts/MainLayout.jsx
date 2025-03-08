@@ -4,10 +4,13 @@ import Footer from "@/components/footer/Footer";
 import BackToTop from "@/components/backTop/BackToTop";
 import LanguageSwitcher from "@/components/language/LanguageSwitcher";
 import NotifyModal from "@/components/notify/NotifyModal";
+import { useInitializeApp } from "@/hooks";
 
 const INDEX_LIST = ["/"];
 
 const MainLayout = ({}) => {
+  useInitializeApp();
+
   const location = useLocation();
   const isIndex = INDEX_LIST.includes(location.pathname);
 

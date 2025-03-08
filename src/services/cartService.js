@@ -19,3 +19,7 @@ export const updateVariantOfCart = (userID, data) => {
 export const updateQuantityOfCart = (detailID, data) => {
   return axios.put(`/cart//update-quantity/${detailID}`, data);
 };
+
+export const getCartItemQuantity = (userID) => {
+  return axios.get(`/cart/get-quantity/user/${userID}`);
+};

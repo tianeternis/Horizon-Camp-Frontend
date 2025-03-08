@@ -8,13 +8,14 @@ import ProductInformation from "@/components/purchase/checkout/content/ProductIn
 import ConfirmPaymentModal from "@/components/purchase/checkout/modal/ConfirmPaymentModal";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
+import { fetchCartItemsQuantity } from "@/redux/reducer/cartSlide";
 import { PATHS } from "@/routes";
 import { getShippingFee } from "@/services/ghnService";
 import { createNewOrder, getProductsForOrder } from "@/services/orderService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -98,6 +99,8 @@ const Checkout = ({}) => {
 
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.account);
+  const dispatch = useDispatch();
+
   const handleSubmit = async () => {
     const detailsID = products?.map((product) => product?.detailID);
 
@@ -113,6 +116,8 @@ const Checkout = ({}) => {
 
     if (res && res.EC === StatusCodes.SUCCESS) {
       const data = res.DT;
+
+      dispatch(fetchCartItemsQuantity(user?._id));
 
       if (data?.isVNPAY) {
         setConfirmPayment({ show: true, data: data?._id });

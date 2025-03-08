@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { getCategories } from "@/services/categoryService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import Search from "../search/Search";
+import Badge from "../badge/Badge";
+import { useSelector } from "react-redux";
 
 const NavBar = ({}) => {
   const { t } = useTranslation();
@@ -26,6 +28,8 @@ const NavBar = ({}) => {
 
     fetchCategories();
   }, []);
+
+  const cartItemsQuantity = useSelector((state) => state?.cart?.quantity);
 
   return (
     <div className="relative bg-secondary/85 text-white">
@@ -102,22 +106,17 @@ const NavBar = ({}) => {
           </li>
         </ul>
         <div className="flex items-center gap-2.5 sm:gap-4">
-          <Link to={PATHS.wishlist()} className="duration-500 hover:text-main">
+          {/* <Link to={PATHS.wishlist()} className="duration-500 hover:text-main">
             <AiOutlineHeart className="h-6 w-6" />
-          </Link>
+          </Link> */}
           <Link to={PATHS.cart()} className="duration-500 hover:text-main">
-            <LuShoppingCart className="h-6 w-6" />
+            <Badge content={cartItemsQuantity || 0}>
+              <LuShoppingCart className="h-6 w-6" />
+            </Badge>
           </Link>
         </div>
       </div>
       <div className="flex w-full justify-center px-3 py-2.5 sm:py-3 md:hidden">
-        {/* <div className="relative w-full sm:w-3/4">
-          <input
-            className="w-full rounded-2xl border border-solid border-white bg-transparent px-4 py-2.5 text-xs outline-none placeholder:text-white/85"
-            placeholder={t("search.placeholder")}
-          />
-          <RiSearch2Line className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 cursor-pointer text-main" />
-        </div> */}
         <div className="w-full sm:w-3/4">
           <Search />
         </div>

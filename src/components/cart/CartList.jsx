@@ -8,10 +8,11 @@ import _, { isEmpty } from "lodash";
 import { removeProductsFromCart } from "@/services/cartService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { notify } from "@/components/notify";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "@/routes";
+import { setCartItemsQuantity } from "@/redux/reducer/cartSlide";
 
 const CartList = ({ carts = [], refetch = () => {} }) => {
   const { t } = useTranslation();
@@ -50,11 +51,15 @@ const CartList = ({ carts = [], refetch = () => {} }) => {
     });
   };
 
+  const dispatch = useDispatch();
   const handleRemoveMultipleProducts = async (userID, data) => {
     const res = await removeProductsFromCart(userID, data);
 
     if (res && res.EC === StatusCodes.SUCCESS) {
       refetch();
+      if (res.DT && res.DT?.cartItemsQuantity) {
+        dispatch(setCartItemsQuantity({ quantity: res.DT?.cartItemsQuantity }));
+      }
     }
 
     if (res && res.EC === StatusCodes.ERRROR) {

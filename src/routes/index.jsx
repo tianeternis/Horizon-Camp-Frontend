@@ -205,11 +205,11 @@ const routes = [
         ),
         handle: { crumb: () => crumb("title.payment_result") },
       },
-      {
-        path: ROUTES.WISHLIST.index,
-        element: <Wishlist />,
-        handle: { crumb: () => crumb("title.wishlist") },
-      },
+      // {
+      //   path: ROUTES.WISHLIST.index,
+      //   element: <Wishlist />,
+      //   handle: { crumb: () => crumb("title.wishlist") },
+      // },
       {
         path: ROUTES.ORDER_INSTRUCTION.index,
         element: <OrderInstruction />,

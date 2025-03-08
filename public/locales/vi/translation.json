@@ -73,7 +73,7 @@
     "change-password": "Đổi mật khẩu",
     "delete-account": "Xóa tài khoản",
     "order-details": "Chi tiết đơn hàng",
-    "checkout": "Thanh toán",
+    "checkout": "Đặt hàng",
     "payment_result": "Kết quả thanh toán",
     "search_results": "Kết quả tìm kiếm"
   },
@@ -767,7 +767,7 @@
   },
   "order": {
     "checkout": {
-      "title": "Thanh toán",
+      "title": "Đặt hàng",
       "product": {
         "title": "Thông tin sản phẩm",
         "product": "Sản phẩm",
