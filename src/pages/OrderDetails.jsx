@@ -1,4 +1,5 @@
 import ConfirmModal from "@/components/modals/ConfirmModal";
+import Invoice from "@/components/purchase/details/Invoice";
 import RateModal from "@/components/purchase/details/RateModal";
 import ReviewModal from "@/components/purchase/details/ReviewModal";
 import { useDynamicTitle } from "@/hooks";
@@ -376,6 +377,8 @@ const OrderDetails = ({}) => {
           )}
         </>
       )}
+
+      <Invoice order={order} />
     </div>
   );
 };
