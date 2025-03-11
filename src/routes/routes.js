@@ -43,7 +43,10 @@ export const ROUTES = {
   },
   CONTACT: { index: "contact" },
   FAQs: { index: "faqs" },
-  PICNIC_GUIDE: { index: "picnic-guide" },
+  PICNIC_GUIDE: {
+    index: "picnic-guide",
+    GUIDE_DETAIL: { index: ":guide-slug" },
+  },
   LOGIN: { index: "login" },
   REGISTER: { index: "register" },
   WISHLIST: { index: "wishlist" },
@@ -72,6 +75,9 @@ export const PATHS = {
   contact: getPath(`/${ROUTES.CONTACT.index}`),
   faqs: getPath(`/${ROUTES.FAQs.index}`),
   picnicGuide: getPath(`/${ROUTES.PICNIC_GUIDE.index}`),
+  picnicGuideDetail: getPath(
+    `/${ROUTES.PICNIC_GUIDE.index}/${ROUTES.PICNIC_GUIDE.GUIDE_DETAIL.index}`,
+  ),
   login: getPath(`/${ROUTES.LOGIN.index}`),
   register: getPath(`/${ROUTES.REGISTER.index}`),
   wishlist: getPath(`/${ROUTES.WISHLIST.index}`),

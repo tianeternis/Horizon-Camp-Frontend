@@ -1,3 +1,7 @@
+import { PATHS } from "@/routes";
+import { getFuturedCategories } from "@/services/categoryService";
+import StatusCodes from "@/utils/status/StatusCodes";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -54,6 +58,20 @@ const categories = [
 const FeaturedCategory = ({}) => {
   const { t } = useTranslation();
 
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const res = await getFuturedCategories();
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        setCategories(res.DT);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <div className="w-full bg-[#fff9f4]">
       <div className="mx-auto max-w-screen-xl px-3">
@@ -62,19 +80,27 @@ const FeaturedCategory = ({}) => {
             {t("home.featured-category.title")}
           </h4>
           <div className="grid grid-cols-2 gap-x-2.5 gap-y-6 sr-500:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            {categories.map((category, i) => (
-              <div key={`home-featured-category-${i}`}>
-                <Link className="group space-y-1.5">
+            {categories?.map((category, i) => (
+              <div
+                key={`home-featured-category-${i}-${category?._id}`}
+                className="z-10"
+              >
+                <Link
+                  to={PATHS.productsByCategory({
+                    "category-slug": category?.slug,
+                  })}
+                  className="group space-y-1.5"
+                >
                   <div className="w-full overflow-hidden rounded-md bg-white shadow-sm">
                     <img
-                      src={category.url}
+                      src={category?.image}
                       alt=""
                       loading="lazy"
                       className="w-full rounded-md object-cover object-center transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                   <div className="text-center text-13px font-medium sm:text-sm">
-                    {category.name}
+                    {category?.name}
                   </div>
                 </Link>
               </div>
