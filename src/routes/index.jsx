@@ -3,7 +3,7 @@ import { lazy } from "react";
 import { ROUTES } from "./routes";
 import PrivateRoute from "./private/PrivateRoute";
 import ChangePasswordRoute from "./private/ChangePasswordRoute";
-import { CategoryLoader, ProductLoader } from "./loader";
+import { CategoryLoader, PicnicGuideLoader, ProductLoader } from "./loader";
 
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
 const AccountLayout = lazy(() => import("@/layouts/AccountLayout"));
@@ -36,6 +36,7 @@ const OrderDetails = lazy(() => import("@/pages/OrderDetails"));
 const ProductDetail = lazy(() => import("@/pages/ProductDetail"));
 const Checkout = lazy(() => import("@/pages/Checkout"));
 const PaymentResult = lazy(() => import("@/pages/PaymentResult"));
+const PicnicGuideDetail = lazy(() => import("@/pages/PicnicGuideDetail"));
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -101,8 +102,18 @@ const routes = [
       },
       {
         path: ROUTES.PICNIC_GUIDE.index,
-        element: <PicnicGuide />,
         handle: { crumb: () => crumb("title.picnic-guide") },
+        children: [
+          { index: true, element: <PicnicGuide /> },
+          {
+            path: ROUTES.PICNIC_GUIDE.GUIDE_DETAIL.index,
+            element: <PicnicGuideDetail />,
+            loader: PicnicGuideLoader,
+            handle: {
+              crumb: (data) => crumb(undefined, data?.crumb),
+            },
+          },
+        ],
       },
       {
         path: ROUTES.LOGIN.index,

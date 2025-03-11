@@ -758,7 +758,8 @@
       "z-a": "Title Z - A",
       "newest_guide": "Newest Guide",
       "oldest_guide": "Oldest Guide"
-    }
+    },
+    "no_data": "There are no matching guide."
   },
   "order": {
     "checkout": {

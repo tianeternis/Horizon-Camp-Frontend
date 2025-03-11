@@ -1,4 +1,5 @@
 import { getCategoryBySlug } from "@/services/categoryService";
+import { getGuideBySlug } from "@/services/guideService";
 import { getProductBySlug } from "@/services/productService";
 import StatusCodes from "@/utils/status/StatusCodes";
 
@@ -28,6 +29,23 @@ export const ProductLoader = async ({ params }) => {
     if (res && res.EC === StatusCodes.SUCCESS) {
       data = res.DT;
       data.crumb = data?.name;
+    }
+
+    return data;
+  } else {
+    return { crumb: null };
+  }
+};
+
+export const PicnicGuideLoader = async ({ params }) => {
+  if (params?.["guide-slug"]) {
+    const slug = params?.["guide-slug"];
+    const res = await getGuideBySlug(slug);
+
+    let data = {};
+    if (res && res.EC === StatusCodes.SUCCESS) {
+      data = res.DT;
+      data.crumb = data?.title;
     }
 
     return data;

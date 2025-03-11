@@ -763,7 +763,8 @@
       "z-a": "Tiêu đề Z - A",
       "newest_guide": "Cẩm nang mới nhất",
       "oldest_guide": "Cẩm nang cũ nhất"
-    }
+    },
+    "no_data": "Không có bất kỳ cẩm nang nào phù hợp."
   },
   "order": {
     "checkout": {

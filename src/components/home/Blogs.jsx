@@ -2,10 +2,12 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import BlogCard from "@/components/blog/list/BlogCard";
 import { PATHS } from "@/routes";
+import { getGuides } from "@/services/guideService";
+import StatusCodes from "@/utils/status/StatusCodes";
 
 const blogs = [
   {
@@ -59,6 +61,20 @@ const blogs = [
 const Blogs = ({}) => {
   const { t } = useTranslation();
 
+  const [guides, setGuides] = useState([]);
+
+  useEffect(() => {
+    const fetchGuides = async () => {
+      const res = await getGuides({ page: 1, limit: 10 });
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        setGuides(res.DT?.data);
+      }
+    };
+
+    fetchGuides();
+  }, []);
+
   const [swiper, setSwiper] = useState(null);
 
   const handlePrevClick = () => {
@@ -106,7 +122,7 @@ const Blogs = ({}) => {
                   },
                 }}
               >
-                {blogs.map((blog, i) => (
+                {guides?.map((blog, i) => (
                   <SwiperSlide key={`home-slide-blog-${i}`}>
                     <BlogCard blog={blog} />
                   </SwiperSlide>
