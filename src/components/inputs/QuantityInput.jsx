@@ -61,7 +61,7 @@ const QuantityInput = ({
       style={disabled ? { opacity: 0.6 } : {}}
     >
       <button
-        className={`flex w-8 shrink-0 items-center justify-center bg-transparent text-main duration-150 hover:bg-primary hover:text-white disabled:hover:bg-transparent disabled:hover:text-main ${buttonClass}`}
+        className={`flex w-8 shrink-0 items-center justify-center bg-transparent text-main duration-150 hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-main ${buttonClass}`}
         disabled={disabled}
         onClick={() => decreaseQuantity()}
       >
@@ -71,12 +71,12 @@ const QuantityInput = ({
         value={quantity}
         onChange={(e) => handleChangeInput(e.target.value)}
         onBlur={(e) => handleBlur(e.target.value)}
-        className={`w-12 border-x border-gray-300 bg-transparent text-center text-sm text-black outline-none ${inputClass}`}
+        className={`w-12 border-x border-gray-300 bg-transparent text-center text-sm text-black outline-none disabled:cursor-not-allowed ${inputClass}`}
         disabled={disabled}
         {...inputProps}
       />
       <button
-        className={`flex w-8 shrink-0 items-center justify-center bg-transparent text-main duration-150 hover:bg-primary hover:text-white disabled:hover:bg-transparent disabled:hover:text-main ${buttonClass}`}
+        className={`flex w-8 shrink-0 items-center justify-center bg-transparent text-main duration-150 hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-main ${buttonClass}`}
         disabled={disabled}
         onClick={() => increaseQuantity()}
       >

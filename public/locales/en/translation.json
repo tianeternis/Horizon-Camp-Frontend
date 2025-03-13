@@ -527,6 +527,7 @@
     "title": "All Products",
     "sold": "Sold",
     "no_data": "There aren't any matching products.",
+    "out_of_stock": "Out of stock",
     "sort": {
       "title": "Sort",
       "default": "Default",
@@ -578,7 +579,8 @@
       "recommend_product": "Similar products",
       "review": "review",
       "star": "star",
-      "remain_product": "Remaining {{quantity}} product"
+      "remain_product": "Remaining {{quantity}} product",
+      "out_of_stock": "This product is currently out of stock"
     }
   },
   "account": {

@@ -277,24 +277,27 @@ const ProductInformation = ({ product = {} }) => {
               </div>
             </div>
           ) : null}
-          <div className="flex items-center gap-6">
+          <div className="flex items-start gap-6 sr-500:items-center">
             <span className="w-3/12 shrink-0 text-13px sr-500:w-2/12 sr-950:text-sm">
               {t("products.detail.quantity")}
             </span>
-            <QuantityInput
-              value={quantity}
-              onChange={(quantity) => setQuantity(quantity)}
-              rootClass="!h-7 sr-950:!h-8"
-              buttonClass="!w-7 sr-950:!w-8"
-              inputClass="w-10 sr-950:w-12 text-xs sr-950:text-sm"
-            />
-            {priceWithVariant && (
-              <span className="text-13px text-gray-800">
-                {t("products.detail.remain_product", {
-                  quantity: priceWithVariant?.quantity,
-                })}
-              </span>
-            )}
+            <div className="flex flex-col gap-2 sr-500:flex-row sr-500:items-center sr-500:gap-6">
+              <QuantityInput
+                value={quantity}
+                onChange={(quantity) => setQuantity(quantity)}
+                rootClass="!h-7 w-fit sr-950:!h-8"
+                buttonClass="!w-7 sr-950:!w-8"
+                inputClass="w-10 sr-950:w-12 text-xs sr-950:text-sm"
+                disabled={product?.isOutOfStock}
+              />
+              {priceWithVariant && (
+                <span className="text-13px text-gray-800">
+                  {t("products.detail.remain_product", {
+                    quantity: priceWithVariant?.quantity,
+                  })}
+                </span>
+              )}
+            </div>
           </div>
           {message && (
             <div className="w-full rounded-sm border border-solid border-red-200 bg-red-50 p-2 sm:p-4">
@@ -304,20 +307,26 @@ const ProductInformation = ({ product = {} }) => {
             </div>
           )}
         </div>
-        <div className="flex w-full gap-2">
-          <button
-            className="grow rounded-sm border border-solid border-main bg-main p-2 text-13px font-semibold text-white hover:border-gray-400 hover:bg-transparent hover:text-black sr-530:px-4 sr-950:py-2.5 sr-950:text-sm"
-            onClick={() => handleAddToCart()}
-          >
-            {t("products.detail.add_to_cart")}
-          </button>
-          <button
-            className="grow rounded-sm border border-solid border-gray-400 bg-transparent p-2 text-center text-13px font-semibold text-black hover:border-main hover:bg-main hover:text-white sr-530:px-4 sr-950:py-2.5 sr-950:text-sm"
-            onClick={() => handleBuyNow()}
-          >
-            {t("products.detail.buy_now")}
-          </button>
-        </div>
+        {product?.isOutOfStock ? (
+          <div className="rounded-sm border border-solid border-yellow-200 bg-yellow-50 px-4 py-3 text-xs text-black md:py-4 md:text-13px">
+            {t("products.detail.out_of_stock")}
+          </div>
+        ) : (
+          <div className="flex w-full gap-2">
+            <button
+              className="grow rounded-sm border border-solid border-main bg-main p-2 text-13px font-semibold text-white hover:border-gray-400 hover:bg-transparent hover:text-black sr-530:px-4 sr-950:py-2.5 sr-950:text-sm"
+              onClick={() => handleAddToCart()}
+            >
+              {t("products.detail.add_to_cart")}
+            </button>
+            <button
+              className="grow rounded-sm border border-solid border-gray-400 bg-transparent p-2 text-center text-13px font-semibold text-black hover:border-main hover:bg-main hover:text-white sr-530:px-4 sr-950:py-2.5 sr-950:text-sm"
+              onClick={() => handleBuyNow()}
+            >
+              {t("products.detail.buy_now")}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

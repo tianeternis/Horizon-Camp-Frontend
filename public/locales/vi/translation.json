@@ -532,6 +532,7 @@
     "title": "Tất cả sản phẩm",
     "sold": "Đã bán",
     "no_data": "Không có bất kỳ sản phẩm nào phù hợp.",
+    "out_of_stock": "Hết hàng",
     "sort": {
       "title": "Sắp xếp",
       "default": "Mặc định",
@@ -583,7 +584,8 @@
       "recommend_product": "Sản phẩm tương tự",
       "review": "đánh giá",
       "star": "sao",
-      "remain_product": "Còn lại {{quantity}} sản phẩm"
+      "remain_product": "Còn lại {{quantity}} sản phẩm",
+      "out_of_stock": "Sản phẩm này hiện tại đã hết hàng"
     }
   },
   "account": {

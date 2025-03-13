@@ -142,8 +142,13 @@ const ProductCard = ({ product = {} }) => {
               className="sr-400:min-h-4max-h-44 max-h-32 min-h-32 w-full rounded-t-sm object-cover object-top duration-500 group-hover:scale-105 sr-400:max-h-44 sr-500:max-h-48 sr-500:min-h-48 sr-550:max-h-52 sr-550:min-h-52 sr-600:max-h-40 sr-600:min-h-40 sr-650:max-h-48 sr-650:min-h-48 md:max-h-52 md:min-h-52"
             />
           </div>
+          {product?.isOutOfStock && (
+            <div className="absolute left-1.5 top-1.5 z-1 rounded-2xl bg-red-600 px-2 py-1 text-11px font-medium text-white sm:px-2.5 sm:text-xs">
+              {t("products.out_of_stock")}
+            </div>
+          )}
           {product?.discount && product?.discount > 0 ? (
-            <div className="absolute right-1.5 top-1.5 z-1 rounded-2xl bg-main px-2 py-1 text-xs font-medium text-white sm:px-3 sm:py-1.5 sm:text-13px">
+            <div className="absolute right-1.5 top-1.5 z-1 rounded-2xl bg-main px-2 py-1 text-11px font-medium text-white sm:px-2.5 sm:text-xs">
               {product?.discount}%
             </div>
           ) : null}
