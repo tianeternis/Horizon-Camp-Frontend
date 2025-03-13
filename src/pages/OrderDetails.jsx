@@ -1,5 +1,5 @@
+import Invoice from "@/components/invoice/Invoice";
 import ConfirmModal from "@/components/modals/ConfirmModal";
-import Invoice from "@/components/purchase/details/Invoice";
 import RateModal from "@/components/purchase/details/RateModal";
 import ReviewModal from "@/components/purchase/details/ReviewModal";
 import { useDynamicTitle } from "@/hooks";
@@ -335,7 +335,7 @@ const OrderDetails = ({}) => {
         </div>
         <div className="flex items-center justify-end p-5 sr-530:justify-between">
           <span
-            className={`text-xs text-gray-600 ${order?.actions?.cancel ? "hidden sr-530:inline" : ""} `}
+            className={`text-xs text-gray-600 ${order?.actions?.cancel || order?.actions?.invoice ? "hidden sr-530:inline" : ""} `}
           >
             {t("order-details.thanks")}
           </span>
@@ -346,6 +346,9 @@ const OrderDetails = ({}) => {
             >
               {t("order-details.cancel_order")}
             </button>
+          )}
+          {order?.actions && order?.actions?.invoice && (
+            <Invoice order={order} />
           )}
         </div>
       </div>
@@ -377,8 +380,6 @@ const OrderDetails = ({}) => {
           )}
         </>
       )}
-
-      <Invoice order={order} />
     </div>
   );
 };

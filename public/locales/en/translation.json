@@ -839,5 +839,25 @@
         "action": "Resend code"
       }
     }
+  },
+  "invoice": {
+    "title": "INVOICE",
+    "order_id": "Order ID",
+    "order_date": "Order date",
+    "customer": "Customer",
+    "phone": "Phone number",
+    "address": "Address",
+    "product": "Product",
+    "unit_price": "Unit price",
+    "quantity": "Quantity",
+    "total_price": "Total",
+    "payment_method": "Payment method",
+    "sub_price": "Provisional",
+    "shipping_fee": "Shipping fee",
+    "subtotal": "Customer payment",
+    "variant": "Variation",
+    "notes": "Thank you for trusting and using our service! We look forward to serving you in the future.",
+    "file_name_invoice": "Invoice",
+    "download": "Download invoice"
   }
 }

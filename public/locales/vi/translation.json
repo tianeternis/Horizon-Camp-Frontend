@@ -844,5 +844,25 @@
         "action": "Gửi lại mã"
       }
     }
+  },
+  "invoice": {
+    "title": "HÓA ĐƠN",
+    "order_id": "Mã đơn",
+    "order_date": "Ngày đặt hàng",
+    "customer": "Khách hàng",
+    "phone": "Số điện thoại",
+    "address": "Địa chỉ",
+    "product": "Sản phẩm",
+    "unit_price": "Đơn giá",
+    "quantity": "Số lượng",
+    "total_price": "Thành tiền",
+    "payment_method": "Phương thức thanh toán",
+    "sub_price": "Tạm tính",
+    "shipping_fee": "Phí vận chuyển",
+    "subtotal": "Khách hàng thanh toán",
+    "variant": "Phân loại",
+    "notes": "Xin cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi! Chúng tôi rất mong được phục vụ bạn trong thời gian tới.",
+    "file_name_invoice": "HoaDon",
+    "download": "Tải hóa đơn"
   }
 }
