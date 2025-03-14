@@ -59,7 +59,7 @@ const LoginForm = ({}) => {
   return (
     <div>
       <div className="w-full">
-        <h4 className="mb-6 text-center text-xl font-semibold uppercase text-black sm:text-2xl">
+        <h4 className="mb-6 text-center text-lg font-semibold uppercase text-black sm:text-xl">
           {t("auth.login")}
         </h4>
         <form
@@ -73,27 +73,27 @@ const LoginForm = ({}) => {
             errors={errors}
             type="email"
             placeholder={t("auth.email")}
-            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 sm:text-base"
+            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:text-sm"
           />
           <PasswordInput
             label="password"
             register={register}
             errors={errors}
             placeholder={t("auth.password")}
-            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 sm:text-base"
+            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:text-sm"
           />
         </form>
         <div className="mt-8 w-full">
           <button
             form="login"
-            className="w-full rounded-md bg-main px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary sm:text-base"
+            className="w-full rounded-md bg-main px-4 py-2.5 text-13px font-semibold text-white hover:bg-primary sm:text-sm"
           >
             {t("auth.login")}
           </button>
         </div>
         <div className="mt-1.5 w-full text-right">
           <Link to={PATHS.resetPassword()}>
-            <span className="hover:text-tertiary cursor-pointer text-13px text-gray-600 hover:text-black sm:text-sm">
+            <span className="hover:text-tertiary cursor-pointer text-xs text-gray-600 hover:text-black sm:text-13px">
               {t("auth.forgot_password")}
             </span>
           </Link>

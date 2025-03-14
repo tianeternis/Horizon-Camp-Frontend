@@ -75,12 +75,12 @@ const ActivateAccount = ({}) => {
               className="flex items-center gap-2 text-secondary hover:text-primary"
             >
               <IoMdArrowBack className="h-5 w-5" />
-              <span className="text-13px sm:text-sm">
+              <span className="text-xs sm:text-13px">
                 {t("auth.activate-account.back_to_home")}
               </span>
             </Link>
             <div className="w-full space-y-6">
-              <h4 className="pb-2 text-center text-xl font-semibold uppercase text-black md:text-2xl">
+              <h4 className="pb-2 text-center text-lg font-semibold uppercase text-black md:text-xl">
                 {t("auth.activate-account.title.main")}
               </h4>
               {showSkeleton === true && <ActivationSkeleton />}

@@ -29,15 +29,15 @@ const ActivationForm = ({
             className="w-full"
           />
         </div>
-        <div className="text-sm md:text-15px">
+        <div className="text-13px md:text-sm">
           {t("auth.activate-account.message.msg_4")}
         </div>
       </div>
-      <div className="space-y-2 text-sm md:text-15px">
+      <div className="space-y-2 text-13px md:text-sm">
         <div className="font-bold">
           {t("auth.activate-account.message.msg_5.note")}:
         </div>
-        <ul className="list-inside list-disc space-y-1 pl-4">
+        <ul className="list-inside list-disc space-y-1 pl-4 text-justify">
           <li>
             <Trans i18nKey="auth.activate-account.message.msg_5.note_1" />
           </li>
@@ -46,8 +46,8 @@ const ActivationForm = ({
       </div>
       <div className="w-full border-t border-dashed border-black/15"></div>
       <div className="space-y-4">
-        <div className="text-sm md:text-15px">
-          {t("auth.activate-account.message.msg_6")}
+        <div className="text-13px md:text-sm">
+          {t("auth.activate-account.message.msg_6")}{" "}
           <button
             className="inline-flex items-center gap-1.5 font-semibold text-orange-500 hover:text-orange-600"
             onClick={handleResendCode}
@@ -74,13 +74,13 @@ const ActivationForm = ({
               label="activationCode"
               register={register}
               errors={errors}
-              className="w-full rounded-md border border-solid border-black/15 px-3 py-2 text-sm text-gray-900 outline-none placeholder:text-gray-500 sm:text-15px"
+              className="w-full rounded-md border border-solid border-black/15 px-3 py-2 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:text-sm"
             />
           </div>
           <div className="w-full text-center">
             <button
               type="submit"
-              className="w-full rounded-md bg-main px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary sm:w-auto sm:text-15px"
+              className="w-full rounded-md bg-main px-4 py-2.5 text-13px font-semibold text-white hover:bg-primary sm:w-auto sm:text-sm"
             >
               {t("auth.activate-account.confirm_activate")}
             </button>

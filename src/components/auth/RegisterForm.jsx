@@ -50,7 +50,7 @@ const RegisterForm = ({}) => {
   return (
     <div>
       <div className="w-full">
-        <h4 className="mb-6 text-center text-xl font-semibold uppercase text-black sm:text-2xl">
+        <h4 className="mb-6 text-center text-lg font-semibold uppercase text-black sm:text-xl">
           {t("auth.register")}
         </h4>
         <form
@@ -63,7 +63,7 @@ const RegisterForm = ({}) => {
             register={register}
             errors={errors}
             placeholder={t("auth.fullname")}
-            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 sm:text-base"
+            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:text-sm"
           />
           <Input
             label="email"
@@ -71,27 +71,27 @@ const RegisterForm = ({}) => {
             errors={errors}
             type="email"
             placeholder={t("auth.email")}
-            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 sm:text-base"
+            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:text-sm"
           />
           <PasswordInput
             label="password"
             register={register}
             errors={errors}
             placeholder={t("auth.password")}
-            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 sm:text-base"
+            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:text-sm"
           />
           <PasswordInput
             label="confirmPassword"
             register={register}
             errors={errors}
             placeholder={t("auth.confirm_password")}
-            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-500 sm:text-base"
+            className="w-full rounded border border-solid border-black/15 px-3 py-2.5 text-13px text-gray-900 outline-none placeholder:text-gray-500 sm:text-sm"
           />
         </form>
         <div className="mt-8 w-full">
           <button
             form="register"
-            className="w-full rounded-md bg-main px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary sm:text-base"
+            className="w-full rounded-md bg-main px-4 py-2.5 text-13px font-semibold text-white hover:bg-primary sm:text-sm"
           >
             {t("auth.register")}
           </button>

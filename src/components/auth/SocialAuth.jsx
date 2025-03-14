@@ -60,18 +60,18 @@ const SocialAuth = () => {
   return (
     <div>
       <div className="w-full py-6 sm:pt-0">
-        <div className="mb-4 flex items-center gap-6 px-3 text-center text-13px text-gray-600 sm:px-0 sm:text-sm">
+        <div className="mb-4 flex items-center gap-6 px-3 text-center text-xs text-gray-600 sm:px-0 sm:text-13px">
           <div className="w-full border-t border-solid border-black/10"></div>
           <span className="shrink-0 grow">{t("auth.or")}</span>
           <div className="w-full border-t border-solid border-black/10"></div>
         </div>
         <div className="w-full px-3">
           <button
-            className="mx-auto flex w-full flex-nowrap items-center justify-center gap-2.5 rounded-sm border border-solid border-gray-100 bg-transparent px-8 py-2.5 text-gray-800 hover:bg-gray-50 sm:w-6/10"
+            className="mx-auto flex w-full flex-nowrap items-center justify-center gap-2.5 rounded-sm border border-solid border-gray-200 bg-transparent px-8 py-2.5 text-gray-800 hover:bg-gray-50 sm:w-6/10"
             onClick={handleLoginWithGoogle}
           >
             <FcGoogle className="text-xl" />
-            <span className="text-sm font-medium">
+            <span className="text-13px font-medium sm:text-sm">
               {t("auth.login_with_google")}
             </span>
           </button>
