@@ -37,6 +37,7 @@ const ProductInformation = ({ product = {} }) => {
     const variant = variants.find(
       (item) => colorID === item?.color?._id && sizeID === item?.size?._id,
     );
+
     return variant
       ? {
           _id: variant?._id,
@@ -45,7 +46,7 @@ const ProductInformation = ({ product = {} }) => {
           quantity: variant?.quantity,
         }
       : null;
-  }, [selectedColor, setSelectedSize]);
+  }, [selectedColor, selectedSize]);
 
   const handleChangeVariant = (type, value) => {
     const setVariant = (previousValue, value) => {
@@ -78,6 +79,9 @@ const ProductInformation = ({ product = {} }) => {
 
         if (res && res.EC === StatusCodes.SUCCESS) {
           toast.success(res.EM);
+          setSelectedColor(null);
+          setSelectedSize(null);
+          setMessage("");
           if (res.DT && res.DT?.cartItemsQuantity) {
             dispatch(
               setCartItemsQuantity({ quantity: res.DT?.cartItemsQuantity }),

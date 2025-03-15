@@ -89,7 +89,7 @@ const CartItem = ({
                       className="flex items-center gap-0.5 text-gray-500 hover:text-gray-800"
                       onClick={() => setShowVariantsModal(true)}
                     >
-                      <span className="text-xs">{variant.join(",")}</span>
+                      <span className="text-xs">{variant.join(", ")}</span>
                       <IoMdArrowDropdown className="h-4 w-4" />
                     </button>
                   );
