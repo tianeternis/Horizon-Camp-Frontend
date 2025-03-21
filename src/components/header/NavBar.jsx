@@ -62,7 +62,7 @@ const NavBar = ({}) => {
             <div className="invisible absolute left-0 top-full z-40 w-full translate-y-8 transform border-t border-solid border-white/50 bg-secondary/85 opacity-0 transition-all duration-500 ease-in-out will-change-transform group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
               <div className="h-52">
                 <div className="mx-auto max-w-screen-xl px-3 py-6 text-sm text-white">
-                  <div className="grid grid-cols-5 gap-4">
+                  <div className="grid grid-cols-3 gap-4 sr-900:grid-cols-4 xl:grid-cols-5">
                     {categories?.map((category, i) => (
                       <div key={`navbar-category-menu-${i}-${category?._id}`}>
                         <Link

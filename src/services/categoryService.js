@@ -1,7 +1,7 @@
 import axios from "@/configs/axios";
 
 export const getCategories = () => {
-  return axios.get(`/category/get`);
+  return axios.get(`/category/get?sort=a-z`);
 };
 
 export const getCategoryBySlug = (slug) => {

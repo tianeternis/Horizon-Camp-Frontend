@@ -6,7 +6,7 @@ export const getBrands = (search, page, limit) => {
   if (search) params.append("search", search);
   if (page) params.append("page", page);
   if (limit) params.append("limit", limit);
-  params.append("sort", "name");
+  params.append("sort", "a-z");
 
   return axios.get(`/brand/get?${params.toString()}`);
 };
