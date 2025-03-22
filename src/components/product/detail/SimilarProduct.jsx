@@ -56,7 +56,7 @@ const SimilarProduct = ({ brand, productID }) => {
             {t("products.detail.similar_brand_product", { brand: brand?.name })}
           </div>
           <Link
-            to={`${PATHS.products()}?brand=${brand?.slug}`}
+            to={`${PATHS.products()}?brands=${brand?.slug}`}
             className="hidden w-fit items-center gap-2 text-gray-800 hover:text-main 2xl:flex"
           >
             <span className="text-xs font-semibold md:text-13px">

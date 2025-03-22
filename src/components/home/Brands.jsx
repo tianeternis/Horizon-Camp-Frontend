@@ -6,6 +6,7 @@ import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { useEffect, useState } from "react";
 import { getBrands } from "@/services/brandService";
 import StatusCodes from "@/utils/status/StatusCodes";
+import { PATHS } from "@/routes";
 
 const Brands = ({}) => {
   const [swiper, setSwiper] = useState(null);
@@ -78,7 +79,7 @@ const Brands = ({}) => {
               brands.map((brand, i) => (
                 <SwiperSlide key={`slide-brand-${i}-${brand?._id}`}>
                   <div className="flex items-center justify-center">
-                    <Link>
+                    <Link to={`${PATHS.products()}?brands=${brand?.slug}`}>
                       <img src={brand?.image?.path} alt="" className="w-32" />
                     </Link>
                   </div>

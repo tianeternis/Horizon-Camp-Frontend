@@ -4,37 +4,11 @@ import { FaCheck } from "react-icons/fa";
 import MenuLayout from "../../layout/MenuLayout";
 import { useProductContext } from "../../context/ProductContext";
 import { FILTER_KEY } from "../../constants";
-import { useEffect, useState } from "react";
-import { getColors } from "@/services/variantService";
-import StatusCodes from "@/utils/status/StatusCodes";
 
 const ColorMenu = ({}) => {
   const { t } = useTranslation();
 
-  const { filter, handleSelectFilter } = useProductContext();
-
-  const [colors, setColors] = useState([]);
-
-  useEffect(() => {
-    const fetchColors = async () => {
-      const res = await getColors();
-
-      if (res && res.EC === StatusCodes.SUCCESS) {
-        const data = res.DT;
-
-        const newData = data?.map((item) => ({
-          _id: item._id,
-          hex: item?.hex,
-          label: item?.name,
-          value: item?.name,
-        }));
-
-        setColors(newData);
-      }
-    };
-
-    fetchColors();
-  }, []);
+  const { filter, handleSelectFilter, colors } = useProductContext();
 
   return (
     <MenuLayout title={t("products.search-filter.colors.title")}>
@@ -52,9 +26,11 @@ const ColorMenu = ({}) => {
                       border:
                         color?.label === "Trắng" ? "1px solid #e5e7eb" : "none",
                     }}
-                    onClick={() => handleSelectFilter(FILTER_KEY.COLORS, color)}
+                    onClick={() =>
+                      handleSelectFilter(FILTER_KEY.COLORS, color?.value)
+                    }
                   >
-                    {filter?.[FILTER_KEY.COLORS]?.[color?._id] && (
+                    {filter?.[FILTER_KEY.COLORS]?.[color?.value] && (
                       <div
                         className="flex w-full items-center justify-center"
                         style={{

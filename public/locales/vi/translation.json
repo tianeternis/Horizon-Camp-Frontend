@@ -564,7 +564,9 @@
         "title": "Kích thước"
       },
       "your-selection": {
-        "clear_all": "Bỏ tất cả"
+        "clear_all": "Bỏ tất cả",
+        "greater_than": "Lớn hơn {{value}}",
+        "less_than": "Nhỏ hơn {{value}}"
       }
     },
     "detail": {
