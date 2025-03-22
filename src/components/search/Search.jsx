@@ -1,6 +1,7 @@
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { RiSearch2Line } from "react-icons/ri";
+import { GrMicrophone } from "react-icons/gr";
 import { HeaderContext } from "../header/Header";
 import Suggestions from "./Suggesstions";
 import { getProducts } from "@/services/productService";
@@ -66,46 +67,89 @@ const Search = ({}) => {
   const navigate = useNavigate();
   const handleSearchAll = (e) => {
     e.preventDefault();
-    setShowSuggestions(false);
-    navigate(PATHS.search({ keyword }));
+    if (keyword) {
+      setShowSuggestions(false);
+      navigate(PATHS.search({ keyword }));
+    }
   };
 
   return (
-    <div className="relative">
-      <form onSubmit={handleSearchAll}>
-        <div className="relative w-full">
-          <input
-            ref={inputRef}
-            className="w-full rounded-2xl border border-solid border-white bg-transparent px-4 py-2.5 text-xs outline-none placeholder:text-white/85 md:rounded-full md:border-secondary/80 md:text-sm md:placeholder:text-black"
-            placeholder={t("search.placeholder")}
-            value={keyword}
-            spellCheck={false}
-            onChange={(e) => setKeyword(e.target.value)}
-            onFocus={() => setShowSuggestions(keyword ? true : false)}
-          />
-          <button
-            type="submit"
-            className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-main"
-          >
-            <RiSearch2Line className="h-6 w-6" />
-          </button>
-        </div>
-      </form>
-      {showSuggestions && (
-        <div
-          ref={suggestionsRef}
-          className="absolute top-[120%] z-50 w-full rounded-md bg-white p-4 shadow-[0_0_8px_2px_rgba(0,0,0,0.08)]"
-        >
-          <div className="text-13px font-semibold uppercase text-secondary md:text-sm">
-            {t("search.results")}
+    // <div className="relative">
+    //   <form onSubmit={handleSearchAll}>
+    //     <div className="relative w-full">
+    //       <input
+    //         ref={inputRef}
+    //         className="w-full rounded-2xl border border-solid border-white bg-transparent px-4 py-2.5 text-xs outline-none placeholder:text-white/85 md:rounded-full md:border-secondary/80 md:text-sm md:placeholder:text-black"
+    //         placeholder={t("search.placeholder")}
+    //         value={keyword}
+    //         spellCheck={false}
+    //         onChange={(e) => setKeyword(e.target.value)}
+    //         onFocus={() => setShowSuggestions(keyword ? true : false)}
+    //       />
+    //       <button
+    //         type="submit"
+    //         className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-main"
+    //       >
+    //         <RiSearch2Line className="h-6 w-6" />
+    //       </button>
+    //     </div>
+    //   </form>
+    //   {showSuggestions && (
+    //     <div
+    //       ref={suggestionsRef}
+    //       className="absolute top-[120%] z-50 w-full rounded-md bg-white p-4 shadow-[0_0_8px_2px_rgba(0,0,0,0.08)]"
+    //     >
+    //       <div className="text-13px font-semibold uppercase text-secondary md:text-sm">
+    //         {t("search.results")}
+    //       </div>
+    //       <hr className="mb-2 mt-2 sm:mb-4" />
+    //       <Suggestions
+    //         suggestions={suggestions}
+    //         setShowSuggestions={setShowSuggestions}
+    //       />
+    //     </div>
+    //   )}
+    // </div>
+    <div className="flex items-center gap-2">
+      <div className="relative w-full">
+        <form onSubmit={handleSearchAll}>
+          <div className="relative w-full">
+            <input
+              ref={inputRef}
+              className="w-full rounded-full border border-solid border-white bg-transparent px-4 py-2.5 text-xs outline-none placeholder:text-white/85 md:border-secondary/80 md:text-sm md:placeholder:text-black"
+              placeholder={t("search.placeholder")}
+              value={keyword}
+              spellCheck={false}
+              onChange={(e) => setKeyword(e.target.value)}
+              onFocus={() => setShowSuggestions(keyword ? true : false)}
+            />
+            <button
+              type="submit"
+              className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-main"
+            >
+              <RiSearch2Line className="h-6 w-6" />
+            </button>
           </div>
-          <hr className="mb-2 mt-2 sm:mb-4" />
-          <Suggestions
-            suggestions={suggestions}
-            setShowSuggestions={setShowSuggestions}
-          />
-        </div>
-      )}
+        </form>
+        {showSuggestions && (
+          <div
+            ref={suggestionsRef}
+            className="absolute top-[120%] z-50 w-full rounded-md bg-white p-4 shadow-[0_0_8px_2px_rgba(0,0,0,0.08)]"
+          >
+            <div className="text-13px font-semibold uppercase text-secondary md:text-sm">
+              {t("search.results")}
+            </div>
+            <hr className="mb-2 mt-2 sm:mb-4" />
+            <Suggestions
+              suggestions={suggestions}
+              setShowSuggestions={setShowSuggestions}
+            />
+          </div>
+        )}
+      </div>
+      <button className="shrink-0 rounded-full bg-main p-3 text-base text-white hover:bg-primary md:text-lg">
+        <GrMicrophone />
+      </button>
     </div>
   );
 };
