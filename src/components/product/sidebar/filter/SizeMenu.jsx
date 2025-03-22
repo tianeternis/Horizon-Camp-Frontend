@@ -2,36 +2,11 @@ import { useTranslation } from "react-i18next";
 import MenuLayout from "../../layout/MenuLayout";
 import { useProductContext } from "../../context/ProductContext";
 import { FILTER_KEY } from "../../constants";
-import { useEffect, useState } from "react";
-import { getSizes } from "@/services/variantService";
-import StatusCodes from "@/utils/status/StatusCodes";
 
 const SizeMenu = ({}) => {
   const { t } = useTranslation();
 
-  const { filter, handleSelectFilter } = useProductContext();
-
-  const [sizes, setSizes] = useState([]);
-
-  useEffect(() => {
-    const fetchColors = async () => {
-      const res = await getSizes();
-
-      if (res && res.EC === StatusCodes.SUCCESS) {
-        const data = res.DT;
-
-        const newData = data?.map((item) => ({
-          _id: item?._id,
-          label: item?.name,
-          value: item?.name,
-        }));
-
-        setSizes(newData);
-      }
-    };
-
-    fetchColors();
-  }, []);
+  const { filter, handleSelectFilter, sizes } = useProductContext();
 
   return (
     <MenuLayout title={t("products.search-filter.sizes.title")}>
@@ -42,8 +17,10 @@ const SizeMenu = ({}) => {
             return (
               <div key={`products-search-filter-size-${index}-${size?._id}`}>
                 <button
-                  className={`relative w-16 cursor-pointer rounded-sm border border-solid border-gray-200 py-1 text-center text-13px hover:border-primary hover:text-primary ${filter?.[FILTER_KEY.SIZES]?.[size?._id] ? "border-primary text-primary after:absolute after:bottom-0 after:right-0 after:h-0 after:w-0 after:border-b-[12px] after:border-l-[12px] after:border-solid after:border-b-primary after:border-l-transparent" : ""}`}
-                  onClick={() => handleSelectFilter(FILTER_KEY.SIZES, size)}
+                  className={`relative w-16 cursor-pointer rounded-sm border border-solid border-gray-200 py-1 text-center text-13px hover:border-primary hover:text-primary ${filter?.[FILTER_KEY.SIZES]?.[size?.value] ? "border-primary text-primary after:absolute after:bottom-0 after:right-0 after:h-0 after:w-0 after:border-b-[12px] after:border-l-[12px] after:border-solid after:border-b-primary after:border-l-transparent" : ""}`}
+                  onClick={() =>
+                    handleSelectFilter(FILTER_KEY.SIZES, size?.value)
+                  }
                 >
                   {size?.label}
                 </button>

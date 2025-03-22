@@ -3,36 +3,11 @@ import { useTranslation } from "react-i18next";
 import MenuLayout from "../../layout/MenuLayout";
 import { useProductContext } from "../../context/ProductContext";
 import { FILTER_KEY } from "../../constants";
-import { useEffect, useState } from "react";
-import { getBrands } from "@/services/brandService";
-import StatusCodes from "@/utils/status/StatusCodes";
 
 const BrandMenu = ({}) => {
   const { t } = useTranslation();
 
-  const { filter, handleSelectFilter } = useProductContext();
-
-  const [brands, setBrands] = useState([]);
-
-  useEffect(() => {
-    const fetchBrands = async () => {
-      const res = await getBrands();
-
-      if (res && res.EC === StatusCodes.SUCCESS) {
-        const data = res.DT?.data;
-
-        const newData = data?.map((item) => ({
-          _id: item?._id,
-          label: item?.name,
-          value: item?.slug,
-        }));
-
-        setBrands(newData);
-      }
-    };
-
-    fetchBrands();
-  }, []);
+  const { filter, handleSelectFilter, brands } = useProductContext();
 
   return (
     <MenuLayout title={t("products.search-filter.brands.title")}>
@@ -48,9 +23,11 @@ const BrandMenu = ({}) => {
                 <Checkbox
                   id={`products-search-filter-branch-${brand?.value}`}
                   value={brand?.value}
-                  onChange={() => handleSelectFilter(FILTER_KEY.BRANDS, brand)}
+                  onChange={() =>
+                    handleSelectFilter(FILTER_KEY.BRANDS, brand?.value)
+                  }
                   checked={
-                    filter?.[FILTER_KEY.BRANDS]?.[brand?._id] !== undefined
+                    filter?.[FILTER_KEY.BRANDS]?.[brand?.value] !== undefined
                   }
                 />
                 <label

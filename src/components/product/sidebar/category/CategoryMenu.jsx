@@ -3,7 +3,6 @@ import { BiCategoryAlt } from "react-icons/bi";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SidebarMenuLayout from "../../layout/SidbarMenuLayout";
-import { useProductContext } from "../../context/ProductContext";
 import { getCategories } from "@/services/categoryService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import { PATHS } from "@/routes";
@@ -25,13 +24,10 @@ const CategoryMenu = ({}) => {
     fetchCategories();
   }, []);
 
-  const { reset } = useProductContext();
-
   const navigate = useNavigate();
 
   const handleNavigateMenu = async (e, _id) => {
     e.preventDefault();
-    reset();
     navigate(PATHS.productsByCategory({ "category-slug": _id }));
   };
 

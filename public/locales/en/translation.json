@@ -559,7 +559,9 @@
         "title": "Size"
       },
       "your-selection": {
-        "clear_all": "Clear All"
+        "clear_all": "Clear All",
+        "greater_than": "Greater than {{value}}",
+        "less_than": "Less than {{value}}"
       }
     },
     "detail": {
