@@ -24,7 +24,9 @@
     "placeholder": "What do you want to find?",
     "results": "Search results",
     "no_data": "No results found",
-    "sub_title": "Search results for keywords"
+    "sub_title": "Search results for keywords",
+    "not_supported_voice": "The browser does not support voice recognition",
+    "listening": "Listening..."
   },
   "footer": {
     "description": "Inspiration for a journey to explore nature. Accompanying you to turn every trip into a memorable memory.",
