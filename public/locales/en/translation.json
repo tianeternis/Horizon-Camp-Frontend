@@ -770,6 +770,9 @@
   "order": {
     "checkout": {
       "title": "Checkout",
+      "no_products": "The product you want to buy could not be found. Please try again",
+      "no_address": "Please select shipping information",
+      "no_payment_method": "Please select payment method",
       "product": {
         "title": "Product Information",
         "product": "Product",

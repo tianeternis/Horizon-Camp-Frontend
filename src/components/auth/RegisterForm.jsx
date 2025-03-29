@@ -8,6 +8,8 @@ import { register as apiRegister } from "@/services/authService";
 import StatusCodes from "@/utils/status/StatusCodes";
 import NotificationModal from "./NotificationModal";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { PATHS } from "@/routes";
 
 const RegisterForm = ({}) => {
   const { t } = useTranslation();
@@ -42,9 +44,11 @@ const RegisterForm = ({}) => {
     setShowNotificationModal(true);
   };
 
+  const navigate = useNavigate();
   const handleCloseNotification = () => {
     setData(null);
     setShowNotificationModal(false);
+    navigate(PATHS.login());
   };
 
   return (

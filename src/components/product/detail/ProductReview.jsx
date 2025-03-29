@@ -104,6 +104,7 @@ const ProductReview = ({ productID }) => {
             <div className="shrink-0">
               <Avatar
                 image={item?.userAvatar}
+                name={item?.userFullName}
                 sx={{ width: { xs: 36, md: 40 }, height: { xs: 36, md: 40 } }}
               />
             </div>

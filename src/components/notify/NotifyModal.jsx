@@ -15,7 +15,7 @@ const NotifyModal = ({}) => {
     <div>
       <Modal open={notify?.show || false} onClose={handleClose}>
         <div className="absolute left-1/2 top-1/2 w-9/10 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-lg bg-white px-6 py-6 font-main outline-none sr-500:w-7/10 sm:w-6/10 sm:px-8 md:w-5/10 lg:w-4/10 xl:w-1/3 2xl:w-3/10">
-          <div className="mb-4 flex items-center justify-center text-blue-300 sm:mb-6">
+          <div className="mb-4 flex items-center justify-center text-gray-300 sm:mb-6">
             <HiOutlineInformationCircle className="text-4xl sm:text-6xl" />
           </div>
           <h3 className="mb-6 text-center text-13px font-normal text-black sm:mb-8 sm:text-sm xl:px-4">

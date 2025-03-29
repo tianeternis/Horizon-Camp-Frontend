@@ -57,7 +57,7 @@ const CartList = ({ carts = [], refetch = () => {} }) => {
 
     if (res && res.EC === StatusCodes.SUCCESS) {
       refetch();
-      if (res.DT && res.DT?.cartItemsQuantity) {
+      if (res.DT && "cartItemsQuantity" in res.DT) {
         dispatch(setCartItemsQuantity({ quantity: res.DT?.cartItemsQuantity }));
       }
     }
@@ -151,7 +151,11 @@ const CartList = ({ carts = [], refetch = () => {} }) => {
               <span>
                 {t("cart.total_payment")}{" "}
                 <span className="hidden sm:inline">
-                  ({t("cart.total_product", { total: 0 })}):
+                  (
+                  {t("cart.total_product", {
+                    total: Object.keys(selected).length,
+                  })}
+                  ):
                 </span>
               </span>
               <span className="text-lg font-bold text-orange-500">

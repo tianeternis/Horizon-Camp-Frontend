@@ -102,6 +102,21 @@ const Checkout = ({}) => {
   const dispatch = useDispatch();
 
   const handleSubmit = async () => {
+    if (products.length <= 0) {
+      notify.show(t("order.checkout.no_products"));
+      return;
+    }
+
+    if (!address) {
+      notify.show(t("order.checkout.no_address"));
+      return;
+    }
+
+    if (!paymentMethod) {
+      notify.show(t("order.checkout.no_payment_method"));
+      return;
+    }
+
     const detailsID = products?.map((product) => product?.detailID);
 
     const res = await createNewOrder({

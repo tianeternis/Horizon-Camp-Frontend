@@ -775,6 +775,9 @@
   "order": {
     "checkout": {
       "title": "Đặt hàng",
+      "no_products": "Không tìm thấy danh sách sản phẩm muốn mua. Vui lòng thử lại",
+      "no_address": "Vui lòng chọn thông tin giao hàng",
+      "no_payment_method": "Vui lòng chọn phương thức thanh toán",
       "product": {
         "title": "Thông tin sản phẩm",
         "product": "Sản phẩm",
