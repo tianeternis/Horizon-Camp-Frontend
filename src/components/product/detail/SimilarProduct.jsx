@@ -49,7 +49,7 @@ const SimilarProduct = ({ brand, productID }) => {
 
   return (
     products &&
-    products?.length > 0 && (
+    products?.length > 5 && (
       <div className="similar-product w-full space-y-2 pt-4">
         <div className="flex items-center justify-between">
           <div className="shrink-0 text-base font-semibold lg:text-lg">
