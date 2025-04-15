@@ -62,11 +62,11 @@ const Footer = ({}) => {
                   {t("navigation.product")}
                 </Link>
               </li>
-              <li className="py-1.5">
+              {/* <li className="py-1.5">
                 <Link to={PATHS.contact()} className="hover:text-main">
                   {t("navigation.contact")}
                 </Link>
-              </li>
+              </li> */}
               <li className="py-1.5">
                 <Link to={PATHS.picnicGuide()} className="hover:text-main">
                   {t("navigation.picnic-guide")}

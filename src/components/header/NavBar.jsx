@@ -60,9 +60,9 @@ const NavBar = ({}) => {
               <MdArrowDropDown className="h-5 w-5 transform duration-500 group-hover:rotate-180" />
             </NavLink>
             <div className="invisible absolute left-0 top-full z-40 w-full translate-y-8 transform border-t border-solid border-white/50 bg-secondary/85 opacity-0 transition-all duration-500 ease-in-out will-change-transform group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-              <div className="h-52">
+              <div className="min-h-36">
                 <div className="mx-auto max-w-screen-xl px-3 py-6 text-sm text-white">
-                  <div className="grid grid-cols-3 gap-4 sr-900:grid-cols-4 xl:grid-cols-5">
+                  <div className="grid grid-cols-3 gap-x-4 gap-y-4 sr-900:grid-cols-4 sr-900:gap-y-5 xl:grid-cols-5">
                     {categories?.map((category, i) => (
                       <div key={`navbar-category-menu-${i}-${category?._id}`}>
                         <Link
@@ -80,14 +80,14 @@ const NavBar = ({}) => {
               </div>
             </div>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to={PATHS.contact()}
               className="font-medium duration-500 hover:text-main"
             >
               {t("navigation.contact")}
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to={PATHS.faqs()}

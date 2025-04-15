@@ -61,7 +61,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
                 {t("navigation.product")}
               </NavLink>
             </li>
-            <li className="py-3">
+            {/* <li className="py-3">
               <NavLink
                 to={PATHS.contact()}
                 className="font-semibold duration-300 hover:text-main"
@@ -69,7 +69,7 @@ const Drawer = ({ openDrawer = false, toggleDrawer = (v) => {} }) => {
               >
                 {t("navigation.contact")}
               </NavLink>
-            </li>
+            </li> */}
             <li className="py-3">
               <NavLink
                 to={PATHS.faqs()}
