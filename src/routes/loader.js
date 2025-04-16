@@ -2,6 +2,7 @@ import { getCategoryBySlug } from "@/services/categoryService";
 import { getGuideBySlug } from "@/services/guideService";
 import { getProductBySlug } from "@/services/productService";
 import StatusCodes from "@/utils/status/StatusCodes";
+import { redirect } from "react-router-dom";
 
 export const CategoryLoader = async ({ params }) => {
   if (params?.["category-slug"]) {
@@ -44,8 +45,12 @@ export const PicnicGuideLoader = async ({ params }) => {
 
     let data = {};
     if (res && res.EC === StatusCodes.SUCCESS) {
-      data = res.DT;
-      data.crumb = data?.title;
+      if (res.DT) {
+        data = res.DT;
+        data.crumb = data?.title;
+      } else {
+        return redirect("/not-found");
+      }
     }
 
     return data;

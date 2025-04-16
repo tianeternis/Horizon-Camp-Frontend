@@ -7,5 +7,7 @@ export const getGuides = ({ sort, page, limit }) => {
 };
 
 export const getGuideBySlug = (slug) => {
-  return axios.get(`/picnic-guide/get-details/${slug}`);
+  return axios.get(`/picnic-guide/get-details/${slug}`, {
+    params: { status: "published" },
+  });
 };
