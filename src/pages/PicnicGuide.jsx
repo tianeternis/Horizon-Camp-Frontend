@@ -3,7 +3,7 @@ import SortMenu, { sorts } from "@/components/blog/sort/SortMenu";
 import Pagination from "@/components/pagination/Pagination";
 import { useDynamicTitle } from "@/hooks";
 import BodyLayout from "@/layouts/BodyLayout";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { getGuides } from "@/services/guideService";
@@ -20,51 +20,89 @@ const PicnicGuide = ({}) => {
   const [guides, setGuides] = useState([]);
   const [pagination, setPagination] = useState({ total: 0, count: 0 });
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [sortBy, setSortBy] = useState(DEFAULT_SORT);
-
   const [loading, setLoading] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const fetchGuides = async (sort, page, limit) => {
-    setLoading(true);
-    const res = await getGuides({ sort, page, limit });
+  const sortBy = useMemo(
+    () =>
+      searchParams.get("sortBy")
+        ? (() => {
+            const sortFromURL = searchParams.get("sortBy");
+            const selected = sorts.find((s) => s?.value === sortFromURL);
 
-    if (res && res.EC === StatusCodes.SUCCESS) {
-      setGuides(res.DT?.data);
-      setPagination({
-        total: res?.DT?.pagination?.total,
-        count: res?.DT?.pagination?.count,
-      });
-    }
+            return selected ? selected : DEFAULT_SORT;
+          })()
+        : DEFAULT_SORT,
+    [searchParams],
+  );
 
-    if (res && res.EC === StatusCodes.ERRROR) {
-      setGuides([]);
-      setPagination({
-        total: 0,
-        count: 0,
-      });
-    }
-    setLoading(false);
-  };
+  const currentPage = useMemo(
+    () => +searchParams.get("page") || 1,
+    [searchParams],
+  );
 
   useEffect(() => {
-    const newParams = new URLSearchParams();
+    const fetchGuides = async () => {
+      setLoading(true);
+      const query = Object.fromEntries([...searchParams]);
 
-    if (currentPage > 1) {
-      newParams.set("page", currentPage);
+      const res = await getGuides({
+        sort: query?.sortBy,
+        page: query?.page ? query.page : 1,
+        limit: 12,
+      });
+
+      if (res && res.EC === StatusCodes.SUCCESS) {
+        setGuides(res.DT?.data);
+        setPagination({
+          total: res?.DT?.pagination?.total,
+          count: res?.DT?.pagination?.count,
+        });
+      }
+
+      if (res && res.EC === StatusCodes.ERRROR) {
+        setGuides([]);
+        setPagination({
+          total: 0,
+          count: 0,
+        });
+      }
+      setLoading(false);
+    };
+
+    fetchGuides();
+  }, [searchParams]);
+
+  const setSortBy = (selected) => {
+    if (sortBy?.value !== selected?.value) {
+      const newParams = new URLSearchParams(searchParams);
+
+      newParams.delete("sortBy");
+
+      if (selected?.value !== DEFAULT_SORT.value) {
+        newParams.set("sortBy", selected?.value);
+      }
+
+      newParams.sort();
+      setSearchParams(newParams);
     }
+  };
 
-    if (sortBy?.value !== DEFAULT_SORT?.value) {
-      newParams.set("sortBy", sortBy?.value);
+  const setCurrentPage = (page) => {
+    if (currentPage !== page) {
+      const newParams = new URLSearchParams(searchParams);
+
+      newParams.delete("page");
+
+      if (page > 1) {
+        newParams.set("page", page);
+      }
+
+      newParams.sort();
+      setSearchParams(newParams);
     }
-
-    newParams.sort();
-    setSearchParams(newParams);
-
-    fetchGuides(sortBy.value, currentPage, 12);
-  }, [currentPage, sortBy]);
+  };
 
   return (
     <BodyLayout>
