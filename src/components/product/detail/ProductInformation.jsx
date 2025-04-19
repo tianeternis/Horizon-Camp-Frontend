@@ -149,7 +149,7 @@ const ProductInformation = ({ product = {} }) => {
             <div className="flex items-center divide-x divide-solid divide-gray-300">
               <span className="flex items-center justify-center gap-2 pr-4">
                 <span className="text-13px text-black sr-950:text-sm">
-                  {+product?.averageRating}
+                  {+product?.averageRating?.toFixed(1)}
                 </span>
                 <div className="text-15px sr-950:text-lg">
                   <div className="hidden sr-400:block">

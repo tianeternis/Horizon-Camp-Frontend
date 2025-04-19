@@ -57,6 +57,8 @@ const CartList = ({ carts = [], refetch = () => {} }) => {
 
     if (res && res.EC === StatusCodes.SUCCESS) {
       refetch();
+      setSelected({});
+
       if (res.DT && "cartItemsQuantity" in res.DT) {
         dispatch(setCartItemsQuantity({ quantity: res.DT?.cartItemsQuantity }));
       }

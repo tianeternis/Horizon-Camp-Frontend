@@ -220,6 +220,8 @@ const Products = ({}) => {
       newParams.set(filterKey, filterWithKey.join(","));
     }
 
+    newParams.delete("page");
+
     newParams.sort();
     setSearchParams(newParams);
   };
@@ -237,6 +239,8 @@ const Products = ({}) => {
       newParams.set(filterKey, newFilter.join(","));
     }
 
+    newParams.delete("page");
+
     newParams.sort();
     setSearchParams(newParams);
   };
@@ -247,6 +251,7 @@ const Products = ({}) => {
     newParams.delete("minPrice");
     newParams.delete("maxPrice");
     Object.values(FILTER_KEY).forEach((key) => newParams.delete(key));
+    newParams.delete("page");
 
     newParams.sort();
     setSearchParams(newParams);
@@ -261,6 +266,8 @@ const Products = ({}) => {
       if (selected?.value !== DEFAULT_SORT.value) {
         newParams.set("sortBy", selected?.value);
       }
+
+      newParams.delete("page");
 
       newParams.sort();
       setSearchParams(newParams);
@@ -283,6 +290,8 @@ const Products = ({}) => {
       if (to) {
         newParams.set("maxPrice", to);
       }
+
+      newParams.delete("page");
 
       newParams.sort();
       setSearchParams(newParams);
