@@ -137,7 +137,7 @@ const ProductReview = ({ productID }) => {
                   })()}
                 </div>
               </div>
-              {item?.review && <div className="text-xs">{item?.comment}</div>}
+              {item?.comment && <div className="text-xs">{item?.comment}</div>}
             </div>
           </div>
         );

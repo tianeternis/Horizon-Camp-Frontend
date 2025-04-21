@@ -11,6 +11,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import { color } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -61,11 +62,17 @@ const ChangeVariantsModal = ({
           const newColors = [],
             newSizes = [];
           data?.forEach((item) => {
-            if (item?.color?._id) {
+            if (
+              item?.color?._id &&
+              !newColors.find((color) => color._id === item?.color?._id)
+            ) {
               newColors.push(item?.color);
             }
 
-            if (item?.size?._id) {
+            if (
+              item?.size?._id &&
+              !newSizes.find((size) => size._id === item?.size?._id)
+            ) {
               newSizes.push(item?.size);
             }
           });
