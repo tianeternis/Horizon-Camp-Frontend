@@ -100,6 +100,7 @@ const ChangeVariantsModal = ({
     if (user?._id && variant?._id) {
       const res = await updateVariantOfCart(user?._id, {
         variantID: variant?._id,
+        detailID: cartItem?.detailID,
       });
 
       if (res && res.EC === StatusCodes.SUCCESS) {

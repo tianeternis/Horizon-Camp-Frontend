@@ -22,6 +22,10 @@ const QuantityInput = ({
     onChange(quantity, setQuantity);
   }, [quantity]);
 
+  useEffect(() => {
+    handleChangeInput(value);
+  }, [value]);
+
   const handleChangeInput = (value) => {
     if (value === "") {
       setQuantity(value);
