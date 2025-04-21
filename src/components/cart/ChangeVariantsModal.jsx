@@ -1,4 +1,5 @@
 import Button from "@/components/buttons/Button";
+import { setCartItemsQuantity } from "@/redux/reducer/cartSlide";
 import { updateVariantOfCart } from "@/services/cartService";
 import { getVariantsByProductID } from "@/services/variantService";
 import StatusCodes from "@/utils/status/StatusCodes";
@@ -12,7 +13,7 @@ import {
 } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 const ChangeVariantsModal = ({
@@ -95,6 +96,7 @@ const ChangeVariantsModal = ({
   };
 
   const user = useSelector((state) => state.user.account);
+  const dispatch = useDispatch();
 
   const handleSubmitVariants = async () => {
     if (user?._id && variant?._id) {
@@ -107,6 +109,12 @@ const ChangeVariantsModal = ({
         toast.success(res.EM);
         handleClose();
         refetch();
+
+        if (res.DT && "cartItemsQuantity" in res.DT) {
+          dispatch(
+            setCartItemsQuantity({ quantity: res.DT?.cartItemsQuantity }),
+          );
+        }
       }
 
       if (res && res.EC === StatusCodes.ERRROR) {
